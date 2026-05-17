@@ -3,7 +3,7 @@
 ## What this project is
 AEO consultancy website for Maxifi Digital.
 Stack: Astro 4 + Tailwind CSS + MDX. Deploy target: Netlify.
-Live domain: maxifidigital.com (currently deployed to visibility-website.netlify.app)
+Live domain: maxifidigital.com (canonical: **md-visibility-website.netlify.app**)
 
 ## Design reference
 The authoritative design reference is **`maxifi_homepage_preview__4_.html`**.
@@ -41,26 +41,27 @@ Optional: import Inter from Google Fonts (weights 400, 500) for cross-device con
 
 ### Font sizes (production scale)
 
-These scale up the preview proportions to readable production sizes while keeping the editorial tightness:
+These are the locked production sizes. They match the HTML reference proportions scaled to readable screen sizes.
 
 | Element | Size | Weight | Line height | Letter-spacing |
 |---|---|---|---|---|
-| Hero H1 | 48px | 500 | 1.18 | -0.02em |
-| Section H2 | 32px | 500 | 1.25 | -0.015em |
-| Card H3 | 18px | 500 | 1.3 | -0.01em |
-| Hero lede | 17px | 400 | 1.6 | 0 |
-| Body text | 15-16px | 400 | 1.6 | 0 |
-| Small body | 13-14px | 400 | 1.5 | 0 |
-| Section eyebrow | 12px | 500 | 1.3 | 0.12em |
-| Form label | 12px | 400 | 1.3 | 0 |
-| Form input | 14px | 400 | 1.4 | 0 |
-| Primary CTA | 14px | 500 | 1 | 0 |
-| Nav link | 14px | 400 | 1 | 0 |
-| Nav CTA button | 13px | 500 | 1 | 0 |
-| Logo wordmark | 15px | 500 | 1 | 0 |
-| Footer text | 12px | 400 | 1.5 | 0 |
-| Trust-strip pill | 12px | 500 | 1 | 0 |
-| Eyebrow caps | 12px | 500 | 1 | 0.12em + uppercase |
+| Hero H1 | 32px | 500 | 1.18 | -0.02em |
+| Hero query list items | 14px | 400 | 1.45 | 0 |
+| Hero lede | 14px | 400 | 1.55 | 0 |
+| Section H2 | 19px | 500 | 1.25 | -0.015em |
+| Card H3 | 13-18px | 500 | 1.3 | -0.01em |
+| Body text | 11-12px | 400 | 1.5-1.6 | 0 |
+| Small body | 9-11px | 400 | 1.4-1.5 | 0 |
+| Section eyebrow | 10px | 500 | 1.3 | 0.1em |
+| Form label | 10px | 400 | 1.3 | 0 |
+| Form input | 11-12px | 400 | 1.4 | 0 |
+| Primary CTA | 12px | 500 | 1 | 0 |
+| Nav link | 12px | 400 | 1 | 0 |
+| Nav CTA button | 11px | 500 | 1 | 0 |
+| Logo wordmark | 13px | 500 | 1 | 0 |
+| Footer text | 10px | 400 | 1.5 | 0 |
+| Trust-strip pill | 10px | 500 | 1 | 0 |
+| Eyebrow caps | 10px | 500 | 1 | 0.1em + uppercase |
 
 ### Letter-spacing rule
 - Headings: slight negative (-0.01em to -0.02em)
@@ -438,7 +439,7 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 
 ## DEPLOYMENT
 
-- Production: Netlify (`visibility-website.netlify.app`, custom domain `maxifidigital.com`)
+- Production: Netlify (`md-visibility-website.netlify.app`, custom domain `maxifidigital.com`). Note: `visibility-website.netlify.app` is deprecated; disconnect from GitHub in Netlify dashboard to prevent dual builds.
 - Build command: `npm run build`
 - Publish directory: `dist`
 - Node version: 20
