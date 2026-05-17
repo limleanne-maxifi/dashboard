@@ -13,6 +13,13 @@ import HeroLoop from '../components/HeroLoop.astro';
        SECTION 2 — HERO
   ══════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
+    <!-- Did you know section -->
+    <div class="did-you-know" id="dyk-stat">
+      <p class="dyk-label">Did you know?</p>
+      <p class="dyk-value" id="dyk-value">25% decline in traditional search by 2026</p>
+      <p class="dyk-source" id="dyk-source">Gartner</p>
+    </div>
+
     <div class="hero-row">
 
       <div class="hero-left">
@@ -308,8 +315,31 @@ import HeroLoop from '../components/HeroLoop.astro';
 </BaseLayout>
 
 <script>
-  function bindForm(formId: string, wrapId: string, thanks: string) {
-    const form = document.getElementById(formId) as HTMLFormElement | null;
+  // Did you know — random stat on load
+  (function() {
+    const stats = [
+      {
+        value: '25% decline in traditional search by 2026',
+        source: 'Gartner'
+      },
+      {
+        value: '~60% of Google searches end without a click',
+        source: 'SparkToro'
+      },
+      {
+        value: '1,300% YoY AI referral growth',
+        source: 'Adobe Analytics'
+      }
+    ];
+    const randomStat = stats[Math.floor(Math.random() * stats.length)];
+    const valueEl = document.getElementById('dyk-value');
+    const sourceEl = document.getElementById('dyk-source');
+    if (valueEl) valueEl.textContent = randomStat.value;
+    if (sourceEl) sourceEl.textContent = randomStat.source;
+  })();
+
+  function bindForm(formId, wrapId, thanks) {
+    const form = document.getElementById(formId);
     const wrap = document.getElementById(wrapId);
     if (!form || !wrap) return;
     form.addEventListener('submit', async (e) => {
@@ -419,6 +449,45 @@ import HeroLoop from '../components/HeroLoop.astro';
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
     padding: 36px 22px 40px;
+    position: relative;
+  }
+
+  /* ── Did you know section ──────────────────── */
+  .did-you-know {
+    position: absolute;
+    top: 40px;
+    left: 22px;
+    z-index: 10;
+    background: rgba(181, 212, 244, 0.12);
+    border: 0.5px solid rgba(181, 212, 244, 0.25);
+    border-radius: 8px;
+    padding: 14px 16px;
+    width: 580px;
+  }
+
+  .dyk-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--amber-mid);
+    text-transform: uppercase;
+    margin: 0 0 3px;
+  }
+
+  .dyk-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.35;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .dyk-source {
+    font-size: 10px;
+    color: var(--blue-mid);
+    margin: 0;
+    opacity: 0.85;
   }
 
   .hero-row {
