@@ -338,8 +338,8 @@ import HeroLoop from '../components/HeroLoop.astro';
     if (sourceEl) sourceEl.textContent = randomStat.source;
   })();
 
-  function bindForm(formId: string, wrapId: string, thanks: string) {
-    const form = document.getElementById(formId) as HTMLFormElement | null;
+  function bindForm(formId, wrapId, thanks) {
+    const form = document.getElementById(formId);
     const wrap = document.getElementById(wrapId);
     if (!form || !wrap) return;
     form.addEventListener('submit', async (e) => {
