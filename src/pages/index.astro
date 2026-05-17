@@ -13,6 +13,15 @@ import HeroLoop from '../components/HeroLoop.astro';
        SECTION 2 — HERO
   ══════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
+    <!-- Social proof ticker (top-left) -->
+    <div class="social-proof-ticker">
+      <div class="ticker-stat" id="ticker-stat">
+        <p class="ticker-label">THE AEO SHIFT</p>
+        <p class="ticker-value" id="ticker-value">25% decline in traditional search by 2026</p>
+        <p class="ticker-source" id="ticker-source">Gartner</p>
+      </div>
+    </div>
+
     <div class="hero-row">
 
       <div class="hero-left">
@@ -308,6 +317,29 @@ import HeroLoop from '../components/HeroLoop.astro';
 </BaseLayout>
 
 <script>
+  // Social proof ticker — random stat on load
+  (function() {
+    const stats = [
+      {
+        value: '25% decline in traditional search by 2026',
+        source: 'Gartner'
+      },
+      {
+        value: '~60% of Google searches end without a click',
+        source: 'SparkToro'
+      },
+      {
+        value: '1,300% YoY AI referral growth',
+        source: 'Adobe Analytics'
+      }
+    ];
+    const randomStat = stats[Math.floor(Math.random() * stats.length)];
+    const valueEl = document.getElementById('ticker-value');
+    const sourceEl = document.getElementById('ticker-source');
+    if (valueEl) valueEl.textContent = randomStat.value;
+    if (sourceEl) sourceEl.textContent = randomStat.source;
+  })();
+
   function bindForm(formId: string, wrapId: string, thanks: string) {
     const form = document.getElementById(formId) as HTMLFormElement | null;
     const wrap = document.getElementById(wrapId);
@@ -419,6 +451,59 @@ import HeroLoop from '../components/HeroLoop.astro';
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
     padding: 36px 22px 40px;
+    position: relative;
+  }
+
+  /* ── Social proof ticker ───────────────────── */
+  .social-proof-ticker {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    width: 200px;
+    z-index: 10;
+  }
+
+  .ticker-stat {
+    background: linear-gradient(135deg, #0066CC 0%, #0052A3 100%);
+    border-radius: 8px;
+    padding: 16px 14px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ticker-stat::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  .ticker-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 6px;
+  }
+
+  .ticker-value {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+
+  .ticker-source {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
   }
 
   .hero-row {
