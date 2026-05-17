@@ -393,48 +393,51 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 30px 22px 32px;
+    padding: 36px 22px 40px;
   }
 
   .hero-row {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: 18px;
-    align-items: start;
+    align-items: center;
   }
 
   .hero-h1 {
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1.18;
     font-weight: 500;
     color: #fff;
-    margin: 0 0 12px;
-    max-width: 420px;
-    font-family: 'Inter', sans-serif;
+    margin: 0 0 16px;
+    max-width: 460px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+    letter-spacing: -0.02em;
   }
 
   .hero-queries {
     list-style: none;
-    margin: 0 0 14px;
+    margin: 0 0 18px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
   }
 
   .hero-queries li {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     color: var(--blue-soft);
     line-height: 1.45;
-    padding-left: 10px;
+    padding: 6px 10px;
     border-left: 1.5px solid var(--amber-mid);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
   }
 
   .lede {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.55;
     color: var(--blue-soft);
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
   }
 
   .hero-ctas {
@@ -841,7 +844,7 @@ import HeroLoop from '../components/HeroLoop.astro';
       grid-template-columns: 1fr;
     }
 
-    .hero-h1 { font-size: 22px; }
+    .hero-h1 { font-size: 26px; }
 
     .problem-grid,
     .offers {
