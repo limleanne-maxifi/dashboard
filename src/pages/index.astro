@@ -266,6 +266,31 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
+       SECTION 8b — STATS TRUST STRIP
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="stats-heading">
+    <p class="s-eyebrow">THE AEO SHIFT, IN NUMBERS</p>
+    <h2 id="stats-heading" class="section-h2">Why this matters now.</h2>
+    <div class="stats-strip">
+      <article class="stat-card">
+        <p class="stat-num">25%</p>
+        <p class="stat-label">decline in traditional search engine volume by 2026.</p>
+        <p class="stat-source">Gartner · Predicts 2024: How GenAI Will Reshape Marketing</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-num">~60%</p>
+        <p class="stat-label">of Google searches now end without a click — the zero-click trend feeding AI answers.</p>
+        <p class="stat-source">SparkToro · 2024 analysis of Similarweb clickstream data</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-num">1,300%</p>
+        <p class="stat-label">YoY growth in AI-driven referral traffic to retail sites (Cyber Monday 2024 vs 2023).</p>
+        <p class="stat-source">Adobe Analytics · December 2024</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
        SECTION 9 — FINAL CTA
   ══════════════════════════════════════════ -->
   <section class="section section--pt0" aria-labelledby="final-heading">
@@ -812,6 +837,49 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .nl-btn:hover { background: #031F3D; }
 
+  /* ── Stats trust strip ──────────────────────── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--amber);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--navy);
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .stat-source {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    padding-top: 10px;
+    border-top: 0.5px solid var(--line);
+  }
+
   /* ── Final CTA ──────────────────────────────── */
   .final {
     background: var(--navy);
@@ -847,7 +915,8 @@ import HeroLoop from '../components/HeroLoop.astro';
     .hero-h1 { font-size: 26px; }
 
     .problem-grid,
-    .offers {
+    .offers,
+    .stats-strip {
       grid-template-columns: 1fr;
     }
 
