@@ -1,0 +1,110 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  heading: string;
+  subtext?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  secondaryExternal?: boolean;
+}
+
+const {
+  heading,
+  subtext,
+  primaryLabel = 'Check My AI Visibility →',
+  primaryHref = '/visibility-snapshot',
+  secondaryLabel = 'See a Live Example →',
+  secondaryHref = 'https://aswhub.maxifidigital.com/',
+  secondaryExternal = true,
+} = Astro.props;
+---
+
+<section class="final-cta" aria-labelledby="final-cta-heading">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap content">
+    <h2 id="final-cta-heading" class="heading" set:html={heading} />
+    {subtext && <p class="subtext">{subtext}</p>}
+    <div class="ctas">
+      <Button href={primaryHref}>{primaryLabel}</Button>
+      <Button
+        href={secondaryHref}
+        variant="ghost"
+        external={secondaryExternal}
+      >
+        {secondaryLabel}
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    background: var(--navy);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(239, 159, 39, 0.12) 0%,
+      transparent 65%
+    );
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .heading {
+    font-family: 'Fraunces', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+
+  .heading :global(em) {
+    font-style: italic;
+    color: var(--amber-mid);
+  }
+
+  .subtext {
+    font-size: 18px;
+    color: #B5D4F4;
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .final-cta {
+      padding: 80px 0;
+    }
+
+    .heading {
+      font-size: 36px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* no animations in this component */
+  }
+</style>

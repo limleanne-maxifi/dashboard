@@ -1,0 +1,79 @@
+---
+import Nav from '../components/sections/Nav.astro';
+import Footer from '../components/sections/Footer.astro';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPage?: string;
+}
+
+const { title, description, currentPage = '/' } = Astro.props;
+
+const canonicalURL = Astro.url.href;
+const pageTitle = title;
+
+const org = {
+  name: 'Maxifi Digital',
+  url: 'https://maxifidigital.com',
+  email: 'hello@maxifidigital.com',
+  description: 'AEO consultancy helping expert-led brands become the answer AI engines cite.',
+  locations: ['Singapore', 'London'],
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: org.name,
+  url: org.url,
+  email: org.email,
+  description: org.description,
+  areaServed: org.locations,
+  sameAs: [
+    'https://linkedin.com/company/maxifi-digital',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: org.name,
+  url: org.url,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${org.url}/insights?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
+  </head>
+  <body>
+    <Nav currentPage={currentPage} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

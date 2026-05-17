@@ -1,0 +1,35 @@
+---
+interface Props {
+  text: string;
+  hasDot?: boolean;
+}
+
+const { text, hasDot = true } = Astro.props;
+---
+
+<p class="eyebrow">
+  {hasDot && <span class="dot" aria-hidden="true" />}
+  {text}
+</p>
+
+<style>
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--amber);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+</style>

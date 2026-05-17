@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy:        #042C53;
+  --navy-deep:   #031F3D;
+  --navy-soft:   #0C447C;
+  --amber:       #BA7517;
+  --amber-light: #FAEEDA;
+  --amber-mid:   #EF9F27;
+  --cream:       #FAF8F3;
+  --cream-deep:  #F1EFE8;
+  --ink:         #1a1a1a;
+  --muted:       #5F5E5A;
+  --line:        rgba(4, 44, 83, 0.08);
+  --signal:      #1D9E75;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.wrap-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
