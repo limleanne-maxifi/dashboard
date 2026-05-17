@@ -14,12 +14,9 @@ import HeroLoop from '../components/HeroLoop.astro';
   ══════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
     <!-- Social proof ticker (top-left) -->
-    <div class="social-proof-ticker">
-      <div class="ticker-stat" id="ticker-stat">
-        <p class="ticker-label">THE AEO SHIFT</p>
-        <p class="ticker-value" id="ticker-value">25% decline in traditional search by 2026</p>
-        <p class="ticker-source" id="ticker-source">Gartner</p>
-      </div>
+    <div class="social-proof-ticker" id="ticker-stat">
+      <span class="ticker-value" id="ticker-value">25% decline in traditional search by 2026</span>
+      <span class="ticker-source" id="ticker-source">— Gartner</span>
     </div>
 
     <div class="hero-row">
@@ -457,53 +454,22 @@ import HeroLoop from '../components/HeroLoop.astro';
   /* ── Social proof ticker ───────────────────── */
   .social-proof-ticker {
     position: absolute;
-    top: 20px;
+    top: 22px;
     left: 22px;
-    width: 200px;
     z-index: 10;
-  }
-
-  .ticker-stat {
-    background: linear-gradient(135deg, #0066CC 0%, #0052A3 100%);
-    border-radius: 8px;
-    padding: 16px 14px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ticker-stat::before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 120px;
-    height: 120px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-  }
-
-  .ticker-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0 0 6px;
+    font-size: 12px;
+    color: var(--blue-soft);
+    font-weight: 400;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
 
   .ticker-value {
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #fff;
-    margin: 0 0 8px;
+    margin-right: 6px;
   }
 
   .ticker-source {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0;
+    opacity: 0.8;
   }
 
   .hero-row {
