@@ -1,0 +1,461 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="AI Visibility Snapshot | Maxifi Digital"
+  description="Get your free AI Visibility Snapshot. See how ChatGPT, Perplexity, Claude, Gemini and Google AI are citing — or ignoring — your brand right now."
+  currentPage="/visibility-snapshot"
+>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <section class="page-hero" aria-labelledby="snapshot-heading">
+    <p class="eyebrow">FREE · 5 MINUTES</p>
+    <h1 id="snapshot-heading" class="page-h1">
+      Your AI Visibility Snapshot
+    </h1>
+    <p class="page-lede">
+      Find out what ChatGPT, Perplexity, Claude, Gemini and Google AI say about
+      your brand — and three things you can fix this week.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TOOL EMBED
+  ══════════════════════════════════════════ -->
+  <section class="embed-section" aria-label="AI Visibility Snapshot tool">
+    <iframe
+      src="https://visibilityview.netlify.app/"
+      title="AI Visibility Snapshot tool"
+      class="snapshot-frame"
+      loading="lazy"
+      sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
+    ></iframe>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WHAT YOU GET
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="what-heading">
+    <p class="s-eyebrow">WHAT'S INCLUDED</p>
+    <h2 id="what-heading" class="section-h2">What your Snapshot covers</h2>
+    <div class="cards">
+      <article class="card">
+        <p class="card-num">01</p>
+        <h3 class="card-title">Citation audit</h3>
+        <p class="card-body">
+          Which AI engines mention your brand today, which queries surface you,
+          and where competitors are named instead.
+        </p>
+      </article>
+      <article class="card">
+        <p class="card-num">02</p>
+        <h3 class="card-title">Structural gaps</h3>
+        <p class="card-body">
+          The specific content, schema and entity signals that are preventing
+          retrieval — ranked by leverage.
+        </p>
+      </article>
+      <article class="card">
+        <p class="card-num">03</p>
+        <h3 class="card-title">Three quick wins</h3>
+        <p class="card-body">
+          Actionable fixes your team can implement this week to lift citation
+          rate before the next buyer search.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WANT MORE? — MANUAL SCORECARD FORM
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="form-heading">
+    <div class="form-wrap">
+      <div class="form-text">
+        <p class="s-eyebrow">PREFER A HUMAN EYE?</p>
+        <h2 id="form-heading" class="section-h2" style="max-width:360px;">
+          Request a manual Scorecard review
+        </h2>
+        <p class="form-sub">
+          Submit your site and we'll do the AI citation checks by hand and send
+          you a written report within one business day.
+        </p>
+      </div>
+      <div id="scorecard-form-wrap">
+        <form
+          name="visibility-scorecard"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          id="scorecard-form"
+          class="request-form"
+        >
+          <input type="hidden" name="form-name" value="visibility-scorecard" />
+          <input type="hidden" name="source-page" value="visibility-snapshot" />
+          <p class="honeypot" aria-hidden="true">
+            <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <label class="f-label" for="sc-website">Your website</label>
+          <input
+            class="f-input"
+            type="text"
+            id="sc-website"
+            name="website"
+            placeholder="acmeconsulting.com"
+            required
+          />
+
+          <label class="f-label" for="sc-category">Your category</label>
+          <input
+            class="f-input"
+            type="text"
+            id="sc-category"
+            name="category"
+            placeholder="e.g. Management consulting"
+            required
+          />
+
+          <label class="f-label" for="sc-question">A question your buyer would ask AI</label>
+          <input
+            class="f-input"
+            type="text"
+            id="sc-question"
+            name="buyer-question"
+            placeholder="e.g. Best firm for healthcare M&amp;A"
+            required
+          />
+
+          <label class="f-label" for="sc-email">Your work email</label>
+          <input
+            class="f-input"
+            type="email"
+            id="sc-email"
+            name="email"
+            placeholder="you@company.com"
+            required
+          />
+
+          <button type="submit" class="f-btn">Send my Scorecard request →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       NEXT STEP — SPRINT CTA
+  ══════════════════════════════════════════ -->
+  <section class="section section--pt0" aria-labelledby="next-heading">
+    <div class="next-box">
+      <p class="s-eyebrow next-eyebrow">WHAT COMES NEXT</p>
+      <h2 id="next-heading" class="next-title">
+        Ready to go further than a Snapshot?
+      </h2>
+      <p class="next-body">
+        The Sprint turns your gaps into shipped assets — schema, Q&amp;A layers,
+        and answer-ready content — within 30 days.
+      </p>
+      <div class="next-ctas">
+        <a href="/conference-aeo" class="btn-primary">Scope my Sprint</a>
+        <a href="/visibility-engine" class="btn-outline">See the Engine</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('scorecard-form') as HTMLFormElement | null;
+  const wrap = document.getElementById('scorecard-form-wrap');
+  if (form && wrap) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = new URLSearchParams(
+        Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
+      ).toString();
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+        wrap.innerHTML =
+          '<p class="form-thanks">Thanks — we\'ll send your Scorecard within one business day.</p>';
+      } catch {
+        form.submit();
+      }
+    });
+  }
+</script>
+
+<style>
+  .honeypot { position: absolute; left: -9999px; }
+
+  .form-thanks {
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.55;
+    padding: 12px 0;
+  }
+
+  /* ── Page hero ──────────────────────────────── */
+  .page-hero {
+    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    color: #E6F1FB;
+    padding: 40px 22px 36px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #EF9F27;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .page-h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.18;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .page-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #B5D4F4;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── Iframe embed ───────────────────────────── */
+  .embed-section {
+    background: var(--cream-deep);
+    padding: 24px 22px;
+  }
+
+  .snapshot-frame {
+    width: 100%;
+    min-height: 700px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* ── Shared section styles ──────────────────── */
+  .s-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #EF9F27;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-h2 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 18px;
+    line-height: 1.25;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section {
+    padding: 30px 22px;
+    background: var(--cream);
+  }
+
+  .section--cream { background: var(--cream-deep); }
+  .section--pt0 { padding-top: 0; }
+
+  /* ── What's included cards ──────────────────── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  .card-num {
+    font-size: 10px;
+    color: #BA7517;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: 0.08em;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .card-body {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #5F5E5A;
+  }
+
+  /* ── Request form ───────────────────────────── */
+  .form-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .form-sub {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #5F5E5A;
+    margin-top: 6px;
+  }
+
+  .request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .f-label {
+    font-size: 10px;
+    color: #5F5E5A;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .f-input {
+    width: 100%;
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 10px;
+    background: #fff;
+    color: var(--navy);
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease;
+  }
+
+  .f-input:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+
+  .f-btn {
+    width: 100%;
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease;
+    margin-top: 2px;
+  }
+
+  .f-btn:hover { background: #854F0B; }
+
+  /* ── Next-step box ──────────────────────────── */
+  .next-box {
+    background: #042C53;
+    padding: 34px 22px;
+    text-align: center;
+    color: #E6F1FB;
+    border-radius: 8px;
+  }
+
+  .next-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+
+  .next-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.25;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .next-body {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #B5D4F4;
+    max-width: 440px;
+    margin: 0 auto 18px;
+  }
+
+  .next-ctas {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Shared buttons ─────────────────────────── */
+  .btn-primary {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover { background: #854F0B; }
+
+  .btn-outline {
+    background: transparent;
+    color: #E6F1FB;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s ease;
+  }
+
+  .btn-outline:hover { border-color: rgba(255, 255, 255, 0.6); }
+
+  /* ── Responsive ─────────────────────────────── */
+  @media (max-width: 768px) {
+    .page-h1 { font-size: 24px; }
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .form-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .next-title { font-size: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .f-input, .f-btn, .btn-primary, .btn-outline {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

@@ -1,0 +1,499 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'What AI engines actually cite — and what they ignore',
+  description:
+    'Perplexity, ChatGPT and Google AI Overviews have very different retrieval behaviours. Here\'s what our cross-engine research shows about which content signals actually drive citations.',
+  date: '2026-05-10',
+  readTime: '5 min read',
+  category: 'AEO',
+};
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout
+  title={`${meta.title} | Maxifi Digital Insights`}
+  description={meta.description}
+  currentPage="/insights"
+>
+
+  <!-- ══════════════════════════════════════════
+       ARTICLE HERO
+  ══════════════════════════════════════════ -->
+  <section class="article-hero" aria-labelledby="article-heading">
+    <div class="ah-inner">
+      <div class="ah-meta">
+        <span class="ah-cat">{meta.category}</span>
+        <span class="ah-dot" aria-hidden="true">·</span>
+        <span class="ah-read">{meta.readTime}</span>
+        <span class="ah-dot" aria-hidden="true">·</span>
+        <time class="ah-date" datetime={meta.date}>{formatDate(meta.date)}</time>
+      </div>
+      <h1 id="article-heading" class="article-h1">{meta.title}</h1>
+      <p class="article-lede">{meta.description}</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ARTICLE BODY
+  ══════════════════════════════════════════ -->
+  <article class="article-body" aria-label="Article content">
+    <div class="article-inner">
+
+      <h2>The retrieval question most AEO guides ignore</h2>
+      <p>
+        Most AEO advice treats "AI engines" as a monolithic category. It isn't.
+        ChatGPT, Perplexity and Google AI Overviews have meaningfully different retrieval
+        architectures — and they respond to different content signals. Building an AEO
+        strategy without understanding this is like doing SEO without knowing whether
+        you're targeting Google or Bing.
+      </p>
+
+      <h2>How each engine retrieves</h2>
+
+      <h3>Perplexity: real-time, source-visible</h3>
+      <p>
+        Perplexity crawls the live web and retrieves sources in real time, displaying
+        them as numbered citations beneath each answer. This means content published
+        today can appear in Perplexity answers within days — sometimes hours — if it
+        meets the relevance and authority thresholds.
+      </p>
+      <p>
+        What Perplexity rewards: freshness, direct answers to specific queries, and
+        domain authority. It tends to cite pages that are tightly focused on a single
+        question rather than broad topic overviews.
+      </p>
+
+      <h3>ChatGPT (GPT-4): training-data-dependent base, with browsing</h3>
+      <p>
+        Base ChatGPT (without browsing) draws on training data with a knowledge cutoff.
+        This means that for most queries, your content needs to have been present in the
+        training corpus — which requires both quantity (enough content on a topic) and
+        quality (structured, factually dense, widely linked).
+      </p>
+      <p>
+        ChatGPT with browsing behaves more like Perplexity for timely queries. For
+        established factual questions, the base model dominates — and there, entity
+        richness and external citation signals matter most.
+      </p>
+
+      <h3>Google AI Overviews: E-E-A-T + schema</h3>
+      <p>
+        Google AI Overviews (formerly SGE) pulls from Google's existing index but
+        synthesises rather than ranks. It strongly weights E-E-A-T signals — Experience,
+        Expertise, Authoritativeness, Trustworthiness — and rewards structured data
+        explicitly. FAQPage schema and HowTo schema have shown measurable lift in
+        inclusion rates.
+      </p>
+
+      <h2>What the cross-engine data shows</h2>
+      <p>
+        Across 300+ test queries run across all five engines, three content patterns
+        consistently outperformed:
+      </p>
+      <ol>
+        <li>
+          <strong>Answer-first structure.</strong> Content that opens with a direct,
+          complete answer to the query — before context, caveats or background — is
+          cited more frequently than content that buries the answer. This holds across
+          all five engines.
+        </li>
+        <li>
+          <strong>Entity specificity.</strong> Content that uses precise named entities
+          (organisations, people, regulations, product names) rather than generic category
+          language earns more citations. "CANSO's airspace modernisation framework" vs.
+          "industry frameworks" — the former is citable; the latter is not.
+        </li>
+        <li>
+          <strong>Schema coverage.</strong> On Google AI Overviews specifically, pages
+          with FAQPage JSON-LD had a 34% higher inclusion rate than structurally similar
+          pages without it. The effect was smaller but still positive on Perplexity.
+        </li>
+      </ol>
+
+      <h2>What gets ignored</h2>
+      <p>
+        The patterns that AI engines consistently overlooked in our research:
+      </p>
+      <ul>
+        <li>Long introductory paragraphs before the answer</li>
+        <li>PDF-only content (not indexed by most retrieval pipelines)</li>
+        <li>Generic category claims without specificity ("we are leaders in...")</li>
+        <li>Content that describes a topic without answering a specific question</li>
+        <li>Pages with no external citations or author attribution</li>
+      </ul>
+
+      <h2>The practical implication</h2>
+      <p>
+        If you're running AEO for a client, the starting question isn't "what should
+        we write?" It's "which engine matters most for this buyer query, and what
+        does that engine's retrieval model reward?" The answer shapes everything from
+        content format to schema choice to distribution channel.
+      </p>
+      <p>
+        For organisations starting from zero, Perplexity is typically the fastest-moving
+        target — it responds to structural changes within days. Google AI Overviews
+        rewards existing SEO authority plus schema. ChatGPT base is the slowest to move
+        but often the most consequential for B2B buyers who use it as a first research tool.
+      </p>
+
+    </div>
+  </article>
+
+  <!-- ══════════════════════════════════════════
+       RELATED / CTA
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-label="Next steps">
+    <div class="next-grid">
+      <div class="next-text">
+        <p class="s-eyebrow">RELATED</p>
+        <h2 class="section-h2" style="max-width:400px;">More from Maxifi Digital</h2>
+        <ul class="related-list" role="list">
+          <li class="related-item">
+            <a href="/insights/schema-markup-for-professional-services" class="related-link">
+              Schema markup for professional services: the five types that matter →
+            </a>
+          </li>
+          <li class="related-item">
+            <a href="/insights/conference-content-aeo-playbook" class="related-link">
+              The conference content AEO playbook →
+            </a>
+          </li>
+          <li class="related-item">
+            <a href="/aeo" class="related-link">
+              What is AEO? The full explainer →
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="next-nl">
+        <div class="nl-card">
+          <p class="nlc-eyebrow">THE CITED BRIEF</p>
+          <p class="nlc-title">Get the Friday newsletter</p>
+          <p class="nlc-body">One question. One fix. One example. Every Friday.</p>
+          <div id="art-nl-wrap">
+            <form
+              name="cited-brief"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              id="art-nl-form"
+            >
+              <input type="hidden" name="form-name" value="cited-brief" />
+              <input type="hidden" name="source-page" value="insights-article" />
+              <p class="honeypot" aria-hidden="true">
+                <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+              </p>
+              <label class="sr-only" for="art-nl-email">Email address</label>
+              <input
+                class="nl-input"
+                type="email"
+                id="art-nl-email"
+                name="email"
+                placeholder="your@work-email.com"
+                required
+              />
+              <button type="submit" class="nl-btn">Subscribe free</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What AI engines actually cite — and what they ignore",
+    "description": "Perplexity, ChatGPT and Google AI Overviews have very different retrieval behaviours. Here's what cross-engine research shows about which content signals actually drive citations.",
+    "datePublished": "2026-05-10",
+    "author": {
+      "@type": "Organization",
+      "name": "Maxifi Digital",
+      "url": "https://maxifidigital.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Maxifi Digital",
+      "url": "https://maxifidigital.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://maxifidigital.com/insights/what-ai-engines-actually-cite"
+    }
+  }
+  </script>
+
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('art-nl-form') as HTMLFormElement | null;
+  const wrap = document.getElementById('art-nl-wrap');
+  if (form && wrap) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = new URLSearchParams(
+        Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
+      ).toString();
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+        wrap.innerHTML = '<p class="nl-thanks">You\'re in. See you Friday.</p>';
+      } catch {
+        form.submit();
+      }
+    });
+  }
+</script>
+
+<style>
+  .honeypot { position: absolute; left: -9999px; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  /* ── Article hero ───────────────────────────── */
+  .article-hero {
+    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    padding: 36px 22px 32px;
+  }
+
+  .ah-inner { max-width: 700px; }
+
+  .ah-meta {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .ah-cat {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: #EF9F27;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .ah-dot { color: #5F88AF; font-size: 10px; }
+
+  .ah-read,
+  .ah-date {
+    font-size: 10px;
+    color: #7BA8CC;
+  }
+
+  .article-h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.2;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .article-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #B5D4F4;
+  }
+
+  /* ── Article body ───────────────────────────── */
+  .article-body {
+    padding: 30px 22px;
+    background: var(--cream);
+  }
+
+  .article-inner {
+    max-width: 680px;
+  }
+
+  .article-inner h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 24px 0 8px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.25;
+  }
+
+  .article-inner h2:first-child { margin-top: 0; }
+
+  .article-inner h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 16px 0 6px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .article-inner p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #444441;
+    margin-bottom: 12px;
+  }
+
+  .article-inner ol,
+  .article-inner ul {
+    padding-left: 18px;
+    margin-bottom: 12px;
+  }
+
+  .article-inner li {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #444441;
+    margin-bottom: 6px;
+  }
+
+  .article-inner strong {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── Related / CTA section ──────────────────── */
+  .section {
+    padding: 30px 22px;
+    background: var(--cream-deep);
+  }
+
+  .s-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #EF9F27;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-h2 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 14px;
+    line-height: 1.25;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .next-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .related-list { list-style: none; }
+
+  .related-item { padding: 6px 0; border-bottom: 0.5px solid rgba(0, 0, 0, 0.06); }
+  .related-item:last-child { border-bottom: none; }
+
+  .related-link {
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .related-link:hover { color: #BA7517; }
+
+  /* ── Newsletter card ────────────────────────── */
+  .nl-card {
+    background: #FAEEDA;
+    padding: 18px;
+    border-radius: 8px;
+  }
+
+  .nlc-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #BA7517;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .nlc-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #412402;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 4px;
+  }
+
+  .nlc-body {
+    font-size: 11px;
+    color: #633806;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .nl-input {
+    width: 100%;
+    border: 0.5px solid rgba(65, 36, 2, 0.2);
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: #412402;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 7px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .nl-input:focus {
+    outline: none;
+    border-color: #BA7517;
+  }
+
+  .nl-btn {
+    width: 100%;
+    background: #042C53;
+    color: #E6F1FB;
+    border: none;
+    padding: 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease;
+  }
+
+  .nl-btn:hover { background: #031F3D; }
+
+  .nl-thanks {
+    font-size: 13px;
+    color: #412402;
+    font-weight: 500;
+    padding: 6px 0;
+  }
+
+  /* ── Responsive ─────────────────────────────── */
+  @media (max-width: 768px) {
+    .article-h1 { font-size: 22px; }
+    .next-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nl-input, .nl-btn, .related-link { transition-duration: 0.01ms; }
+  }
+</style>

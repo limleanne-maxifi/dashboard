@@ -1,269 +1,219 @@
 ---
-import Logomark from '../ui/Logomark.astro';
-import Button from '../ui/Button.astro';
-
 interface Props {
   currentPage?: string;
 }
 
-const { currentPage = '' } = Astro.props;
+const { currentPage = '/' } = Astro.props;
 
 const links = [
-  { label: 'AEO',             href: '/aeo' },
-  { label: 'Visibility Engine', href: '/visibility-engine' },
-  { label: 'Conference AEO',  href: '/conference-aeo' },
-  { label: 'Work',            href: '/work' },
-  { label: 'Insights',        href: '/insights' },
+  { label: 'AEO',      href: '/aeo' },
+  { label: 'Engine',   href: '/visibility-engine' },
+  { label: 'Work',     href: '/work' },
+  { label: 'Insights', href: '/insights' },
 ];
 ---
 
 <header class="site-nav">
-  <div class="wrap nav-inner">
+  <a href="/" class="logo" aria-label="Maxifi Digital home">
+    <img
+      src="/logos/maxifi-logo-black.png"
+      alt="Maxifi Digital"
+      height="32"
+      style="height:32px;width:auto;display:block;"
+    />
+  </a>
 
-    <a href="/" class="logo" aria-label="Maxifi Digital home">
-      <Logomark color="var(--navy)" size={32} />
-      <img
-        src="/logos/maxifi-logo-black.png"
-        alt="Maxifi Digital"
-        height="32"
-        style="height:32px;width:auto;object-fit:contain;"
-      />
-    </a>
+  <nav aria-label="Primary">
+    <ul class="nav-links" role="list">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['nav-link', { 'nav-link--active': currentPage === link.href }]}
+            aria-current={currentPage === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 
-    <nav aria-label="Primary">
-      <ul class="nav-links" role="list">
-        {links.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={['nav-link', { 'nav-link--active': currentPage === link.href }]}
-              aria-current={currentPage === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <div class="nav-end">
-      <div class="nav-cta">
-        <Button href="/visibility-snapshot" size="sm">
-          Check My AI Visibility →
-        </Button>
-      </div>
-      <button
-        class="hamburger"
-        id="nav-hamburger"
-        aria-label="Open navigation"
-        aria-expanded="false"
-        aria-controls="nav-mobile"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
-  </div>
-
-  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
-    <div class="wrap">
-      <nav aria-label="Mobile primary">
-        <ul role="list">
-          {links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class:list={['nav-mobile-link', { 'nav-link--active': currentPage === link.href }]}
-                aria-current={currentPage === link.href ? 'page' : undefined}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div class="nav-mobile-cta">
-          <Button href="/visibility-snapshot">Check My AI Visibility →</Button>
-        </div>
-      </nav>
-    </div>
+  <div class="nav-end">
+    <a href="/visibility-snapshot" class="nav-cta">Get my Scorecard</a>
+    <button
+      class="hamburger"
+      id="nav-hamburger"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+    >
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<script>
-  const hamburger = document.getElementById('nav-hamburger') as HTMLButtonElement;
-  const mobileNav = document.getElementById('nav-mobile') as HTMLElement;
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <nav aria-label="Mobile primary">
+    <ul role="list">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['nav-mobile-link', { 'nav-link--active': currentPage === link.href }]}
+            aria-current={currentPage === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/visibility-snapshot" class="nav-cta" style="display:inline-block;margin-top:12px;">
+      Get my Scorecard
+    </a>
+  </nav>
+</div>
 
-  hamburger?.addEventListener('click', () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-    const next = !isOpen;
-    hamburger.setAttribute('aria-expanded', String(next));
-    hamburger.setAttribute('aria-label', next ? 'Close navigation' : 'Open navigation');
-    mobileNav.setAttribute('aria-hidden', String(!next));
-    hamburger.classList.toggle('is-open', next);
-    mobileNav.classList.toggle('is-open', next);
+<script>
+  const burger  = document.getElementById('nav-hamburger') as HTMLButtonElement;
+  const mobile  = document.getElementById('nav-mobile') as HTMLElement;
+
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    burger.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+    mobile.setAttribute('aria-hidden', String(open));
+    burger.classList.toggle('is-open', !open);
+    mobile.classList.toggle('is-open', !open);
   });
 
-  // Close mobile nav when any link is clicked
-  mobileNav?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Open navigation');
-      mobileNav.setAttribute('aria-hidden', 'true');
-      hamburger.classList.remove('is-open');
-      mobileNav.classList.remove('is-open');
+  mobile?.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open navigation');
+      mobile.setAttribute('aria-hidden', 'true');
+      burger.classList.remove('is-open');
+      mobile.classList.remove('is-open');
     });
   });
 </script>
 
 <style>
   .site-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(250, 248, 243, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 0;
+    padding: 14px 22px;
+    background: #FAF8F3;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
+  .logo { text-decoration: none; display: flex; align-items: center; }
 
-  /* Desktop links */
   .nav-links {
     display: flex;
-    align-items: center;
-    gap: 32px;
+    gap: 14px;
     list-style: none;
+    font-size: 12px;
   }
 
   .nav-link {
-    font-size: 14px;
     color: var(--navy);
     text-decoration: none;
-    opacity: 0.75;
-    font-weight: 400;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    opacity: 0.72;
+    transition: opacity 0.2s ease;
   }
 
-  .nav-link:hover {
-    opacity: 1;
-  }
+  .nav-link:hover,
+  .nav-link--active { opacity: 1; }
 
-  .nav-link--active {
-    color: var(--amber);
-    font-weight: 500;
-    opacity: 1;
-  }
+  .nav-link--active { font-weight: 500; }
 
-  /* Right side */
   .nav-end {
     display: flex;
     align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
+    gap: 12px;
   }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: #854F0B; }
 
   /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
+    gap: 4px;
+    width: 28px;
+    height: 28px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px;
-    flex-shrink: 0;
   }
 
   .hamburger span {
     display: block;
     width: 100%;
-    height: 2px;
+    height: 1.5px;
     background: var(--navy);
     border-radius: 2px;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  .hamburger.is-open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .hamburger.is-open span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.is-open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
+  .hamburger.is-open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .hamburger.is-open span:nth-child(2) { opacity: 0; }
+  .hamburger.is-open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
   /* Mobile drawer */
   .nav-mobile {
     display: none;
-    border-top: 1px solid var(--line);
+    background: #FAF8F3;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+    padding: 14px 22px 18px;
   }
 
-  .nav-mobile.is-open {
-    display: block;
-  }
+  .nav-mobile.is-open { display: block; }
 
-  .nav-mobile ul {
-    list-style: none;
-    padding: 8px 0;
-  }
+  .nav-mobile ul { list-style: none; }
 
   .nav-mobile-link {
     display: block;
-    padding: 13px 0;
-    font-size: 16px;
+    padding: 10px 0;
+    font-size: 14px;
     color: var(--navy);
     text-decoration: none;
-    opacity: 0.75;
-    border-bottom: 1px solid var(--line);
-    transition: opacity 0.2s ease, color 0.2s ease;
+    opacity: 0.72;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+    transition: opacity 0.2s ease;
   }
 
   .nav-mobile-link:hover,
-  .nav-mobile-link.nav-link--active {
-    opacity: 1;
-    color: var(--amber);
-  }
+  .nav-mobile-link.nav-link--active { opacity: 1; }
 
-  .nav-mobile-cta {
-    padding: 20px 0 24px;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .nav-links,
-    .nav-cta {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nav-link,
-    .nav-mobile-link,
-    .hamburger span {
+    .nav-link, .nav-cta, .hamburger span, .nav-mobile-link {
       transition-duration: 0.01ms;
     }
   }
