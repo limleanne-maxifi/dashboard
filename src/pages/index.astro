@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroLoop from '../components/HeroLoop.astro';
 ---
 
 <BaseLayout
@@ -32,55 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <div class="scorecard-card" id="snapshot">
-        <p class="sc-eyebrow">FREE · 5 MINUTES</p>
-        <p class="sc-title">AI Visibility Scorecard</p>
-        <div id="scorecard-form-wrap">
-          <form
-            name="visibility-scorecard"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            id="scorecard-form"
-          >
-            <input type="hidden" name="form-name" value="visibility-scorecard" />
-            <input type="hidden" name="source-page" value="homepage" />
-            <p class="honeypot" aria-hidden="true">
-              <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-            </p>
-            <label class="sc-label" for="sc-website">Your website</label>
-            <input
-              class="sc-input"
-              type="text"
-              id="sc-website"
-              name="website"
-              placeholder="acmeconsulting.com"
-              required
-            />
-            <label class="sc-label" for="sc-category">Your category</label>
-            <input
-              class="sc-input"
-              type="text"
-              id="sc-category"
-              name="category"
-              placeholder="Management consulting"
-              required
-            />
-            <label class="sc-label" for="sc-question">A question your buyer would ask AI</label>
-            <input
-              class="sc-input"
-              type="text"
-              id="sc-question"
-              name="buyer-question"
-              placeholder="Best firm for healthcare M&A"
-              required
-            />
-            <button type="submit" class="sc-btn">Score my AI visibility →</button>
-          </form>
-        </div>
-        <p class="sc-foot">
-          Covers ChatGPT, Claude, Gemini, Perplexity, Google AI. No call required.
-        </p>
-      </div>
+      <HeroLoop />
 
     </div>
   </section>
@@ -346,12 +299,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   bindForm(
-    'scorecard-form',
-    'scorecard-form-wrap',
-    "Thanks — we'll analyse your AI visibility and send results within one business day.",
-  );
-
-  bindForm(
     'cited-brief-form',
     'nl-form-wrap',
     "You're subscribed. See you Friday.",
@@ -444,7 +391,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero-row {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 18px;
     align-items: start;
   }
@@ -470,78 +417,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-  }
-
-  /* ── Scorecard card ─────────────────────────── */
-  .scorecard-card {
-    background: #fff;
-    color: var(--navy);
-    border-radius: 8px;
-    padding: 16px;
-  }
-
-  .sc-eyebrow {
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    color: #BA7517;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-
-  .sc-title {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 14px;
-    color: var(--navy);
-  }
-
-  .sc-label {
-    font-size: 10px;
-    color: #5F5E5A;
-    margin-bottom: 4px;
-    display: block;
-  }
-
-  .sc-input {
-    width: 100%;
-    border: 0.5px solid rgba(4, 44, 83, 0.18);
-    border-radius: 4px;
-    padding: 7px 9px;
-    font-size: 11px;
-    margin-bottom: 9px;
-    background: #FAF8F3;
-    color: var(--navy);
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    transition: border-color 0.2s ease;
-  }
-
-  .sc-input:focus {
-    outline: none;
-    border-color: var(--amber);
-  }
-
-  .sc-btn {
-    width: 100%;
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 9px;
-    border: none;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: background 0.2s ease;
-  }
-
-  .sc-btn:hover { background: #854F0B; }
-
-  .sc-foot {
-    font-size: 9px;
-    color: #888780;
-    margin-top: 8px;
-    line-height: 1.4;
   }
 
   /* ── Trust strip ────────────────────────────── */
@@ -965,8 +840,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (prefers-reduced-motion: reduce) {
     .btn-primary,
     .btn-ghost,
-    .sc-input,
-    .sc-btn,
     .offer-cta,
     .nl-input,
     .nl-btn {
