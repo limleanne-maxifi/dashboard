@@ -329,14 +329,14 @@ import HeroLoop from '../components/HeroLoop.astro';
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -384,7 +384,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   /* ── Hero ───────────────────────────────────── */
   .hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 30px 22px 32px;
   }
@@ -399,7 +399,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero-h1 {
     font-size: 28px;
     line-height: 1.18;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 12px;
     max-width: 420px;
@@ -428,7 +428,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     gap: 12px;
     justify-content: center;
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     flex-wrap: wrap;
   }
 
@@ -467,7 +467,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .pc-num {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     margin-bottom: 6px;
     letter-spacing: 0.08em;
@@ -475,7 +475,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .pc-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 6px;
     color: var(--navy);
     font-family: 'Inter', sans-serif;
@@ -484,7 +484,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   .pc-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── SEO vs AEO ─────────────────────────────── */
@@ -497,12 +497,12 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .compare-col { padding: 18px; }
 
-  .compare-col--seo { background: #042C53; }
-  .compare-col--aeo { background: #BA7517; }
+  .compare-col--seo { background: var(--navy); }
+  .compare-col--aeo { background: var(--amber); }
 
   .cc-label {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.1em;
     margin-bottom: 14px;
   }
@@ -544,19 +544,19 @@ import HeroLoop from '../components/HeroLoop.astro';
     flex-direction: column;
   }
 
-  .offer--featured { border: 2px solid #BA7517; }
+  .offer--featured { border: 2px solid var(--amber); }
 
   .offer-tag {
     font-size: 9px;
     font-weight: 500;
-    color: #BA7517;
+    color: var(--amber);
     letter-spacing: 0.08em;
     margin-bottom: 6px;
   }
 
   .offer-name {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 3px;
     font-family: 'Inter', sans-serif;
@@ -564,7 +564,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .offer-price {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 12px;
   }
 
@@ -580,7 +580,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .check {
-    color: #1D9E75;
+    color: var(--signal);
     font-weight: 500;
     flex-shrink: 0;
   }
@@ -598,7 +598,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .offer-cta--primary {
-    background: #BA7517;
+    background: var(--amber);
     color: #FAEEDA;
   }
 
@@ -610,7 +610,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .offer-cta--outline:hover {
-    background: #042C53;
+    background: var(--navy);
     color: #fff;
   }
 
@@ -620,7 +620,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     overflow: hidden;
     display: grid;
     grid-template-columns: 1.25fr 1fr;
-    background: #042C53;
+    background: var(--navy);
   }
 
   .case-text {
@@ -631,14 +631,14 @@ import HeroLoop from '../components/HeroLoop.astro';
   .case-eyebrow {
     font-size: 9px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     margin-bottom: 8px;
     font-weight: 500;
   }
 
   .case-title {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin-bottom: 10px;
     line-height: 1.25;
@@ -674,7 +674,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .case-visual {
-    background: #0C447C;
+    background: var(--navy-soft);
     padding: 20px;
     display: flex;
     align-items: center;
@@ -714,13 +714,13 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .cp-lbl {
     font-size: 9px;
-    color: #5F5E5A;
+    color: var(--muted);
     letter-spacing: 0.05em;
   }
 
   /* ── Newsletter ─────────────────────────────── */
   .newsletter {
-    background: #FAEEDA;
+    background: var(--amber-light);
     padding: 24px;
     border-radius: 8px;
   }
@@ -732,11 +732,11 @@ import HeroLoop from '../components/HeroLoop.astro';
     align-items: center;
   }
 
-  .nl-eyebrow { color: #BA7517; }
+  .nl-eyebrow { color: var(--amber); }
 
   .nl-title {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     color: #412402;
     margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
@@ -767,17 +767,17 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .nl-input:focus {
     outline: none;
-    border-color: #BA7517;
+    border-color: var(--amber);
   }
 
   .nl-btn {
-    background: #042C53;
+    background: var(--navy);
     color: #E6F1FB;
     border: none;
     padding: 9px;
     border-radius: 4px;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: background 0.2s ease;
@@ -787,7 +787,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   /* ── Final CTA ──────────────────────────────── */
   .final {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
@@ -796,7 +796,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .final-title {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 18px;
     line-height: 1.25;

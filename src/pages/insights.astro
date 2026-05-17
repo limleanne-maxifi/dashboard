@@ -200,7 +200,7 @@ function formatDate(iso: string) {
 
   /* ── Hero ───────────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 40px 22px 36px;
     text-align: center;
@@ -209,14 +209,14 @@ function formatDate(iso: string) {
   .eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
@@ -233,7 +233,7 @@ function formatDate(iso: string) {
 
   /* ── Newsletter banner ──────────────────────── */
   .nl-banner {
-    background: #FAEEDA;
+    background: var(--amber-light);
     padding: 20px 22px;
   }
 
@@ -247,14 +247,14 @@ function formatDate(iso: string) {
   .nlb-eyebrow {
     font-size: 9px;
     letter-spacing: 0.1em;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     margin-bottom: 5px;
   }
 
   .nlb-title {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: #412402;
     font-family: 'Inter', sans-serif;
     margin-bottom: 3px;
@@ -284,11 +284,11 @@ function formatDate(iso: string) {
 
   .nlb-input:focus {
     outline: none;
-    border-color: #BA7517;
+    border-color: var(--amber);
   }
 
   .nlb-btn {
-    background: #042C53;
+    background: var(--navy);
     color: #E6F1FB;
     border: none;
     padding: 9px 14px;
@@ -314,14 +314,14 @@ function formatDate(iso: string) {
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -359,7 +359,7 @@ function formatDate(iso: string) {
 
   .ac-eyebrow {
     font-size: 9px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -372,7 +372,7 @@ function formatDate(iso: string) {
 
   .ac-title {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
@@ -385,12 +385,12 @@ function formatDate(iso: string) {
     transition: color 0.2s ease;
   }
 
-  .ac-link:hover { color: #BA7517; }
+  .ac-link:hover { color: var(--amber); }
 
   .ac-excerpt {
     font-size: 12px;
     line-height: 1.6;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 8px;
     max-width: 640px;
   }
@@ -403,7 +403,7 @@ function formatDate(iso: string) {
     transition: color 0.2s ease;
   }
 
-  .ac-read:hover { color: #BA7517; }
+  .ac-read:hover { color: var(--amber); }
 
   /* ── Tags ───────────────────────────────────── */
   .tags {
@@ -418,23 +418,23 @@ function formatDate(iso: string) {
     border-radius: 3px;
     padding: 5px 10px;
     font-size: 11px;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── CTA ────────────────────────────────────── */
   .cta-box {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
     border-radius: 8px;
   }
 
-  .cta-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;

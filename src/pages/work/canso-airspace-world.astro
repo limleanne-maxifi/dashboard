@@ -234,7 +234,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   /* ── Hero ───────────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 40px 22px 36px;
     text-align: center;
@@ -243,7 +243,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
@@ -291,7 +291,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .m-label {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-top: 2px;
   }
 
@@ -299,7 +299,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
@@ -348,7 +348,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .tl-week {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     letter-spacing: 0.06em;
     margin-bottom: 5px;
@@ -365,7 +365,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .tl-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Results ────────────────────────────────── */
@@ -382,12 +382,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     padding: 16px;
   }
 
-  .result-card--featured { border-color: #BA7517; }
+  .result-card--featured { border-color: var(--amber); }
 
   .rc-num {
     font-size: 28px;
     font-weight: 600;
-    color: #BA7517;
+    color: var(--amber);
     font-family: 'Inter', sans-serif;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -404,7 +404,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .rc-body {
     font-size: 12px;
     line-height: 1.55;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Video ──────────────────────────────────── */
@@ -418,14 +418,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* ── CTA ────────────────────────────────────── */
   .cta-box {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
     border-radius: 8px;
   }
 
-  .cta-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
     font-size: 21px;

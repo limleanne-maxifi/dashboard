@@ -260,7 +260,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Hero ───────────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 40px 22px 36px;
     text-align: center;
@@ -269,14 +269,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
@@ -296,14 +296,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -344,7 +344,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vc-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 4px;
     font-family: 'Inter', sans-serif;
@@ -353,7 +353,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vc-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Method ─────────────────────────────────── */
@@ -372,7 +372,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ms-num {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     letter-spacing: 0.08em;
     margin-bottom: 6px;
@@ -380,7 +380,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ms-title {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 7px;
     font-family: 'Inter', sans-serif;
@@ -389,7 +389,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .ms-body {
     font-size: 12px;
     line-height: 1.55;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Client grid ────────────────────────────── */
@@ -403,7 +403,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .client-pill {
     background: #fff;
     border: 0.5px solid rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 6px 12px;
     font-size: 12px;
     color: var(--navy);
@@ -412,7 +412,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .client-note {
     font-size: 11px;
-    color: #5F5E5A;
+    color: var(--muted);
     line-height: 1.55;
     max-width: 520px;
   }
@@ -428,7 +428,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .ct-body {
     font-size: 13px;
     line-height: 1.6;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 14px;
   }
 
@@ -444,14 +444,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transition: border-color 0.2s ease;
   }
 
-  .cl-link:hover { border-color: #BA7517; color: #BA7517; }
+  .cl-link:hover { border-color: var(--amber); color: var(--amber); }
 
   /* Form */
   .contact-form { display: flex; flex-direction: column; }
 
   .f-label {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 4px;
     display: block;
   }
@@ -495,18 +495,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
     border-radius: 8px;
   }
 
-  .cta-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;

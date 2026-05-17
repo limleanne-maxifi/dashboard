@@ -579,7 +579,7 @@
     padding: 9px 10px;
     color: #85B7EB;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
@@ -600,7 +600,7 @@
     color: #fff;
   }
 
-  .tab-label { font-weight: 700; letter-spacing: 0.08em; font-size: 11px; }
+  .tab-label { font-weight: 500; letter-spacing: 0.08em; font-size: 11px; }
 
   .tab-meta {
     font-size: 9px;
@@ -611,7 +611,7 @@
     opacity: 0.7;
   }
 
-  .tab.active .tab-meta { color: #EF9F27; opacity: 1; }
+  .tab.active .tab-meta { color: var(--amber-mid); opacity: 1; }
 
   /* ── Loop container ─────────────────────────── */
   .loop-container {
@@ -626,7 +626,7 @@
     left: 0;
     right: 0;
     background: #fff;
-    border-radius: 14px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(239, 159, 39, 0.18);
     opacity: 0;
@@ -656,10 +656,10 @@
     align-items: center;
     gap: 8px;
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .live-dot,
@@ -682,7 +682,7 @@
 
   .state-num {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     letter-spacing: 0.08em;
     font-weight: 500;
     font-family: 'Courier New', monospace;
@@ -690,11 +690,11 @@
 
   .state-sector {
     font-size: 9px;
-    color: #BA7517;
-    background: #FAEEDA;
+    color: var(--amber);
+    background: var(--amber-light);
     padding: 3px 7px;
     border-radius: 3px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-left: 8px;
@@ -706,14 +706,14 @@
   /* ── State 1: engine test ───────────────────── */
   .s1-question {
     font-size: 12px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 5px;
     font-weight: 500;
   }
 
   .s1-prompt {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: #042C53;
     margin-bottom: 14px;
     line-height: 1.3;
@@ -728,7 +728,7 @@
     display: inline-block;
     width: 2px;
     height: 16px;
-    background: #BA7517;
+    background: var(--amber);
     animation: hl-blink 0.7s infinite;
     margin-top: 2px;
     flex-shrink: 0;
@@ -769,10 +769,10 @@
     to   { opacity: 1; transform: translateX(0); }
   }
 
-  .s1-engine-name  { font-weight: 600; color: #042C53; min-width: 76px; font-size: 11px; }
-  .s1-engine-result { color: #5F5E5A; flex: 1; text-align: right; font-size: 11px; }
-  .check    { color: #1D9E75; margin-right: 4px; font-weight: 700; }
-  .competitor { color: #042C53; font-weight: 600; }
+  .s1-engine-name  { font-weight: 500; color: #042C53; min-width: 76px; font-size: 11px; }
+  .s1-engine-result { color: var(--muted); flex: 1; text-align: right; font-size: 11px; }
+  .check    { color: var(--signal); margin-right: 4px; font-weight: 500; }
+  .competitor { color: #042C53; font-weight: 500; }
 
   .s1-you-row {
     background: #FEE2E2;
@@ -786,12 +786,12 @@
     animation: hl-fade-row 0.45s ease 1.65s backwards;
   }
 
-  .s1-you-label { font-weight: 700; color: #991B1B; font-size: 11px; }
+  .s1-you-label { font-weight: 500; color: #991B1B; font-size: 11px; }
 
   .s1-you-status {
     color: #991B1B;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -807,7 +807,7 @@
     background: #DC2626;
     color: #fff;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .s1-cta {
@@ -819,15 +819,15 @@
     border-top: 1px solid rgba(4, 44, 83, 0.08);
   }
 
-  .s1-cta-text { font-size: 11px; color: #5F5E5A; line-height: 1.4; }
+  .s1-cta-text { font-size: 11px; color: var(--muted); line-height: 1.4; }
 
   .s1-cta-btn {
-    background: #042C53;
+    background: var(--navy);
     color: #fff;
     padding: 9px 14px;
     border-radius: 5px;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     border: none;
     cursor: pointer;
     white-space: nowrap;
@@ -841,23 +841,23 @@
   /* ── State 2: snapshot sample ───────────────── */
   .s2-client {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 5px;
   }
 
   .s2-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     color: #042C53;
     margin-bottom: 14px;
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
-  .s2-title .num { color: #BA7517; }
+  .s2-title .num { color: var(--amber); }
 
   .s2-stats {
     display: grid;
@@ -875,21 +875,21 @@
 
   .s2-stat-num {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     color: #042C53;
     line-height: 1;
     margin-bottom: 4px;
     letter-spacing: -0.02em;
   }
 
-  .up { color: #1D9E75; font-size: 10px; font-weight: 600; margin-left: 2px; }
+  .up { color: var(--signal); font-size: 10px; font-weight: 500; margin-left: 2px; }
 
   .s2-stat-label {
     font-size: 9px;
-    color: #5F5E5A;
+    color: var(--muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .s2-fixes-header {
@@ -901,19 +901,19 @@
 
   .s2-fixes-label {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .s2-priority {
     font-size: 9px;
-    background: #FAEEDA;
-    color: #BA7517;
+    background: var(--amber-light);
+    color: var(--amber);
     padding: 3px 7px;
-    border-radius: 99px;
-    font-weight: 600;
+    border-radius: 8px;
+    font-weight: 500;
     letter-spacing: 0.05em;
   }
 
@@ -934,7 +934,7 @@
   .state[data-state="2"].active .s2-fix:nth-of-type(3) { animation-delay: 1s; }
 
   .s2-fix-num {
-    background: #042C53;
+    background: var(--navy);
     color: #fff;
     width: 19px;
     height: 19px;
@@ -943,14 +943,14 @@
     align-items: center;
     justify-content: center;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 500;
     flex-shrink: 0;
     margin-top: 1px;
   }
 
-  .s2-fix-title { color: #042C53; font-weight: 600; font-size: 11px; margin-bottom: 1px; }
-  .s2-fix-impact { color: #5F5E5A; font-size: 10px; }
-  .lift { color: #1D9E75; font-weight: 600; }
+  .s2-fix-title { color: #042C53; font-weight: 500; font-size: 11px; margin-bottom: 1px; }
+  .s2-fix-impact { color: var(--muted); font-size: 10px; }
+  .lift { color: var(--signal); font-weight: 500; }
 
   .s2-cta {
     display: flex;
@@ -961,15 +961,15 @@
     border-top: 1px solid rgba(4, 44, 83, 0.08);
   }
 
-  .s2-cta-text { font-size: 11px; color: #5F5E5A; }
+  .s2-cta-text { font-size: 11px; color: var(--muted); }
 
   .s2-cta-btn {
-    background: #BA7517;
+    background: var(--amber);
     color: #fff;
     padding: 9px 14px;
     border-radius: 5px;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     border: none;
     cursor: pointer;
     white-space: nowrap;
@@ -983,7 +983,7 @@
   /* ── State 3: form ──────────────────────────── */
   .s3-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     color: #042C53;
     margin-bottom: 5px;
     letter-spacing: -0.02em;
@@ -992,7 +992,7 @@
 
   .s3-sub {
     font-size: 11px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 14px;
     line-height: 1.5;
   }
@@ -1001,10 +1001,10 @@
 
   .s3-label {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     display: block;
     margin-bottom: 4px;
   }
@@ -1024,7 +1024,7 @@
   }
 
   .s3-input:focus {
-    border-color: #BA7517;
+    border-color: var(--amber);
     background: #fff;
   }
 
@@ -1032,13 +1032,13 @@
 
   .s3-submit {
     width: 100%;
-    background: #BA7517;
+    background: var(--amber);
     color: #fff;
     padding: 11px;
     border: none;
     border-radius: 5px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     cursor: pointer;
     margin-top: 4px;
     font-family: 'Inter', sans-serif;
@@ -1054,7 +1054,7 @@
 
   .s3-foot {
     font-size: 10px;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-top: 10px;
     text-align: center;
     line-height: 1.4;
@@ -1070,7 +1070,7 @@
 
   .s3-engine-pill {
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 500;
     color: #042C53;
     background: #FAF8F3;
     padding: 3px 7px;

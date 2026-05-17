@@ -271,7 +271,7 @@ function formatDate(iso: string) {
 
   /* ── Article hero ───────────────────────────── */
   .article-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     padding: 36px 22px 32px;
   }
 
@@ -288,7 +288,7 @@ function formatDate(iso: string) {
   .ah-cat {
     font-size: 9px;
     letter-spacing: 0.08em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -379,7 +379,7 @@ function formatDate(iso: string) {
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
@@ -413,11 +413,11 @@ function formatDate(iso: string) {
     transition: color 0.2s ease;
   }
 
-  .related-link:hover { color: #BA7517; }
+  .related-link:hover { color: var(--amber); }
 
   /* ── Newsletter card ────────────────────────── */
   .nl-card {
-    background: #FAEEDA;
+    background: var(--amber-light);
     padding: 18px;
     border-radius: 8px;
   }
@@ -425,7 +425,7 @@ function formatDate(iso: string) {
   .nlc-eyebrow {
     font-size: 9px;
     letter-spacing: 0.1em;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     margin-bottom: 5px;
   }
@@ -461,12 +461,12 @@ function formatDate(iso: string) {
 
   .nl-input:focus {
     outline: none;
-    border-color: #BA7517;
+    border-color: var(--amber);
   }
 
   .nl-btn {
     width: 100%;
-    background: #042C53;
+    background: var(--navy);
     color: #E6F1FB;
     border: none;
     padding: 9px;

@@ -256,7 +256,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* ── Page hero ──────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 40px 22px 36px;
     text-align: center;
@@ -265,14 +265,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
@@ -318,14 +318,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vc-eyebrow {
     font-size: 9px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 6px;
   }
 
   .vc-title {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
     font-family: 'Inter', sans-serif;
@@ -334,21 +334,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vc-body {
     font-size: 12px;
     line-height: 1.55;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -379,7 +379,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .oc-num {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     margin-bottom: 5px;
     letter-spacing: 0.08em;
@@ -387,7 +387,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .oc-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 6px;
     color: var(--navy);
     font-family: 'Inter', sans-serif;
@@ -396,7 +396,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .oc-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Audience ───────────────────────────────── */
@@ -415,7 +415,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ac-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 5px;
     font-family: 'Inter', sans-serif;
@@ -424,7 +424,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .ac-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Timeline ───────────────────────────────── */
@@ -444,7 +444,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .tl-week {
     font-size: 10px;
-    color: #BA7517;
+    color: var(--amber);
     font-weight: 500;
     letter-spacing: 0.06em;
     margin-bottom: 5px;
@@ -452,7 +452,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .tl-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
@@ -461,7 +461,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .tl-body {
     font-size: 11px;
     line-height: 1.5;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── Sprint pricing ─────────────────────────── */
@@ -474,7 +474,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .sp-tier {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 4px;
     font-family: 'Inter', sans-serif;
@@ -482,7 +482,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .sp-range {
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     font-family: 'Inter', sans-serif;
     margin-bottom: 3px;
@@ -497,14 +497,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .sp-detail {
     font-size: 12px;
     line-height: 1.55;
-    color: #5F5E5A;
+    color: var(--muted);
     margin-bottom: 14px;
   }
 
   .si-label {
     font-size: 10px;
-    font-weight: 600;
-    color: #BA7517;
+    font-weight: 500;
+    color: var(--amber);
     letter-spacing: 0.08em;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -526,25 +526,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .si-item:last-child { border-bottom: none; }
 
   .check {
-    color: #1D9E75;
+    color: var(--signal);
     font-weight: 500;
     flex-shrink: 0;
   }
 
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
     border-radius: 8px;
   }
 
-  .cta-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;

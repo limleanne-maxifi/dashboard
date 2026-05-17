@@ -195,7 +195,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* ── Hero ───────────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, #042C53 0%, #031F3D 100%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #E6F1FB;
     padding: 40px 22px 36px;
     text-align: center;
@@ -204,14 +204,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
@@ -245,8 +245,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .stage-num {
     font-size: 32px;
-    font-weight: 600;
-    color: #BA7517;
+    font-weight: 500;
+    color: var(--amber);
     font-family: 'Inter', sans-serif;
     line-height: 1;
     margin-bottom: 4px;
@@ -255,7 +255,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .stage-title {
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     font-family: 'Inter', sans-serif;
     line-height: 1.1;
@@ -284,8 +284,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .sp-head {
     font-size: 10px;
-    font-weight: 600;
-    color: #BA7517;
+    font-weight: 500;
+    color: var(--amber);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -295,7 +295,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .sp-item {
     font-size: 12px;
-    color: #5F5E5A;
+    color: var(--muted);
     padding: 3px 0;
     line-height: 1.4;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
@@ -314,22 +314,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .stage-cta:hover {
-    color: #BA7517;
-    border-color: #BA7517;
+    color: var(--amber);
+    border-color: var(--amber);
   }
 
   /* ── Why section ────────────────────────────── */
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
-    color: #EF9F27;
+    color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -353,23 +353,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .why-prose {
     font-size: 13px;
     line-height: 1.7;
-    color: #5F5E5A;
+    color: var(--muted);
   }
 
   /* ── CTA ────────────────────────────────────── */
   .cta-box {
-    background: #042C53;
+    background: var(--navy);
     padding: 34px 22px;
     text-align: center;
     color: #E6F1FB;
     border-radius: 8px;
   }
 
-  .cta-eyebrow { color: #EF9F27; margin-bottom: 10px; }
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;
