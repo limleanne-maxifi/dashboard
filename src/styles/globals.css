@@ -1,18 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
+  /* Primary */
   --navy:        #042C53;
   --navy-deep:   #031F3D;
   --navy-soft:   #0C447C;
+
+  /* Amber (brand accent) */
   --amber:       #BA7517;
   --amber-light: #FAEEDA;
   --amber-mid:   #EF9F27;
+  --amber-pale:  #FAC775;
+
+  /* Brown (for amber-light backgrounds) */
+  --brown-deep:  #412402;
+  --brown-mid:   #633806;
+
+  /* Neutrals */
   --cream:       #FAF8F3;
   --cream-deep:  #F1EFE8;
   --ink:         #1a1a1a;
   --muted:       #5F5E5A;
+  --mute-soft:   #888780;
   --line:        rgba(4, 44, 83, 0.08);
+
+  /* Blues (navy backgrounds only) */
+  --blue-text:   #E6F1FB;
+  --blue-soft:   #B5D4F4;
+  --blue-mid:    #85B7EB;
+
+  /* Functional */
   --signal:      #1D9E75;
+  --danger:      #DC2626;
 }
 
 *,
@@ -32,13 +51,13 @@ body {
 }
 
 .wrap {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 .wrap-narrow {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
