@@ -3,7 +3,7 @@
 ## What this project is
 AEO consultancy website for Maxifi Digital.
 Stack: Astro 4 + Tailwind CSS + MDX. Deploy target: Netlify.
-Live domain: maxifidigital.com (currently deployed to visibility-website.netlify.app)
+Live domain: maxifidigital.com (canonical: **md-visibility-website.netlify.app**)
 
 ## Design reference
 The authoritative design reference is **`maxifi_homepage_preview__4_.html`**.
@@ -439,7 +439,7 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 
 ## DEPLOYMENT
 
-- Production: Netlify (`visibility-website.netlify.app`, custom domain `maxifidigital.com`)
+- Production: Netlify (`md-visibility-website.netlify.app`, custom domain `maxifidigital.com`). Note: `visibility-website.netlify.app` is deprecated; disconnect from GitHub in Netlify dashboard to prevent dual builds.
 - Build command: `npm run build`
 - Publish directory: `dist`
 - Node version: 20
