@@ -455,14 +455,19 @@ import HeroLoop from '../components/HeroLoop.astro';
   /* ── Did you know section ──────────────────── */
   .did-you-know {
     position: absolute;
-    top: 40px;
+    top: 36px;
     left: 22px;
     z-index: 10;
     background: rgba(181, 212, 244, 0.12);
     border: 0.5px solid rgba(181, 212, 244, 0.25);
     border-radius: 8px;
-    padding: 6px 16px;
+    padding: 4px 16px;
     width: 580px;
+    height: 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .dyk-label {
