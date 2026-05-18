@@ -61,142 +61,38 @@ import HeroLoop from '../components/HeroLoop.astro';
       <div class="sample-intro">
         <p class="s-eyebrow">SEE A REAL ONE</p>
         <h2 id="sample-snapshot-heading" class="section-h2">This is what your AI Visibility Snapshot looks like.</h2>
-        <p class="sample-sub">Real client. Real scores. Real fixes. Pick your industry, then click the card to open the live tool.</p>
+        <p class="sample-sub">Real client. Real scores. Real fixes. Click anywhere on the card to open the live tool.</p>
       </div>
-
-      <div class="sample-shell">
-        <div class="sample-tabs" role="tablist" aria-label="Select your industry">
-          <button class="sample-tab active" data-snap="commercial" role="tab" aria-selected="true">Commercial Aviation</button>
-          <button class="sample-tab" data-snap="manufacturing" role="tab" aria-selected="false">Aerospace Manufacturing</button>
-          <button class="sample-tab" data-snap="space" role="tab" aria-selected="false">Space Exploration</button>
-          <button class="sample-tab" data-snap="mro" role="tab" aria-selected="false">MRO</button>
+      <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
+        <div class="sample-card-header">
+          <div class="sample-card-meta">
+            <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Snapshot · real client</span>
+            <span class="sample-card-sector">Aviation</span>
+          </div>
+          <span class="sample-card-arrow" aria-hidden="true">→</span>
         </div>
-
-        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
-          <div class="sample-card-header">
-            <div class="sample-card-meta">
-              <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Snapshot · real client</span>
-              <span class="sample-card-sector" id="snap-sector">Commercial Aviation</span>
-            </div>
-            <span class="sample-card-arrow" aria-hidden="true">→</span>
+        <div class="sample-card-body">
+          <p class="sample-client">PAN-EUROPEAN ANSP · Q2 2026</p>
+          <p class="sample-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
+          <div class="sample-stats">
+            <div class="sample-stat"><div class="sample-stat-num">19<span class="up">↑38%</span></div><div class="sample-stat-label">AI Citations</div></div>
+            <div class="sample-stat"><div class="sample-stat-num">2/5</div><div class="sample-stat-label">Engines Citing</div></div>
+            <div class="sample-stat"><div class="sample-stat-num">4/12</div><div class="sample-stat-label">Topics Owned</div></div>
           </div>
-          <div class="sample-card-body">
-            <p class="sample-client" id="snap-client">EUROPEAN LCC GROUP · Q2 2026</p>
-            <p class="sample-title" id="snap-title"></p>
-            <div class="sample-stats" id="snap-stats"></div>
-            <div class="sample-fixes-header">
-              <span class="sample-fixes-label">Top 3 Priority Fixes</span>
-              <span class="sample-priority">RANKED BY IMPACT</span>
-            </div>
-            <div id="snap-fixes"></div>
-            <div class="sample-card-cta">
-              <span class="sample-cta-text">Open the live tool →</span>
-            </div>
+          <div class="sample-fixes-header">
+            <span class="sample-fixes-label">Top 3 Priority Fixes</span>
+            <span class="sample-priority">RANKED BY IMPACT</span>
           </div>
-        </a>
-      </div>
+          <div class="sample-fix"><div class="sample-fix-num">1</div><div class="sample-fix-content"><div class="sample-fix-title">CNS/ATM capability comparison page</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
+          <div class="sample-fix"><div class="sample-fix-num">2</div><div class="sample-fix-content"><div class="sample-fix-title">SESAR &amp; ICAO entity schema build</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
+          <div class="sample-fix"><div class="sample-fix-num">3</div><div class="sample-fix-content"><div class="sample-fix-title">ANSP case study FAQ pages (×6)</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
+          <div class="sample-card-cta">
+            <span class="sample-cta-text">Open the live tool →</span>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
-
-  <script is:inline>
-    (function () {
-      const SNAPS = {
-        commercial: {
-          sector: 'Commercial Aviation',
-          client: 'EUROPEAN LCC GROUP · Q2 2026',
-          title: 'Citation share at <span class="num">17%</span>.<br/>3 fixes to reach 42% by Q4.',
-          stats: [
-            { num: '14', up: '↑45%', label: 'AI Citations' },
-            { num: '1/5',  up: '',     label: 'Engines Citing' },
-            { num: '3/10', up: '',     label: 'Topics Owned' },
-          ],
-          fixes: [
-            { title: 'Revenue management capability page (LCC-specific)', impact: '+21%', time: '2 weeks' },
-            { title: 'IATA &amp; ARM entity schema + dynamic pricing FAQ', impact: '+14%', time: '1 week' },
-            { title: 'EasyJet/Ryanair benchmark comparison pages',          impact: '+7%',  time: '3 days' },
-          ],
-        },
-        manufacturing: {
-          sector: 'Aerospace Manufacturing',
-          client: 'TIER-1 AEROSTRUCTURES · Q2 2026',
-          title: 'Citation share at <span class="num">23%</span>.<br/>3 fixes to reach 51% by Q4.',
-          stats: [
-            { num: '21', up: '↑33%', label: 'AI Citations' },
-            { num: '2/5',  up: '',     label: 'Engines Citing' },
-            { num: '5/14', up: '',     label: 'Topics Owned' },
-          ],
-          fixes: [
-            { title: 'A350/787 composites capability deep-page',         impact: '+18%', time: '2 weeks' },
-            { title: 'AS9100/Nadcap certification entity schema',         impact: '+12%', time: '1 week' },
-            { title: 'Tier-1 supplier comparison vs Hexcel/Toray',        impact: '+8%',  time: '4 days' },
-          ],
-        },
-        space: {
-          sector: 'Space Exploration',
-          client: 'EU SMALLSAT INTEGRATOR · Q2 2026',
-          title: 'Citation share at <span class="num">14%</span>.<br/>3 fixes to reach 38% by Q4.',
-          stats: [
-            { num: '9',   up: '↑62%', label: 'AI Citations' },
-            { num: '1/5', up: '',     label: 'Engines Citing' },
-            { num: '2/8', up: '',     label: 'Topics Owned' },
-          ],
-          fixes: [
-            { title: 'LEO rideshare deployment service page',             impact: '+17%', time: '2 weeks' },
-            { title: 'ESA &amp; EU Space Programme entity build',         impact: '+11%', time: '1 week' },
-            { title: 'SpaceX Transporter vs alternatives FAQ',            impact: '+9%',  time: '3 days' },
-          ],
-        },
-        mro: {
-          sector: 'MRO',
-          client: 'NARROWBODY MRO · Q2 2026',
-          title: 'Citation share at <span class="num">19%</span>.<br/>3 fixes to reach 46% by Q4.',
-          stats: [
-            { num: '16',   up: '↑41%', label: 'AI Citations' },
-            { num: '2/5',  up: '',     label: 'Engines Citing' },
-            { num: '4/11', up: '',     label: 'Topics Owned' },
-          ],
-          fixes: [
-            { title: 'A320/737 C-check capability comparison page',       impact: '+20%', time: '2 weeks' },
-            { title: 'EASA Part 145 + facility schema build',             impact: '+13%', time: '1 week' },
-            { title: 'Engine MRO (CFM56/LEAP) FAQ pages',                 impact: '+9%',  time: '3 days' },
-          ],
-        },
-      };
-
-      function renderSnap(key) {
-        const s = SNAPS[key]; if (!s) return;
-        const setText = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
-        setText('snap-sector', s.sector);
-        setText('snap-client', s.client);
-        setText('snap-title',  s.title);
-
-        const statsHtml = s.stats.map(function (st) {
-          const upHtml = st.up ? '<span class="up">' + st.up + '</span>' : '';
-          return '<div class="sample-stat"><div class="sample-stat-num">' + st.num + upHtml + '</div><div class="sample-stat-label">' + st.label + '</div></div>';
-        }).join('');
-        setText('snap-stats', statsHtml);
-
-        const fixesHtml = s.fixes.map(function (f, i) {
-          return '<div class="sample-fix"><div class="sample-fix-num">' + (i + 1) + '</div><div class="sample-fix-content"><div class="sample-fix-title">' + f.title + '</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">' + f.impact + '</span> · ' + f.time + '</div></div></div>';
-        }).join('');
-        setText('snap-fixes', fixesHtml);
-
-        document.querySelectorAll('.sample-tab').forEach(function (btn) {
-          const active = btn.getAttribute('data-snap') === key;
-          btn.classList.toggle('active', active);
-          btn.setAttribute('aria-selected', String(active));
-        });
-      }
-
-      document.querySelectorAll('.sample-tab').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          renderSnap(btn.getAttribute('data-snap'));
-        });
-      });
-
-      renderSnap('commercial');
-    })();
-  </script>
 
 <!-- ══════════════════════════════════════════
        SECTION 4 — PROBLEM FRAME
@@ -594,8 +490,10 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   /* ── Did you know section ──────────────────── */
+  /* Height matches .sector-tabs row in HeroLoop exactly */
   .did-you-know {
     width: 100%;
+    height: 80px;
     box-sizing: border-box;
     background: rgba(181, 212, 244, 0.10);
     border: 0.5px solid rgba(181, 212, 244, 0.25);
@@ -645,7 +543,7 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .hero-row {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: 18px;
     align-items: start;
   }
@@ -1393,48 +1291,9 @@ import HeroLoop from '../components/HeroLoop.astro';
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(1.2); }
   }
-  .sample-shell {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .sample-tabs {
-    display: flex;
-    background: var(--cream);
-    border: 0.5px solid var(--line);
-    border-radius: 8px 8px 0 0;
-    padding: 4px;
-    gap: 2px;
-    border-bottom: none;
-  }
-  .sample-tab {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 9px 8px;
-    color: var(--muted);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    font-family: var(--font-sans);
-    text-align: center;
-  }
-  .sample-tab:hover { color: var(--navy); background: rgba(4,44,83,0.04); }
-  .sample-tab.active { background: var(--navy); color: var(--amber-light); }
-  .sample-shell .sample-card {
-    border-radius: 0 0 8px 8px;
-    border-top: 0.5px solid var(--line);
-    max-width: none;
-    margin: 0;
-  }
   @media (max-width: 640px) {
     .sample-stats { grid-template-columns: 1fr; }
     .sample-card-body { padding: 18px 18px 20px; }
     .sample-snapshot-section { padding: 40px 0 30px; }
-    .sample-tabs { flex-wrap: wrap; }
-    .sample-tab { flex: 1 1 calc(50% - 2px); font-size: 9px; }
   }
 </style>
