@@ -635,6 +635,29 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
+  /* State 1: navy engine-test card (matches font-preview mockup) */
+  .state[data-state="1"] { background: var(--navy-deep); }
+  .state[data-state="1"] .state-header {
+    background: var(--navy-deep);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .state[data-state="1"] .state-sector { color: var(--blue-mid); }
+  .state[data-state="1"] .state-num    { color: var(--blue-mid); }
+  .state[data-state="1"] .s1-question  { color: var(--blue-mid); }
+  .state[data-state="1"] .s1-prompt    { color: var(--blue-text); }
+  .state[data-state="1"] .s1-results {
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+  .state[data-state="1"] .s1-engine-row { border-bottom-color: rgba(255, 255, 255, 0.06); }
+  .state[data-state="1"] .s1-engine-name { color: var(--blue-soft); }
+  .state[data-state="1"] .s1-engine-result { color: var(--blue-soft); }
+  .state[data-state="1"] .competitor { color: var(--blue-text); }
+  .state[data-state="1"] .s1-cta { border-top-color: rgba(255, 255, 255, 0.08); }
+  .state[data-state="1"] .s1-cta-text { color: var(--blue-mid); }
+  .state[data-state="1"] .s1-cta-btn { background: var(--amber); color: var(--amber-light); }
+  .state[data-state="1"] .s1-cta-btn:hover { background: #854F0B; }
+
   .state.active {
     opacity: 1;
     visibility: visible;
