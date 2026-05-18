@@ -3,40 +3,41 @@
 
 <div class="hl-root">
 
-  <!-- ── SECTOR TABS ─────────────────────────────── -->
-  <div class="sector-tabs" role="tablist" aria-label="Select your sector">
-    <button class="tab active" data-sector="aviation" role="tab" aria-selected="true">
-      <span class="tab-label">Aviation & ATM</span>
-      <span class="tab-meta">CANSO · ICAO · ATM</span>
+  <!-- ── AMBER SUB-INDUSTRY BANNER ──────────────── -->
+  <div class="subind-header">
+    <span class="subind-header-prefix">Top AI searches in:</span>
+    <span class="subind-header-name" id="subind-current-name">Commercial Aviation</span>
+  </div>
+
+  <!-- ── SUB-INDUSTRY TABS ───────────────────────── -->
+  <div class="subind-tabs" role="tablist" aria-label="Select sub-industry">
+    <button class="subind-tab active" data-sub="commercial" role="tab" aria-selected="true">
+      <span class="subind-tab-label">Commercial Aviation</span>
     </button>
-    <button class="tab" data-sector="tech" role="tab" aria-selected="false">
-      <span class="tab-label">B2B Tech & SaaS</span>
-      <span class="tab-meta">Software · Infrastructure</span>
+    <button class="subind-tab" data-sub="manufacturing" role="tab" aria-selected="false">
+      <span class="subind-tab-label">Aerospace Manufacturing</span>
     </button>
-    <button class="tab" data-sector="advisory" role="tab" aria-selected="false">
-      <span class="tab-label">Expert Advisory</span>
-      <span class="tab-meta">M&A · Legal · Consulting</span>
+    <button class="subind-tab" data-sub="space" role="tab" aria-selected="false">
+      <span class="subind-tab-label">Space Exploration</span>
+    </button>
+    <button class="subind-tab" data-sub="mro" role="tab" aria-selected="false">
+      <span class="subind-tab-label">MRO</span>
     </button>
   </div>
 
   <!-- ── LOOP CONTAINER ─────────────────────────── -->
   <div class="loop-container" id="hl-container">
 
-    <!-- ════════════════════════════════════
-         SECTOR 1 · AVIATION & ATM
-    ════════════════════════════════════ -->
-
-    <!-- Aviation · State 1: engine test -->
-    <div class="state active" data-sector="aviation" data-state="1">
+    <!-- ── STATE 1: Engine search mock ── -->
+    <div class="state active" data-state="1">
       <div class="state-header">
         <div>
-          <span class="state-tag"><span class="alert-dot"></span>Live test across 5 engines</span>
-          <span class="state-sector">Aviation</span>
+          <span class="state-tag"><span class="alert-dot"></span>Live AI query · 5 engines</span>
         </div>
         <span class="state-num">01 / 03</span>
       </div>
       <div class="state-body">
-        <!-- Engine pills -->
+        <!-- 5 engine pills -->
         <div class="ec-pills" role="tablist">
           <button class="ec-pill active" data-eidx="0">ChatGPT</button>
           <button class="ec-pill" data-eidx="1">Perplexity</button>
@@ -44,42 +45,44 @@
           <button class="ec-pill" data-eidx="3">Copilot</button>
           <button class="ec-pill" data-eidx="4">Claude</button>
         </div>
-        <!-- Engine window mock -->
-        <div class="ec-window">
+        <!-- Engine window (JS updates content + CSS class) -->
+        <div class="ec-window engine-chatgpt" id="ec-window-main">
           <div class="ec-chrome">
             <div class="ec-chrome-dots"><span></span><span></span><span></span></div>
-            <span class="ec-chrome-url">chatgpt.com</span>
-            <span class="ec-chrome-live"><span class="alert-dot" style="width:5px;height:5px;"></span>LIVE</span>
+            <span class="ec-chrome-url" id="ec-chrome-url">chatgpt.com</span>
+            <span class="ec-chrome-live"><span class="alert-dot" style="width:5px;height:5px;margin-right:3px;"></span>LIVE</span>
           </div>
+          <div class="ec-greeting" id="ec-greeting">What&apos;s on your mind today?</div>
           <div class="ec-input-row">
-            <span class="ec-input-plus">+</span>
-            <span class="ec-query-text"></span><span class="typing-cursor"></span>
-            <span class="ec-thinking">Thinking <span class="ec-think-anim">›</span></span>
+            <span class="ec-input-icon" id="ec-input-icon">+</span>
+            <span class="ec-query-text" id="ec-query-text"></span><span class="typing-cursor" aria-hidden="true"></span>
+            <span class="ec-thinking" id="ec-thinking">Thinking <span class="ec-think-anim">›</span></span>
+            <span class="ec-input-btn" id="ec-input-btn" aria-hidden="true">●</span>
           </div>
-          <div class="ec-answer-area">
-            <span class="ec-answer-label">ChatGPT</span>
-            <p class="ec-answer-text"></p>
+          <div class="ec-answer-area" id="ec-answer-area">
+            <span class="ec-answer-label" id="ec-answer-label">ChatGPT</span>
+            <p class="ec-answer-text" id="ec-answer-text"></p>
           </div>
         </div>
         <!-- Not cited -->
         <div class="ec-not-cited">
-          <span class="ec-nc-label">Your aviation tech</span>
+          <span class="ec-nc-label">Your brand</span>
           <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> Not cited in any answer</span>
         </div>
         <!-- CTA -->
         <div class="s1-cta">
-          <span class="s1-cta-text">Find out why ATC buyers and ANSPs<br/>aren't being pointed to your platform.</span>
+          <span class="s1-cta-text">Aviation &amp; aerospace buyers screen vendors in AI first.<br/>Find out if yours is being cited.</span>
           <button class="s1-cta-btn" data-goto-state="3">See what AI says →</button>
         </div>
       </div>
     </div>
 
-    <!-- Aviation · State 2: sample snapshot -->
-    <div class="state" data-sector="aviation" data-state="2">
+    <!-- ── STATE 2: Sample Snapshot ── -->
+    <div class="state" data-state="2">
       <div class="state-header">
         <div>
           <span class="state-tag"><span class="live-dot"></span>Sample Snapshot · real client</span>
-          <span class="state-sector">Aviation</span>
+          <span class="state-sector">Aerospace</span>
         </div>
         <span class="state-num">02 / 03</span>
       </div>
@@ -105,22 +108,22 @@
       </div>
     </div>
 
-    <!-- Aviation · State 3: form -->
-    <div class="state" data-sector="aviation" data-state="3">
+    <!-- ── STATE 3: Form ── -->
+    <div class="state" data-state="3">
       <div class="state-header">
         <div>
           <span class="state-tag"><span class="live-dot"></span>FREE · 5 MIN · NO CALL REQUIRED</span>
-          <span class="state-sector">Aviation</span>
+          <span class="state-sector">Aviation &amp; Aerospace</span>
         </div>
         <span class="state-num">03 / 03</span>
       </div>
       <div class="state-body">
         <p class="s3-title">Run Your AI Visibility Snapshot</p>
-        <p class="s3-sub">Find out where your aviation brand stands across all 5 AI engines — results in your inbox in 48 hours.</p>
-        <div id="hl-form-wrap-aviation">
-          <form name="visibility-snapshot" data-netlify="true" data-netlify-honeypot="bot-field" class="snapshot-form" data-sector-form="aviation">
+        <p class="s3-sub">Find out where your aviation or aerospace brand stands across all 5 AI engines — results in your inbox in 48 hours.</p>
+        <div id="hl-form-wrap-aviation-aerospace">
+          <form name="visibility-snapshot" data-netlify="true" data-netlify-honeypot="bot-field" class="snapshot-form" data-sector-form="aviation-aerospace">
             <input type="hidden" name="form-name" value="visibility-snapshot" />
-            <input type="hidden" name="sector" value="aviation" />
+            <input type="hidden" name="sector" value="aviation-aerospace" />
             <input type="hidden" name="source-page" value="homepage-hero" />
             <p class="hl-honeypot" aria-hidden="true"><label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
             <div class="s3-field">
@@ -128,266 +131,12 @@
               <input type="text" class="s3-input" id="hl-av-web" name="website" placeholder="youraviationbrand.com" />
             </div>
             <div class="s3-field">
-              <label class="s3-label" for="hl-av-spec">Your aviation specialism</label>
-              <input type="text" class="s3-input" id="hl-av-spec" name="category" placeholder="e.g. CNS/ATM, UTM, aviation cyber" />
+              <label class="s3-label" for="hl-av-spec">Your aviation or aerospace specialism</label>
+              <input type="text" class="s3-input" id="hl-av-spec" name="category" placeholder="e.g. CNS/ATM, MRO, composites, launch" />
             </div>
             <div class="s3-field">
               <label class="s3-label" for="hl-av-q">A question your buyer would ask AI</label>
-              <input type="text" class="s3-input" id="hl-av-q" name="buyer-question" placeholder="Best ATM tech provider for European airspace?" />
-            </div>
-            <button type="submit" class="s3-submit">Get my Snapshot →</button>
-          </form>
-        </div>
-        <p class="s3-foot">Tested live across:</p>
-        <div class="s3-engines" aria-label="AI engines tested">
-          <span class="s3-engine-pill">ChatGPT</span>
-          <span class="s3-engine-pill">Claude</span>
-          <span class="s3-engine-pill">Copilot</span>
-          <span class="s3-engine-pill">Gemini</span>
-          <span class="s3-engine-pill">Perplexity</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ════════════════════════════════════
-         SECTOR 2 · B2B TECH & SAAS
-    ════════════════════════════════════ -->
-
-    <!-- Tech · State 1 -->
-    <div class="state" data-sector="tech" data-state="1">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="alert-dot"></span>Live test across 5 engines</span>
-          <span class="state-sector">B2B Tech</span>
-        </div>
-        <span class="state-num">01 / 03</span>
-      </div>
-      <div class="state-body">
-        <!-- Engine pills -->
-        <div class="ec-pills" role="tablist">
-          <button class="ec-pill active" data-eidx="0">ChatGPT</button>
-          <button class="ec-pill" data-eidx="1">Perplexity</button>
-          <button class="ec-pill" data-eidx="2">Gemini</button>
-          <button class="ec-pill" data-eidx="3">Copilot</button>
-          <button class="ec-pill" data-eidx="4">Claude</button>
-        </div>
-        <!-- Engine window mock -->
-        <div class="ec-window">
-          <div class="ec-chrome">
-            <div class="ec-chrome-dots"><span></span><span></span><span></span></div>
-            <span class="ec-chrome-url">chatgpt.com</span>
-            <span class="ec-chrome-live"><span class="alert-dot" style="width:5px;height:5px;"></span>LIVE</span>
-          </div>
-          <div class="ec-input-row">
-            <span class="ec-input-plus">+</span>
-            <span class="ec-query-text"></span><span class="typing-cursor"></span>
-            <span class="ec-thinking">Thinking <span class="ec-think-anim">›</span></span>
-          </div>
-          <div class="ec-answer-area">
-            <span class="ec-answer-label">ChatGPT</span>
-            <p class="ec-answer-text"></p>
-          </div>
-        </div>
-        <!-- Not cited -->
-        <div class="ec-not-cited">
-          <span class="ec-nc-label">Your SaaS platform</span>
-          <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> Not cited in any answer</span>
-        </div>
-        <!-- CTA -->
-        <div class="s1-cta">
-          <span class="s1-cta-text">Procurement now starts in ChatGPT.<br/>If you're not cited, you're not pitched.</span>
-          <button class="s1-cta-btn" data-goto-state="3">See what AI says →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tech · State 2 -->
-    <div class="state" data-sector="tech" data-state="2">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>Sample Snapshot · real client</span>
-          <span class="state-sector">B2B Tech</span>
-        </div>
-        <span class="state-num">02 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s2-client">B2B SAAS · GROWTH-STAGE · Q2 2026</p>
-        <p class="s2-title">Citation share at <span class="num">14%</span>.<br/>3 fixes to reach 41% in 90 days.</p>
-        <div class="s2-stats">
-          <div class="s2-stat"><div class="s2-stat-num">23<span class="up">↑52%</span></div><div class="s2-stat-label">AI Citations</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">2/5</div><div class="s2-stat-label">Engines Citing</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">3/10</div><div class="s2-stat-label">Topics Owned</div></div>
-        </div>
-        <div class="s2-fixes-header">
-          <span class="s2-fixes-label">Top 3 Priority Fixes</span>
-          <span class="s2-priority">RANKED BY IMPACT</span>
-        </div>
-        <div class="s2-fix"><div class="s2-fix-num">1</div><div class="s2-fix-content"><div class="s2-fix-title">"vs. competitor" comparison pages (×4)</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+22%</span> · 2 weeks</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">2</div><div class="s2-fix-content"><div class="s2-fix-title">Product feature schema + G2 alignment</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+11%</span> · 1 week</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">3</div><div class="s2-fix-content"><div class="s2-fix-title">Reddit/HN consensus repair · 6 threads</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+8%</span> · 2 weeks</div></div></div>
-        <div class="s2-cta">
-          <span class="s2-cta-text">This is what you receive.</span>
-          <button class="s2-cta-btn" data-goto-state="3">Get my Snapshot →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tech · State 3: form -->
-    <div class="state" data-sector="tech" data-state="3">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>FREE · 5 MIN · NO CALL REQUIRED</span>
-          <span class="state-sector">B2B Tech</span>
-        </div>
-        <span class="state-num">03 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s3-title">Run Your AI Visibility Snapshot</p>
-        <p class="s3-sub">See exactly where your SaaS or tech brand shows up — across all 5 major AI engines. Free, 5 minutes, no call required.</p>
-        <div id="hl-form-wrap-tech">
-          <form name="visibility-snapshot" data-netlify="true" data-netlify-honeypot="bot-field" class="snapshot-form" data-sector-form="tech">
-            <input type="hidden" name="form-name" value="visibility-snapshot" />
-            <input type="hidden" name="sector" value="tech" />
-            <input type="hidden" name="source-page" value="homepage-hero" />
-            <p class="hl-honeypot" aria-hidden="true"><label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-tech-web">Your website</label>
-              <input type="text" class="s3-input" id="hl-tech-web" name="website" placeholder="yoursaas.com" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-tech-cat">Your product category</label>
-              <input type="text" class="s3-input" id="hl-tech-cat" name="category" placeholder="e.g. CRM, devops, observability" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-tech-q">A buyer query you should win</label>
-              <input type="text" class="s3-input" id="hl-tech-q" name="buyer-question" placeholder="Best [category] for [ICP]?" />
-            </div>
-            <button type="submit" class="s3-submit">Get my Snapshot →</button>
-          </form>
-        </div>
-        <p class="s3-foot">Tested live across:</p>
-        <div class="s3-engines" aria-label="AI engines tested">
-          <span class="s3-engine-pill">ChatGPT</span>
-          <span class="s3-engine-pill">Claude</span>
-          <span class="s3-engine-pill">Copilot</span>
-          <span class="s3-engine-pill">Gemini</span>
-          <span class="s3-engine-pill">Perplexity</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ════════════════════════════════════
-         SECTOR 3 · EXPERT ADVISORY
-    ════════════════════════════════════ -->
-
-    <!-- Advisory · State 1 -->
-    <div class="state" data-sector="advisory" data-state="1">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="alert-dot"></span>Live test across 5 engines</span>
-          <span class="state-sector">Advisory</span>
-        </div>
-        <span class="state-num">01 / 03</span>
-      </div>
-      <div class="state-body">
-        <!-- Engine pills -->
-        <div class="ec-pills" role="tablist">
-          <button class="ec-pill active" data-eidx="0">ChatGPT</button>
-          <button class="ec-pill" data-eidx="1">Perplexity</button>
-          <button class="ec-pill" data-eidx="2">Gemini</button>
-          <button class="ec-pill" data-eidx="3">Copilot</button>
-          <button class="ec-pill" data-eidx="4">Claude</button>
-        </div>
-        <!-- Engine window mock -->
-        <div class="ec-window">
-          <div class="ec-chrome">
-            <div class="ec-chrome-dots"><span></span><span></span><span></span></div>
-            <span class="ec-chrome-url">chatgpt.com</span>
-            <span class="ec-chrome-live"><span class="alert-dot" style="width:5px;height:5px;"></span>LIVE</span>
-          </div>
-          <div class="ec-input-row">
-            <span class="ec-input-plus">+</span>
-            <span class="ec-query-text"></span><span class="typing-cursor"></span>
-            <span class="ec-thinking">Thinking <span class="ec-think-anim">›</span></span>
-          </div>
-          <div class="ec-answer-area">
-            <span class="ec-answer-label">ChatGPT</span>
-            <p class="ec-answer-text"></p>
-          </div>
-        </div>
-        <!-- Not cited -->
-        <div class="ec-not-cited">
-          <span class="ec-nc-label">Your advisory firm</span>
-          <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> Not cited in any answer</span>
-        </div>
-        <!-- CTA -->
-        <div class="s1-cta">
-          <span class="s1-cta-text">Buyers screen advisors in AI before<br/>they screen them in pitch books.</span>
-          <button class="s1-cta-btn" data-goto-state="3">See what AI says →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Advisory · State 2 -->
-    <div class="state" data-sector="advisory" data-state="2">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>Sample Snapshot · real client</span>
-          <span class="state-sector">Advisory</span>
-        </div>
-        <span class="state-num">02 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s2-client">HEALTHCARE M&amp;A ADVISORY · Q2 2026</p>
-        <p class="s2-title">Citation share at <span class="num">18%</span>.<br/>3 fixes to reach 40% by Snapshot 2.</p>
-        <div class="s2-stats">
-          <div class="s2-stat"><div class="s2-stat-num">12<span class="up">↑41%</span></div><div class="s2-stat-label">AI Citations</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">2/5</div><div class="s2-stat-label">Engines Citing</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">3/10</div><div class="s2-stat-label">Topics Owned</div></div>
-        </div>
-        <div class="s2-fixes-header">
-          <span class="s2-fixes-label">Top 3 Priority Fixes</span>
-          <span class="s2-priority">RANKED BY IMPACT</span>
-        </div>
-        <div class="s2-fix"><div class="s2-fix-num">1</div><div class="s2-fix-content"><div class="s2-fix-title">Healthcare M&amp;A capabilities page</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+18%</span> · 2 weeks</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">2</div><div class="s2-fix-content"><div class="s2-fix-title">FAQ schema · 8 priority pages</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+11%</span> · 1 week</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">3</div><div class="s2-fix-content"><div class="s2-fix-title">Partner bio entity restructure (×6)</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+7%</span> · 3 days</div></div></div>
-        <div class="s2-cta">
-          <span class="s2-cta-text">This is what you receive.</span>
-          <button class="s2-cta-btn" data-goto-state="3">Get my Snapshot →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Advisory · State 3: form -->
-    <div class="state" data-sector="advisory" data-state="3">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>FREE · 5 MIN · NO CALL REQUIRED</span>
-          <span class="state-sector">Advisory</span>
-        </div>
-        <span class="state-num">03 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s3-title">Run Your AI Visibility Snapshot</p>
-        <p class="s3-sub">See exactly which advisors AI is recommending — and what your firm needs to do to be one of them.</p>
-        <div id="hl-form-wrap-advisory">
-          <form name="visibility-snapshot" data-netlify="true" data-netlify-honeypot="bot-field" class="snapshot-form" data-sector-form="advisory">
-            <input type="hidden" name="form-name" value="visibility-snapshot" />
-            <input type="hidden" name="sector" value="advisory" />
-            <input type="hidden" name="source-page" value="homepage-hero" />
-            <p class="hl-honeypot" aria-hidden="true"><label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-adv-web">Your firm's website</label>
-              <input type="text" class="s3-input" id="hl-adv-web" name="website" placeholder="yourfirm.com" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-adv-prac">Your practice area</label>
-              <input type="text" class="s3-input" id="hl-adv-prac" name="category" placeholder="e.g. Healthcare M&A, IP law, restructuring" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-adv-q">A buyer query you should win</label>
-              <input type="text" class="s3-input" id="hl-adv-q" name="buyer-question" placeholder="Best [practice] for [sector] in [region]?" />
+              <input type="text" class="s3-input" id="hl-av-q" name="buyer-question" placeholder="Best MRO provider for narrowbody jets in Europe?" />
             </div>
             <button type="submit" class="s3-submit">Get my Snapshot →</button>
           </form>
@@ -420,7 +169,7 @@
   </div>
 
   <p class="loop-narrative" id="hl-narrative" aria-live="polite">
-    Aviation buyers now ask AI which providers to shortlist before they ask ICAO.
+    Aviation &amp; aerospace buyers ask AI to shortlist vendors before any RFP or pitch.
   </p>
 
 </div><!-- /hl-root -->
@@ -428,129 +177,126 @@
 <script>
 (function () {
   const STATE_DURATIONS = [6500, 7500, 14000];
-  const SECTORS = ['aviation', 'tech', 'advisory'];
 
-  const NARRATIVES = {
-    aviation: [
-      'Aviation buyers now ask AI which providers to shortlist before they ask ICAO.',
-      'This is the Snapshot every ANSP and aviation tech firm receives.',
-      'Run yours — built specifically for aviation, ATM, and aerospace brands.',
-    ],
-    tech: [
-      'B2B SaaS procurement now starts in ChatGPT. Your category is no exception.',
-      'This is the Snapshot every B2B tech and SaaS brand receives.',
-      'Run yours — built specifically for B2B tech and SaaS positioning.',
-    ],
-    advisory: [
-      'Expert buyers screen advisors in AI before pitch books arrive.',
-      'This is the Snapshot every advisory firm and consultancy receives.',
-      'Run yours — built specifically for M&A, legal, and expert advisory firms.',
-    ],
-  };
-
-  // ── Engine carousel data ─────────────────────────
-  const ENGINES = [
-    { name: 'ChatGPT',    maker: 'OpenAI',        site: 'chatgpt.com',           accent: '#10A37F', bg: '#212121' },
-    { name: 'Perplexity', maker: 'Perplexity AI',  site: 'perplexity.ai',         accent: '#20B2AA', bg: '#1C1C1C' },
-    { name: 'Gemini',     maker: 'Google',         site: 'gemini.google.com',     accent: '#4285F4', bg: '#1E1F23' },
-    { name: 'Copilot',    maker: 'Microsoft',      site: 'copilot.microsoft.com', accent: '#0EA5E9', bg: '#1A1A2E' },
-    { name: 'Claude',     maker: 'Anthropic',      site: 'claude.ai',             accent: '#DA7756', bg: '#1F1B18' },
+  const NARRATIVES = [
+    'Aviation & aerospace buyers ask AI to shortlist vendors before any RFP or pitch.',
+    'This is what your AI Visibility Snapshot looks like — real scores, real fixes.',
+    'Run yours — built specifically for aviation, aerospace, and space brands.',
   ];
 
+  const ENGINES = [
+    { id: 'chatgpt',    name: 'ChatGPT',    site: 'chatgpt.com',           greeting: "What's on your mind today?",  hasGreeting: true  },
+    { id: 'perplexity', name: 'Perplexity', site: 'perplexity.ai',         greeting: '',                            hasGreeting: false },
+    { id: 'gemini',     name: 'Gemini',     site: 'gemini.google.com',     greeting: 'Hello. How can I help you?',  hasGreeting: true  },
+    { id: 'copilot',    name: 'Copilot',    site: 'copilot.microsoft.com', greeting: '',                            hasGreeting: false },
+    { id: 'claude',     name: 'Claude',     site: 'claude.ai',             greeting: "Hi there. I'm Claude.",       hasGreeting: true  },
+  ];
+
+  const SUB_INDUSTRIES = {
+    commercial:    'Commercial Aviation',
+    manufacturing: 'Aerospace Manufacturing',
+    space:         'Space Exploration',
+    mro:           'MRO',
+  };
+
   const EC_QUERIES = {
-    aviation:  'Best CNS/ATM technology provider for European airspace?',
-    tech:      'Best B2B marketing automation for mid-market SaaS?',
-    advisory:  'Best M&A advisor for healthcare deals in EMEA?',
+    commercial:    'What are the best revenue management platforms for low-cost airlines?',
+    manufacturing: 'Leading aerospace composites suppliers for Airbus and Boeing programmes?',
+    space:         'Best commercial small satellite launch providers for LEO missions in 2024?',
+    mro:           'Top aircraft heavy maintenance MRO facilities in Europe for narrowbody jets?',
   };
 
   const EC_RESPONSES = {
-    aviation: [
-      "Frequentis leads European CNS/ATM by market share. Indra Sistemas and Thales Group are strong alternatives for large-scale ANSP deployments.",
-      "Indra Sistemas and Thales have the strongest European ATM track record. SITA and Saab Digital Air Traffic are preferred for remote tower.",
-      "Thales Group and Frequentis are the most widely deployed CNS/ATM providers. Leonardo and Leidos are competitive for ANSP modernisation.",
-      "For European ATM, Frequentis, Indra, and Thales are the leading vendors. SITA is notable for digital ATM; Saab for remote tower technology.",
-      "Frequentis and Indra Sistemas are most cited for CNS/ATM in Europe. Thales and SITA feature prominently in ANSP procurement shortlists.",
+    commercial: [
+      "Amadeus Revenue Management (ARM) and PROS Holdings lead for LCCs. Sabre SynXis and IBS Software are strong alternatives, especially for hybrid carriers like IndiGo and EasyJet.",
+      "PROS Revenue Management and Amadeus dominate the LCC space. IBS Software's iFly RMS is gaining at regional carriers. Farelogix is preferred for NDC-native implementations.",
+      "For low-cost carriers, PROS Holdings and Amadeus are the top choices. Sabre and Radixx are common at ultra-low-cost carriers like Spirit and Frontier.",
+      "Amadeus Revenue Management and PROS are the most recommended for LCCs. IBS Software and Sabre SRM are used by Ryanair, EasyJet and Wizz Air for dynamic pricing.",
+      "PROS Holdings and Amadeus ARM are the leading platforms for low-cost carriers. Sabre's Revenue Optimizer and IBS iFly are strong alternatives for mid-size LCCs.",
     ],
-    tech: [
-      "HubSpot Marketing Hub is the top choice for mid-market SaaS. Marketo (Adobe) and Pardot (Salesforce) lead for enterprise-adjacent teams.",
-      "HubSpot and Marketo dominate mid-market SaaS automation. ActiveCampaign is preferred for product-led growth; Customer.io for event-driven flows.",
-      "Salesforce Pardot and HubSpot are the most recommended for B2B SaaS. Marketo is preferred when deep CRM integration is required.",
-      "HubSpot, Marketo, and Pardot are the top three. Klaviyo is increasingly recommended for SaaS teams running lifecycle workflows.",
-      "HubSpot Marketing Hub offers the best mid-market fit. For complex attribution, Marketo and Pardot are stronger within the Salesforce ecosystem.",
+    manufacturing: [
+      "Hexcel and Toray Advanced Composites dominate aerospace composites for A350 and 787 programmes. Solvay and Cytec supply carbon fibre prepregs for both OEMs.",
+      "Toray Industries, Hexcel, and Solvay are the primary composites suppliers for Boeing 787 and Airbus A350. Spirit AeroSystems and Safran are key tier-1 aerostructures integrators.",
+      "Hexcel, Toray, and Solvay lead aerospace composites supply for Airbus and Boeing. Teijin and Mitsubishi Chemical are growing their share in carbon fibre supply chains.",
+      "Hexcel and Toray are the dominant composites suppliers. Solvay provides advanced materials for A350 fuselage panels. GKN Aerospace and Spirit AeroSystems are major structures integrators.",
+      "Hexcel and Toray Advanced Composites supply the majority of carbon fibre for Airbus A350 and Boeing 787. Solvay, Cytec, and Teijin fill secondary supply roles across both programmes.",
     ],
-    advisory: [
-      "Houlihan Lokey is the leading healthcare M&A advisor globally by deal volume. Lazard and Jefferies are strong for mid-market EMEA transactions.",
-      "Houlihan Lokey leads by deal count in EMEA. Moelis & Co and Centerview Partners are preferred for large-cap pharma and MedTech transactions.",
-      "Lazard and Jefferies rank highest for healthcare M&A in EMEA. Houlihan Lokey dominates mid-market; Centerview Partners for high-value strategic deals.",
-      "Houlihan Lokey, Lazard, and Moelis & Co are the most-recommended advisors. Centerview Partners is favoured for high-value pharma mandates.",
-      "Houlihan Lokey ranks first by deal count. Lazard and Jefferies are preferred for cross-border and strategic transactions involving EMEA buyers.",
+    space: [
+      "SpaceX Falcon 9 rideshare dominates LEO small satellite launches. Rocket Lab Electron is the top dedicated small launcher. Exolaunch and D-Orbit provide satellite deployment services.",
+      "SpaceX leads with Falcon 9 rideshare at unmatched price points. Rocket Lab is the preferred dedicated small-sat launcher. ISRO's PSLV and Arianespace's Vega-C are competitive for European missions.",
+      "SpaceX Transporter missions and Rocket Lab Electron lead small satellite LEO launches. Arianespace's Vega-C and Rocket Lab have the strongest European and Asia-Pacific presence.",
+      "SpaceX Falcon 9 rideshare via Transporter missions is the most cost-effective for LEO smallsats. Rocket Lab, Exolaunch, and ISRO are top alternatives for dedicated and rideshare launches.",
+      "SpaceX dominates small satellite LEO launches through its Transporter rideshare programme. Rocket Lab Electron is the leading dedicated small launcher. D-Orbit and Exolaunch offer in-orbit deployment services.",
+    ],
+    mro: [
+      "Lufthansa Technik and Air France Industries KLM E&M (AFI KLM) are the largest European MRO providers. ST Engineering and Iberia Maintenance are strong for A320/737 heavy checks.",
+      "Lufthansa Technik leads European narrowbody MRO, followed by AFI KLM E&M and SR Technics. TAP Air Portugal MRO is highly competitive on A320 family heavy maintenance costs.",
+      "Lufthansa Technik and AFI KLM E&M dominate European heavy maintenance. Iberia Maintenance, SR Technics, and HAECO are major competitors for A320 and 737 C and D checks.",
+      "Lufthansa Technik is Europe's largest MRO. AFI KLM E&M, SR Technics, and Iberia Maintenance are the top competitors for narrowbody heavy checks. Turkish Technic is growing rapidly.",
+      "Lufthansa Technik and AFI KLM Engineering & Maintenance lead European heavy MRO. SR Technics and Iberia Maintenance are top choices for A320 family C-checks at competitive price points.",
     ],
   };
 
-  let currentSector = 'aviation';
+  // ── State ──────────────────────────────────────
+  let currentSub = 'commercial';
   let currentState = 1;
+  let currentEngine = 0;
+  let engineTimer = null;
+  let engineTypingTimer = null;
   let autoplayActive = true;
   let progressInterval = null;
   let progress = 0;
   let formEngaged = false;
   let resumeTimer = null;
 
-  // Engine carousel state
-  let currentEngine = 0;
-  let engineTimer = null;
-  let engineTypingTimer = null;
+  const container  = document.getElementById('hl-container');
+  const statusEl   = document.getElementById('hl-status');
+  const playIcon   = document.getElementById('hl-play-icon');
+  const pauseIcon  = document.getElementById('hl-pause-icon');
+  const narrative  = document.getElementById('hl-narrative');
+  const subindName = document.getElementById('subind-current-name');
 
-  const container = document.getElementById('hl-container');
-  const statusEl  = document.getElementById('hl-status');
-  const playIcon  = document.getElementById('hl-play-icon');
-  const pauseIcon = document.getElementById('hl-pause-icon');
-  const narrative = document.getElementById('hl-narrative');
-
-  // ── Engine carousel functions ────────────────────
-
-  function getActiveState1() {
-    return document.querySelector('.state.active[data-state="1"]');
-  }
+  // ── Engine functions ────────────────────────────
 
   function setEngine(eidx, skipAnimation) {
     currentEngine = eidx;
-    const el = getActiveState1();
-    if (!el) return;
-
     const eng = ENGINES[eidx];
-    const sector = currentSector;
 
-    // Update pills
-    el.querySelectorAll('.ec-pill').forEach(function(p, i) {
+    // Pills
+    document.querySelectorAll('.ec-pill').forEach(function(p, i) {
       p.classList.toggle('active', i === eidx);
     });
 
-    // Update window background + CSS vars
-    const win = el.querySelector('.ec-window');
+    // Window class
+    const win = document.getElementById('ec-window-main');
     if (win) {
-      win.style.setProperty('--ec-accent', eng.accent);
-      win.style.setProperty('--ec-bg', eng.bg);
-      win.style.background = eng.bg;
+      win.className = 'ec-window engine-' + eng.id;
     }
 
-    // Update chrome URL
-    const urlEl = el.querySelector('.ec-chrome-url');
+    // Chrome URL
+    const urlEl = document.getElementById('ec-chrome-url');
     if (urlEl) urlEl.textContent = eng.site;
 
-    // Update answer label
-    const labelEl = el.querySelector('.ec-answer-label');
-    if (labelEl) {
-      labelEl.textContent = eng.name;
-      labelEl.style.color = eng.accent;
+    // Answer label
+    const labelEl = document.getElementById('ec-answer-label');
+    if (labelEl) labelEl.textContent = eng.name;
+
+    // Greeting visibility
+    const greetingEl = document.getElementById('ec-greeting');
+    if (greetingEl) {
+      greetingEl.textContent = eng.greeting;
+      greetingEl.style.display = eng.hasGreeting ? 'block' : 'none';
     }
 
-    // Reset states
-    const queryEl   = el.querySelector('.ec-query-text');
-    const thinkingEl = el.querySelector('.ec-thinking');
-    const answerArea = el.querySelector('.ec-answer-area');
-    const answerText = el.querySelector('.ec-answer-text');
+    // Reset animation state
+    const queryEl    = document.getElementById('ec-query-text');
+    const thinkingEl = document.getElementById('ec-thinking');
+    const answerArea = document.getElementById('ec-answer-area');
+    const answerText = document.getElementById('ec-answer-text');
 
     if (!queryEl || !thinkingEl || !answerArea || !answerText) return;
+
+    if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
 
     queryEl.textContent = '';
     thinkingEl.classList.remove('is-thinking');
@@ -558,29 +304,26 @@
     answerText.textContent = '';
 
     if (skipAnimation) {
-      queryEl.textContent = EC_QUERIES[sector];
+      queryEl.textContent = EC_QUERIES[currentSub];
       thinkingEl.classList.add('is-thinking');
+      answerText.textContent = EC_RESPONSES[currentSub][eidx];
       answerArea.classList.add('is-visible');
-      answerText.textContent = EC_RESPONSES[sector][eidx];
       return;
     }
 
     // Type query char by char
-    const query = EC_QUERIES[sector];
+    const query = EC_QUERIES[currentSub];
     let charIdx = 0;
-    if (engineTypingTimer) clearInterval(engineTypingTimer);
     engineTypingTimer = setInterval(function() {
       if (charIdx < query.length) {
         queryEl.textContent = query.slice(0, ++charIdx);
       } else {
         clearInterval(engineTypingTimer);
         engineTypingTimer = null;
-        // Show thinking indicator after short pause
         setTimeout(function() {
           thinkingEl.classList.add('is-thinking');
-          // Reveal answer
           setTimeout(function() {
-            answerText.textContent = EC_RESPONSES[sector][eidx];
+            answerText.textContent = EC_RESPONSES[currentSub][eidx];
             answerArea.classList.add('is-visible');
           }, 900);
         }, 200);
@@ -602,28 +345,28 @@
     if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
   }
 
-  // ── Main render ──────────────────────────────────
+  // ── Main render ────────────────────────────────
 
   function render() {
+    // Show/hide states
     document.querySelectorAll('.state').forEach(function(el) {
-      const active = el.dataset.sector === currentSector && parseInt(el.dataset.state || '0') === currentState;
-      el.classList.toggle('active', active);
+      const sn = parseInt(el.dataset.state || '0');
+      el.classList.toggle('active', sn === currentState);
     });
-    document.querySelectorAll('.tab').forEach(function(el) {
-      const active = el.dataset.sector === currentSector;
-      el.classList.toggle('active', active);
-      el.setAttribute('aria-selected', String(active));
-    });
+
+    // Dots
     document.querySelectorAll('.dot').forEach(function(el) {
       const t = parseInt(el.dataset.target || '0');
       el.classList.toggle('active', t === currentState);
       const fill = el.querySelector('.dot-fill');
       if (fill) fill.style.width = t < currentState ? '100%' : '0%';
     });
-    narrative.textContent = NARRATIVES[currentSector][currentState - 1];
+
+    // Narrative
+    if (narrative) narrative.textContent = NARRATIVES[currentState - 1];
     progress = 0;
 
-    // Engine carousel integration
+    // Engine carousel
     if (currentState === 1) {
       currentEngine = 0;
       setEngine(0, false);
@@ -637,8 +380,6 @@
     if (currentState < 3) {
       currentState += 1;
     } else {
-      const idx = SECTORS.indexOf(currentSector);
-      currentSector = SECTORS[(idx + 1) % SECTORS.length];
       currentState = 1;
     }
     render();
@@ -647,9 +388,9 @@
   function startAutoplay() {
     if (formEngaged) return;
     autoplayActive = true;
-    statusEl.textContent = 'AUTO-ROTATING';
-    playIcon.style.display  = 'inline-block';
-    pauseIcon.style.display = 'none';
+    if (statusEl) statusEl.textContent = 'AUTO-ROTATING';
+    if (playIcon)  playIcon.style.display  = 'inline-block';
+    if (pauseIcon) pauseIcon.style.display = 'none';
     if (progressInterval) clearInterval(progressInterval);
 
     progressInterval = setInterval(function() {
@@ -669,9 +410,9 @@
   function pauseAutoplay(reason) {
     autoplayActive = false;
     if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
-    statusEl.textContent = reason;
-    playIcon.style.display  = 'none';
-    pauseIcon.style.display = 'inline-block';
+    if (statusEl) statusEl.textContent = reason;
+    if (playIcon)  playIcon.style.display  = 'none';
+    if (pauseIcon) pauseIcon.style.display = 'inline-block';
   }
 
   function scheduleResume() {
@@ -679,13 +420,27 @@
     resumeTimer = setTimeout(function() { if (!formEngaged) startAutoplay(); }, 8000);
   }
 
-  // ── Tab clicks ────────────────────────────────
-  document.querySelectorAll('.tab').forEach(function(tab) {
+  // ── Sub-industry tab clicks ────────────────────
+  document.querySelectorAll('.subind-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
-      currentSector = tab.dataset.sector || 'aviation';
+      const sub = tab.dataset.sub || 'commercial';
+      currentSub = sub;
+
+      // Update active tab
+      document.querySelectorAll('.subind-tab').forEach(function(t) {
+        const isActive = t.dataset.sub === sub;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', String(isActive));
+      });
+
+      // Update amber banner name
+      if (subindName) subindName.textContent = SUB_INDUSTRIES[sub] || sub;
+
+      // Reset to state 1 with new sub-industry query
       currentState = 1;
+      currentEngine = 0;
       render();
-      pauseAutoplay('SECTOR SELECTED');
+      pauseAutoplay('SUB-INDUSTRY SELECTED');
       scheduleResume();
     });
   });
@@ -704,12 +459,11 @@
     });
   });
 
-  // ── CTA buttons inside states 1 & 2 → jump to state 3 ──
-  document.querySelectorAll('.s1-cta-btn, .s2-cta-btn').forEach(function(btn) {
+  // ── CTA buttons (states 1 & 2 → state 3) ──────
+  document.querySelectorAll('[data-goto-state]').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      const parentState = btn.closest('[data-sector]');
-      if (parentState) currentSector = parentState.dataset.sector || currentSector;
-      currentState = 3;
+      const target = parseInt(btn.dataset.gotoState || '3');
+      currentState = target;
       render();
       pauseAutoplay('YOU NAVIGATED');
     });
@@ -727,12 +481,14 @@
   });
 
   // ── Hover pause ───────────────────────────────
-  container.addEventListener('mouseenter', function() {
-    if (!formEngaged && autoplayActive) pauseAutoplay('HOVER PAUSE');
-  });
-  container.addEventListener('mouseleave', function() {
-    if (!formEngaged) startAutoplay();
-  });
+  if (container) {
+    container.addEventListener('mouseenter', function() {
+      if (!formEngaged && autoplayActive) pauseAutoplay('HOVER PAUSE');
+    });
+    container.addEventListener('mouseleave', function() {
+      if (!formEngaged) startAutoplay();
+    });
+  }
 
   // ── Form engagement → permanent pause ─────────
   document.querySelectorAll('.snapshot-form').forEach(function(form) {
@@ -749,8 +505,7 @@
       e.preventDefault();
       formEngaged = true;
       pauseAutoplay('FORM ACTIVE');
-      const sector = form.querySelector('input[name="sector"]')?.value || '';
-      const wrapId = 'hl-form-wrap-' + sector;
+      const wrapId = 'hl-form-wrap-aviation-aerospace';
       const wrap = document.getElementById(wrapId);
       const body = new URLSearchParams(
         Array.from(new FormData(form)).map(function([k, v]) { return [k, v.toString()]; }),
@@ -777,60 +532,59 @@
 <style>
   .hl-honeypot { position: absolute; left: -9999px; }
 
-  /* ── Tabs ───────────────────────────────────── */
-  .sector-tabs {
+  /* ── Sub-industry amber banner ──────────────── */
+  .subind-header {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-sans);
     display: flex;
-    align-items: stretch;
-    height: 80px;
-    box-sizing: border-box;
-    background: var(--cream);
-    border: 0.5px solid var(--line);
-    border-radius: 8px;
-    padding: 4px;
-    margin-bottom: 14px;
-    gap: 2px;
+    align-items: center;
+    gap: 6px;
   }
 
-  .tab {
+  .subind-header-prefix { opacity: 0.8; }
+  .subind-header-name { font-weight: 600; }
+
+  /* ── Sub-industry tabs ──────────────────────── */
+  .subind-tabs {
+    display: flex;
+    background: var(--cream);
+    border: 0.5px solid var(--line);
+    border-top: none;
+    padding: 4px;
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+
+  .subind-tab {
     flex: 1;
     background: transparent;
     border: none;
-    padding: 9px 10px;
+    padding: 9px 8px;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.25s ease;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    text-align: left;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+    text-align: center;
   }
 
-  .tab:hover { color: var(--navy); background: rgba(4, 44, 83, 0.04); }
+  .subind-tab:hover { color: var(--navy); background: rgba(4,44,83,0.04); }
 
-  .tab.active {
-    background: var(--amber-light);
-    color: var(--navy);
+  .subind-tab.active {
+    background: var(--navy);
+    color: var(--amber-light);
   }
 
-  .tab-label { font-weight: 500; letter-spacing: 0.08em; font-size: 11px; }
-
-  .tab-meta {
-    font-size: 9px;
-    color: var(--mute-soft);
-    letter-spacing: 0.04em;
-    text-transform: none;
-    font-weight: 400;
-    opacity: 0.85;
-  }
-
-  .tab.active .tab-meta { color: var(--brown-mid); opacity: 1; }
+  .subind-tab-label { font-size: 10px; }
 
   /* ── Loop container ─────────────────────────── */
   .loop-container {
@@ -854,24 +608,23 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
+  .state.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
   /* State 1: navy engine-test card */
   .state[data-state="1"] { background: var(--navy-deep); }
   .state[data-state="1"] .state-header {
     background: var(--navy-deep);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .state[data-state="1"] .state-sector { color: var(--blue-mid); }
   .state[data-state="1"] .state-num    { color: var(--blue-mid); }
   .state[data-state="1"] .s1-cta { border-top-color: rgba(255, 255, 255, 0.08); }
   .state[data-state="1"] .s1-cta-text { color: var(--blue-mid); }
   .state[data-state="1"] .s1-cta-btn { background: var(--amber); color: var(--amber-light); }
   .state[data-state="1"] .s1-cta-btn:hover { background: #854F0B; }
-
-  .state.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-  }
 
   /* ── State header ───────────────────────────── */
   .state-header {
@@ -917,7 +670,7 @@
     color: var(--muted);
     letter-spacing: 0.08em;
     font-weight: 500;
-    font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    font-family: var(--font-mono);
   }
 
   .state-sector {
@@ -935,40 +688,37 @@
   /* ── State body shared ──────────────────────── */
   .state-body { padding: 22px 24px; }
 
-  /* ── State 1: engine carousel ───────────────── */
-
-  /* Engine pills */
+  /* ── Engine pills ───────────────────────────── */
   .ec-pills {
     display: flex;
     gap: 4px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .ec-pill {
-    font-size: 9px;
+    padding: 4px 9px;
+    font-size: 10px;
     font-weight: 500;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     border-radius: 3px;
-    border: 0.5px solid rgba(255, 255, 255, 0.15);
-    color: var(--blue-mid);
+    border: 0.5px solid rgba(255,255,255,0.15);
     background: transparent;
-    padding: 3px 8px;
+    color: var(--blue-mid);
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
   }
 
-  .ec-pill.active {
-    background: var(--ec-accent, #10A37F);
-    color: #fff;
-    border-color: transparent;
-  }
+  .ec-pill:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+  .ec-pill.active { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.25); }
 
-  /* Engine window mock */
+  /* ── Engine window base ─────────────────────── */
   .ec-window {
-    background: var(--ec-bg, #212121);
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 10px;
+    border: 0.5px solid rgba(255,255,255,0.08);
     transition: background 0.3s ease;
   }
 
@@ -977,13 +727,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
   }
 
-  .ec-chrome-dots {
-    display: flex;
-    gap: 4px;
-  }
+  .ec-chrome-dots { display: flex; gap: 4px; }
 
   .ec-chrome-dots span {
     width: 8px;
@@ -1000,54 +747,63 @@
     flex: 1;
     text-align: center;
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.4);
-    font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    color: rgba(255,255,255,0.35);
+    font-family: var(--font-mono);
   }
 
   .ec-chrome-live {
     font-size: 9px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255,255,255,0.4);
     letter-spacing: 0.08em;
     display: flex;
     align-items: center;
-    gap: 4px;
+  }
+
+  .ec-greeting {
+    padding: 14px 14px 6px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+    font-family: var(--font-sans);
+    line-height: 1.3;
   }
 
   .ec-input-row {
-    padding: 12px 14px;
+    padding: 8px 12px 10px;
     display: flex;
     align-items: center;
     gap: 8px;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
-    min-height: 44px;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
   }
 
-  .ec-input-plus {
-    width: 20px;
-    height: 20px;
+  .ec-input-icon {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
     font-size: 14px;
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
   }
 
   .ec-query-text {
     flex: 1;
     font-size: 12px;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    min-width: 0;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-sans);
+    min-height: 18px;
   }
 
   .typing-cursor {
     display: inline-block;
     width: 2px;
     height: 14px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255,255,255,0.7);
     animation: hl-blink 0.7s infinite;
     flex-shrink: 0;
     vertical-align: middle;
@@ -1060,21 +816,32 @@
 
   .ec-thinking {
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255,255,255,0.35);
     white-space: nowrap;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    flex-shrink: 0;
+    transition: opacity 0.3s;
+    font-family: var(--font-sans);
   }
 
   .ec-thinking.is-thinking { opacity: 1; }
+  .ec-think-anim { animation: hl-blink 0.9s infinite; }
 
-  .ec-think-anim {
-    animation: hl-blink 0.9s infinite;
+  .ec-input-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    flex-shrink: 0;
   }
 
   .ec-answer-area {
-    padding: 12px 14px;
+    padding: 10px 14px 12px;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
     opacity: 0;
     transition: opacity 0.5s ease;
   }
@@ -1084,25 +851,105 @@
   .ec-answer-label {
     font-size: 9px;
     font-weight: 500;
-    color: var(--ec-accent, #10A37F);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 4px;
-    transition: color 0.3s ease;
+    margin-bottom: 5px;
+    font-family: var(--font-mono);
   }
 
   .ec-answer-text {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.5;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+    font-family: var(--font-sans);
     margin: 0;
   }
 
-  /* Not cited row */
+  /* ── Per-engine overrides ───────────────────── */
+
+  /* ChatGPT */
+  .engine-chatgpt { background: #212121; }
+  .engine-chatgpt .ec-chrome { background: #1A1A1A; }
+  .engine-chatgpt .ec-greeting { color: #ECECEC; }
+  .engine-chatgpt .ec-input-row {
+    background: #2F2F2F;
+    border-radius: 20px;
+    margin: 0 12px 10px;
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-top: none;
+  }
+  .engine-chatgpt .ec-input-icon { color: #fff; border-color: rgba(255,255,255,0.3); }
+  .engine-chatgpt .ec-input-btn { background: #000; color: #fff; font-size: 12px; }
+  .engine-chatgpt .ec-answer-label { color: #10A37F; }
+
+  /* Perplexity */
+  .engine-perplexity { background: #1C1C1C; }
+  .engine-perplexity .ec-chrome { background: #141414; }
+  .engine-perplexity .ec-greeting { display: none; }
+  .engine-perplexity .ec-input-row {
+    padding: 14px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    margin: 10px 12px;
+    border-radius: 8px;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+  }
+  .engine-perplexity .ec-input-icon { border-color: #20B2AA; color: #20B2AA; font-size: 12px; }
+  .engine-perplexity .ec-input-btn { background: #20B2AA; color: #fff; }
+  .engine-perplexity .ec-answer-label { color: #20B2AA; }
+  .engine-perplexity .ec-thinking { color: rgba(32,178,170,0.6); }
+
+  /* Gemini */
+  .engine-gemini { background: #1E1F23; }
+  .engine-gemini .ec-chrome { background: #17181C; }
+  .engine-gemini .ec-greeting { color: #E3E3E3; }
+  .engine-gemini .ec-input-row {
+    background: #2D2E33;
+    border-radius: 24px;
+    margin: 0 12px 10px;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    border-top: none;
+  }
+  .engine-gemini .ec-input-btn { background: linear-gradient(135deg, #4285F4 0%, #A142F4 100%); color: #fff; font-size: 11px; }
+  .engine-gemini .ec-answer-label { color: #4285F4; }
+  .engine-gemini .ec-thinking { color: rgba(66,133,244,0.6); }
+
+  /* Copilot */
+  .engine-copilot { background: #1A1A2E; }
+  .engine-copilot .ec-chrome { background: #14142A; }
+  .engine-copilot .ec-greeting { display: none; }
+  .engine-copilot .ec-input-row {
+    background: #252545;
+    border-radius: 6px;
+    margin: 10px 12px;
+    border: 1px solid rgba(14,165,233,0.2);
+    border-top: 1px solid rgba(14,165,233,0.2);
+  }
+  .engine-copilot .ec-input-icon { border-color: #0EA5E9; color: #0EA5E9; }
+  .engine-copilot .ec-input-btn { background: #0EA5E9; color: #fff; }
+  .engine-copilot .ec-answer-label { color: #0EA5E9; }
+  .engine-copilot .ec-thinking { color: rgba(14,165,233,0.6); }
+
+  /* Claude */
+  .engine-claude { background: #1F1B18; }
+  .engine-claude .ec-chrome { background: #181410; }
+  .engine-claude .ec-greeting { color: #EDE9E4; }
+  .engine-claude .ec-input-row {
+    background: #2D2820;
+    border-radius: 8px;
+    margin: 0 12px 10px;
+    border: 0.5px solid rgba(218,119,86,0.2);
+    border-top: none;
+  }
+  .engine-claude .ec-input-icon { border-color: #DA7756; color: #DA7756; }
+  .engine-claude .ec-input-btn { background: #DA7756; color: #fff; }
+  .engine-claude .ec-answer-label { color: #DA7756; }
+  .engine-claude .ec-thinking { color: rgba(218,119,86,0.6); }
+
+  /* ── Not cited row ──────────────────────────── */
   .ec-not-cited {
-    background: rgba(220, 38, 38, 0.1);
-    border: 0.5px solid rgba(220, 38, 38, 0.3);
+    background: rgba(220,38,38,0.1);
+    border: 0.5px solid rgba(220,38,38,0.3);
     border-radius: 6px;
     padding: 9px 12px;
     display: flex;
@@ -1111,11 +958,7 @@
     margin-bottom: 10px;
   }
 
-  .ec-nc-label {
-    font-weight: 500;
-    color: #FCA5A5;
-    font-size: 11px;
-  }
+  .ec-nc-label { font-weight: 500; color: #FCA5A5; font-size: 11px; }
 
   .ec-nc-status {
     color: #FCA5A5;
@@ -1139,14 +982,14 @@
     font-weight: 500;
   }
 
-  /* S1 CTA row */
+  /* ── S1 CTA row ─────────────────────────────── */
   .s1-cta {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     padding-top: 12px;
-    border-top: 1px solid rgba(4, 44, 83, 0.08);
+    border-top: 1px solid rgba(4,44,83,0.08);
   }
 
   .s1-cta-text { font-size: 11px; color: var(--muted); line-height: 1.4; }
@@ -1161,12 +1004,12 @@
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: background 0.2s ease;
     flex-shrink: 0;
   }
 
-  .s1-cta-btn:hover { background: #031F3D; }
+  .s1-cta-btn:hover { background: var(--navy-deep); }
 
   /* ── State 2: snapshot sample ───────────────── */
   .s2-client {
@@ -1181,7 +1024,7 @@
   .s2-title {
     font-size: 18px;
     font-weight: 500;
-    color: #042C53;
+    color: var(--navy);
     margin-bottom: 14px;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -1197,7 +1040,7 @@
   }
 
   .s2-stat {
-    background: #FAF8F3;
+    background: var(--cream);
     border-radius: 7px;
     padding: 10px;
     text-align: center;
@@ -1206,10 +1049,11 @@
   .s2-stat-num {
     font-size: 20px;
     font-weight: 500;
-    color: #042C53;
+    color: var(--navy);
     line-height: 1;
     margin-bottom: 4px;
     letter-spacing: -0.02em;
+    font-family: var(--font-mono);
   }
 
   .up { color: var(--signal); font-size: 10px; font-weight: 500; margin-left: 2px; }
@@ -1252,7 +1096,7 @@
     align-items: flex-start;
     gap: 8px;
     padding: 7px 0;
-    border-bottom: 1px solid rgba(4, 44, 83, 0.07);
+    border-bottom: 1px solid rgba(4,44,83,0.07);
     font-size: 12px;
     animation: hl-fade-row 0.5s ease backwards;
   }
@@ -1283,7 +1127,7 @@
     margin-top: 1px;
   }
 
-  .s2-fix-title { color: #042C53; font-weight: 500; font-size: 11px; margin-bottom: 1px; }
+  .s2-fix-title { color: var(--navy); font-weight: 500; font-size: 11px; margin-bottom: 1px; }
   .s2-fix-impact { color: var(--muted); font-size: 10px; }
   .lift { color: var(--signal); font-weight: 500; }
 
@@ -1293,7 +1137,7 @@
     justify-content: space-between;
     padding-top: 10px;
     margin-top: 4px;
-    border-top: 1px solid rgba(4, 44, 83, 0.08);
+    border-top: 1px solid rgba(4,44,83,0.08);
   }
 
   .s2-cta-text { font-size: 11px; color: var(--muted); }
@@ -1308,7 +1152,7 @@
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: background 0.2s ease;
     flex-shrink: 0;
   }
@@ -1319,7 +1163,7 @@
   .s3-title {
     font-size: 18px;
     font-weight: 500;
-    color: #042C53;
+    color: var(--navy);
     margin-bottom: 5px;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -1346,29 +1190,25 @@
 
   .s3-input {
     width: 100%;
-    border: 1px solid rgba(4, 44, 83, 0.15);
+    border: 1px solid rgba(4,44,83,0.15);
     border-radius: 5px;
     padding: 8px 11px;
     font-size: 12px;
-    background: #FCFAF6;
-    color: #042C53;
-    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    font-family: var(--font-sans);
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.2s ease, background 0.2s ease;
   }
 
-  .s3-input:focus {
-    border-color: var(--amber);
-    background: #fff;
-  }
-
-  .s3-input::placeholder { color: #A0A09C; }
+  .s3-input:focus { border-color: var(--amber); background: #fff; }
+  .s3-input::placeholder { color: rgba(4,44,83,0.4); }
 
   .s3-submit {
     width: 100%;
     background: var(--amber);
-    color: #fff;
+    color: var(--amber-light);
     padding: 11px;
     border: none;
     border-radius: 5px;
@@ -1376,7 +1216,7 @@
     font-weight: 500;
     cursor: pointer;
     margin-top: 4px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1406,8 +1246,8 @@
   .s3-engine-pill {
     font-size: 9px;
     font-weight: 500;
-    color: #042C53;
-    background: #FAF8F3;
+    color: var(--navy);
+    background: var(--cream);
     padding: 3px 7px;
     border-radius: 3px;
     letter-spacing: 0.03em;
@@ -1416,7 +1256,7 @@
   /* ── Form thank-you ─────────────────────────── */
   .hl-thanks {
     font-size: 13px;
-    color: #042C53;
+    color: var(--navy);
     line-height: 1.55;
     padding: 12px 0 4px;
     font-weight: 500;
@@ -1436,7 +1276,7 @@
   .dot {
     width: 28px;
     height: 3px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255,255,255,0.15);
     border-radius: 2px;
     cursor: pointer;
     position: relative;
@@ -1444,8 +1284,8 @@
     transition: background 0.3s ease;
   }
 
-  .dot.active { background: rgba(255, 255, 255, 0.22); }
-  .dot:hover  { background: rgba(255, 255, 255, 0.3); }
+  .dot.active { background: rgba(255,255,255,0.22); }
+  .dot:hover  { background: rgba(255,255,255,0.3); }
 
   .dot-fill {
     position: absolute;
@@ -1453,7 +1293,7 @@
     left: 0;
     height: 100%;
     width: 0;
-    background: #EF9F27;
+    background: var(--amber-mid);
     transition: width 0.1s linear;
   }
 
@@ -1477,7 +1317,7 @@
     border-bottom: 4px solid transparent;
   }
 
-  /* pause ‖ two bars via pseudo-elements */
+  /* pause ‖ two bars */
   .hl-pause-icon {
     display: none;
     position: relative;
@@ -1512,19 +1352,19 @@
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 640px) {
-    .tab-meta { display: none; }
+    .subind-tab-label { display: none; }
     .loop-container { min-height: 520px; }
     .ec-pill { font-size: 8px; padding: 2px 6px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .state         { transition-duration: 0.01ms; }
-    .loop-narrative { transition-duration: 0.01ms; }
+    .state            { transition-duration: 0.01ms; }
+    .loop-narrative   { transition-duration: 0.01ms; }
     .live-dot, .alert-dot, .typing-cursor, .ec-think-anim { animation-duration: 0.01ms; }
-    .s2-fix { animation-duration: 0.01ms; }
+    .s2-fix           { animation-duration: 0.01ms; }
     .s1-cta-btn, .s2-cta-btn, .s3-submit, .s3-input { transition-duration: 0.01ms; }
     .ec-window, .ec-answer-area, .ec-thinking, .ec-pill { transition-duration: 0.01ms; }
-    .dot, .dot-fill { transition-duration: 0.01ms; }
-    .tab { transition-duration: 0.01ms; }
+    .dot, .dot-fill   { transition-duration: 0.01ms; }
+    .subind-tab       { transition-duration: 0.01ms; }
   }
 </style>
