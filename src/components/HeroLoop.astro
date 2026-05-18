@@ -72,85 +72,17 @@
         <!-- CTA -->
         <div class="s1-cta">
           <span class="s1-cta-text">Aviation &amp; aerospace buyers screen vendors in AI first.<br/>Find out if yours is being cited.</span>
-          <button class="s1-cta-btn" data-goto-state="3">See what AI says →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── STATE 3: Form ── -->
-    <div class="state" data-state="3">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>FREE · 5 MIN · NO CALL REQUIRED</span>
-          <span class="state-sector">Aviation &amp; Aerospace</span>
-        </div>
-        <span class="state-num">03 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s3-title">Run Your AI Visibility Snapshot</p>
-        <p class="s3-sub">Find out where your aviation or aerospace brand stands across all 5 AI engines — results in your inbox in 48 hours.</p>
-        <div id="hl-form-wrap-aviation-aerospace">
-          <form name="visibility-snapshot" data-netlify="true" data-netlify-honeypot="bot-field" class="snapshot-form" data-sector-form="aviation-aerospace">
-            <input type="hidden" name="form-name" value="visibility-snapshot" />
-            <input type="hidden" name="sector" value="aviation-aerospace" />
-            <input type="hidden" name="source-page" value="homepage-hero" />
-            <p class="hl-honeypot" aria-hidden="true"><label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-av-web">Your website</label>
-              <input type="text" class="s3-input" id="hl-av-web" name="website" placeholder="youraviationbrand.com" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-av-spec">Your aviation or aerospace specialism</label>
-              <input type="text" class="s3-input" id="hl-av-spec" name="category" placeholder="e.g. CNS/ATM, MRO, composites, launch" />
-            </div>
-            <div class="s3-field">
-              <label class="s3-label" for="hl-av-q">A question your buyer would ask AI</label>
-              <input type="text" class="s3-input" id="hl-av-q" name="buyer-question" placeholder="Best MRO provider for narrowbody jets in Europe?" />
-            </div>
-            <button type="submit" class="s3-submit">Get my Snapshot →</button>
-          </form>
-        </div>
-        <p class="s3-foot">Tested live across:</p>
-        <div class="s3-engines" aria-label="AI engines tested">
-          <span class="s3-engine-pill">ChatGPT</span>
-          <span class="s3-engine-pill">Claude</span>
-          <span class="s3-engine-pill">Copilot</span>
-          <span class="s3-engine-pill">Gemini</span>
-          <span class="s3-engine-pill">Perplexity</span>
+          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="s1-cta-btn">Get my AI Visibility Snapshot →</a>
         </div>
       </div>
     </div>
 
   </div><!-- /loop-container -->
 
-  <!-- ── CONTROLS ────────────────────────────────── -->
-  <div class="loop-controls">
-    <div class="progress-dots" role="group" aria-label="Slide navigation">
-      <div class="dot active" data-target="1" role="button" tabindex="0" aria-label="Go to slide 1"><div class="dot-fill"></div></div>
-      <div class="dot" data-target="3" role="button" tabindex="0" aria-label="Go to slide 2"><div class="dot-fill"></div></div>
-    </div>
-    <div class="loop-meta">
-      <span class="hl-play-icon" id="hl-play-icon" aria-hidden="true"></span>
-      <span class="hl-pause-icon" id="hl-pause-icon" aria-hidden="true"></span>
-      <span id="hl-status">AUTO-ROTATING</span>
-    </div>
-  </div>
-
-  <p class="loop-narrative" id="hl-narrative" aria-live="polite">
-    Aviation &amp; aerospace buyers ask AI to shortlist vendors before any RFP or pitch.
-  </p>
-
 </div><!-- /hl-root -->
 
 <script>
 (function () {
-  const STATE_DURATIONS = { 1: 6500, 3: 14000 };
-
-  const NARRATIVES = {
-    1: 'Aviation & aerospace buyers ask AI to shortlist vendors before any RFP or pitch.',
-    3: 'Run yours — built specifically for aviation, aerospace, and space brands.',
-  };
-
   const ENGINES = [
     { id: 'chatgpt',    name: 'ChatGPT',    site: 'chatgpt.com',           greeting: "What's on your mind today?",  hasGreeting: true  },
     { id: 'perplexity', name: 'Perplexity', site: 'perplexity.ai',         greeting: '',                            hasGreeting: false },
@@ -159,21 +91,14 @@
     { id: 'claude',     name: 'Claude',     site: 'claude.ai',             greeting: "Hi there. I'm Claude.",       hasGreeting: true  },
   ];
 
-  const SUB_INDUSTRIES = {
-    commercial:    'Commercial Aviation',
-    manufacturing: 'Aerospace Manufacturing',
-    space:         'Space Exploration',
-    mro:           'MRO',
-  };
-
-  const EC_QUERIES = {
+  const EC_QUERIES: Record<string, string> = {
     commercial:    'What are the best revenue management platforms for low-cost airlines?',
     manufacturing: 'Leading aerospace composites suppliers for Airbus and Boeing programmes?',
     space:         'Best commercial small satellite launch providers for LEO missions in 2024?',
     mro:           'Top aircraft heavy maintenance MRO facilities in Europe for narrowbody jets?',
   };
 
-  const EC_RESPONSES = {
+  const EC_RESPONSES: Record<string, string[]> = {
     commercial: [
       "Amadeus Revenue Management (ARM) and PROS Holdings lead for LCCs. Sabre SynXis and IBS Software are strong alternatives, especially for hybrid carriers like IndiGo and EasyJet.",
       "PROS Revenue Management and Amadeus dominate the LCC space. IBS Software's iFly RMS is gaining at regional carriers. Farelogix is preferred for NDC-native implementations.",
@@ -206,26 +131,15 @@
 
   // ── State ──────────────────────────────────────
   let currentSub = 'commercial';
-  let currentState = 1;
   let currentEngine = 0;
-  let engineTimer = null;
-  let engineTypingTimer = null;
-  let autoplayActive = true;
-  let progressInterval = null;
-  let progress = 0;
-  let formEngaged = false;
-  let resumeTimer = null;
+  let engineTimer: ReturnType<typeof setInterval> | null = null;
+  let engineTypingTimer: ReturnType<typeof setInterval> | null = null;
 
-  const container  = document.getElementById('hl-container');
-  const statusEl   = document.getElementById('hl-status');
-  const playIcon   = document.getElementById('hl-play-icon');
-  const pauseIcon  = document.getElementById('hl-pause-icon');
-  const narrative  = document.getElementById('hl-narrative');
-  const subindName = document.getElementById('subind-current-name');
+  const container = document.getElementById('hl-container');
 
   // ── Engine functions ────────────────────────────
 
-  function setEngine(eidx, skipAnimation) {
+  function setEngine(eidx: number, skipAnimation: boolean) {
     currentEngine = eidx;
     const eng = ENGINES[eidx];
 
@@ -249,7 +163,7 @@
     if (labelEl) labelEl.textContent = eng.name;
 
     // Greeting visibility
-    const greetingEl = document.getElementById('ec-greeting');
+    const greetingEl = document.getElementById('ec-greeting') as HTMLElement | null;
     if (greetingEl) {
       greetingEl.textContent = eng.greeting;
       greetingEl.style.display = eng.hasGreeting ? 'block' : 'none';
@@ -285,8 +199,7 @@
       if (charIdx < query.length) {
         queryEl.textContent = query.slice(0, ++charIdx);
       } else {
-        clearInterval(engineTypingTimer);
-        engineTypingTimer = null;
+        if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
         setTimeout(function() {
           thinkingEl.classList.add('is-thinking');
           setTimeout(function() {
@@ -301,7 +214,6 @@
   function startEngineLoop() {
     if (engineTimer) clearInterval(engineTimer);
     engineTimer = setInterval(function() {
-      if (currentState !== 1) return;
       currentEngine = (currentEngine + 1) % ENGINES.length;
       setEngine(currentEngine, false);
     }, 5500);
@@ -312,187 +224,52 @@
     if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
   }
 
-  // ── Main render ────────────────────────────────
-
-  function render() {
-    // Show/hide states
-    document.querySelectorAll('.state').forEach(function(el) {
-      const sn = parseInt(el.dataset.state || '0');
-      el.classList.toggle('active', sn === currentState);
-    });
-
-    // Dots
-    document.querySelectorAll('.dot').forEach(function(el) {
-      const t = parseInt(el.dataset.target || '0');
-      el.classList.toggle('active', t === currentState);
-      const fill = el.querySelector('.dot-fill');
-      if (fill) fill.style.width = t < currentState ? '100%' : '0%';
-    });
-
-    // Narrative
-    if (narrative) narrative.textContent = NARRATIVES[currentState] || '';
-    progress = 0;
-
-    // Engine carousel
-    if (currentState === 1) {
-      currentEngine = 0;
-      setEngine(0, false);
-      startEngineLoop();
-    } else {
-      stopEngineLoop();
-    }
-  }
-
-  function advance() {
-    currentState = currentState === 1 ? 3 : 1;
-    render();
-  }
-
-  function startAutoplay() {
-    if (formEngaged) return;
-    autoplayActive = true;
-    if (statusEl) statusEl.textContent = 'AUTO-ROTATING';
-    if (playIcon)  playIcon.style.display  = 'inline-block';
-    if (pauseIcon) pauseIcon.style.display = 'none';
-    if (progressInterval) clearInterval(progressInterval);
-
-    progressInterval = setInterval(function() {
-      if (!autoplayActive || formEngaged) return;
-      progress += 100;
-      const total = STATE_DURATIONS[currentState] || 6500;
-      const pct = Math.min(100, (progress / total) * 100);
-      const activeFill = document.querySelector('.dot.active .dot-fill');
-      if (activeFill) activeFill.style.width = pct + '%';
-      if (progress >= total) {
-        progress = 0;
-        advance();
-      }
-    }, 100);
-  }
-
-  function pauseAutoplay(reason) {
-    autoplayActive = false;
-    if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
-    if (statusEl) statusEl.textContent = reason;
-    if (playIcon)  playIcon.style.display  = 'none';
-    if (pauseIcon) pauseIcon.style.display = 'inline-block';
-  }
-
-  function scheduleResume() {
-    if (resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function() { if (!formEngaged) startAutoplay(); }, 8000);
-  }
-
   // ── Sub-industry tab clicks ────────────────────
-  document.querySelectorAll('.subind-tab').forEach(function(tab) {
+  document.querySelectorAll<HTMLButtonElement>('.subind-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       const sub = tab.dataset.sub || 'commercial';
       currentSub = sub;
 
       // Update active tab
-      document.querySelectorAll('.subind-tab').forEach(function(t) {
+      document.querySelectorAll<HTMLButtonElement>('.subind-tab').forEach(function(t) {
         const isActive = t.dataset.sub === sub;
         t.classList.toggle('active', isActive);
         t.setAttribute('aria-selected', String(isActive));
       });
 
-
-      // Reset to state 1 with new sub-industry query
-      currentState = 1;
-      currentEngine = 0;
-      render();
-      pauseAutoplay('SUB-INDUSTRY SELECTED');
-      scheduleResume();
-    });
-  });
-
-  // ── Dot clicks ────────────────────────────────
-  document.querySelectorAll('.dot').forEach(function(dot) {
-    const activate = function() {
-      currentState = parseInt(dot.dataset.target || '1');
-      render();
-      pauseAutoplay('YOU NAVIGATED');
-      if (currentState !== 3) scheduleResume();
-    };
-    dot.addEventListener('click', activate);
-    dot.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-    });
-  });
-
-  // ── CTA buttons (states 1 & 2 → state 3) ──────
-  document.querySelectorAll('[data-goto-state]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      const target = parseInt(btn.dataset.gotoState || '3');
-      currentState = target;
-      render();
-      pauseAutoplay('YOU NAVIGATED');
+      // Restart engine carousel with new query
+      stopEngineLoop();
+      setEngine(0, false);
+      startEngineLoop();
     });
   });
 
   // ── Engine pill clicks ────────────────────────
-  document.querySelectorAll('.ec-pill').forEach(function(pill) {
+  document.querySelectorAll<HTMLButtonElement>('.ec-pill').forEach(function(pill) {
     pill.addEventListener('click', function() {
       stopEngineLoop();
       setEngine(parseInt(pill.dataset.eidx || '0'), false);
       startEngineLoop();
-      pauseAutoplay('ENGINE SELECTED');
-      scheduleResume();
     });
   });
 
   // ── Hover pause ───────────────────────────────
   if (container) {
     container.addEventListener('mouseenter', function() {
-      if (!formEngaged && autoplayActive) pauseAutoplay('HOVER PAUSE');
+      stopEngineLoop();
     });
     container.addEventListener('mouseleave', function() {
-      if (!formEngaged) startAutoplay();
+      startEngineLoop();
     });
   }
 
-  // ── Form engagement → permanent pause ─────────
-  document.querySelectorAll('.snapshot-form').forEach(function(form) {
-    form.addEventListener('focusin', function() {
-      formEngaged = true;
-      pauseAutoplay('FORM ACTIVE');
-    });
-    form.addEventListener('input', function() {
-      formEngaged = true;
-      pauseAutoplay('FORM ACTIVE');
-    });
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      formEngaged = true;
-      pauseAutoplay('FORM ACTIVE');
-      const wrapId = 'hl-form-wrap-aviation-aerospace';
-      const wrap = document.getElementById(wrapId);
-      const body = new URLSearchParams(
-        Array.from(new FormData(form)).map(function([k, v]) { return [k, v.toString()]; }),
-      ).toString();
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-        });
-        if (wrap) wrap.innerHTML = '<p class="hl-thanks">Thanks — we\'ll analyse your AI visibility and send results within one business day.</p>';
-      } catch {
-        form.submit();
-      }
-    });
-  });
-
   // ── Boot ──────────────────────────────────────
-  render();
-  startAutoplay();
+  setEngine(0, false);
+  startEngineLoop();
 })();
 </script>
 
 <style>
-  .hl-honeypot { position: absolute; left: -9999px; }
-
   /* ── Sub-industry amber banner ──────────────── */
   .subind-header {
     background: var(--amber);
@@ -632,18 +409,6 @@
     letter-spacing: 0.08em;
     font-weight: 500;
     font-family: var(--font-mono);
-  }
-
-  .state-sector {
-    font-size: 9px;
-    color: var(--amber);
-    background: var(--amber-light);
-    padding: 3px 7px;
-    border-radius: 3px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-left: 8px;
   }
 
   /* ── State body shared ──────────────────────── */
@@ -968,348 +733,11 @@
     font-family: var(--font-sans);
     transition: background 0.2s ease;
     flex-shrink: 0;
+    text-decoration: none;
+    display: inline-block;
   }
 
   .s1-cta-btn:hover { background: var(--navy-deep); }
-
-  /* ── State 2: snapshot sample ───────────────── */
-  .s2-client {
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 5px;
-  }
-
-  .s2-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 14px;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-
-  .s2-title .num { color: var(--amber); }
-
-  .s2-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .s2-stat {
-    background: var(--cream);
-    border-radius: 7px;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .s2-stat-num {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 4px;
-    letter-spacing: -0.02em;
-    font-family: var(--font-mono);
-  }
-
-  .up { color: var(--signal); font-size: 10px; font-weight: 500; margin-left: 2px; }
-
-  .s2-stat-label {
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .s2-fixes-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 7px;
-  }
-
-  .s2-fixes-label {
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .s2-priority {
-    font-size: 9px;
-    background: var(--amber-light);
-    color: var(--amber);
-    padding: 3px 7px;
-    border-radius: 8px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-  }
-
-  .s2-fix {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(4,44,83,0.07);
-    font-size: 12px;
-    animation: hl-fade-row 0.5s ease backwards;
-  }
-
-  .s2-fix:last-of-type { border: none; }
-
-  .state[data-state="2"].active .s2-fix:nth-of-type(1) { animation-delay: 0.4s; }
-  .state[data-state="2"].active .s2-fix:nth-of-type(2) { animation-delay: 0.7s; }
-  .state[data-state="2"].active .s2-fix:nth-of-type(3) { animation-delay: 1s; }
-
-  @keyframes hl-fade-row {
-    from { opacity: 0; transform: translateX(-8px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  .s2-fix-num {
-    background: var(--navy);
-    color: #fff;
-    width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .s2-fix-title { color: var(--navy); font-weight: 500; font-size: 11px; margin-bottom: 1px; }
-  .s2-fix-impact { color: var(--muted); font-size: 10px; }
-  .lift { color: var(--signal); font-weight: 500; }
-
-  .s2-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
-    margin-top: 4px;
-    border-top: 1px solid rgba(4,44,83,0.08);
-  }
-
-  .s2-cta-text { font-size: 11px; color: var(--muted); }
-
-  .s2-cta-btn {
-    background: var(--amber);
-    color: #fff;
-    padding: 9px 14px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: var(--font-sans);
-    transition: background 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  .s2-cta-btn:hover { background: #854F0B; }
-
-  /* ── State 3: form ──────────────────────────── */
-  .s3-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 5px;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
-
-  .s3-sub {
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-
-  .s3-field { margin-bottom: 10px; }
-
-  .s3-label {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .s3-input {
-    width: 100%;
-    border: 1px solid rgba(4,44,83,0.15);
-    border-radius: 5px;
-    padding: 8px 11px;
-    font-size: 12px;
-    background: var(--cream);
-    color: var(--navy);
-    font-family: var(--font-sans);
-    outline: none;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .s3-input:focus { border-color: var(--amber); background: #fff; }
-  .s3-input::placeholder { color: rgba(4,44,83,0.4); }
-
-  .s3-submit {
-    width: 100%;
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 11px;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 4px;
-    font-family: var(--font-sans);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    letter-spacing: 0.02em;
-    transition: background 0.2s ease;
-  }
-
-  .s3-submit:hover { background: #854F0B; }
-
-  .s3-foot {
-    font-size: 10px;
-    color: var(--muted);
-    margin-top: 10px;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .s3-engines {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    margin-top: 7px;
-    flex-wrap: wrap;
-  }
-
-  .s3-engine-pill {
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--navy);
-    background: var(--cream);
-    padding: 3px 7px;
-    border-radius: 3px;
-    letter-spacing: 0.03em;
-  }
-
-  /* ── Form thank-you ─────────────────────────── */
-  .hl-thanks {
-    font-size: 13px;
-    color: var(--navy);
-    line-height: 1.55;
-    padding: 12px 0 4px;
-    font-weight: 500;
-  }
-
-  /* ── Controls ───────────────────────────────── */
-  .loop-controls {
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .progress-dots { display: flex; gap: 6px; }
-
-  .dot {
-    width: 28px;
-    height: 3px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 2px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease;
-  }
-
-  .dot.active { background: rgba(255,255,255,0.22); }
-  .dot:hover  { background: rgba(255,255,255,0.3); }
-
-  .dot-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: var(--amber-mid);
-    transition: width 0.1s linear;
-  }
-
-  .loop-meta {
-    font-size: 10px;
-    color: var(--blue-mid);
-    letter-spacing: 0.08em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 500;
-  }
-
-  /* play ▶ triangle */
-  .hl-play-icon {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 6px solid currentColor;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-  }
-
-  /* pause ‖ two bars */
-  .hl-pause-icon {
-    display: none;
-    position: relative;
-    width: 7px;
-    height: 9px;
-  }
-
-  .hl-pause-icon::before,
-  .hl-pause-icon::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 9px;
-    background: currentColor;
-    top: 0;
-  }
-
-  .hl-pause-icon::before { left: 0; }
-  .hl-pause-icon::after  { right: 0; }
-
-  /* ── Narrative ──────────────────────────────── */
-  .loop-narrative {
-    margin-top: 12px;
-    text-align: center;
-    font-size: 11px;
-    color: var(--blue-mid);
-    font-style: italic;
-    letter-spacing: 0.02em;
-    min-height: 18px;
-    transition: opacity 0.3s ease;
-  }
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 640px) {
@@ -1320,12 +748,9 @@
 
   @media (prefers-reduced-motion: reduce) {
     .state            { transition-duration: 0.01ms; }
-    .loop-narrative   { transition-duration: 0.01ms; }
     .live-dot, .alert-dot, .typing-cursor, .ec-think-anim { animation-duration: 0.01ms; }
-    .s2-fix           { animation-duration: 0.01ms; }
-    .s1-cta-btn, .s2-cta-btn, .s3-submit, .s3-input { transition-duration: 0.01ms; }
+    .s1-cta-btn       { transition-duration: 0.01ms; }
     .ec-window, .ec-answer-area, .ec-thinking, .ec-pill { transition-duration: 0.01ms; }
-    .dot, .dot-fill   { transition-duration: 0.01ms; }
     .subind-tab       { transition-duration: 0.01ms; }
   }
 </style>
