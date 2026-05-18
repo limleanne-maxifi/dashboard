@@ -319,16 +319,20 @@ import HeroLoop from '../components/HeroLoop.astro';
   (function() {
     const stats = [
       {
-        value: '25% decline in traditional search by 2026',
-        source: 'Gartner'
+        value: 'Traditional search engine volume will decline 25% by 2026.',
+        source: 'Gartner · Predicts 2024'
       },
       {
-        value: '~60% of Google searches end without a click',
-        source: 'SparkToro'
+        value: 'About 60% of Google searches now end without a click.',
+        source: 'SparkToro · 2024'
       },
       {
-        value: '1,300% YoY AI referral growth',
-        source: 'Adobe Analytics'
+        value: 'AI-driven referral traffic grew 1,300% year-over-year.',
+        source: 'Adobe Analytics · Cyber Monday 2024 vs 2023'
+      },
+      {
+        value: "AI search traffic converts at 14.2% vs Google's 2.8% - roughly 5x more valuable per visit.",
+        source: 'Semrush / BrightEdge'
       }
     ];
     const randomStat = stats[Math.floor(Math.random() * stats.length)];
@@ -457,17 +461,17 @@ import HeroLoop from '../components/HeroLoop.astro';
   /* Height matches .sector-tabs row in HeroLoop exactly */
   .did-you-know {
     width: 100%;
-    height: 64px;
+    height: 80px;
     box-sizing: border-box;
     background: rgba(181, 212, 244, 0.10);
     border: 0.5px solid rgba(181, 212, 244, 0.25);
     border-radius: 8px;
-    padding: 8px 14px;
+    padding: 10px 14px;
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     overflow: hidden;
   }
 
@@ -486,13 +490,14 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-size: 12px;
     font-weight: 500;
     color: #fff;
-    line-height: 1.25;
+    line-height: 1.3;
     margin: 0;
     letter-spacing: -0.01em;
     font-family: var(--font-mono);
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .dyk-source {
