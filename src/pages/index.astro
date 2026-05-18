@@ -433,32 +433,32 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .btn-ghost {
     background: transparent;
-    color: var(--blue-text);
+    color: var(--navy);
     padding: 10px 16px;
     border-radius: 5px;
     font-size: 12px;
     font-weight: 500;
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border: 0.5px solid rgba(4, 44, 83, 0.22);
     text-decoration: none;
     display: inline-block;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
   }
 
-  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.6); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; }
 
   /* ── Hero ───────────────────────────────────── */
   .hero {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--blue-text);
+    background: var(--cream);
+    color: var(--navy);
     padding: 36px 22px 40px;
   }
 
   /* ── Did you know section ──────────────────── */
   .did-you-know {
     width: 100%;
-    background: rgba(181, 212, 244, 0.12);
-    border: 0.5px solid rgba(181, 212, 244, 0.25);
-    border-radius: 8px;
+    background: rgba(186, 117, 23, 0.06);
+    border: 0.5px solid rgba(186, 117, 23, 0.25);
+    border-radius: 5px;
     padding: 14px 16px;
     margin-bottom: 24px;
     box-sizing: border-box;
@@ -468,7 +468,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.08em;
-    color: var(--amber-mid);
+    color: var(--amber);
     text-transform: uppercase;
     margin: 0 0 3px;
     font-family: var(--font-mono);
@@ -477,7 +477,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   .dyk-value {
     font-size: 14px;
     font-weight: 500;
-    color: #fff;
+    color: var(--navy);
     line-height: 1.35;
     margin: 0 0 4px;
     letter-spacing: -0.01em;
@@ -486,11 +486,12 @@ import HeroLoop from '../components/HeroLoop.astro';
 
   .dyk-source {
     font-size: 10px;
-    color: var(--blue-mid);
+    color: var(--muted);
     margin: 0;
     opacity: 0.85;
     font-family: var(--font-mono);
     letter-spacing: 0.02em;
+    font-style: italic;
   }
 
   .hero-row {
@@ -504,7 +505,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-size: 32px;
     line-height: 1.18;
     font-weight: 500;
-    color: #fff;
+    color: var(--navy);
     margin: 0 0 16px;
     max-width: 460px;
     font-family: var(--font-sans);
@@ -522,7 +523,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero-queries li {
     font-size: 14px;
     font-style: italic;
-    color: var(--blue-soft);
+    color: var(--navy);
     line-height: 1.45;
     padding: 6px 10px;
     border-left: 1.5px solid var(--amber-mid);
@@ -532,7 +533,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   .lede {
     font-size: 14px;
     line-height: 1.55;
-    color: var(--blue-soft);
+    color: var(--muted);
     margin-bottom: 24px;
     font-family: var(--font-sans);
   }
