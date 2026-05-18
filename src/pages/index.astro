@@ -61,38 +61,187 @@ import HeroLoop from '../components/HeroLoop.astro';
       <div class="sample-intro">
         <p class="s-eyebrow">SEE A REAL ONE</p>
         <h2 id="sample-snapshot-heading" class="section-h2">This is what your AI Visibility Snapshot looks like.</h2>
-        <p class="sample-sub">Real client. Real scores. Real fixes. Click anywhere on the card to open the live tool.</p>
+        <p class="sample-sub">Real client. Real scores. Real fixes. Pick your industry to see both the form and the report.</p>
       </div>
-      <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
-        <div class="sample-card-header">
-          <div class="sample-card-meta">
-            <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Snapshot · real client</span>
-            <span class="sample-card-sector">Aviation</span>
-          </div>
-          <span class="sample-card-arrow" aria-hidden="true">→</span>
+      <div class="sample-shell">
+        <div class="sample-tabs" role="tablist">
+          <button class="sample-tab active" role="tab" aria-selected="true" data-snap="commercial">Commercial Aviation</button>
+          <button class="sample-tab" role="tab" aria-selected="false" data-snap="manufacturing">Aerospace Manufacturing</button>
+          <button class="sample-tab" role="tab" aria-selected="false" data-snap="space">Space Exploration</button>
+          <button class="sample-tab" role="tab" aria-selected="false" data-snap="mro">MRO</button>
         </div>
-        <div class="sample-card-body">
-          <p class="sample-client">PAN-EUROPEAN ANSP · Q2 2026</p>
-          <p class="sample-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
-          <div class="sample-stats">
-            <div class="sample-stat"><div class="sample-stat-num">19<span class="up">↑38%</span></div><div class="sample-stat-label">AI Citations</div></div>
-            <div class="sample-stat"><div class="sample-stat-num">2/5</div><div class="sample-stat-label">Engines Citing</div></div>
-            <div class="sample-stat"><div class="sample-stat-num">4/12</div><div class="sample-stat-label">Topics Owned</div></div>
+        <div class="sample-duo">
+          <!-- LEFT: form card -->
+          <div class="snap-form-card">
+            <div class="snap-form-header">
+              <span class="snap-form-label">AI VISIBILITY SNAPSHOT</span>
+              <span class="snap-form-sector" id="snap-form-sector">COMMERCIAL AVIATION</span>
+            </div>
+            <div class="snap-form-body">
+              <div class="snap-field">
+                <div class="snap-label">YOUR WEBSITE</div>
+                <div class="snap-input" id="snap-f-website">yourcompany.com</div>
+              </div>
+              <div class="snap-field">
+                <div class="snap-label" id="snap-f-specialism-label">YOUR AVIATION SPECIALISM</div>
+                <div class="snap-input" id="snap-f-specialism">e.g. CNS/ATM, airport ops, MRO</div>
+              </div>
+              <div class="snap-field">
+                <div class="snap-label">A BUYER QUESTION YOU SHOULD WIN</div>
+                <div class="snap-input" id="snap-f-question">e.g. Who are the leading CNS/ATM providers in Europe?</div>
+              </div>
+              <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="snap-submit">Get my AI Visibility Snapshot →</a>
+            </div>
           </div>
-          <div class="sample-fixes-header">
-            <span class="sample-fixes-label">Top 3 Priority Fixes</span>
-            <span class="sample-priority">RANKED BY IMPACT</span>
-          </div>
-          <div class="sample-fix"><div class="sample-fix-num">1</div><div class="sample-fix-content"><div class="sample-fix-title">CNS/ATM capability comparison page</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
-          <div class="sample-fix"><div class="sample-fix-num">2</div><div class="sample-fix-content"><div class="sample-fix-title">SESAR &amp; ICAO entity schema build</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
-          <div class="sample-fix"><div class="sample-fix-num">3</div><div class="sample-fix-content"><div class="sample-fix-title">ANSP case study FAQ pages (×6)</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
-          <div class="sample-card-cta">
-            <span class="sample-cta-text">Open the live tool →</span>
-          </div>
+          <!-- RIGHT: report card -->
+          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
+            <div class="sample-card-header">
+              <div class="sample-card-meta">
+                <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Report</span>
+                <span class="sample-card-sector" id="snap-sector">COMMERCIAL AVIATION</span>
+              </div>
+              <span class="sample-card-arrow" aria-hidden="true">→</span>
+            </div>
+            <div class="sample-card-body">
+              <p class="sample-client" id="snap-client">PAN-EUROPEAN ANSP · Q2 2026</p>
+              <p class="sample-title" id="snap-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
+              <div class="sample-stats" id="snap-stats">
+                <div class="sample-stat"><div class="sample-stat-num">19<span class="up">↑38%</span></div><div class="sample-stat-label">AI Citations</div></div>
+                <div class="sample-stat"><div class="sample-stat-num">2/5</div><div class="sample-stat-label">Engines Citing</div></div>
+                <div class="sample-stat"><div class="sample-stat-num">4/12</div><div class="sample-stat-label">Topics Owned</div></div>
+              </div>
+              <div class="sample-fixes-header">
+                <span class="sample-fixes-label">Top 3 Priority Fixes</span>
+                <span class="sample-priority">RANKED BY IMPACT</span>
+              </div>
+              <div id="snap-fixes">
+                <div class="sample-fix"><div class="sample-fix-num">1</div><div class="sample-fix-content"><div class="sample-fix-title">CNS/ATM capability comparison page</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
+                <div class="sample-fix"><div class="sample-fix-num">2</div><div class="sample-fix-content"><div class="sample-fix-title">SESAR &amp; ICAO entity schema build</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
+                <div class="sample-fix"><div class="sample-fix-num">3</div><div class="sample-fix-content"><div class="sample-fix-title">ANSP case study FAQ pages (×6)</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
+              </div>
+              <div class="sample-card-cta">
+                <span class="sample-cta-text">View full report →</span>
+              </div>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   </section>
+
+  <script is:inline>
+  (function() {
+    var SNAPS = {
+      commercial: {
+        sectorLabel: 'COMMERCIAL AVIATION',
+        specialismLabel: 'YOUR AVIATION SPECIALISM',
+        specialism: 'e.g. CNS/ATM, airport ops, MRO',
+        question: 'e.g. Who are the leading CNS/ATM providers in Europe?',
+        client: 'PAN-EUROPEAN ANSP · Q2 2026',
+        title: 'Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.',
+        stats: [
+          { num: '19<span class="up">↑38%</span>', label: 'AI Citations' },
+          { num: '2/5', label: 'Engines Citing' },
+          { num: '4/12', label: 'Topics Owned' }
+        ],
+        fixes: [
+          { title: 'CNS/ATM capability comparison page', impact: '+19% · 2 weeks' },
+          { title: 'SESAR &amp; ICAO entity schema build', impact: '+13% · 1 week' },
+          { title: 'ANSP case study FAQ pages (×6)', impact: '+9% · 3 days' }
+        ]
+      },
+      manufacturing: {
+        sectorLabel: 'AEROSPACE MANUFACTURING',
+        specialismLabel: 'YOUR MANUFACTURING SPECIALISM',
+        specialism: 'e.g. aerostructures, avionics, composites',
+        question: 'e.g. Which European firms lead in composite airframe manufacturing?',
+        client: 'TIER-1 AEROSTRUCTURES OEM · Q1 2026',
+        title: 'Citation share at <span class="num">17%</span>.<br/>4 fixes to reach 41% by Q3.',
+        stats: [
+          { num: '14<span class="up">↑29%</span>', label: 'AI Citations' },
+          { num: '2/5', label: 'Engines Citing' },
+          { num: '3/11', label: 'Topics Owned' }
+        ],
+        fixes: [
+          { title: 'Composite materials capability hub', impact: '+16% · 3 weeks' },
+          { title: 'OEM supply chain FAQ schema', impact: '+11% · 1 week' },
+          { title: 'Certification timeline comparison page', impact: '+8% · 2 weeks' }
+        ]
+      },
+      space: {
+        sectorLabel: 'SPACE EXPLORATION',
+        specialismLabel: 'YOUR SPACE SPECIALISM',
+        specialism: 'e.g. satellite integration, launch services, propulsion',
+        question: 'e.g. Who are the top smallsat integrators for LEO missions?',
+        client: 'EU SMALLSAT INTEGRATOR · Q2 2026',
+        title: 'Citation share at <span class="num">11%</span>.<br/>5 fixes to reach 34% by Q4.',
+        stats: [
+          { num: '9<span class="up">↑44%</span>', label: 'AI Citations' },
+          { num: '1/5', label: 'Engines Citing' },
+          { num: '2/10', label: 'Topics Owned' }
+        ],
+        fixes: [
+          { title: 'LEO constellation deployment explainer', impact: '+14% · 2 weeks' },
+          { title: 'Propulsion systems comparison hub', impact: '+10% · 1 week' },
+          { title: 'Mission assurance FAQ pages (×4)', impact: '+7% · 3 days' }
+        ]
+      },
+      mro: {
+        sectorLabel: 'MRO',
+        specialismLabel: 'YOUR MRO SPECIALISM',
+        specialism: 'e.g. line maintenance, heavy checks, avionics repair',
+        question: 'e.g. Which MRO providers specialise in A320 heavy checks?',
+        client: 'INDEPENDENT MRO PROVIDER · Q1 2026',
+        title: 'Citation share at <span class="num">14%</span>.<br/>3 fixes to reach 38% by Q3.',
+        stats: [
+          { num: '12<span class="up">↑33%</span>', label: 'AI Citations' },
+          { num: '2/5', label: 'Engines Citing' },
+          { num: '3/9', label: 'Topics Owned' }
+        ],
+        fixes: [
+          { title: 'Heavy check capability comparison page', impact: '+15% · 2 weeks' },
+          { title: 'Airworthiness standards FAQ schema', impact: '+10% · 1 week' },
+          { title: 'Turn-time benchmark case studies (×3)', impact: '+7% · 2 weeks' }
+        ]
+      }
+    };
+
+    function renderSnap(key) {
+      var d = SNAPS[key];
+      // form card
+      document.getElementById('snap-form-sector').textContent = d.sectorLabel;
+      document.getElementById('snap-f-specialism-label').textContent = d.specialismLabel;
+      document.getElementById('snap-f-specialism').textContent = d.specialism;
+      document.getElementById('snap-f-question').textContent = d.question;
+      // report card
+      document.getElementById('snap-sector').textContent = d.sectorLabel;
+      document.getElementById('snap-client').textContent = d.client;
+      document.getElementById('snap-title').innerHTML = d.title;
+      var statsEl = document.getElementById('snap-stats');
+      statsEl.innerHTML = d.stats.map(function(s) {
+        return '<div class="sample-stat"><div class="sample-stat-num">' + s.num + '</div><div class="sample-stat-label">' + s.label + '</div></div>';
+      }).join('');
+      var fixesEl = document.getElementById('snap-fixes');
+      fixesEl.innerHTML = d.fixes.map(function(f, i) {
+        return '<div class="sample-fix"><div class="sample-fix-num">' + (i+1) + '</div><div class="sample-fix-content"><div class="sample-fix-title">' + f.title + '</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+' + f.impact.split(' · ')[0].replace('+','') + '</span> · ' + f.impact.split(' · ')[1] + '</div></div></div>';
+      }).join('');
+    }
+
+    document.querySelectorAll('.sample-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.sample-tab').forEach(function(b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        renderSnap(btn.dataset.snap);
+      });
+    });
+
+    renderSnap('commercial');
+  })();
+  </script>
 
 <!-- ══════════════════════════════════════════
        SECTION 4 — PROBLEM FRAME
@@ -1102,10 +1251,115 @@ import HeroLoop from '../components/HeroLoop.astro';
     max-width: 540px;
     margin: 0 auto;
   }
+  /* ── Sample snapshot tabs + duo layout ──── */
+  .sample-shell { max-width: 1040px; margin: 0 auto; }
+  .sample-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .sample-tab {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--cream-deep);
+    border: 0.5px solid var(--line);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .sample-tab:hover { color: var(--navy); border-color: rgba(4,44,83,0.2); }
+  .sample-tab.active {
+    background: var(--navy);
+    color: var(--amber-light);
+    border-color: var(--navy);
+  }
+  .sample-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  /* ── Form card (left) ─────────────────────── */
+  .snap-form-card {
+    background: var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.5px solid rgba(255,255,255,0.06);
+  }
+  .snap-form-header {
+    background: var(--amber);
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .snap-form-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    opacity: 0.75;
+  }
+  .snap-form-sector {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+  }
+  .snap-form-body {
+    padding: 20px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .snap-field { display: flex; flex-direction: column; gap: 4px; }
+  .snap-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-mid);
+  }
+  .snap-input {
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-family: var(--font-sans);
+    color: rgba(230,241,251,0.45);
+    line-height: 1.4;
+  }
+  .snap-submit {
+    display: block;
+    margin-top: 4px;
+    background: var(--amber);
+    color: var(--amber-light);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    transition: background 0.2s ease;
+  }
+  .snap-submit:hover { background: #854F0B; }
+
   .sample-card {
     display: block;
-    max-width: 720px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     background: #fff;
     border-radius: 8px;
     border: 0.5px solid var(--line);
@@ -1291,9 +1545,14 @@ import HeroLoop from '../components/HeroLoop.astro';
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(1.2); }
   }
+  @media (max-width: 900px) {
+    .sample-duo { grid-template-columns: 1fr; }
+  }
   @media (max-width: 640px) {
     .sample-stats { grid-template-columns: 1fr; }
     .sample-card-body { padding: 18px 18px 20px; }
     .sample-snapshot-section { padding: 40px 0 30px; }
+    .sample-tabs { gap: 6px; }
+    .sample-tab { font-size: 10px; padding: 5px 10px; }
   }
 </style>
