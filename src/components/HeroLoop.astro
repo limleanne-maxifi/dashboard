@@ -77,37 +77,6 @@
       </div>
     </div>
 
-    <!-- ── STATE 2: Sample Snapshot ── -->
-    <div class="state" data-state="2">
-      <div class="state-header">
-        <div>
-          <span class="state-tag"><span class="live-dot"></span>Sample Snapshot · real client</span>
-          <span class="state-sector">Aerospace</span>
-        </div>
-        <span class="state-num">02 / 03</span>
-      </div>
-      <div class="state-body">
-        <p class="s2-client">PAN-EUROPEAN ANSP · Q2 2026</p>
-        <p class="s2-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
-        <div class="s2-stats">
-          <div class="s2-stat"><div class="s2-stat-num">19<span class="up">↑38%</span></div><div class="s2-stat-label">AI Citations</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">2/5</div><div class="s2-stat-label">Engines Citing</div></div>
-          <div class="s2-stat"><div class="s2-stat-num">4/12</div><div class="s2-stat-label">Topics Owned</div></div>
-        </div>
-        <div class="s2-fixes-header">
-          <span class="s2-fixes-label">Top 3 Priority Fixes</span>
-          <span class="s2-priority">RANKED BY IMPACT</span>
-        </div>
-        <div class="s2-fix"><div class="s2-fix-num">1</div><div class="s2-fix-content"><div class="s2-fix-title">CNS/ATM capability comparison page</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">2</div><div class="s2-fix-content"><div class="s2-fix-title">SESAR &amp; ICAO entity schema build</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
-        <div class="s2-fix"><div class="s2-fix-num">3</div><div class="s2-fix-content"><div class="s2-fix-title">ANSP case study FAQ pages (×6)</div><div class="s2-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
-        <div class="s2-cta">
-          <span class="s2-cta-text">This is what you receive.</span>
-          <button class="s2-cta-btn" data-goto-state="3">Get my Snapshot →</button>
-        </div>
-      </div>
-    </div>
-
     <!-- ── STATE 3: Form ── -->
     <div class="state" data-state="3">
       <div class="state-header">
@@ -158,8 +127,7 @@
   <div class="loop-controls">
     <div class="progress-dots" role="group" aria-label="Slide navigation">
       <div class="dot active" data-target="1" role="button" tabindex="0" aria-label="Go to slide 1"><div class="dot-fill"></div></div>
-      <div class="dot" data-target="2" role="button" tabindex="0" aria-label="Go to slide 2"><div class="dot-fill"></div></div>
-      <div class="dot" data-target="3" role="button" tabindex="0" aria-label="Go to slide 3"><div class="dot-fill"></div></div>
+      <div class="dot" data-target="3" role="button" tabindex="0" aria-label="Go to slide 2"><div class="dot-fill"></div></div>
     </div>
     <div class="loop-meta">
       <span class="hl-play-icon" id="hl-play-icon" aria-hidden="true"></span>
@@ -176,13 +144,12 @@
 
 <script>
 (function () {
-  const STATE_DURATIONS = [6500, 7500, 14000];
+  const STATE_DURATIONS = { 1: 6500, 3: 14000 };
 
-  const NARRATIVES = [
-    'Aviation & aerospace buyers ask AI to shortlist vendors before any RFP or pitch.',
-    'This is what your AI Visibility Snapshot looks like — real scores, real fixes.',
-    'Run yours — built specifically for aviation, aerospace, and space brands.',
-  ];
+  const NARRATIVES = {
+    1: 'Aviation & aerospace buyers ask AI to shortlist vendors before any RFP or pitch.',
+    3: 'Run yours — built specifically for aviation, aerospace, and space brands.',
+  };
 
   const ENGINES = [
     { id: 'chatgpt',    name: 'ChatGPT',    site: 'chatgpt.com',           greeting: "What's on your mind today?",  hasGreeting: true  },
@@ -363,7 +330,7 @@
     });
 
     // Narrative
-    if (narrative) narrative.textContent = NARRATIVES[currentState - 1];
+    if (narrative) narrative.textContent = NARRATIVES[currentState] || '';
     progress = 0;
 
     // Engine carousel
@@ -377,11 +344,7 @@
   }
 
   function advance() {
-    if (currentState < 3) {
-      currentState += 1;
-    } else {
-      currentState = 1;
-    }
+    currentState = currentState === 1 ? 3 : 1;
     render();
   }
 
@@ -396,7 +359,7 @@
     progressInterval = setInterval(function() {
       if (!autoplayActive || formEngaged) return;
       progress += 100;
-      const total = STATE_DURATIONS[currentState - 1];
+      const total = STATE_DURATIONS[currentState] || 6500;
       const pct = Math.min(100, (progress / total) * 100);
       const activeFill = document.querySelector('.dot.active .dot-fill');
       if (activeFill) activeFill.style.width = pct + '%';

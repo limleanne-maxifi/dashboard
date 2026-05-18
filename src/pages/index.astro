@@ -53,6 +53,47 @@ import HeroLoop from '../components/HeroLoop.astro';
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — SAMPLE SNAPSHOT (clickable proof)
+  ══════════════════════════════════════════ -->
+  <section class="sample-snapshot-section" aria-labelledby="sample-snapshot-heading">
+    <div class="wrap">
+      <div class="sample-intro">
+        <p class="s-eyebrow">SEE A REAL ONE</p>
+        <h2 id="sample-snapshot-heading" class="section-h2">This is what your AI Visibility Snapshot looks like.</h2>
+        <p class="sample-sub">Real client. Real scores. Real fixes. Click anywhere on the card to open the live tool.</p>
+      </div>
+      <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
+        <div class="sample-card-header">
+          <div class="sample-card-meta">
+            <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Snapshot · real client</span>
+            <span class="sample-card-sector">Aviation</span>
+          </div>
+          <span class="sample-card-arrow" aria-hidden="true">→</span>
+        </div>
+        <div class="sample-card-body">
+          <p class="sample-client">PAN-EUROPEAN ANSP · Q2 2026</p>
+          <p class="sample-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
+          <div class="sample-stats">
+            <div class="sample-stat"><div class="sample-stat-num">19<span class="up">↑38%</span></div><div class="sample-stat-label">AI Citations</div></div>
+            <div class="sample-stat"><div class="sample-stat-num">2/5</div><div class="sample-stat-label">Engines Citing</div></div>
+            <div class="sample-stat"><div class="sample-stat-num">4/12</div><div class="sample-stat-label">Topics Owned</div></div>
+          </div>
+          <div class="sample-fixes-header">
+            <span class="sample-fixes-label">Top 3 Priority Fixes</span>
+            <span class="sample-priority">RANKED BY IMPACT</span>
+          </div>
+          <div class="sample-fix"><div class="sample-fix-num">1</div><div class="sample-fix-content"><div class="sample-fix-title">CNS/ATM capability comparison page</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
+          <div class="sample-fix"><div class="sample-fix-num">2</div><div class="sample-fix-content"><div class="sample-fix-title">SESAR &amp; ICAO entity schema build</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
+          <div class="sample-fix"><div class="sample-fix-num">3</div><div class="sample-fix-content"><div class="sample-fix-title">ANSP case study FAQ pages (×6)</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
+          <div class="sample-card-cta">
+            <span class="sample-cta-text">Open the live tool →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
 <!-- ══════════════════════════════════════════
        SECTION 4 — PROBLEM FRAME
   ══════════════════════════════════════════ -->
@@ -1037,5 +1078,222 @@ import HeroLoop from '../components/HeroLoop.astro';
     .nl-btn {
       transition-duration: 0.01ms;
     }
+  }
+
+  /* ── Sample Snapshot section ────────────────── */
+  .sample-snapshot-section {
+    padding: 60px 0 40px;
+    background: var(--cream);
+  }
+  .sample-intro {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+  .sample-intro .s-eyebrow {
+    justify-content: center;
+    display: inline-flex;
+  }
+  .sample-intro .section-h2 { margin-bottom: 10px; }
+  .sample-sub {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .sample-card {
+    display: block;
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    border: 0.5px solid var(--line);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+  }
+  .sample-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -20px rgba(4, 44, 83, 0.18);
+    border-color: rgba(186, 117, 23, 0.4);
+  }
+  .sample-card:hover .sample-card-arrow { transform: translateX(4px); color: var(--amber); }
+  .sample-card-header {
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--line);
+    background: linear-gradient(180deg, #FCFAF6 0%, #F8F4ED 100%);
+  }
+  .sample-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sample-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: var(--font-mono);
+  }
+  .sample-live-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--signal);
+    display: inline-block;
+    animation: hl-pulse 1.8s infinite;
+  }
+  .sample-card-sector {
+    font-size: 9px;
+    color: var(--amber);
+    background: var(--amber-light);
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .sample-card-arrow {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  .sample-card-body { padding: 24px 26px 26px; }
+  .sample-client {
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-family: var(--font-mono);
+  }
+  .sample-title {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  .sample-title .num { color: var(--amber); font-family: var(--font-mono); }
+  .sample-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .sample-stat {
+    background: var(--cream);
+    border-radius: 7px;
+    padding: 12px;
+    text-align: center;
+  }
+  .sample-stat-num {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+    font-family: var(--font-mono);
+  }
+  .sample-stat-num .up {
+    color: var(--signal);
+    font-size: 10px;
+    font-weight: 500;
+    margin-left: 3px;
+    font-family: var(--font-mono);
+  }
+  .sample-stat-label {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: var(--font-mono);
+  }
+  .sample-fixes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .sample-fixes-label {
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: var(--font-mono);
+  }
+  .sample-priority {
+    font-size: 9px;
+    background: var(--amber-light);
+    color: var(--amber);
+    padding: 3px 7px;
+    border-radius: 8px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-family: var(--font-mono);
+  }
+  .sample-fix {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .sample-fix:last-of-type { border: none; }
+  .sample-fix-num {
+    background: var(--navy);
+    color: #fff;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 500;
+    flex-shrink: 0; margin-top: 1px;
+    font-family: var(--font-mono);
+  }
+  .sample-fix-title {
+    color: var(--navy); font-weight: 500; font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .sample-fix-impact {
+    color: var(--muted); font-size: 10px;
+  }
+  .sample-fix-impact .lift {
+    color: var(--signal); font-weight: 500; font-family: var(--font-mono);
+  }
+  .sample-card-cta {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 0.5px solid var(--line);
+    text-align: center;
+  }
+  .sample-cta-text {
+    font-size: 12px;
+    color: var(--amber);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  @keyframes hl-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  @media (max-width: 640px) {
+    .sample-stats { grid-template-columns: 1fr; }
+    .sample-card-body { padding: 18px 18px 20px; }
+    .sample-snapshot-section { padding: 40px 0 30px; }
   }
 </style>
