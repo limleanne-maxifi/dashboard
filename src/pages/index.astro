@@ -41,7 +41,6 @@ import HeroLoop from '../components/HeroLoop.astro';
           and cite.
         </p>
         <div class="hero-ctas">
-          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my AI Visibility Snapshot</a>
           <a href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener" class="btn-ghost">
             See how it works - Airspace World case study
           </a>
@@ -548,6 +547,25 @@ import HeroLoop from '../components/HeroLoop.astro';
     'nl-form-wrap',
     "You're subscribed. See you Friday.",
   );
+
+  // ── Match #didyouknow callout height to AVIATION banner (header + tabs) ──
+  (function() {
+    const dyk = document.querySelector('.did-you-know') as HTMLElement | null;
+    const header = document.querySelector('.subind-header') as HTMLElement | null;
+    const tabs = document.querySelector('.subind-tabs') as HTMLElement | null;
+    if (!dyk || !header || !tabs) return;
+
+    const sync = () => {
+      const h = header.getBoundingClientRect().height + tabs.getBoundingClientRect().height;
+      dyk.style.height = h + 'px';
+    };
+
+    sync();
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sync);
+    }
+  })();
 </script>
 
 <style>
@@ -635,19 +653,19 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 36px 22px 40px;
+    padding: 16px 22px 40px;
   }
 
   /* ── Did you know section ──────────────────── */
-  /* Height matches .sector-tabs row in HeroLoop exactly */
+  /* Height + edge style mirror the .subind-header + .subind-tabs block on the right */
   .did-you-know {
     width: 100%;
-    height: 80px;
+    height: 78px;
     box-sizing: border-box;
     background: rgba(181, 212, 244, 0.10);
-    border: 0.5px solid rgba(181, 212, 244, 0.25);
+    border: 0.5px solid var(--line);
     border-radius: 8px;
-    padding: 10px 14px;
+    padding: 10px 16px;
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
@@ -713,7 +731,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-size: 38px;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 6px;
+    margin-bottom: 22px;
   }
 
   .hero-h1-tail {
