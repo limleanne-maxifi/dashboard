@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ══════════════════════════════════════════
        TOOL EMBED
   ══════════════════════════════════════════ -->
-  <section class="embed-section" aria-label="AI Visibility Snapshot tool">
+  <section class="embed-section" id="snapshot-tool" aria-label="AI Visibility Snapshot tool">
     <iframe
       src="https://visibilityview.netlify.app/"
       title="AI Visibility Snapshot tool"
@@ -33,6 +33,101 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       loading="lazy"
       sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
     ></iframe>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SEE A REAL ONE — INDUSTRY PREVIEW
+  ══════════════════════════════════════════ -->
+  <section class="preview-section" aria-labelledby="preview-heading">
+    <div class="preview-wrap">
+      <p class="preview-eyebrow">SEE A REAL ONE</p>
+      <h2 id="preview-heading" class="preview-title">
+        This is what your AI Visibility Snapshot looks like.
+      </h2>
+      <p class="preview-sub">
+        Real client. Real scores. Real fixes. Pick your industry, then click the card to open the live tool.
+      </p>
+
+      <div class="preview-tabs" role="tablist" aria-label="Industry preview">
+        <button class="preview-tab is-active" role="tab" aria-selected="true" data-tab="commercial">Commercial Aviation</button>
+        <button class="preview-tab" role="tab" aria-selected="false" data-tab="manufacturing">Aerospace Manufacturing</button>
+        <button class="preview-tab" role="tab" aria-selected="false" data-tab="space">Space Exploration</button>
+        <button class="preview-tab" role="tab" aria-selected="false" data-tab="mro">MRO</button>
+      </div>
+
+      <a class="preview-card" href="#snapshot-tool" aria-label="Open the live AI Visibility Snapshot tool">
+        <!-- LEFT: mock form -->
+        <div class="preview-left">
+          <div class="preview-left-head">
+            <p class="preview-left-eyebrow">AI VISIBILITY SNAPSHOT</p>
+            <p class="preview-left-industry" data-fill="industryName">Commercial Aviation</p>
+          </div>
+          <div class="preview-form">
+            <p class="mock-label">YOUR WEBSITE</p>
+            <p class="mock-input" data-fill="website">yourairline.com</p>
+
+            <p class="mock-label">YOUR AVIATION SPECIALISM</p>
+            <p class="mock-input" data-fill="specialism">e.g. narrow-body fleet ops, ground handling</p>
+
+            <p class="mock-label">A BUYER QUESTION YOU SHOULD WIN</p>
+            <p class="mock-input" data-fill="question">Best regional carrier for codeshare partnerships?</p>
+
+            <span class="mock-btn">Get my AI Visibility Snapshot →</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: sample report -->
+        <div class="preview-right">
+          <div class="report-head">
+            <span class="report-tag"><span class="report-dot"></span>SAMPLE REPORT</span>
+            <span class="report-industry" data-fill="industryPill">COMMERCIAL AVIATION</span>
+          </div>
+
+          <p class="report-client" data-fill="clientName">EU REGIONAL CARRIER · Q2 2026</p>
+          <p class="report-headline" data-fill="headline">Citation share at 11%. 3 fixes to reach 34% by Q4.</p>
+
+          <div class="report-metrics">
+            <div class="metric">
+              <p class="metric-val" data-fill="m1v">9 → 58%</p>
+              <p class="metric-lbl">AI Citations</p>
+            </div>
+            <div class="metric">
+              <p class="metric-val" data-fill="m2v">2/5</p>
+              <p class="metric-lbl">Engines</p>
+            </div>
+            <div class="metric">
+              <p class="metric-val" data-fill="m3v">3/8</p>
+              <p class="metric-lbl">Topics</p>
+            </div>
+          </div>
+
+          <div class="report-fixes-head">
+            <span class="fixes-label">PRIORITY FIXES</span>
+            <span class="fixes-rank">RANKED BY IMPACT</span>
+          </div>
+
+          <ol class="report-fixes">
+            <li>
+              <span class="fix-num">1</span>
+              <span class="fix-text" data-fill="fix1t">Codeshare partner comparison hub</span>
+              <span class="fix-meta" data-fill="fix1m">+15% · 2 wks</span>
+            </li>
+            <li>
+              <span class="fix-num">2</span>
+              <span class="fix-text" data-fill="fix2t">EASA &amp; IATA entity build-out</span>
+              <span class="fix-meta" data-fill="fix2m">+9% · 1 wk</span>
+            </li>
+            <li>
+              <span class="fix-num">3</span>
+              <span class="fix-text" data-fill="fix3t">Regional vs low-cost route FAQ</span>
+              <span class="fix-meta" data-fill="fix3m">+8% · 3 days</span>
+            </li>
+          </ol>
+
+          <p class="report-view">View full report →</p>
+        </div>
+      </a>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -167,6 +262,113 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
+  // ── Industry preview tab swap ─────────────────
+  type Industry = {
+    industryName: string;
+    industryPill: string;
+    website: string;
+    specialism: string;
+    question: string;
+    specialismLabel: string;
+    clientName: string;
+    headline: string;
+    m1v: string;
+    m2v: string;
+    m3v: string;
+    fix1t: string; fix1m: string;
+    fix2t: string; fix2m: string;
+    fix3t: string; fix3m: string;
+  };
+
+  const industries: Record<string, Industry> = {
+    commercial: {
+      industryName: 'Commercial Aviation',
+      industryPill: 'COMMERCIAL AVIATION',
+      website: 'yourairline.com',
+      specialismLabel: 'YOUR AVIATION SPECIALISM',
+      specialism: 'e.g. narrow-body fleet ops, ground handling',
+      question: 'Best regional carrier for codeshare partnerships?',
+      clientName: 'EU REGIONAL CARRIER · Q2 2026',
+      headline: 'Citation share at 11%. 3 fixes to reach 34% by Q4.',
+      m1v: '9 → 58%', m2v: '2/5', m3v: '3/8',
+      fix1t: 'Codeshare partner comparison hub', fix1m: '+15% · 2 wks',
+      fix2t: 'EASA & IATA entity build-out', fix2m: '+9% · 1 wk',
+      fix3t: 'Regional vs low-cost route FAQ', fix3m: '+8% · 3 days',
+    },
+    manufacturing: {
+      industryName: 'Aerospace Manufacturing',
+      industryPill: 'AEROSPACE MANUFACTURING',
+      website: 'yourcomposites.com',
+      specialismLabel: 'YOUR MANUFACTURING FOCUS',
+      specialism: 'e.g. composites, additive parts, avionics',
+      question: 'Best Tier-2 supplier for titanium structural parts?',
+      clientName: 'UK TIER-2 SUPPLIER · Q2 2026',
+      headline: 'Citation share at 9%. 3 fixes to reach 31% by Q4.',
+      m1v: '7 → 49%', m2v: '1/5', m3v: '2/8',
+      fix1t: 'Ti-6Al-4V capability landing page', fix1m: '+14% · 2 wks',
+      fix2t: 'AS9100 & NADCAP entity signals', fix2m: '+10% · 1 wk',
+      fix3t: 'Build-to-print vs build-to-spec FAQ', fix3m: '+7% · 4 days',
+    },
+    space: {
+      industryName: 'Space Exploration',
+      industryPill: 'SPACE EXPLORATION',
+      website: 'yourspacecompany.com',
+      specialismLabel: 'YOUR SPACE SPECIALISM',
+      specialism: 'e.g. launch services, smallsats, propulsion',
+      question: 'Best LEO small satellite launch provider?',
+      clientName: 'EU SMALLSAT INTEGRATOR · Q2 2026',
+      headline: 'Citation share at 14%. 3 fixes to reach 38% by Q4.',
+      m1v: '9 → 62%', m2v: '1/5', m3v: '2/8',
+      fix1t: 'LEO rideshare deployment service page', fix1m: '+17% · 2 wks',
+      fix2t: 'ESA & EU Space Programme entity build', fix2m: '+11% · 1 wk',
+      fix3t: 'SpaceX Transporter vs alternatives FAQ', fix3m: '+9% · 3 days',
+    },
+    mro: {
+      industryName: 'MRO',
+      industryPill: 'MRO',
+      website: 'yourmro.com',
+      specialismLabel: 'YOUR MRO SPECIALISM',
+      specialism: 'e.g. heavy maintenance, engine overhaul, AOG',
+      question: 'Best MRO for A320neo heavy checks in Europe?',
+      clientName: 'EU INDEPENDENT MRO · Q2 2026',
+      headline: 'Citation share at 12%. 3 fixes to reach 33% by Q4.',
+      m1v: '8 → 54%', m2v: '2/5', m3v: '3/8',
+      fix1t: 'A320neo heavy-check capability hub', fix1m: '+13% · 2 wks',
+      fix2t: 'Part-145 & EASA entity build-out', fix2m: '+10% · 1 wk',
+      fix3t: 'AOG response time benchmarks FAQ', fix3m: '+7% · 3 days',
+    },
+  };
+
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.preview-tab');
+  const fillNodes = document.querySelectorAll<HTMLElement>('[data-fill]');
+  const specialismLabelNode = document.querySelector<HTMLElement>(
+    '.mock-label + .mock-input[data-fill="specialism"]'
+  )?.previousElementSibling as HTMLElement | null;
+
+  function applyIndustry(key: string) {
+    const data = industries[key];
+    if (!data) return;
+    fillNodes.forEach((node) => {
+      const k = node.dataset.fill as keyof Industry;
+      if (k && data[k] !== undefined) node.textContent = data[k];
+    });
+    if (specialismLabelNode) specialismLabelNode.textContent = data.specialismLabel;
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+      const key = tab.dataset.tab;
+      if (key) applyIndustry(key);
+    });
+  });
+
+  // ── Scorecard form submit ─────────────────────
   const form = document.getElementById('scorecard-form') as HTMLFormElement | null;
   const wrap = document.getElementById('scorecard-form-wrap');
   if (form && wrap) {
@@ -245,6 +447,310 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: none;
     border-radius: 8px;
     display: block;
+  }
+
+  /* ── See a real one (industry preview) ──────── */
+  .preview-section {
+    background: var(--cream);
+    padding: 64px 22px 56px;
+  }
+
+  .preview-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .preview-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .preview-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.22;
+    letter-spacing: -0.015em;
+    margin: 0 auto 10px;
+    max-width: 720px;
+  }
+
+  .preview-sub {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.55;
+    max-width: 560px;
+    margin: 0 auto 28px;
+  }
+
+  .preview-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 0.5px solid var(--line);
+    margin-bottom: 0;
+    overflow-x: auto;
+  }
+
+  .preview-tab {
+    background: transparent;
+    border: none;
+    padding: 12px 18px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .preview-tab:hover { color: var(--navy); }
+
+  .preview-tab.is-active {
+    color: var(--navy);
+    border-bottom-color: var(--navy);
+  }
+
+  .preview-card {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 0;
+    background: var(--navy-deep);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .preview-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(4, 44, 83, 0.12);
+  }
+
+  /* LEFT */
+  .preview-left {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-left-head {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 14px 22px 12px;
+  }
+
+  .preview-left-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--amber-light);
+    margin-bottom: 4px;
+    opacity: 0.9;
+  }
+
+  .preview-left-industry {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--amber-light);
+    letter-spacing: -0.01em;
+  }
+
+  .preview-form {
+    padding: 22px;
+    flex: 1;
+  }
+
+  .mock-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color: var(--amber-pale);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .mock-input {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 9px 11px;
+    font-size: 11px;
+    color: var(--blue-soft);
+    margin-bottom: 14px;
+  }
+
+  .mock-btn {
+    display: block;
+    text-align: center;
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 11px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* RIGHT */
+  .preview-right {
+    background: #fff;
+    padding: 22px 24px 18px;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .report-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .report-tag {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .report-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--signal);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .report-industry {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    background: var(--amber-light);
+    color: var(--brown-deep);
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+
+  .report-client {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  .report-headline {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .report-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 0 14px;
+    border-bottom: 0.5px solid var(--line);
+    margin-bottom: 14px;
+  }
+
+  .metric-val {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .metric-lbl {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .report-fixes-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .fixes-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .fixes-rank {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    background: var(--cream-deep);
+    color: var(--muted);
+    padding: 3px 7px;
+    border-radius: 3px;
+  }
+
+  .report-fixes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+
+  .report-fixes li {
+    display: grid;
+    grid-template-columns: 16px 1fr auto;
+    gap: 8px;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 0.5px solid var(--line);
+    font-size: 11px;
+  }
+
+  .report-fixes li:last-child { border-bottom: none; }
+
+  .fix-num {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--amber);
+  }
+
+  .fix-text {
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .fix-meta {
+    font-size: 10px;
+    color: var(--signal);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .report-view {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--amber);
+    text-align: right;
+    margin-top: auto;
   }
 
   /* ── Shared section styles ──────────────────── */
@@ -451,6 +957,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .next-title { font-size: 18px; }
+
+    .preview-section { padding: 40px 18px; }
+    .preview-title { font-size: 19px; }
+    .preview-card { grid-template-columns: 1fr; }
+    .preview-tabs { justify-content: flex-start; }
+    .preview-tab { padding: 10px 12px; font-size: 9px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
