@@ -40,12 +40,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ══════════════════════════════════════════ -->
   <section class="preview-section" aria-labelledby="preview-heading">
     <div class="preview-wrap">
-      <p class="preview-eyebrow">SEE A REAL ONE</p>
+      <p class="preview-eyebrow">SEE YOUR VISIBILITY LIVE</p>
       <h2 id="preview-heading" class="preview-title">
         This is what your AI Visibility Snapshot looks like.
       </h2>
       <p class="preview-sub">
-        Real client. Real scores. Real fixes. Pick your industry, then click the card to open the live tool.
+        Real client. Real scores. Real fixes. Pick your industry to see both the form and the report.
       </p>
 
       <div class="preview-tabs" role="tablist" aria-label="Industry preview">
@@ -63,15 +63,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="preview-left-industry" data-fill="industryName">Commercial Aviation</p>
           </div>
           <div class="preview-form">
-            <p class="mock-label">YOUR WEBSITE</p>
-            <p class="mock-input" data-fill="website">yourairline.com</p>
+            <div class="preview-form-fields">
+              <p class="mock-label">YOUR WEBSITE</p>
+              <p class="mock-input" data-fill="website">yourcompany.com</p>
 
-            <p class="mock-label">YOUR AVIATION SPECIALISM</p>
-            <p class="mock-input" data-fill="specialism">e.g. narrow-body fleet ops, ground handling</p>
+              <p class="mock-label" data-fill="specialismLabel">YOUR AVIATION SPECIALISM</p>
+              <p class="mock-input" data-fill="specialism">e.g. CNS/ATM, airport ops, MRO</p>
 
-            <p class="mock-label">A BUYER QUESTION YOU SHOULD WIN</p>
-            <p class="mock-input" data-fill="question">Best regional carrier for codeshare partnerships?</p>
-
+              <p class="mock-label">A BUYER QUESTION YOU SHOULD WIN</p>
+              <p class="mock-input" data-fill="question">e.g. Who are the leading CNS/ATM providers in Europe?</p>
+            </div>
             <span class="mock-btn">Get my AI Visibility Snapshot →</span>
           </div>
         </div>
@@ -88,39 +89,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <div class="report-metrics">
             <div class="metric">
-              <p class="metric-val" data-fill="m1v">9 → 58%</p>
+              <p class="metric-val" data-fill="m1v">19 → 38%</p>
               <p class="metric-lbl">AI Citations</p>
             </div>
             <div class="metric">
               <p class="metric-val" data-fill="m2v">2/5</p>
-              <p class="metric-lbl">Engines</p>
+              <p class="metric-lbl">Engines Citing</p>
             </div>
             <div class="metric">
-              <p class="metric-val" data-fill="m3v">3/8</p>
-              <p class="metric-lbl">Topics</p>
+              <p class="metric-val" data-fill="m3v">4/12</p>
+              <p class="metric-lbl">Topics Owned</p>
             </div>
           </div>
 
           <div class="report-fixes-head">
-            <span class="fixes-label">PRIORITY FIXES</span>
+            <span class="fixes-label">TOP 3 PRIORITY FIXES</span>
             <span class="fixes-rank">RANKED BY IMPACT</span>
           </div>
 
           <ol class="report-fixes">
             <li>
               <span class="fix-num">1</span>
-              <span class="fix-text" data-fill="fix1t">Codeshare partner comparison hub</span>
-              <span class="fix-meta" data-fill="fix1m">+15% · 2 wks</span>
+              <div class="fix-body">
+                <p class="fix-text" data-fill="fix1t">CNS/ATM capability comparison page</p>
+                <p class="fix-meta" data-fill="fix1m">Estimated citation lift: +19% · 2 weeks</p>
+              </div>
             </li>
             <li>
               <span class="fix-num">2</span>
-              <span class="fix-text" data-fill="fix2t">EASA &amp; IATA entity build-out</span>
-              <span class="fix-meta" data-fill="fix2m">+9% · 1 wk</span>
+              <div class="fix-body">
+                <p class="fix-text" data-fill="fix2t">EASA &amp; EUROCONTROL entity build-out</p>
+                <p class="fix-meta" data-fill="fix2m">Estimated citation lift: +11% · 1 week</p>
+              </div>
             </li>
             <li>
               <span class="fix-num">3</span>
-              <span class="fix-text" data-fill="fix3t">Regional vs low-cost route FAQ</span>
-              <span class="fix-meta" data-fill="fix3m">+8% · 3 days</span>
+              <div class="fix-body">
+                <p class="fix-text" data-fill="fix3t">Regional vs network ATM model FAQ</p>
+                <p class="fix-meta" data-fill="fix3m">Estimated citation lift: +8% · 3 days</p>
+              </div>
             </li>
           </ol>
 
@@ -284,66 +291,64 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     commercial: {
       industryName: 'Commercial Aviation',
       industryPill: 'COMMERCIAL AVIATION',
-      website: 'yourairline.com',
+      website: 'yourcompany.com',
       specialismLabel: 'YOUR AVIATION SPECIALISM',
-      specialism: 'e.g. narrow-body fleet ops, ground handling',
-      question: 'Best regional carrier for codeshare partnerships?',
-      clientName: 'EU REGIONAL CARRIER · Q2 2026',
-      headline: 'Citation share at 11%. 3 fixes to reach 34% by Q4.',
-      m1v: '9 → 58%', m2v: '2/5', m3v: '3/8',
-      fix1t: 'Codeshare partner comparison hub', fix1m: '+15% · 2 wks',
-      fix2t: 'EASA & IATA entity build-out', fix2m: '+9% · 1 wk',
-      fix3t: 'Regional vs low-cost route FAQ', fix3m: '+8% · 3 days',
+      specialism: 'e.g. CNS/ATM, airport ops, MRO',
+      question: 'e.g. Who are the leading CNS/ATM providers in Europe?',
+      clientName: 'PAN-EUROPEAN ANSP · Q2 2026',
+      headline: 'Citation share at 22%. 3 fixes to reach 48% by Q4.',
+      m1v: '19 → 38%', m2v: '2/5', m3v: '4/12',
+      fix1t: 'CNS/ATM capability comparison page', fix1m: 'Estimated citation lift: +19% · 2 weeks',
+      fix2t: 'EASA & EUROCONTROL entity build-out', fix2m: 'Estimated citation lift: +11% · 1 week',
+      fix3t: 'Regional vs network ATM model FAQ', fix3m: 'Estimated citation lift: +8% · 3 days',
     },
     manufacturing: {
       industryName: 'Aerospace Manufacturing',
       industryPill: 'AEROSPACE MANUFACTURING',
-      website: 'yourcomposites.com',
+      website: 'yourcompany.com',
       specialismLabel: 'YOUR MANUFACTURING FOCUS',
       specialism: 'e.g. composites, additive parts, avionics',
-      question: 'Best Tier-2 supplier for titanium structural parts?',
+      question: 'e.g. Best Tier-2 supplier for titanium structural parts?',
       clientName: 'UK TIER-2 SUPPLIER · Q2 2026',
-      headline: 'Citation share at 9%. 3 fixes to reach 31% by Q4.',
-      m1v: '7 → 49%', m2v: '1/5', m3v: '2/8',
-      fix1t: 'Ti-6Al-4V capability landing page', fix1m: '+14% · 2 wks',
-      fix2t: 'AS9100 & NADCAP entity signals', fix2m: '+10% · 1 wk',
-      fix3t: 'Build-to-print vs build-to-spec FAQ', fix3m: '+7% · 4 days',
+      headline: 'Citation share at 14%. 3 fixes to reach 41% by Q4.',
+      m1v: '12 → 33%', m2v: '1/5', m3v: '3/12',
+      fix1t: 'Ti-6Al-4V capability landing page', fix1m: 'Estimated citation lift: +14% · 2 weeks',
+      fix2t: 'AS9100 & NADCAP entity signals', fix2m: 'Estimated citation lift: +10% · 1 week',
+      fix3t: 'Build-to-print vs build-to-spec FAQ', fix3m: 'Estimated citation lift: +7% · 4 days',
     },
     space: {
       industryName: 'Space Exploration',
       industryPill: 'SPACE EXPLORATION',
-      website: 'yourspacecompany.com',
+      website: 'yourcompany.com',
       specialismLabel: 'YOUR SPACE SPECIALISM',
       specialism: 'e.g. launch services, smallsats, propulsion',
-      question: 'Best LEO small satellite launch provider?',
+      question: 'e.g. Best LEO small satellite launch provider?',
       clientName: 'EU SMALLSAT INTEGRATOR · Q2 2026',
       headline: 'Citation share at 14%. 3 fixes to reach 38% by Q4.',
-      m1v: '9 → 62%', m2v: '1/5', m3v: '2/8',
-      fix1t: 'LEO rideshare deployment service page', fix1m: '+17% · 2 wks',
-      fix2t: 'ESA & EU Space Programme entity build', fix2m: '+11% · 1 wk',
-      fix3t: 'SpaceX Transporter vs alternatives FAQ', fix3m: '+9% · 3 days',
+      m1v: '9 → 28%', m2v: '1/5', m3v: '2/12',
+      fix1t: 'LEO rideshare deployment service page', fix1m: 'Estimated citation lift: +17% · 2 weeks',
+      fix2t: 'ESA & EU Space Programme entity build', fix2m: 'Estimated citation lift: +11% · 1 week',
+      fix3t: 'SpaceX Transporter vs alternatives FAQ', fix3m: 'Estimated citation lift: +9% · 3 days',
     },
     mro: {
       industryName: 'MRO',
       industryPill: 'MRO',
-      website: 'yourmro.com',
+      website: 'yourcompany.com',
       specialismLabel: 'YOUR MRO SPECIALISM',
       specialism: 'e.g. heavy maintenance, engine overhaul, AOG',
-      question: 'Best MRO for A320neo heavy checks in Europe?',
+      question: 'e.g. Best MRO for A320neo heavy checks in Europe?',
       clientName: 'EU INDEPENDENT MRO · Q2 2026',
-      headline: 'Citation share at 12%. 3 fixes to reach 33% by Q4.',
-      m1v: '8 → 54%', m2v: '2/5', m3v: '3/8',
-      fix1t: 'A320neo heavy-check capability hub', fix1m: '+13% · 2 wks',
-      fix2t: 'Part-145 & EASA entity build-out', fix2m: '+10% · 1 wk',
-      fix3t: 'AOG response time benchmarks FAQ', fix3m: '+7% · 3 days',
+      headline: 'Citation share at 18%. 3 fixes to reach 43% by Q4.',
+      m1v: '15 → 35%', m2v: '2/5', m3v: '3/12',
+      fix1t: 'A320neo heavy-check capability hub', fix1m: 'Estimated citation lift: +13% · 2 weeks',
+      fix2t: 'Part-145 & EASA entity build-out', fix2m: 'Estimated citation lift: +10% · 1 week',
+      fix3t: 'AOG response time benchmarks FAQ', fix3m: 'Estimated citation lift: +7% · 3 days',
     },
   };
 
   const tabs = document.querySelectorAll<HTMLButtonElement>('.preview-tab');
   const fillNodes = document.querySelectorAll<HTMLElement>('[data-fill]');
-  const specialismLabelNode = document.querySelector<HTMLElement>(
-    '.mock-label + .mock-input[data-fill="specialism"]'
-  )?.previousElementSibling as HTMLElement | null;
+  const orderedKeys = ['commercial', 'manufacturing', 'space', 'mro'];
 
   function applyIndustry(key: string) {
     const data = industries[key];
@@ -352,21 +357,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const k = node.dataset.fill as keyof Industry;
       if (k && data[k] !== undefined) node.textContent = data[k];
     });
-    if (specialismLabelNode) specialismLabelNode.textContent = data.specialismLabel;
+  }
+
+  function activateTab(key: string) {
+    tabs.forEach((t) => {
+      const isActive = t.dataset.tab === key;
+      t.classList.toggle('is-active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    applyIndustry(key);
+  }
+
+  // Auto-rotate through industries; user click pauses the rotation.
+  let rotateIdx = 0;
+  let rotateTimer: ReturnType<typeof setInterval> | null = null;
+
+  function startRotate() {
+    if (rotateTimer) return;
+    rotateTimer = setInterval(() => {
+      rotateIdx = (rotateIdx + 1) % orderedKeys.length;
+      activateTab(orderedKeys[rotateIdx]);
+    }, 4500);
+  }
+
+  function stopRotate() {
+    if (rotateTimer) {
+      clearInterval(rotateTimer);
+      rotateTimer = null;
+    }
   }
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        t.classList.remove('is-active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('is-active');
-      tab.setAttribute('aria-selected', 'true');
+      stopRotate();
       const key = tab.dataset.tab;
-      if (key) applyIndustry(key);
+      if (key) {
+        rotateIdx = orderedKeys.indexOf(key);
+        activateTab(key);
+      }
     });
   });
+
+  startRotate();
 
   // ── Scorecard form submit ─────────────────────
   const form = document.getElementById('scorecard-form') as HTMLFormElement | null;
@@ -461,8 +493,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .preview-eyebrow {
+    font-family: 'Inter', sans-serif;
     font-size: 10px;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--amber);
     font-weight: 500;
     text-align: center;
@@ -522,6 +556,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .preview-card {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
+    align-items: stretch;
     gap: 0;
     background: var(--navy-deep);
     border-radius: 8px;
@@ -538,27 +573,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* LEFT */
   .preview-left {
-    padding: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Inter', sans-serif;
   }
 
   .preview-left-head {
     background: var(--amber);
     color: var(--amber-light);
-    padding: 14px 22px 12px;
+    padding: 14px 22px 14px;
   }
 
   .preview-left-eyebrow {
+    font-family: 'Inter', sans-serif;
     font-size: 9px;
     letter-spacing: 0.14em;
     font-weight: 500;
     color: var(--amber-light);
     margin-bottom: 4px;
     opacity: 0.9;
+    text-transform: uppercase;
   }
 
   .preview-left-industry {
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--amber-light);
@@ -568,9 +606,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .preview-form {
     padding: 22px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
+  .preview-form-fields { flex: 1; }
+
   .mock-label {
+    font-family: 'Inter', sans-serif;
     font-size: 9px;
     letter-spacing: 0.12em;
     font-weight: 500;
@@ -580,6 +623,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .mock-input {
+    font-family: 'Inter', sans-serif;
     background: rgba(255,255,255,0.04);
     border: 0.5px solid rgba(255,255,255,0.12);
     border-radius: 4px;
@@ -598,7 +642,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 5px;
     font-size: 12px;
     font-weight: 500;
-    margin-top: 4px;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
   }
 
   /* RIGHT */
@@ -713,36 +758,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     list-style: none;
     padding: 0;
     margin: 0 0 14px;
+    flex: 1;
   }
 
   .report-fixes li {
     display: grid;
-    grid-template-columns: 16px 1fr auto;
+    grid-template-columns: 16px 1fr;
     gap: 8px;
-    align-items: baseline;
-    padding: 7px 0;
+    align-items: start;
+    padding: 8px 0;
     border-bottom: 0.5px solid var(--line);
-    font-size: 11px;
   }
 
   .report-fixes li:last-child { border-bottom: none; }
 
   .fix-num {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
-    color: var(--amber);
-  }
-
-  .fix-text {
     color: var(--navy);
     line-height: 1.4;
   }
 
+  .fix-body { min-width: 0; }
+
+  .fix-text {
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2px;
+    letter-spacing: -0.005em;
+  }
+
   .fix-meta {
     font-size: 10px;
-    color: var(--signal);
-    font-weight: 500;
-    white-space: nowrap;
+    color: var(--muted);
+    line-height: 1.4;
   }
 
   .report-view {
