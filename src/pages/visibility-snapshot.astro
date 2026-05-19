@@ -9,33 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 
   <!-- ══════════════════════════════════════════
-       HEADER
-  ══════════════════════════════════════════ -->
-  <section class="page-hero" aria-labelledby="snapshot-heading">
-    <p class="eyebrow">FREE · 5 MINUTES</p>
-    <h1 id="snapshot-heading" class="page-h1">
-      Your AI Visibility Snapshot
-    </h1>
-    <p class="page-lede">
-      Find out what ChatGPT, Perplexity, Claude, Gemini and Google AI say about
-      your brand — and three things you can fix this week.
-    </p>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       TOOL EMBED
-  ══════════════════════════════════════════ -->
-  <section class="embed-section" id="snapshot-tool" aria-label="AI Visibility Snapshot tool">
-    <iframe
-      src="https://visibilityview.netlify.app/"
-      title="AI Visibility Snapshot tool"
-      class="snapshot-frame"
-      loading="lazy"
-      sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
-    ></iframe>
-  </section>
-
-  <!-- ══════════════════════════════════════════
        SEE A REAL ONE — INDUSTRY PREVIEW
   ══════════════════════════════════════════ -->
   <section class="preview-section" aria-labelledby="preview-heading">
@@ -55,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <button class="preview-tab" role="tab" aria-selected="false" data-tab="mro">MRO</button>
       </div>
 
-      <a class="preview-card" href="#snapshot-tool" aria-label="Open the live AI Visibility Snapshot tool">
+      <div class="preview-card">
         <!-- LEFT: mock form -->
         <div class="preview-left">
           <div class="preview-left-head">
@@ -73,7 +46,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <p class="mock-label">A BUYER QUESTION YOU SHOULD WIN</p>
               <p class="mock-input" data-fill="question">e.g. Who are the leading CNS/ATM providers in Europe?</p>
             </div>
-            <span class="mock-btn">Get my AI Visibility Snapshot →</span>
+            <a
+              class="mock-btn"
+              href="https://visibilityview.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Get my AI Visibility Snapshot →</a>
           </div>
         </div>
 
@@ -133,7 +111,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <p class="report-view">View full report →</p>
         </div>
-      </a>
+      </div>
     </div>
   </section>
 
@@ -434,54 +412,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: 12px 0;
   }
 
-  /* ── Page hero ──────────────────────────────── */
-  .page-hero {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--blue-text);
-    padding: 40px 22px 36px;
-    text-align: center;
-  }
-
-  .eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .page-h1 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0 0 12px;
-    line-height: 1.18;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .page-lede {
-    font-size: 13px;
-    line-height: 1.55;
-    color: var(--blue-soft);
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  /* ── Iframe embed ───────────────────────────── */
-  .embed-section {
-    background: var(--cream-deep);
-    padding: 24px 22px;
-  }
-
-  .snapshot-frame {
-    width: 100%;
-    min-height: 700px;
-    border: none;
-    border-radius: 8px;
-    display: block;
-  }
-
-  /* ── See a real one (industry preview) ──────── */
+  /* ── See your visibility live (industry preview) ── */
   .preview-section {
     background: var(--cream);
     padding: 64px 22px 56px;
@@ -561,14 +492,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--navy-deep);
     border-radius: 8px;
     overflow: hidden;
-    text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .preview-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(4, 44, 83, 0.12);
   }
 
   /* LEFT */
@@ -644,7 +568,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
     margin-top: 8px;
     font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: background 0.2s ease;
   }
+
+  .mock-btn:hover { background: #854F0B; }
 
   /* RIGHT */
   .preview-right {
