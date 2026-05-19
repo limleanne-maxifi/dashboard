@@ -547,6 +547,25 @@ import HeroLoop from '../components/HeroLoop.astro';
     'nl-form-wrap',
     "You're subscribed. See you Friday.",
   );
+
+  // ── Match #didyouknow callout height to AVIATION banner (header + tabs) ──
+  (function() {
+    const dyk = document.querySelector('.did-you-know') as HTMLElement | null;
+    const header = document.querySelector('.subind-header') as HTMLElement | null;
+    const tabs = document.querySelector('.subind-tabs') as HTMLElement | null;
+    if (!dyk || !header || !tabs) return;
+
+    const sync = () => {
+      const h = header.getBoundingClientRect().height + tabs.getBoundingClientRect().height;
+      dyk.style.height = h + 'px';
+    };
+
+    sync();
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sync);
+    }
+  })();
 </script>
 
 <style>
