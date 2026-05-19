@@ -6,10 +6,10 @@ interface Props {
 const { currentPage = '/' } = Astro.props;
 
 const links = [
-  { label: 'AEO',      href: '/aeo' },
-  { label: 'Engine',   href: '/visibility-engine' },
-  { label: 'Work',     href: '/work' },
-  { label: 'Insights', href: '/insights' },
+  { label: 'See Your Visibility',   href: '/aeo' },
+  { label: 'See What Changed',      href: '/visibility-engine' },
+  { label: 'See live examples',     href: '/work' },
+  { label: 'See how we can help',   href: '/insights' },
 ];
 ---
 
@@ -40,7 +40,6 @@ const links = [
   </nav>
 
   <div class="nav-end">
-    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta">Get my AI Visibility Snapshot</a>
     <button
       class="hamburger"
       id="nav-hamburger"
@@ -68,9 +67,6 @@ const links = [
         </li>
       ))}
     </ul>
-    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta" style="display:inline-block;margin-top:12px;">
-      Get my AI Visibility Snapshot
-    </a>
   </nav>
 </div>
 
