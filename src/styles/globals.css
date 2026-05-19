@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
   /* Primary */
@@ -32,6 +32,10 @@
   /* Functional */
   --signal:      #1D9E75;
   --danger:      #DC2626;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, "Courier New", monospace;
 }
 
 *,
@@ -43,7 +47,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+  font-family: var(--font-sans);
   background: var(--cream);
   color: var(--navy);
   line-height: 1.6;

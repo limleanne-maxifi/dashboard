@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Font System Preview · Maxifi Digital</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet" crossorigin="anonymous">
+<style>
+  :root {
+    --navy: #042C53;
+    --navy-deep: #031F3D;
+    --navy-soft: #0C447C;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --amber-mid: #EF9F27;
+    --amber-pale: #FAC775;
+    --cream: #FAF8F3;
+    --cream-deep: #F1EFE8;
+    --ink: #1a1a1a;
+    --muted: #5F5E5A;
+    --mute-soft: #888780;
+    --line: rgba(4,44,83,0.08);
+    --blue-text: #E6F1FB;
+    --blue-soft: #B5D4F4;
+    --blue-mid: #85B7EB;
+    --signal: #1D9E75;
+
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --serif: 'Fraunces', Georgia, serif;
+    --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { visibility: visible !important; opacity: 1 !important; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+  /* Preview banner */
+  .preview-banner {
+    background: var(--navy-deep);
+    color: var(--amber-light);
+    padding: 10px 0;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+  }
+  .preview-banner span { color: var(--amber-pale); font-family: var(--mono); }
+
+  /* Nav */
+  .nav {
+    border-bottom: 0.5px solid var(--line);
+    background: rgba(250, 248, 243, 0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px; color: var(--navy); }
+  .logo-mark {
+    width: 26px; height: 26px; border-radius: 4px;
+    background: var(--amber); color: var(--amber-light);
+    display: grid; place-items: center; font-size: 13px; font-weight: 500;
+  }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { color: var(--navy); opacity: 0.72; text-decoration: none; font-size: 14px; }
+  .nav-cta {
+    background: var(--amber); color: var(--amber-light);
+    padding: 8px 14px; border-radius: 5px; font-size: 12px; font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Section */
+  section { padding: 60px 0; border-bottom: 0.5px solid var(--line); }
+  .label-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding: 3px 8px;
+    border: 0.5px solid var(--amber);
+    border-radius: 3px;
+  }
+  .section-title-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+
+  /* Did you know callout */
+  .callout {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: rgba(186, 117, 23, 0.06);
+    border: 0.5px solid rgba(186, 117, 23, 0.25);
+    border-radius: 5px;
+    padding: 10px 16px;
+    height: 54px;
+    margin-bottom: 24px;
+  }
+  .callout-eyebrow {
+    font-size: 9px; font-weight: 500; color: var(--amber);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .callout-stat {
+    font-family: var(--mono);
+    font-size: 13px; font-weight: 500; color: var(--navy);
+  }
+  .callout-source {
+    font-size: 9px; color: var(--muted); font-style: italic;
+  }
+
+  /* Hero */
+  .hero { padding: 80px 0; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: start; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin: 0 0 22px;
+  }
+  .hero-questions { list-style: none; margin: 0 0 24px; padding: 0; }
+  .hero-questions li {
+    font-style: italic; color: var(--navy); font-size: 15px;
+    line-height: 1.5; padding: 2px 0;
+  }
+  .hero-lede { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0 0 24px; max-width: 480px; }
+  .hero-ctas { display: flex; gap: 12px; }
+  .btn-primary {
+    background: var(--amber); color: var(--amber-light);
+    padding: 12px 18px; border-radius: 5px; font-size: 13px; font-weight: 500;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-ghost {
+    background: transparent; color: var(--navy);
+    border: 0.5px solid rgba(4,44,83,0.22);
+    padding: 12px 18px; border-radius: 5px; font-size: 13px; font-weight: 500;
+    text-decoration: none; display: inline-block;
+  }
+
+  /* Engine card */
+  .engine-card {
+    background: var(--navy-deep);
+    border-radius: 8px;
+    padding: 26px;
+    color: var(--blue-text);
+  }
+  .engine-tabs {
+    display: flex; gap: 14px; margin-bottom: 18px;
+    padding-bottom: 14px; border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  }
+  .engine-tab {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue-mid);
+  }
+  .engine-tab.active { color: var(--amber-pale); }
+  .engine-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10px;
+    color: var(--blue-mid); letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .engine-dot { color: var(--signal); }
+  .engine-prompt-label { font-size: 10px; color: var(--blue-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .engine-prompt {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--blue-text);
+    margin-bottom: 18px;
+  }
+  .engine-rows { display: flex; flex-direction: column; gap: 8px; }
+  .engine-row {
+    display: grid; grid-template-columns: 100px 20px 1fr;
+    font-family: var(--mono); font-size: 12px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.05);
+  }
+  .engine-name { color: var(--blue-soft); }
+  .engine-check { color: var(--signal); }
+  .engine-cross { color: #DC2626; }
+  .engine-row.you { color: var(--amber-pale); }
+
+  /* Stats strip */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  }
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 44px; font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .stat-label { font-size: 13px; line-height: 1.5; color: var(--ink); margin-bottom: 10px; max-width: 240px; }
+  .stat-source { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
+
+  /* Snapshot card */
+  .snapshot-card {
+    background: var(--cream-deep);
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+  }
+  .snapshot-head {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--navy);
+    margin: 6px 0 22px;
+  }
+  .snapshot-metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    padding-top: 18px; border-top: 0.5px solid var(--line);
+  }
+  .metric-val {
+    font-family: var(--mono);
+    font-size: 24px; font-weight: 500; color: var(--amber);
+  }
+  .metric-val .delta { font-size: 12px; color: var(--signal); margin-left: 4px; }
+  .metric-label {
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-top: 6px;
+  }
+
+  /* H2 */
+  .h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin: 0 0 24px;
+    max-width: 720px;
+  }
+
+  /* Problem cards */
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .problem-card {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .problem-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--navy);
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .problem-card p { font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0; }
+
+  /* Form */
+  .form-card {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 32px;
+    max-width: 460px;
+  }
+  .form-card label {
+    display: block;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .form-card input {
+    width: 100%; padding: 9px 11px;
+    border: 0.5px solid rgba(4,44,83,0.18);
+    border-radius: 4px; background: var(--cream);
+    font-family: var(--sans); font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .form-card button {
+    width: 100%; background: var(--amber); color: var(--amber-light);
+    border: none; padding: 11px;
+    border-radius: 5px; font-family: var(--sans); font-size: 13px; font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* Font legend */
+  .legend {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    background: var(--navy); color: var(--blue-text);
+    padding: 32px; border-radius: 8px;
+    margin-top: 20px;
+  }
+  .legend h4 {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--amber-pale); margin: 0 0 10px; font-weight: 500;
+  }
+  .legend-sample-serif { font-family: var(--serif); font-size: 26px; line-height: 1.1; margin-bottom: 8px; }
+  .legend-sample-sans { font-family: var(--sans); font-size: 16px; margin-bottom: 8px; }
+  .legend-sample-mono { font-family: var(--mono); font-size: 18px; margin-bottom: 8px; color: var(--amber-pale); }
+  .legend p { font-size: 12px; color: var(--blue-soft); line-height: 1.5; margin: 0; }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 24px;
+    font-size: 10px; color: var(--mute-soft);
+    border-top: 0.5px solid var(--line);
+  }
+  .footer-origin { color: var(--amber); letter-spacing: 0.06em; font-weight: 500; margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  Font System Preview · <span>Fraunces</span> + <span>Inter</span> + <span>IBM Plex Mono</span> · Not deployed
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="logo"><span class="logo-mark">M</span> Maxifi Digital</div>
+    <nav class="nav-links">
+      <a href="#">AEO</a><a href="#">Engine</a><a href="#">Work</a><a href="#">Insights</a>
+    </nav>
+    <a class="nav-cta" href="#">Get my Scorecard</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="section-title-meta">01 / HERO</div>
+
+    <div class="callout">
+      <span class="callout-eyebrow">Did you know?</span>
+      <span class="callout-stat">1,300% YoY AI referral growth</span>
+      <span class="callout-source">Adobe Analytics</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Your buyers are no longer only searching Google. They are asking AI:</h1>
+        <ul class="hero-questions">
+          <li>"Who are the best providers?"</li>
+          <li>"Which solution should we shortlist?"</li>
+          <li>"Who has credible expertise in this space?"</li>
+          <li>"What companies should we compare?"</li>
+        </ul>
+        <p class="hero-lede">If AI cannot understand why your company is worth citing, your competitors become easier to recommend. Maxifi Digital turns your expertise, content and proof into structured authority assets AI engines can find, understand and cite.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#">Get my Snapshot</a>
+          <a class="btn-ghost" href="#">ASW case study →</a>
+        </div>
+      </div>
+
+      <div class="engine-card">
+        <div class="engine-tabs">
+          <span class="engine-tab active">Aviation &amp; ATM</span>
+          <span class="engine-tab">B2B Tech</span>
+          <span class="engine-tab">Expert Advisory</span>
+        </div>
+        <div class="engine-meta">
+          <span><span class="engine-dot">●</span> LIVE TEST ACROSS 5 ENGINES</span>
+          <span>01 / 03</span>
+        </div>
+        <div class="engine-prompt-label">Buyer prompt right now</div>
+        <div class="engine-prompt">"Best CNS/ATM technology provider for European airspace?"</div>
+        <div class="engine-rows">
+          <div class="engine-row"><span class="engine-name">ChatGPT</span><span class="engine-check">✓</span><span>Frequentis</span></div>
+          <div class="engine-row"><span class="engine-name">Claude</span><span class="engine-check">✓</span><span>Indra Sistemas</span></div>
+          <div class="engine-row"><span class="engine-name">Gemini</span><span class="engine-check">✓</span><span>Thales Group</span></div>
+          <div class="engine-row"><span class="engine-name">Perplexity</span><span class="engine-check">✓</span><span>SITA · Saab</span></div>
+          <div class="engine-row"><span class="engine-name">Copilot</span><span class="engine-check">✓</span><span>Leonardo · Leidos</span></div>
+          <div class="engine-row you"><span class="engine-name">Your brand</span><span class="engine-cross">✗</span><span>Not in any answer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- H2 + PROBLEM CARDS -->
+<section>
+  <div class="wrap">
+    <div class="section-title-meta">02 / SECTION HEADINGS &amp; CARDS</div>
+    <span class="label-tag">The shift</span>
+    <h2 class="h2">Most expert content is invisible to AI - at the exact moment buyers are asking better questions.</h2>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>Buyers ask AI first</h3>
+        <p>67% of B2B buyers prefer a rep-free experience. ChatGPT is the new shortlist builder.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Search is collapsing</h3>
+        <p>~60% of Google searches end without a click. Traffic that used to convert now disappears into AI answers.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Authority is the moat</h3>
+        <p>AI engines cite what they trust. Expertise has to be structured for machines, not just humans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section>
+  <div class="wrap">
+    <div class="section-title-meta">03 / NUMERIC DATA · IBM PLEX MONO</div>
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">25%</div>
+        <div class="stat-label">decline in traditional search engine volume by 2026.</div>
+        <div class="stat-source">Gartner · Predicts 2024</div>
+      </div>
+      <div>
+        <div class="stat-num">~60%</div>
+        <div class="stat-label">of Google searches now end without a click.</div>
+        <div class="stat-source">SparkToro · 2024</div>
+      </div>
+      <div>
+        <div class="stat-num">1,300%</div>
+        <div class="stat-label">YoY AI referral growth across tracked B2B sites.</div>
+        <div class="stat-source">Adobe Analytics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SNAPSHOT CARD -->
+<section>
+  <div class="wrap">
+    <div class="section-title-meta">04 / SNAPSHOT DASHBOARD</div>
+    <div class="snapshot-card" style="max-width:520px;">
+      <div class="engine-meta" style="color:var(--muted);">
+        <span><span class="engine-dot">●</span> SAMPLE SNAPSHOT · REAL CLIENT</span>
+        <span>02 / 03</span>
+      </div>
+      <div class="snapshot-head">Citation share at 14%.<br>3 fixes to reach 41% in 90 days.</div>
+      <div class="snapshot-metrics">
+        <div>
+          <div class="metric-val">23<span class="delta">↑52%</span></div>
+          <div class="metric-label">AI Citations</div>
+        </div>
+        <div>
+          <div class="metric-val">2<span style="color:var(--muted);font-size:14px;">/5</span></div>
+          <div class="metric-label">Engines Citing</div>
+        </div>
+        <div>
+          <div class="metric-val">3<span style="color:var(--muted);font-size:14px;">/10</span></div>
+          <div class="metric-label">Topics Owned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section>
+  <div class="wrap">
+    <div class="section-title-meta">05 / FORMS · INTER ONLY</div>
+    <div class="form-card">
+      <label>Your website</label>
+      <input type="text" placeholder="youraviationbrand.com" />
+      <label>Your aviation specialism</label>
+      <input type="text" placeholder="e.g. CNS/ATM, UTM, aviation cyber" />
+      <button>Get my Snapshot →</button>
+    </div>
+  </div>
+</section>
+
+<!-- LEGEND -->
+<section>
+  <div class="wrap">
+    <div class="section-title-meta">06 / FONT ROLES</div>
+    <div class="legend">
+      <div>
+        <h4>Fraunces · Editorial</h4>
+        <div class="legend-sample-serif">Cited, not just ranked.</div>
+        <p>H1, H2, large buyer prompts. Emotional and strategic statements only.</p>
+      </div>
+      <div>
+        <h4>Inter · Functional</h4>
+        <div class="legend-sample-sans">Body, navigation, forms, CTAs.</div>
+        <p>Everything that needs maximum legibility. The workhorse.</p>
+      </div>
+      <div>
+        <h4>IBM Plex Mono · Data</h4>
+        <div class="legend-sample-mono">14% → 41% · ↑1,300%</div>
+        <p>Scores, percentages, engine results, citation labels, dashboards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Maxifi Digital · Trusted by B2B brands, industry leaders and expert-led businesses</p>
+  <p class="footer-origin">Delivering Global Visibility &amp; Authority · AI</p>
+</footer>
+
+</body>
+</html>

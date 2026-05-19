@@ -14,16 +14,38 @@ Do NOT use the premium Fraunces serif version (`maxifi_digital_final_premium.htm
 
 ## TYPOGRAPHY (CRITICAL — exact match required)
 
-### Font family
-**System sans-serif stack only. Do NOT use Fraunces, Georgia, or any serif font.**
+### Font system (locked, v3)
 
-Primary stack:
+Two families only, loaded from Google Fonts in `src/styles/globals.css`:
+
+- **Inter** (weights 400, 500, 600) — every headline, body paragraph, nav link, CTA, form label, footer line
+- **IBM Plex Mono** (weights 400, 500) — all numeric data, eyebrows, dashboard meta tags, citation labels, source attributions
+
+No serif. No Fraunces. No Georgia. No JetBrains Mono. No Courier.
+
+### CSS variables (reference these, do not hardcode)
 ```
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-             "Helvetica Neue", Helvetica, Arial, "Inter", sans-serif;
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             "Helvetica Neue", Helvetica, Arial, sans-serif;
+--font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, "Courier New", monospace;
 ```
 
-Optional: import Inter from Google Fonts (weights 400, 500) for cross-device consistency. If used, place it first in the stack. Do not import any other font.
+### Role assignments
+
+| Element | Family |
+|---|---|
+| Headlines (H1, H2, H3) | Inter |
+| Body, lede, paragraph | Inter |
+| Nav links, nav CTA, logo wordmark | Inter |
+| Buttons (primary, ghost) | Inter |
+| Form labels, inputs, submit | Inter |
+| Footer text | Inter |
+| Section eyebrows (caps) | IBM Plex Mono |
+| Stat numbers (`25%`, `~60%`, `1,300%`) | IBM Plex Mono |
+| Snapshot metrics (`23 ↑52%`, `2/5`, `3/10`) | IBM Plex Mono |
+| HeroLoop engine result rows | IBM Plex Mono |
+| Dashboard meta (`01 / 03`, `LIVE TEST ACROSS 5 ENGINES`) | IBM Plex Mono |
+| Source citations (`Adobe Analytics`, `Gartner · 2024`) | IBM Plex Mono |
 
 ### Font weight rule
 **All headings use weight 500. All body uses weight 400.** Never use 600 or 700.
@@ -391,6 +413,7 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 ## DESIGN RULES — DO NOT
 
 ❌ Do not use Fraunces, Georgia, or any serif font
+❌ Do not use JetBrains Mono, Courier, or any monospace font other than IBM Plex Mono
 ❌ Do not use font-weight 600, 700, 800 or 900
 ❌ Do not use border-radius larger than 8px (no big rounded corners)
 ❌ Do not hardcode hex values — only use the CSS variables defined above
@@ -482,4 +505,5 @@ Today's task: [describe what you're building]
 ## REVISION HISTORY
 
 - v1: Initial spec with Fraunces serif and weight 600 — SUPERSEDED
-- **v2 (current): System sans-serif, weight 500, editorial tight aesthetic, based on `maxifi_homepage_preview__4_.html`**
+- v2: System sans-serif, weight 500, editorial tight aesthetic — SUPERSEDED
+- **v3 (current): Inter (400/500/600) for all text + IBM Plex Mono (400/500) for all numeric data and eyebrows. Imported via Google Fonts. Referenced via `--font-sans` and `--font-mono` CSS variables.**
