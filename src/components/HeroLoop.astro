@@ -3,6 +3,9 @@
 
 <div class="hl-root">
 
+  <!-- ── TOP BLOCK: amber banner + tabs (row-1 of subgrid, matches .did-you-know height) ── -->
+  <div class="hl-top">
+
   <!-- ── AMBER SUB-INDUSTRY BANNER ──────────────── -->
   <div class="subind-header">
     <span class="subind-header-prefix">Top AI searches in:</span>
@@ -25,8 +28,18 @@
     </button>
   </div>
 
+  </div><!-- /hl-top -->
+
   <!-- ── LOOP CONTAINER ─────────────────────────── -->
   <div class="loop-container" id="hl-container">
+
+    <!-- ── PERMANENT INSIGHT HEADER ──────────────── -->
+    <div class="loop-insight">
+      Aviation &amp; aerospace buyers screen vendors in AI first. Find out if yours is being cited.
+    </div>
+
+    <!-- ── STATES WRAPPER ────────────────────────── -->
+    <div class="loop-states">
 
     <!-- ── STATE 1: Engine search mock ── -->
     <div class="state active" data-state="1">
@@ -56,26 +69,26 @@
           <div class="ec-input-row">
             <span class="ec-input-icon" id="ec-input-icon">+</span>
             <span class="ec-query-text" id="ec-query-text"></span><span class="typing-cursor" aria-hidden="true"></span>
-            <span class="ec-thinking" id="ec-thinking">Thinking <span class="ec-think-anim">›</span></span>
             <span class="ec-input-btn" id="ec-input-btn" aria-hidden="true">●</span>
+          </div>
+          <div class="ec-thinking" id="ec-thinking" aria-live="polite">
+            <span class="ec-think-label">Thinking</span>
+            <span class="ec-think-dots" aria-hidden="true"><span></span><span></span><span></span></span>
           </div>
           <div class="ec-answer-area" id="ec-answer-area">
             <span class="ec-answer-label" id="ec-answer-label">ChatGPT</span>
             <p class="ec-answer-text" id="ec-answer-text"></p>
           </div>
         </div>
-        <!-- Not cited -->
-        <div class="ec-not-cited">
-          <span class="ec-nc-label">Your brand</span>
-          <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> Not cited in any answer</span>
-        </div>
-        <!-- CTA -->
-        <div class="s1-cta">
-          <span class="s1-cta-text">Aviation &amp; aerospace buyers screen vendors in AI first.<br/>Find out if yours is being cited.</span>
-          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="s1-cta-btn">Get my AI Visibility Snapshot →</a>
-        </div>
+        <!-- Conversion trigger -->
+        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="ec-conversion-trigger">
+          <span class="ec-ct-question">Are AI engines citing you?</span>
+          <span class="ec-ct-cta">Check now →</span>
+        </a>
       </div>
     </div>
+
+    </div><!-- /loop-states -->
 
   </div><!-- /loop-container -->
 
@@ -134,6 +147,8 @@
   let currentEngine = 0;
   let engineTimer: ReturnType<typeof setInterval> | null = null;
   let engineTypingTimer: ReturnType<typeof setInterval> | null = null;
+  let thinkingTimeout: ReturnType<typeof setTimeout> | null = null;
+  let answerTimeout: ReturnType<typeof setTimeout> | null = null;
 
   const container = document.getElementById('hl-container');
 
@@ -178,6 +193,8 @@
     if (!queryEl || !thinkingEl || !answerArea || !answerText) return;
 
     if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (thinkingTimeout)   { clearTimeout(thinkingTimeout);   thinkingTimeout = null; }
+    if (answerTimeout)     { clearTimeout(answerTimeout);     answerTimeout = null; }
 
     queryEl.textContent = '';
     thinkingEl.classList.remove('is-thinking');
@@ -186,7 +203,6 @@
 
     if (skipAnimation) {
       queryEl.textContent = EC_QUERIES[currentSub];
-      thinkingEl.classList.add('is-thinking');
       answerText.textContent = EC_RESPONSES[currentSub][eidx];
       answerArea.classList.add('is-visible');
       return;
@@ -200,9 +216,12 @@
         queryEl.textContent = query.slice(0, ++charIdx);
       } else {
         if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
-        setTimeout(function() {
+        thinkingTimeout = setTimeout(function() {
+          thinkingTimeout = null;
           thinkingEl.classList.add('is-thinking');
-          setTimeout(function() {
+          answerTimeout = setTimeout(function() {
+            answerTimeout = null;
+            thinkingEl.classList.remove('is-thinking');
             answerText.textContent = EC_RESPONSES[currentSub][eidx];
             answerArea.classList.add('is-visible');
           }, 900);
@@ -220,8 +239,10 @@
   }
 
   function stopEngineLoop() {
-    if (engineTimer) { clearInterval(engineTimer); engineTimer = null; }
-    if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (engineTimer)      { clearInterval(engineTimer);      engineTimer = null; }
+    if (engineTypingTimer){ clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (thinkingTimeout)  { clearTimeout(thinkingTimeout);   thinkingTimeout = null; }
+    if (answerTimeout)    { clearTimeout(answerTimeout);     answerTimeout = null; }
   }
 
   // ── Sub-industry tab clicks ────────────────────
@@ -259,6 +280,7 @@
       stopEngineLoop();
     });
     container.addEventListener('mouseleave', function() {
+      setEngine(currentEngine, false);
       startEngineLoop();
     });
   }
@@ -270,6 +292,16 @@
 </script>
 
 <style>
+  /* Subgrid: .hl-top (row 1) and .loop-container (row 2) participate in
+     the parent .hero-row grid tracks, ensuring .did-you-know always
+     matches .hl-top height without any JS or magic numbers. */
+  .hl-root {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: subgrid;
+    align-content: start;
+  }
+
   /* ── Sub-industry amber banner ──────────────── */
   .subind-header {
     background: var(--amber);
@@ -295,7 +327,6 @@
     border-top: none;
     padding: 4px;
     gap: 2px;
-    margin-bottom: 14px;
   }
 
   .subind-tab {
@@ -326,8 +357,30 @@
 
   /* ── Loop container ─────────────────────────── */
   .loop-container {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 490px;
+    align-self: stretch;
+    box-sizing: border-box;
+  }
+
+  .loop-insight {
+    flex-shrink: 0;
+    padding: 10px 16px 11px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--blue-soft);
+    line-height: 1.4;
+    font-family: var(--font-sans);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* States wrapper — fills remaining height, anchors absolute .state cards */
+  .loop-states {
+    position: relative;
+    flex: 1;
+    min-height: 0;
   }
 
   /* ── State card ─────────────────────────────── */
@@ -336,6 +389,7 @@
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -344,6 +398,8 @@
     visibility: hidden;
     transform: translateY(20px) scale(0.97);
     transition: opacity 0.6s ease, transform 0.6s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .state.active {
@@ -361,8 +417,6 @@
   .state[data-state="1"] .state-num    { color: var(--blue-mid); }
   .state[data-state="1"] .s1-cta { border-top-color: rgba(255, 255, 255, 0.08); }
   .state[data-state="1"] .s1-cta-text { color: var(--blue-mid); }
-  .state[data-state="1"] .s1-cta-btn { background: var(--amber); color: var(--amber-light); }
-  .state[data-state="1"] .s1-cta-btn:hover { background: #854F0B; }
 
   /* ── State header ───────────────────────────── */
   .state-header {
@@ -412,7 +466,12 @@
   }
 
   /* ── State body shared ──────────────────────── */
-  .state-body { padding: 22px 24px; }
+  .state-body {
+    padding: 22px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
   /* ── Engine pills ───────────────────────────── */
   .ec-pills {
@@ -424,7 +483,7 @@
 
   .ec-pill {
     padding: 4px 9px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     font-family: var(--font-sans);
     border-radius: 3px;
@@ -472,8 +531,8 @@
   .ec-chrome-url {
     flex: 1;
     text-align: center;
-    font-size: 10px;
-    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    color: rgba(255,255,255,0.85);
     font-family: var(--font-mono);
   }
 
@@ -541,16 +600,43 @@
   }
 
   .ec-thinking {
-    font-size: 10px;
-    color: rgba(255,255,255,0.35);
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
     font-family: var(--font-sans);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
   }
 
   .ec-thinking.is-thinking { opacity: 1; }
-  .ec-think-anim { animation: hl-blink 0.9s infinite; }
+
+  .ec-think-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .ec-think-dots span {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: think-pulse 1.2s ease-in-out infinite;
+  }
+
+  .ec-think-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .ec-think-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes think-pulse {
+    0%, 80%, 100% { opacity: 0.2; transform: scale(0.7); }
+    40%           { opacity: 1;   transform: scale(1);   }
+  }
 
   .ec-input-btn {
     width: 26px;
@@ -566,8 +652,10 @@
   }
 
   .ec-answer-area {
-    padding: 10px 14px 12px;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
+    padding: 12px 14px 14px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    border-radius: 0 0 8px 8px;
     opacity: 0;
     transition: opacity 0.5s ease;
   }
@@ -608,6 +696,8 @@
   .engine-chatgpt .ec-input-icon { color: #fff; border-color: rgba(255,255,255,0.3); }
   .engine-chatgpt .ec-input-btn { background: #000; color: #fff; font-size: 12px; }
   .engine-chatgpt .ec-answer-label { color: #10A37F; }
+  .engine-chatgpt .ec-answer-area  { background: rgba(16,163,127,0.08); border-top-color: rgba(16,163,127,0.25); }
+  .engine-chatgpt .ec-thinking      { color: rgba(16,163,127,0.8); }
 
   /* Perplexity */
   .engine-perplexity { background: #1C1C1C; }
@@ -623,7 +713,8 @@
   .engine-perplexity .ec-input-icon { border-color: #20B2AA; color: #20B2AA; font-size: 12px; }
   .engine-perplexity .ec-input-btn { background: #20B2AA; color: #fff; }
   .engine-perplexity .ec-answer-label { color: #20B2AA; }
-  .engine-perplexity .ec-thinking { color: rgba(32,178,170,0.6); }
+  .engine-perplexity .ec-answer-area  { background: rgba(32,178,170,0.08); border-top-color: rgba(32,178,170,0.25); }
+  .engine-perplexity .ec-thinking     { color: rgba(32,178,170,0.8); }
 
   /* Gemini */
   .engine-gemini { background: #1E1F23; }
@@ -638,7 +729,8 @@
   }
   .engine-gemini .ec-input-btn { background: linear-gradient(135deg, #4285F4 0%, #A142F4 100%); color: #fff; font-size: 11px; }
   .engine-gemini .ec-answer-label { color: #4285F4; }
-  .engine-gemini .ec-thinking { color: rgba(66,133,244,0.6); }
+  .engine-gemini .ec-answer-area  { background: rgba(66,133,244,0.08); border-top-color: rgba(66,133,244,0.25); }
+  .engine-gemini .ec-thinking     { color: rgba(66,133,244,0.8); }
 
   /* Copilot */
   .engine-copilot { background: #1A1A2E; }
@@ -654,7 +746,8 @@
   .engine-copilot .ec-input-icon { border-color: #0EA5E9; color: #0EA5E9; }
   .engine-copilot .ec-input-btn { background: #0EA5E9; color: #fff; }
   .engine-copilot .ec-answer-label { color: #0EA5E9; }
-  .engine-copilot .ec-thinking { color: rgba(14,165,233,0.6); }
+  .engine-copilot .ec-answer-area  { background: rgba(14,165,233,0.08); border-top-color: rgba(14,165,233,0.25); }
+  .engine-copilot .ec-thinking     { color: rgba(14,165,233,0.8); }
 
   /* Claude */
   .engine-claude { background: #1F1B18; }
@@ -670,87 +763,73 @@
   .engine-claude .ec-input-icon { border-color: #DA7756; color: #DA7756; }
   .engine-claude .ec-input-btn { background: #DA7756; color: #fff; }
   .engine-claude .ec-answer-label { color: #DA7756; }
-  .engine-claude .ec-thinking { color: rgba(218,119,86,0.6); }
+  .engine-claude .ec-answer-area  { background: rgba(218,119,86,0.08); border-top-color: rgba(218,119,86,0.25); }
+  .engine-claude .ec-thinking     { color: rgba(218,119,86,0.8); }
 
-  /* ── Not cited row ──────────────────────────── */
-  .ec-not-cited {
-    background: rgba(220,38,38,0.1);
-    border: 0.5px solid rgba(220,38,38,0.3);
+  /* ── Conversion trigger ─────────────────────── */
+  @keyframes ct-glow {
+    0%, 100% { box-shadow: 0 0 6px 1px rgba(186,117,23,0.3); }
+    50%       { box-shadow: 0 0 18px 5px rgba(186,117,23,0.65); }
+  }
+
+  .ec-conversion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 14px;
+    margin-top: auto;
+    margin-bottom: 12px;
+    background: rgba(186,117,23,0.22);
+    border: 1px solid rgba(186,117,23,0.6);
     border-radius: 6px;
-    padding: 9px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .ec-nc-label { font-weight: 500; color: #FCA5A5; font-size: 11px; }
-
-  .ec-nc-status {
-    color: #FCA5A5;
-    font-size: 11px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .x-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #DC2626;
-    color: #fff;
-    font-size: 9px;
-    font-weight: 500;
-  }
-
-  /* ── S1 CTA row ─────────────────────────────── */
-  .s1-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(4,44,83,0.08);
-  }
-
-  .s1-cta-text { font-size: 11px; color: var(--muted); line-height: 1.4; }
-
-  .s1-cta-btn {
-    background: var(--navy);
-    color: #fff;
-    padding: 9px 14px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: var(--font-sans);
-    transition: background 0.2s ease;
-    flex-shrink: 0;
     text-decoration: none;
-    display: inline-block;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    animation: ct-glow 2.2s ease-in-out infinite;
   }
 
-  .s1-cta-btn:hover { background: var(--navy-deep); }
+  .ec-conversion-trigger:hover {
+    background: rgba(186,117,23,0.35);
+    border-color: var(--amber);
+    animation: none;
+    box-shadow: 0 0 22px 6px rgba(186,117,23,0.7);
+  }
+
+  .ec-ct-question {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    font-family: var(--font-sans);
+    line-height: 1.3;
+  }
+
+  .ec-ct-cta {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber-pale);
+    font-family: var(--font-sans);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .ec-conversion-trigger:hover .ec-ct-cta { color: #fff; }
+
+
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 640px) {
     .subind-tab-label { display: none; }
     .loop-container { min-height: 520px; }
-    .ec-pill { font-size: 8px; padding: 2px 6px; }
+    .ec-pill { font-size: 10px; padding: 2px 6px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .state            { transition-duration: 0.01ms; }
-    .live-dot, .alert-dot, .typing-cursor, .ec-think-anim { animation-duration: 0.01ms; }
-    .s1-cta-btn       { transition-duration: 0.01ms; }
+    .live-dot, .alert-dot, .typing-cursor, .ec-think-dots span { animation-duration: 0.01ms; }
     .ec-window, .ec-answer-area, .ec-thinking, .ec-pill { transition-duration: 0.01ms; }
+    .ec-conversion-trigger { animation: none; }
     .subind-tab       { transition-duration: 0.01ms; }
   }
 </style>

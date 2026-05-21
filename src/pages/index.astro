@@ -23,28 +23,30 @@ import HeroLoop from '../components/HeroLoop.astro';
           <p class="dyk-source" id="dyk-source">Gartner</p>
         </div>
 
-        <p class="eyebrow">AI VISIBILITY FOR EXPERT-LED BRANDS</p>
-        <h1 id="hero-heading" class="hero-h1">
-          <span class="hero-h1-lead">Your buyers are no longer only searching Google.</span>
-          <span class="hero-h1-tail">They are asking AI:</span>
-        </h1>
-        <ul class="hero-queries" role="list">
-          <li>"Who are the best providers?"</li>
-          <li>"Which solution should we shortlist?"</li>
-          <li>"Who has credible expertise in this space?"</li>
-          <li>"What companies should we compare?"</li>
-        </ul>
-        <p class="lede">
-          If AI cannot understand why your company is worth citing, your competitors
-          become easier to recommend. Maxifi Digital turns your expertise, content and
-          proof into structured authority assets that AI engines can find, understand
-          and cite.
-        </p>
-        <div class="hero-ctas">
-          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my AI Visibility Snapshot</a>
-          <a href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener" class="btn-ghost">
-            See how it works - Airspace World case study
-          </a>
+        <div class="hero-body">
+          <p class="eyebrow">AI VISIBILITY FOR EXPERT-LED BRANDS</p>
+          <h1 id="hero-heading" class="hero-h1">
+            <span class="hero-h1-lead">Your buyers are no longer only searching Google</span>
+            <span class="hero-h1-tail">They are asking AI:</span>
+          </h1>
+          <ul class="hero-queries" role="list">
+            <li>"Who are the best providers?"</li>
+            <li>"Which solution should we shortlist?"</li>
+            <li>"Who has credible expertise in this space?"</li>
+            <li>"What companies should we compare?"</li>
+          </ul>
+          <p class="lede">
+            If AI cannot understand why your company is worth citing, your competitors
+            become easier to recommend. Maxifi Digital turns your expertise, content and
+            proof into structured authority assets that AI engines can find, understand
+            and cite.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my AI Visibility Snapshot</a>
+            <a href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener" class="btn-ghost">
+              See how it works - Airspace World case study
+            </a>
+          </div>
         </div>
       </div>
 
@@ -548,6 +550,7 @@ import HeroLoop from '../components/HeroLoop.astro';
     'nl-form-wrap',
     "You're subscribed. See you Friday.",
   );
+
 </script>
 
 <style>
@@ -635,20 +638,18 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 36px 22px 40px;
+    padding: 18px 22px 40px;
   }
 
   /* ── Did you know section ──────────────────── */
   /* Height matches .sector-tabs row in HeroLoop exactly */
   .did-you-know {
     width: 100%;
-    height: 80px;
     box-sizing: border-box;
     background: rgba(181, 212, 244, 0.10);
     border: 0.5px solid rgba(181, 212, 244, 0.25);
     border-radius: 8px;
     padding: 10px 14px;
-    margin-bottom: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -657,7 +658,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .dyk-label {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--amber-mid);
     margin: 0;
@@ -666,7 +667,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .dyk-value {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     color: #fff;
     line-height: 1.3;
@@ -680,7 +681,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   .dyk-source {
-    font-size: 10px;
+    font-size: 11.5px;
     font-weight: 400;
     color: var(--blue-mid);
     margin: 0;
@@ -693,8 +694,16 @@ import HeroLoop from '../components/HeroLoop.astro';
   .hero-row {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    gap: 18px;
-    align-items: start;
+    grid-template-rows: auto 1fr;
+    column-gap: 18px;
+    row-gap: 14px;
+  }
+
+  .hero-left {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: subgrid;
+    align-content: start;
   }
 
   .hero-h1 {
@@ -746,6 +755,11 @@ import HeroLoop from '../components/HeroLoop.astro';
     color: var(--blue-soft);
     margin-bottom: 24px;
     font-family: var(--font-sans);
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-ctas {
