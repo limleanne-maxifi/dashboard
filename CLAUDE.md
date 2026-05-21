@@ -236,27 +236,33 @@ If logo image unavailable, render "Maxifi Digital" as text:
 
 ### Structure
 - Sticky on scroll, top: 0, z-index: 50
-- Background: rgba(250, 248, 243, 0.85) with backdrop-filter: blur(12px)
-- Border-bottom: 0.5px solid var(--line)
-- Padding: 14px 0 (rendered inside `.wrap`)
+- Background: `var(--cream)` with `backdrop-filter: blur(8px)`
+- Border-bottom: 0.5px solid rgba(0,0,0,0.06)
+- Padding: 14px 22px
+- Mobile hamburger breakpoint: **900px** (wider than usual — nav labels are long)
 
-### Links (between logo and CTA)
-- AEO
-- Engine
-- Work
-- Insights
+### Links (between logo and CTA) — locked v2, 5 items
+| Label | Route |
+|---|---|
+| Check Your Visibility | `/visibility-snapshot` |
+| Understand AEO | `/aeo` |
+| Build AI Authority | `/visibility-engine` |
+| Turn Events into Authority | `/conference-aeo` |
+| Start Your Visibility Audit | `/work` |
 
-Each link: 14px font, weight 400, color var(--navy), opacity 0.72 default, opacity 1 on hover. Active state: opacity 1 + color var(--amber).
+Each link: 12px font, weight 400, color var(--navy), opacity 0.72 default, opacity 1 on hover/active. Active: font-weight 500.
 
-### Primary CTA button (top-right)
-- Text: "Get my Scorecard" → links to `#snapshot` (anchor) or `/visibility-snapshot` (page)
-- Background: var(--amber)
-- Color: var(--amber-light)
-- Padding: 7px 13px (or 10px 18px for larger screens)
-- Border-radius: 5px
+### Primary CTA button (top-right) — locked
+- Text: **"Get the Report"** → links to `https://visibilityview.netlify.app/` (external, new tab)
+- Background: `#C87A2F` (hardcoded — intentional departure from --amber for nav context)
+- Color: `#ffffff`
+- Padding: 11px 20px
+- Border-radius: 6px
 - Font-size: 13px
-- Font-weight: 500
-- Hover: background #854F0B
+- Font-weight: **500** (not bold)
+- white-space: nowrap
+- Hover: background `#A8651E`
+- Also rendered in mobile drawer with `display:inline-block; margin-top:12px`
 
 ---
 
@@ -364,12 +370,12 @@ Every page wraps in `BaseLayout.astro` which includes:
 
 ## CONTENT & COPY
 
-### Homepage hero
+### Homepage hero — locked copy
 - Eyebrow: "AI VISIBILITY · EXPERT-LED BRANDS"
-- H1: "Your expertise may already be strong. The question is whether AI can find it."
+- H1: **"Your buyers are no longer only searching Google"** (no trailing period)
 - Lede: "When buyers ask ChatGPT, Perplexity or Google AI about your category, is your brand the answer — or someone else's? We build the visibility layer that makes expert-led brands the source AI cites."
-- Primary CTA: "Get my Snapshot"
-- Secondary CTA: "ASW case study"
+- Primary CTA: "Get my Snapshot" → `/visibility-snapshot`
+- Secondary CTA: "ASW case study" → `https://aswhub.maxifidigital.com/` (external, new tab)
 
 ### Trust strip (preview reference)
 Sector pills (white pills on cream-deep background): CANSO · Aviation bodies · Law firms · Think tanks · Pro services
@@ -502,8 +508,235 @@ Today's task: [describe what you're building]
 
 ---
 
+## HOMEPAGE HERO LAYOUT (locked — do not alter without explicit instruction)
+
+### Hero section padding
+```css
+/* Inside index.astro hero <section> */
+padding: 18px 22px 40px;   /* top was reduced for above-the-fold density */
+```
+
+### Hero grid — CSS subgrid (permanent height-matching solution)
+```css
+.hero-row {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  grid-template-rows: auto 1fr;   /* row 1 = max(dyk-header, hl-top), row 2 = content */
+  column-gap: 18px;
+  row-gap: 14px;
+}
+/* Both left and right columns span both rows and use subgrid */
+.hero-left {
+  display: grid;
+  grid-row: 1 / 3;
+  grid-template-rows: subgrid;
+  align-content: start;
+}
+.hl-root {
+  display: grid;
+  grid-row: 1 / 3;
+  grid-template-rows: subgrid;
+  align-content: start;
+}
+```
+**Rule: never revert to fixed heights or JS-based syncHeight for the hero columns. Subgrid is the permanent solution.**
+
+### Stat card (#didyouknow) font sizes — locked (+15% from original)
+```css
+.dyk-label  { font-size: 13px; }   /* was 11px */
+.dyk-value  { font-size: 14px; }   /* was 12px */
+.dyk-source { font-size: 11.5px; } /* was 10px */
+```
+
+### Hero body layout
+```css
+.hero-body {
+  display: flex;
+  flex-direction: column;
+}
+.hero-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  /* No margin-top: auto — CTAs flow naturally below lede */
+}
+```
+
+---
+
+## HEROLOOP COMPONENT (locked — `src/components/HeroLoop.astro`)
+
+### Structure overview
+```
+.hl-root
+  .hl-top                    ← subgrid row 1: tabs + header (matches dyk height)
+    .subind-header
+    .subind-tabs
+  .loop-container            ← subgrid row 2: the animated engine area
+    .loop-insight            ← PERMANENT fixed line, never inside animated .state
+    .loop-states
+      .state[data-state="N"] ← position:absolute, flex-column, animated in/out
+        .state-header
+        .state-body
+          .ec-pills
+          .ec-window.engine-[name]
+            .ec-chrome
+            .ec-greeting
+            .ec-input-row
+            .ec-thinking    ← "Thinking" label + 3-dot pulse
+            .ec-answer-area
+          .ec-conversion-trigger  ← margin-top:auto, always at bottom
+```
+
+### Permanent insight line (locked)
+```css
+.loop-insight {
+  flex-shrink: 0;
+  padding: 10px 16px 11px;
+  font-size: 13px;
+  color: var(--blue-soft);
+  line-height: 1.4;
+  font-family: var(--font-sans);
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+```
+Text: **"Aviation & aerospace buyers screen vendors in AI first. Find out if yours is being cited."**
+This line is outside `.loop-states` and is always visible regardless of which state is active.
+
+### Loop container
+```css
+.loop-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 490px;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.loop-states {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+.state {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.state-body {
+  padding: 22px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+```
+
+### Engine pills — locked sizes
+```css
+.ec-pill { font-size: 12px; }           /* desktop — was 10px (+20%) */
+@media (max-width: 640px) {
+  .ec-pill { font-size: 10px; }         /* mobile — was 8px */
+}
+```
+
+### Engine chrome URL — locked
+```css
+.ec-chrome-url {
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);        /* high contrast — was 0.35 */
+}
+```
+
+### Thinking indicator — locked
+```css
+@keyframes think-pulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.7); }
+  40%           { opacity: 1;   transform: scale(1);   }
+}
+.ec-think-dots span { animation: think-pulse 1.2s ease-in-out infinite; }
+.ec-think-dots span:nth-child(2) { animation-delay: 0.2s; }
+.ec-think-dots span:nth-child(3) { animation-delay: 0.4s; }
+```
+Visible during thinking phase only (shown while `ec-answer-area` is hidden). Hidden once answer appears.
+
+### Answer area — locked
+```css
+.ec-answer-area {
+  border: 1px solid rgba(255,255,255,0.12);  /* stronger than default */
+  border-radius: 6px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.05);         /* base tint */
+}
+/* Per-engine brand tints (applied via additional class) */
+.engine-chatgpt  .ec-answer-area { background: rgba(16,163,127,0.05); }
+.engine-perplexity .ec-answer-area { background: rgba(32,120,220,0.05); }
+.engine-gemini   .ec-answer-area { background: rgba(66,133,244,0.05); }
+.engine-copilot  .ec-answer-area { background: rgba(0,120,212,0.05); }
+.engine-claude   .ec-answer-area { background: rgba(205,154,109,0.05); }
+```
+
+### Conversion trigger — locked
+```css
+@keyframes ct-glow {
+  0%, 100% { box-shadow: 0 0 6px 1px rgba(186,117,23,0.3); }
+  50%       { box-shadow: 0 0 18px 5px rgba(186,117,23,0.65); }
+}
+.ec-conversion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  margin-top: auto;
+  margin-bottom: 12px;            /* 5px higher than natural floor */
+  background: rgba(186,117,23,0.22);
+  border: 1px solid rgba(186,117,23,0.6);
+  border-radius: 6px;
+  text-decoration: none;
+  animation: ct-glow 2.2s ease-in-out infinite;
+}
+.ec-ct-question {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+.ec-ct-cta {
+  font-size: 12px;
+  font-weight: 700;              /* bold — intentional for conversion urgency */
+  color: var(--amber-pale);
+  white-space: nowrap;
+}
+```
+Copy: question = **"Are AI engines citing you?"**, CTA = **"Check now →"**
+Links to: `https://visibilityview.netlify.app/` (external, new tab)
+
+### JS animation rules (locked — prevent stale timer bugs)
+Four timer state variables must exist:
+```js
+let cycleTimer: ReturnType<typeof setInterval> | null = null;
+let thinkingTimeout: ReturnType<typeof setTimeout> | null = null;
+let answerTimeout: ReturnType<typeof setTimeout> | null = null;
+let pauseTimer: ReturnType<typeof setTimeout> | null = null;
+```
+`stopEngineLoop()` must clear **all four**:
+```js
+function stopEngineLoop() {
+  if (cycleTimer)      { clearInterval(cycleTimer);  cycleTimer = null; }
+  if (thinkingTimeout) { clearTimeout(thinkingTimeout); thinkingTimeout = null; }
+  if (answerTimeout)   { clearTimeout(answerTimeout);   answerTimeout = null; }
+  if (pauseTimer)      { clearTimeout(pauseTimer);      pauseTimer = null; }
+}
+```
+On `mouseleave`: call `setEngine(currentEngine, false)` to reset the in-progress animation **before** restarting the loop. Never restart the loop without resetting first.
+
+### CRITICAL — EC_RESPONSES data
+All 20 response strings in the `EC_RESPONSES` object are **fabricated simulations**. They must be replaced with real copied text from live queries in each engine before the site goes to production. Until replaced, this is a reputational risk for an AEO consultancy.
+
+---
+
 ## REVISION HISTORY
 
 - v1: Initial spec with Fraunces serif and weight 600 — SUPERSEDED
 - v2: System sans-serif, weight 500, editorial tight aesthetic — SUPERSEDED
 - **v3 (current): Inter (400/500/600) for all text + IBM Plex Mono (400/500) for all numeric data and eyebrows. Imported via Google Fonts. Referenced via `--font-sans` and `--font-mono` CSS variables.**
+- **v3.1 (2026-05-21): Nav locked to 5 links + "Get the Report" CTA; Hero subgrid height-matching; HeroLoop thinking indicator + conversion trigger; all animation timers locked.**
