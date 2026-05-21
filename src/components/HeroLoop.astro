@@ -72,12 +72,11 @@
         <!-- Not cited -->
         <div class="ec-not-cited">
           <span class="ec-nc-label">Your brand</span>
-          <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> Not cited in any answer</span>
+          <span class="ec-nc-status"><span class="x-mark" aria-hidden="true">✗</span> 0 / 5 engines are citing you</span>
         </div>
-        <!-- CTA -->
+        <!-- Insight strip -->
         <div class="s1-cta">
           <span class="s1-cta-text">Aviation &amp; aerospace buyers screen vendors in AI first.<br/>Find out if yours is being cited.</span>
-          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="s1-cta-btn">Get my AI Visibility Snapshot →</a>
         </div>
       </div>
     </div>
@@ -339,9 +338,13 @@
   .subind-tab-label { font-size: 10px; }
 
   /* ── Loop container ─────────────────────────── */
+  /* align-self: stretch + min-height ensure it always fills the subgrid row,
+     matching the left hero-body height without JS or magic numbers. */
   .loop-container {
     position: relative;
     min-height: 490px;
+    align-self: stretch;
+    box-sizing: border-box;
   }
 
   /* ── State card ─────────────────────────────── */
@@ -350,6 +353,7 @@
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -732,7 +736,7 @@
     border-top: 1px solid rgba(4,44,83,0.08);
   }
 
-  .s1-cta-text { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .s1-cta-text { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
   .s1-cta-btn {
     background: var(--navy);
