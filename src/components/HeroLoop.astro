@@ -82,10 +82,7 @@
         </div>
         <!-- Conversion trigger -->
         <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="ec-conversion-trigger">
-          <span class="ec-ct-left">
-            <span class="ec-ct-label">Your brand</span>
-            <span class="ec-ct-question">How many AI engines are citing you?</span>
-          </span>
+          <span class="ec-ct-question">Are AI engines citing you?</span>
           <span class="ec-ct-cta">Check now →</span>
         </a>
       </div>
@@ -775,11 +772,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 12px;
+    padding: 11px 14px;
     margin-top: auto;
     margin-bottom: 0;
-    background: rgba(186,117,23,0.12);
-    border: 0.5px solid rgba(186,117,23,0.35);
+    background: rgba(186,117,23,0.22);
+    border: 1px solid rgba(186,117,23,0.6);
     border-radius: 6px;
     text-decoration: none;
     transition: background 0.2s ease, border-color 0.2s ease;
@@ -787,35 +784,20 @@
   }
 
   .ec-conversion-trigger:hover {
-    background: rgba(186,117,23,0.22);
-    border-color: rgba(186,117,23,0.6);
-  }
-
-  .ec-ct-left {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .ec-ct-label {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--amber-pale);
-    font-family: var(--font-sans);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    background: rgba(186,117,23,0.35);
+    border-color: var(--amber);
   }
 
   .ec-ct-question {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
-    color: var(--amber-light);
+    color: #fff;
     font-family: var(--font-sans);
     line-height: 1.3;
   }
 
   .ec-ct-cta {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--amber-pale);
     font-family: var(--font-sans);
