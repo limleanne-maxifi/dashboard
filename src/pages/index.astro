@@ -548,6 +548,17 @@ import HeroLoop from '../components/HeroLoop.astro';
     'nl-form-wrap',
     "You're subscribed. See you Friday.",
   );
+
+  // Keep #didyouknow the same height as the amber banner + tabs on the right
+  function syncDykHeight() {
+    const dyk = document.getElementById('dyk-stat');
+    const header = document.querySelector('.subind-header');
+    const tabs = document.querySelector('.subind-tabs');
+    if (!dyk || !header || !tabs) return;
+    dyk.style.height = (header.offsetHeight + tabs.offsetHeight) + 'px';
+  }
+  syncDykHeight();
+  window.addEventListener('resize', syncDykHeight);
 </script>
 
 <style>
@@ -642,7 +653,7 @@ import HeroLoop from '../components/HeroLoop.astro';
   /* Height matches .sector-tabs row in HeroLoop exactly */
   .did-you-know {
     width: 100%;
-    height: 118px; /* subind-header 80px + subind-tabs ~38px */
+    height: auto;
     box-sizing: border-box;
     background: rgba(181, 212, 244, 0.10);
     border: 0.5px solid rgba(181, 212, 244, 0.25);
