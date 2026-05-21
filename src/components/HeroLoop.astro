@@ -141,6 +141,8 @@
   let currentEngine = 0;
   let engineTimer: ReturnType<typeof setInterval> | null = null;
   let engineTypingTimer: ReturnType<typeof setInterval> | null = null;
+  let thinkingTimeout: ReturnType<typeof setTimeout> | null = null;
+  let answerTimeout: ReturnType<typeof setTimeout> | null = null;
 
   const container = document.getElementById('hl-container');
 
@@ -185,6 +187,8 @@
     if (!queryEl || !thinkingEl || !answerArea || !answerText) return;
 
     if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (thinkingTimeout)   { clearTimeout(thinkingTimeout);   thinkingTimeout = null; }
+    if (answerTimeout)     { clearTimeout(answerTimeout);     answerTimeout = null; }
 
     queryEl.textContent = '';
     thinkingEl.classList.remove('is-thinking');
@@ -206,9 +210,11 @@
         queryEl.textContent = query.slice(0, ++charIdx);
       } else {
         if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
-        setTimeout(function() {
+        thinkingTimeout = setTimeout(function() {
+          thinkingTimeout = null;
           thinkingEl.classList.add('is-thinking');
-          setTimeout(function() {
+          answerTimeout = setTimeout(function() {
+            answerTimeout = null;
             thinkingEl.classList.remove('is-thinking');
             answerText.textContent = EC_RESPONSES[currentSub][eidx];
             answerArea.classList.add('is-visible');
@@ -227,8 +233,10 @@
   }
 
   function stopEngineLoop() {
-    if (engineTimer) { clearInterval(engineTimer); engineTimer = null; }
-    if (engineTypingTimer) { clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (engineTimer)      { clearInterval(engineTimer);      engineTimer = null; }
+    if (engineTypingTimer){ clearInterval(engineTypingTimer); engineTypingTimer = null; }
+    if (thinkingTimeout)  { clearTimeout(thinkingTimeout);   thinkingTimeout = null; }
+    if (answerTimeout)    { clearTimeout(answerTimeout);     answerTimeout = null; }
   }
 
   // ── Sub-industry tab clicks ────────────────────
@@ -266,6 +274,7 @@
       stopEngineLoop();
     });
     container.addEventListener('mouseleave', function() {
+      setEngine(currentEngine, false);
       startEngineLoop();
     });
   }
@@ -382,8 +391,6 @@
   .state[data-state="1"] .state-num    { color: var(--blue-mid); }
   .state[data-state="1"] .s1-cta { border-top-color: rgba(255, 255, 255, 0.08); }
   .state[data-state="1"] .s1-cta-text { color: var(--blue-mid); }
-  .state[data-state="1"] .s1-cta-btn { background: var(--amber); color: var(--amber-light); }
-  .state[data-state="1"] .s1-cta-btn:hover { background: #854F0B; }
 
   /* ── State header ───────────────────────────── */
   .state-header {
@@ -776,24 +783,6 @@
 
   .s1-cta-text { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
-  .s1-cta-btn {
-    background: var(--navy);
-    color: #fff;
-    padding: 9px 14px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: var(--font-sans);
-    transition: background 0.2s ease;
-    flex-shrink: 0;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .s1-cta-btn:hover { background: var(--navy-deep); }
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 640px) {
@@ -804,8 +793,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .state            { transition-duration: 0.01ms; }
-    .live-dot, .alert-dot, .typing-cursor, .ec-think-anim { animation-duration: 0.01ms; }
-    .s1-cta-btn       { transition-duration: 0.01ms; }
+    .live-dot, .alert-dot, .typing-cursor, .ec-think-dots span { animation-duration: 0.01ms; }
     .ec-window, .ec-answer-area, .ec-thinking, .ec-pill { transition-duration: 0.01ms; }
     .subind-tab       { transition-duration: 0.01ms; }
   }
