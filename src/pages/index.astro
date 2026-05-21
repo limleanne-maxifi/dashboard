@@ -757,10 +757,16 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-family: var(--font-sans);
   }
 
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+  }
+
   .hero-ctas {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: auto;
   }
 
   /* ── Trust strip ────────────────────────────── */
