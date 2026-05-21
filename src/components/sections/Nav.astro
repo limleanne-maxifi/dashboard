@@ -6,10 +6,11 @@ interface Props {
 const { currentPage = '/' } = Astro.props;
 
 const links = [
-  { label: 'AEO',      href: '/aeo' },
-  { label: 'Engine',   href: '/visibility-engine' },
-  { label: 'Work',     href: '/work' },
-  { label: 'Insights', href: '/insights' },
+  { label: 'Check Your Visibility',      href: '/visibility-snapshot' },
+  { label: 'Understand AEO',             href: '/aeo' },
+  { label: 'Build AI Authority',         href: '/visibility-engine' },
+  { label: 'Turn Events into Authority', href: '/conference-aeo' },
+  { label: 'Start Your Visibility Audit', href: '/work' },
 ];
 ---
 
@@ -40,7 +41,7 @@ const links = [
   </nav>
 
   <div class="nav-end">
-    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta">Get my AI Visibility Snapshot</a>
+    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta">Get the Report</a>
     <button
       class="hamburger"
       id="nav-hamburger"
@@ -69,7 +70,7 @@ const links = [
       ))}
     </ul>
     <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta" style="display:inline-block;margin-top:12px;">
-      Get my AI Visibility Snapshot
+      Get the Report
     </a>
   </nav>
 </div>
@@ -141,18 +142,18 @@ const links = [
   }
 
   .nav-cta {
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 7px 13px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 500;
+    background: #C87A2F;
+    color: #ffffff;
+    padding: 11px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
     text-decoration: none;
     transition: background 0.2s ease;
     white-space: nowrap;
   }
 
-  .nav-cta:hover { background: #854F0B; }
+  .nav-cta:hover { background: #A8651E; }
 
   /* Hamburger */
   .hamburger {
@@ -207,7 +208,7 @@ const links = [
   .nav-mobile-link:hover,
   .nav-mobile-link.nav-link--active { opacity: 1; }
 
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
   }
