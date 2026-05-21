@@ -211,6 +211,8 @@ const links = [
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
+    /* CTA lives in the mobile drawer — hide it from the header bar */
+    .nav-end .nav-cta { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {

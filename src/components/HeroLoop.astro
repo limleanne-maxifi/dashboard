@@ -840,6 +840,15 @@
 
 
   /* ── Responsive ─────────────────────────────── */
+  @media (max-width: 768px) {
+    /* Reset subgrid — single-column hero has no rows to inherit */
+    .hl-root {
+      grid-row: auto;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   @media (max-width: 640px) {
     .subind-tab-label { display: none; }
     .loop-container { min-height: 520px; }

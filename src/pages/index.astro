@@ -1210,9 +1210,21 @@ import HeroLoop from '../components/HeroLoop.astro';
     .hero-row,
     .nl-grid {
       grid-template-columns: 1fr;
+      grid-template-rows: auto;
     }
 
-    .hero-h1 { font-size: 26px; }
+    /* Reset subgrid span so hero-left and HeroLoop stack naturally */
+    .hero-left {
+      grid-row: auto;
+      grid-template-rows: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-h1       { font-size: 26px; }
+    .hero-h1-lead  { font-size: 26px; }
+    .hero-h1-tail  { font-size: 17px; }
 
     .problem-grid,
     .offers,
