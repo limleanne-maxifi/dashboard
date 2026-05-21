@@ -76,7 +76,10 @@
             <span class="ec-think-dots" aria-hidden="true"><span></span><span></span><span></span></span>
           </div>
           <div class="ec-answer-area" id="ec-answer-area">
-            <span class="ec-answer-label" id="ec-answer-label">ChatGPT</span>
+            <div class="ec-answer-header">
+              <span class="ec-answer-label" id="ec-answer-label">ChatGPT</span>
+              <span class="ec-answer-sim">SIMULATED</span>
+            </div>
             <p class="ec-answer-text" id="ec-answer-text"></p>
           </div>
         </div>
@@ -662,14 +665,32 @@
 
   .ec-answer-area.is-visible { opacity: 1; }
 
+  .ec-answer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
   .ec-answer-label {
     font-size: 9px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    display: block;
-    margin-bottom: 5px;
     font-family: var(--font-mono);
+  }
+
+  .ec-answer-sim {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 3px;
+    padding: 2px 5px;
   }
 
   .ec-answer-text {
