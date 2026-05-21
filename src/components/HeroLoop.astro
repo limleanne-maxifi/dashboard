@@ -33,6 +33,14 @@
   <!-- ── LOOP CONTAINER ─────────────────────────── -->
   <div class="loop-container" id="hl-container">
 
+    <!-- ── PERMANENT INSIGHT HEADER ──────────────── -->
+    <div class="loop-insight">
+      Aviation &amp; aerospace buyers screen vendors in AI first. Find out if yours is being cited.
+    </div>
+
+    <!-- ── STATES WRAPPER ────────────────────────── -->
+    <div class="loop-states">
+
     <!-- ── STATE 1: Engine search mock ── -->
     <div class="state active" data-state="1">
       <div class="state-header">
@@ -72,10 +80,6 @@
             <p class="ec-answer-text" id="ec-answer-text"></p>
           </div>
         </div>
-        <!-- Insight strip -->
-        <div class="s1-cta">
-          <span class="s1-cta-text">Aviation &amp; aerospace buyers screen vendors in AI first. Find out if yours is being cited.</span>
-        </div>
         <!-- Not cited -->
         <div class="ec-not-cited">
           <span class="ec-nc-label">Your brand</span>
@@ -83,6 +87,8 @@
         </div>
       </div>
     </div>
+
+    </div><!-- /loop-states -->
 
   </div><!-- /loop-container -->
 
@@ -350,13 +356,31 @@
   .subind-tab-label { font-size: 10px; }
 
   /* ── Loop container ─────────────────────────── */
-  /* align-self: stretch + min-height ensure it always fills the subgrid row,
-     matching the left hero-body height without JS or magic numbers. */
   .loop-container {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 490px;
     align-self: stretch;
     box-sizing: border-box;
+  }
+
+  .loop-insight {
+    flex-shrink: 0;
+    padding: 10px 16px 11px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--blue-soft);
+    line-height: 1.4;
+    font-family: var(--font-sans);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* States wrapper — fills remaining height, anchors absolute .state cards */
+  .loop-states {
+    position: relative;
+    flex: 1;
+    min-height: 0;
   }
 
   /* ── State card ─────────────────────────────── */
@@ -771,17 +795,6 @@
     font-weight: 500;
   }
 
-  /* ── S1 CTA row ─────────────────────────────── */
-  .s1-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(4,44,83,0.08);
-  }
-
-  .s1-cta-text { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
 
   /* ── Responsive ─────────────────────────────── */
