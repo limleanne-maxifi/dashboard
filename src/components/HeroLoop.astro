@@ -3,6 +3,9 @@
 
 <div class="hl-root">
 
+  <!-- ── TOP BLOCK: amber banner + tabs (row-1 of subgrid, matches .did-you-know height) ── -->
+  <div class="hl-top">
+
   <!-- ── AMBER SUB-INDUSTRY BANNER ──────────────── -->
   <div class="subind-header">
     <span class="subind-header-prefix">Top AI searches in:</span>
@@ -24,6 +27,8 @@
       <span class="subind-tab-label">MRO</span>
     </button>
   </div>
+
+  </div><!-- /hl-top -->
 
   <!-- ── LOOP CONTAINER ─────────────────────────── -->
   <div class="loop-container" id="hl-container">
@@ -270,6 +275,16 @@
 </script>
 
 <style>
+  /* Subgrid: .hl-top (row 1) and .loop-container (row 2) participate in
+     the parent .hero-row grid tracks, ensuring .did-you-know always
+     matches .hl-top height without any JS or magic numbers. */
+  .hl-root {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: subgrid;
+    align-content: start;
+  }
+
   /* ── Sub-industry amber banner ──────────────── */
   .subind-header {
     background: var(--amber);
@@ -295,7 +310,6 @@
     border-top: none;
     padding: 4px;
     gap: 2px;
-    margin-bottom: 14px;
   }
 
   .subind-tab {
