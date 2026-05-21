@@ -1206,6 +1206,13 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   /* ── Responsive ─────────────────────────────── */
+
+  /* Tablet: tighten nav links, shrink hero H1 slightly */
+  @media (max-width: 900px) {
+    .hero-h1-lead { font-size: 32px; }
+    .hero-h1-tail { font-size: 19px; }
+  }
+
   @media (max-width: 768px) {
     .hero-row,
     .nl-grid {
@@ -1243,6 +1250,21 @@ import HeroLoop from '../components/HeroLoop.astro';
     .case-visual { display: none; }
 
     .final-title { font-size: 18px; }
+  }
+
+  @media (max-width: 640px) {
+    /* Hero: reduce lede/query sizes, full-width CTAs */
+    .lede        { font-size: 13px; }
+    .hero-queries li { font-size: 12px; }
+    .hero-ctas   { flex-direction: column; }
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-ghost { display: block; text-align: center; }
+
+    /* Stat numbers: prevent overflow on narrow widths */
+    .stat-num { font-size: 28px; }
+
+    /* Newsletter button: adequate tap target */
+    .nl-btn { padding: 12px 16px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
