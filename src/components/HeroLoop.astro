@@ -767,6 +767,11 @@
   .engine-claude .ec-thinking     { color: rgba(218,119,86,0.8); }
 
   /* ── Conversion trigger ─────────────────────── */
+  @keyframes ct-glow {
+    0%, 100% { box-shadow: 0 0 6px 1px rgba(186,117,23,0.3); }
+    50%       { box-shadow: 0 0 18px 5px rgba(186,117,23,0.65); }
+  }
+
   .ec-conversion-trigger {
     display: flex;
     align-items: center;
@@ -774,18 +779,21 @@
     gap: 12px;
     padding: 11px 14px;
     margin-top: auto;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     background: rgba(186,117,23,0.22);
     border: 1px solid rgba(186,117,23,0.6);
     border-radius: 6px;
     text-decoration: none;
     transition: background 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
+    animation: ct-glow 2.2s ease-in-out infinite;
   }
 
   .ec-conversion-trigger:hover {
     background: rgba(186,117,23,0.35);
     border-color: var(--amber);
+    animation: none;
+    box-shadow: 0 0 22px 6px rgba(186,117,23,0.7);
   }
 
   .ec-ct-question {
@@ -821,6 +829,7 @@
     .state            { transition-duration: 0.01ms; }
     .live-dot, .alert-dot, .typing-cursor, .ec-think-dots span { animation-duration: 0.01ms; }
     .ec-window, .ec-answer-area, .ec-thinking, .ec-pill { transition-duration: 0.01ms; }
+    .ec-conversion-trigger { animation: none; }
     .subind-tab       { transition-duration: 0.01ms; }
   }
 </style>
