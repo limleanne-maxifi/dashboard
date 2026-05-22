@@ -139,13 +139,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        TRUST STRIP
   ══════════════════════════════════════════ -->
   <div class="trust-strip" role="complementary" aria-label="Sectors served">
-    <span class="trust-label">Used by expert-led organisations in</span>
+    <span class="trust-label">Trusted by</span>
     <div class="trust-pills">
+      <span class="pill pill--named">CANSO</span>
       <span class="pill">Aviation bodies</span>
       <span class="pill">Law firms</span>
       <span class="pill">Think tanks</span>
       <span class="pill">Pro services</span>
-      <span class="pill">Associations</span>
     </div>
   </div>
 
@@ -336,7 +336,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-hero {
     background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 48px 22px 40px;
+    padding: 42px 22px 32px;
     text-align: center;
   }
 
@@ -345,17 +345,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 0.12em;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-family: var(--font-mono);
     text-transform: uppercase;
   }
 
   .page-h1 {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 500;
     color: #fff;
-    margin: 0 0 12px;
-    line-height: 1.18;
+    margin: 0 0 10px;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     font-family: var(--font-sans);
   }
@@ -364,31 +364,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 14px;
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 540px;
-    margin: 0 auto 28px;
+    max-width: 520px;
+    margin: 0 auto 22px;
   }
 
   /* Step indicator */
   .steps {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 0;
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 8px 16px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .step {
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 0 10px;
   }
 
   .step-num {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 500;
     color: var(--amber-pale);
     font-family: var(--font-mono);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
   }
 
   .step-label {
@@ -398,15 +403,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .step-arrow {
-    color: var(--amber);
-    font-size: 13px;
-    opacity: 0.5;
+    color: rgba(186,117,23,0.4);
+    font-size: 11px;
   }
 
   /* ── Report preview section ─────────────────── */
   .preview-section {
     background: var(--cream-deep);
-    padding: 40px 22px;
+    padding: 32px 22px 36px;
   }
 
   .preview-wrap {
@@ -415,7 +419,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .preview-intro {
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 
   .s-eyebrow {
@@ -423,7 +427,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 0.1em;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-family: var(--font-mono);
     text-transform: uppercase;
   }
@@ -432,7 +436,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 19px;
     font-weight: 500;
     color: var(--navy);
-    margin: 0 0 0;
+    margin: 0;
     line-height: 1.25;
     letter-spacing: -0.015em;
     font-family: var(--font-sans);
@@ -441,8 +445,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .preview-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    gap: 28px;
-    align-items: start;
+    gap: 24px;
+    align-items: center;
   }
 
   /* Report shell — mimics tool's dark bg */
@@ -662,10 +666,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--cream);
     border-top: 0.5px solid var(--line);
     border-bottom: 0.5px solid var(--line);
-    padding: 12px 22px;
+    padding: 11px 22px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
@@ -677,7 +681,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .trust-pills {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     flex-wrap: wrap;
   }
 
@@ -693,16 +697,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 0.04em;
   }
 
+  .pill--named {
+    color: var(--amber);
+    border-color: rgba(186,117,23,0.25);
+    background: var(--amber-light);
+  }
+
   /* ── Tool embed ─────────────────────────────── */
   .embed-section {
     background: var(--navy);
-    padding: 32px 22px 36px;
+    padding: 26px 22px 36px;
     scroll-margin-top: 60px;
   }
 
   .embed-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .embed-eyebrow {
@@ -710,7 +720,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 0.12em;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-family: var(--font-mono);
     text-transform: uppercase;
   }
@@ -719,7 +729,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 19px;
     font-weight: 500;
     color: #fff;
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     line-height: 1.25;
     letter-spacing: -0.015em;
     font-family: var(--font-sans);
@@ -729,7 +739,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 12px;
     color: var(--blue-soft);
     line-height: 1.5;
-    max-width: 500px;
+    max-width: 480px;
     margin: 0 auto;
   }
 
