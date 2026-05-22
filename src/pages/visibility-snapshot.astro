@@ -9,10 +9,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 
   <!-- ══════════════════════════════════════════
-       HEADER
+       HERO — compact, conversion-focused
   ══════════════════════════════════════════ -->
   <section class="page-hero" aria-labelledby="snapshot-heading">
-    <p class="eyebrow">FREE · 5 MINUTES</p>
+    <p class="hero-eyebrow">FREE · 5 MINUTES</p>
     <h1 id="snapshot-heading" class="page-h1">
       Your AI Visibility Snapshot
     </h1>
@@ -20,15 +20,147 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Find out what ChatGPT, Perplexity, Claude, Gemini and Google AI say about
       your brand — and three things you can fix this week.
     </p>
+
+    <!-- Step indicator -->
+    <div class="steps" aria-label="How it works">
+      <div class="step">
+        <span class="step-num">01</span>
+        <span class="step-label">Your details</span>
+      </div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <span class="step-label">AI scans 5 engines</span>
+      </div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <span class="step-label">Report delivered</span>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════════
-       TOOL EMBED
+       REPORT PREVIEW — show output before input
   ══════════════════════════════════════════ -->
-  <section class="embed-section" aria-label="AI Visibility Snapshot tool">
+  <section class="preview-section" aria-labelledby="preview-heading">
+    <div class="preview-wrap">
+      <div class="preview-intro">
+        <p class="s-eyebrow">SEE IT BEFORE YOU START</p>
+        <h2 id="preview-heading" class="section-h2">
+          This is what your Snapshot report looks like.
+        </h2>
+      </div>
+
+      <div class="preview-grid">
+        <!-- Left: sample report mockup -->
+        <div class="report-shell" aria-label="Sample Snapshot report">
+          <div class="report-badge">SAMPLE REPORT</div>
+          <div class="report-card">
+            <p class="rc-eyebrow">AI VISIBILITY SNAPSHOT · FREE REPORT</p>
+            <p class="rc-meta">
+              <span class="rc-meta-blur">Organisation · Sector · Role</span>
+              · Generated today
+            </p>
+            <h3 class="rc-headline">
+              You're showing up — but the wrong story is being told about you.
+            </h3>
+            <div class="rc-divider" aria-hidden="true"></div>
+            <div class="rc-score-row">
+              <div class="rc-circle" aria-label="AI Visibility Score: 47 out of 100">
+                <svg viewBox="0 0 100 100" width="84" height="84" aria-hidden="true">
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(4,44,83,0.08)" stroke-width="7"/>
+                  <circle
+                    cx="50" cy="50" r="38" fill="none"
+                    stroke="#BA7517" stroke-width="7"
+                    stroke-dasharray="112.3 238.76"
+                    stroke-linecap="round"
+                    transform="rotate(-90 50 50)"
+                  />
+                </svg>
+                <div class="rc-score-val">
+                  <span class="rc-score-num">47</span>
+                  <span class="rc-score-den">/100</span>
+                </div>
+              </div>
+              <div class="rc-score-text">
+                <p class="rc-score-label">YOUR AI VISIBILITY SCORE</p>
+                <p class="rc-score-verdict">
+                  Below industry median (62) — competitor displacement is the dominant failure pattern.
+                </p>
+                <span class="rc-band">⚠ CAUTION BAND · 40–59</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: what it tells you + CTA -->
+        <div class="preview-copy">
+          <ul class="report-items" role="list">
+            <li class="ri">
+              <span class="ri-num">01</span>
+              <div>
+                <strong class="ri-title">Your AI Visibility Score</strong>
+                <p class="ri-body">A 0–100 score benchmarked against your sector median, with a clear band rating and the dominant failure pattern.</p>
+              </div>
+            </li>
+            <li class="ri">
+              <span class="ri-num">02</span>
+              <div>
+                <strong class="ri-title">Citation gap analysis</strong>
+                <p class="ri-body">Exactly which buyer queries surface your competitors — not you — across ChatGPT, Perplexity, Claude, Gemini and Google AI.</p>
+              </div>
+            </li>
+            <li class="ri">
+              <span class="ri-num">03</span>
+              <div>
+                <strong class="ri-title">Structural gaps ranked by impact</strong>
+                <p class="ri-body">The content, schema and entity signals preventing retrieval — prioritised so you know what to fix first.</p>
+              </div>
+            </li>
+            <li class="ri">
+              <span class="ri-num">04</span>
+              <div>
+                <strong class="ri-title">Three fixes to ship this week</strong>
+                <p class="ri-body">Actionable changes your team can implement immediately to lift citation rate before the next buyer search.</p>
+              </div>
+            </li>
+          </ul>
+          <a href="#snapshot" class="btn-start">
+            Start your Snapshot →
+          </a>
+          <p class="btn-sub">Free · 5 minutes · Immediate results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TRUST STRIP
+  ══════════════════════════════════════════ -->
+  <div class="trust-strip" role="complementary" aria-label="Sectors served">
+    <span class="trust-label">Used by expert-led organisations in</span>
+    <div class="trust-pills">
+      <span class="pill">Aviation bodies</span>
+      <span class="pill">Law firms</span>
+      <span class="pill">Think tanks</span>
+      <span class="pill">Pro services</span>
+      <span class="pill">Associations</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TOOL EMBED — the Snapshot tool itself
+  ══════════════════════════════════════════ -->
+  <section class="embed-section" id="snapshot" aria-labelledby="tool-heading">
+    <div class="embed-header">
+      <p class="embed-eyebrow">AI VISIBILITY SNAPSHOT · STEP 1 OF 5</p>
+      <h2 id="tool-heading" class="embed-title">Start your free Snapshot below</h2>
+      <p class="embed-sub">Takes 2 minutes. Your personalised report is delivered immediately — no sales call, no follow-up required unless you want one.</p>
+    </div>
     <iframe
       src="https://visibilityview.netlify.app/"
-      title="AI Visibility Snapshot tool"
+      title="AI Visibility Snapshot tool — Step 1 of 5"
       class="snapshot-frame"
       loading="lazy"
       sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
@@ -36,11 +168,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
-       WHAT YOU GET
+       WHAT YOUR SNAPSHOT COVERS
   ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="what-heading">
-    <p class="s-eyebrow">WHAT'S INCLUDED</p>
-    <h2 id="what-heading" class="section-h2">What your Snapshot covers</h2>
+  <section class="section" aria-labelledby="covers-heading">
+    <p class="s-eyebrow">INSIDE YOUR REPORT</p>
+    <h2 id="covers-heading" class="section-h2">What your Snapshot covers</h2>
     <div class="cards">
       <article class="card">
         <p class="card-num">01</p>
@@ -70,7 +202,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
-       WANT MORE? — MANUAL SCORECARD FORM
+       PREFER A HUMAN EYE — manual scorecard
   ══════════════════════════════════════════ -->
   <section class="section section--cream" aria-labelledby="form-heading">
     <div class="form-wrap">
@@ -200,20 +332,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: 12px 0;
   }
 
-  /* ── Page hero ──────────────────────────────── */
+  /* ── Hero ───────────────────────────────────── */
   .page-hero {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
+    padding: 48px 22px 40px;
     text-align: center;
   }
 
-  .eyebrow {
+  .hero-eyebrow {
     font-size: 10px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
   }
 
   .page-h1 {
@@ -222,58 +356,401 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #fff;
     margin: 0 0 12px;
     line-height: 1.18;
-    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    font-family: var(--font-sans);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 560px;
+    max-width: 540px;
+    margin: 0 auto 28px;
+  }
+
+  /* Step indicator */
+  .steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .step-num {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--amber-pale);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+  }
+
+  .step-label {
+    font-size: 11px;
+    color: var(--blue-mid);
+    font-weight: 400;
+  }
+
+  .step-arrow {
+    color: var(--amber);
+    font-size: 13px;
+    opacity: 0.5;
+  }
+
+  /* ── Report preview section ─────────────────── */
+  .preview-section {
+    background: var(--cream-deep);
+    padding: 40px 22px;
+  }
+
+  .preview-wrap {
+    max-width: 1100px;
     margin: 0 auto;
   }
 
-  /* ── Iframe embed ───────────────────────────── */
-  .embed-section {
-    background: var(--cream-deep);
-    padding: 24px 22px;
+  .preview-intro {
+    margin-bottom: 24px;
   }
 
-  .snapshot-frame {
-    width: 100%;
-    min-height: 700px;
-    border: none;
-    border-radius: 8px;
-    display: block;
-  }
-
-  /* ── Shared section styles ──────────────────── */
   .s-eyebrow {
     font-size: 10px;
     letter-spacing: 0.1em;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
   }
 
   .section-h2 {
     font-size: 19px;
     font-weight: 500;
     color: var(--navy);
-    margin: 0 0 18px;
+    margin: 0 0 0;
     line-height: 1.25;
-    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.015em;
+    font-family: var(--font-sans);
   }
 
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Report shell — mimics tool's dark bg */
+  .report-shell {
+    background: var(--navy-deep);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .report-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    background: rgba(186,117,23,0.14);
+    border: 0.5px solid rgba(186,117,23,0.3);
+    border-radius: 3px;
+    padding: 3px 7px;
+    margin-bottom: 12px;
+  }
+
+  .report-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+
+  .rc-eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .rc-meta {
+    font-size: 10px;
+    color: var(--mute-soft);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .rc-meta-blur {
+    filter: blur(3px);
+    user-select: none;
+    display: inline-block;
+  }
+
+  .rc-headline {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    font-family: var(--font-sans);
+  }
+
+  .rc-divider {
+    height: 0.5px;
+    background: rgba(4,44,83,0.08);
+    margin-bottom: 14px;
+  }
+
+  .rc-score-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .rc-circle {
+    position: relative;
+    flex-shrink: 0;
+    width: 84px;
+    height: 84px;
+  }
+
+  .rc-score-val {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .rc-score-num {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+
+  .rc-score-den {
+    font-size: 9px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    margin-top: 1px;
+  }
+
+  .rc-score-text {
+    flex: 1;
+  }
+
+  .rc-score-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .rc-score-verdict {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 8px;
+    font-family: var(--font-sans);
+  }
+
+  .rc-band {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    background: var(--amber-light);
+    border: 0.5px solid rgba(186,117,23,0.25);
+    border-radius: 3px;
+    padding: 3px 7px;
+  }
+
+  /* Report items (right col) */
+  .preview-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .report-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .ri {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .ri-num {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .ri-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 3px;
+    font-family: var(--font-sans);
+  }
+
+  .ri-body {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .btn-start {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 11px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    align-self: flex-start;
+    font-family: var(--font-sans);
+  }
+
+  .btn-start:hover { background: #854F0B; }
+
+  .btn-sub {
+    font-size: 10px;
+    color: var(--mute-soft);
+    margin-top: 7px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Trust strip ────────────────────────────── */
+  .trust-strip {
+    background: var(--cream);
+    border-top: 0.5px solid var(--line);
+    border-bottom: 0.5px solid var(--line);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .trust-label {
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .trust-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--navy);
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Tool embed ─────────────────────────────── */
+  .embed-section {
+    background: var(--navy);
+    padding: 32px 22px 36px;
+    scroll-margin-top: 60px;
+  }
+
+  .embed-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .embed-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .embed-title {
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-family: var(--font-sans);
+  }
+
+  .embed-sub {
+    font-size: 12px;
+    color: var(--blue-soft);
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .snapshot-frame {
+    width: 100%;
+    min-height: 820px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* ── Shared section ─────────────────────────── */
   .section {
-    padding: 30px 22px;
+    padding: 32px 22px;
     background: var(--cream);
   }
 
   .section--cream { background: var(--cream-deep); }
   .section--pt0 { padding-top: 0; }
 
-  /* ── What's included cards ──────────────────── */
+  /* ── "What it covers" cards ─────────────────── */
   .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -282,9 +759,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .card {
     background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border: 0.5px solid var(--line);
     border-radius: 8px;
-    padding: 14px;
+    padding: 16px;
   }
 
   .card-num {
@@ -293,6 +770,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
     margin-bottom: 6px;
     letter-spacing: 0.08em;
+    font-family: var(--font-mono);
   }
 
   .card-title {
@@ -300,7 +778,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
     margin-bottom: 6px;
     color: var(--navy);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
   }
 
   .card-body {
@@ -309,7 +787,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--muted);
   }
 
-  /* ── Request form ───────────────────────────── */
+  /* ── Manual form ────────────────────────────── */
   .form-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -335,11 +813,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--muted);
     margin-bottom: 4px;
     display: block;
+    font-family: var(--font-sans);
   }
 
   .f-input {
     width: 100%;
-    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border: 0.5px solid rgba(4,44,83,0.18);
     border-radius: 4px;
     padding: 8px 10px;
     font-size: 11px;
@@ -347,7 +826,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: #fff;
     color: var(--navy);
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: border-color 0.2s ease;
   }
 
@@ -366,23 +845,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 11px;
     font-weight: 500;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: background 0.2s ease;
     margin-top: 2px;
   }
 
   .f-btn:hover { background: #854F0B; }
 
-  /* ── Next-step box ──────────────────────────── */
+  /* ── Sprint CTA box ─────────────────────────── */
   .next-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 36px 22px;
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
   }
 
-  .next-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
+  .next-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
 
   .next-title {
     font-size: 21px;
@@ -390,7 +877,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;
-    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.015em;
+    font-family: var(--font-sans);
   }
 
   .next-body {
@@ -408,7 +896,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
-  /* ── Shared buttons ─────────────────────────── */
+  /* ── Buttons ────────────────────────────────── */
   .btn-primary {
     background: var(--amber);
     color: var(--amber-light);
@@ -419,6 +907,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
+    font-family: var(--font-sans);
   }
 
   .btn-primary:hover { background: #854F0B; }
@@ -430,31 +919,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 5px;
     font-size: 12px;
     font-weight: 500;
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border: 0.5px solid rgba(255,255,255,0.3);
     text-decoration: none;
     display: inline-block;
     transition: border-color 0.2s ease;
+    font-family: var(--font-sans);
   }
 
-  .btn-outline:hover { border-color: rgba(255, 255, 255, 0.6); }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); }
 
   /* ── Responsive ─────────────────────────────── */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .preview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-start { align-self: stretch; text-align: center; }
+  }
+
+  @media (max-width: 640px) {
     .page-h1 { font-size: 24px; }
+    .steps { gap: 8px; }
+    .step-arrow { display: none; }
 
-    .cards {
-      grid-template-columns: 1fr;
-    }
-
-    .form-wrap {
-      grid-template-columns: 1fr;
-    }
+    .cards { grid-template-columns: 1fr; }
+    .form-wrap { grid-template-columns: 1fr; }
 
     .next-title { font-size: 18px; }
+
+    .trust-strip { gap: 8px; }
+
+    .snapshot-frame { min-height: 680px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .f-input, .f-btn, .btn-primary, .btn-outline {
+    .f-input, .f-btn, .btn-primary, .btn-outline, .btn-start {
       transition-duration: 0.01ms;
     }
   }
