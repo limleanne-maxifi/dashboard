@@ -532,6 +532,246 @@ import HeroLoop from '../components/HeroLoop.astro';
     padding: 10px 0;
   }
 
+  /* ── VS-HERO SECTION ─────────────────────────── */
+  .vs-hero {
+    padding: 18px 22px 40px;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+
+  .vs-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .vs-hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+
+  .vs-hero__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-hero__eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    margin-bottom: 18px;
+  }
+
+  .vs-hero h1 {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--blue-text);
+    margin: 0;
+  }
+
+  .vs-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .vs-hero__lede {
+    font: 400 16px/1.55 var(--font-sans);
+    color: var(--blue-soft);
+    margin-top: 20px;
+    margin-bottom: 0;
+    max-width: 540px;
+  }
+
+  .vs-hero__lede em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  /* ── FORM CARD ── */
+  .vs-form-card {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 12px 32px -16px rgba(4, 44, 83, 0.10);
+  }
+
+  .vs-form-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 500 10px/1 var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--signal);
+    background: rgba(29, 158, 117, 0.08);
+    padding: 6px 9px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+
+  .vs-form-badge::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--signal);
+  }
+
+  .vs-form-card h3 {
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 16px;
+    letter-spacing: -0.015em;
+  }
+
+  /* Score chip */
+  .vs-scorechip {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    background: var(--navy);
+    color: var(--blue-text);
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+
+  .vs-scorechip__num {
+    font: 500 28px/1 var(--font-sans);
+    color: var(--amber-pale);
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .vs-scorechip__num small {
+    display: block;
+    font: 500 9px/1 var(--font-sans);
+    color: var(--blue-mid);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .vs-scorechip__lbl {
+    font: 500 9px/1 var(--font-sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    margin-bottom: 4px;
+  }
+
+  .vs-scorechip__meta h6 {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .vs-scorechip__meta p {
+    font: 400 11px/1.4 var(--font-sans);
+    color: var(--blue-soft);
+    margin: 0;
+  }
+
+  /* Form fields */
+  .vs-field {
+    margin-bottom: 12px;
+  }
+
+  .vs-field label {
+    display: block;
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute-soft);
+    margin-bottom: 6px;
+  }
+
+  .vs-field input {
+    width: 100%;
+    padding: 10px 12px;
+    font: 400 13px/1 var(--font-sans);
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    background: var(--cream);
+    border-radius: 4px;
+    color: var(--ink);
+    transition: border-color 0.2s ease, background 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .vs-field input:focus {
+    outline: none;
+    border-color: var(--amber);
+    background: #fff;
+  }
+
+  .vs-submit {
+    width: 100%;
+    font: 500 14px/1 var(--font-sans);
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 6px;
+  }
+
+  .vs-submit:hover { background: #854F0B; }
+
+  /* Success state */
+  .vs-results {
+    padding: 4px 0;
+  }
+
+  .vs-results__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .vs-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(29, 158, 117, 0.12);
+    color: var(--signal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .vs-results__head h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  .vs-results p {
+    font: 400 12.5px/1.6 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+
   .eyebrow,
   .s-eyebrow {
     font-size: var(--fs-eyebrow);
