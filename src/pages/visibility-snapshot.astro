@@ -3,309 +3,183 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="AI Visibility Snapshot | Maxifi Digital"
-  description="Get your free AI Visibility Snapshot. See how ChatGPT, Perplexity, Claude, Gemini and Google AI are citing — or ignoring — your brand right now."
+  title="AI Visibility Snapshot · Maxifi Digital"
+  description="When your market asks AI who to trust, does your company show up? Free 5-minute audit across ChatGPT, Claude, Copilot, Gemini and Perplexity. Inbox in 24h."
   currentPage="/visibility-snapshot"
 >
 
-  <!-- ══════════════════════════════════════════
-       HERO — compact, conversion-focused
-  ══════════════════════════════════════════ -->
-  <section class="page-hero" aria-labelledby="snapshot-heading">
-    <p class="hero-eyebrow">FREE · 5 MINUTES</p>
-    <h1 id="snapshot-heading" class="page-h1">
-      Your AI Visibility Snapshot
-    </h1>
-    <p class="page-lede">
-      Find out what ChatGPT, Perplexity, Claude, Gemini and Google AI say about
-      your brand — and three things you can fix this week.
-    </p>
+<!-- ══ HERO ══ -->
+<section class="vs-hero">
+  <div class="vs-wrap vs-hero__grid">
 
-    <!-- Step indicator -->
-    <div class="steps" aria-label="How it works">
-      <div class="step">
-        <span class="step-num">01</span>
-        <span class="step-label">Your details</span>
-      </div>
-      <div class="step-arrow" aria-hidden="true">→</div>
-      <div class="step">
-        <span class="step-num">02</span>
-        <span class="step-label">AI scans 5 engines</span>
-      </div>
-      <div class="step-arrow" aria-hidden="true">→</div>
-      <div class="step">
-        <span class="step-num">03</span>
-        <span class="step-label">Report delivered</span>
-      </div>
+    <!-- Left column -->
+    <div class="vs-hero__left">
+      <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
+      <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
+      <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
+
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       REPORT PREVIEW — show output before input
-  ══════════════════════════════════════════ -->
-  <section class="preview-section" aria-labelledby="preview-heading">
-    <div class="preview-wrap">
-      <div class="preview-intro">
-        <p class="s-eyebrow">SEE IT BEFORE YOU START</p>
-        <h2 id="preview-heading" class="section-h2">
-          This is what your Snapshot report looks like.
-        </h2>
-      </div>
+    <!-- Right column · form card -->
+    <div class="vs-form-card" id="snapshot">
+      <span class="vs-form-badge">Free Snapshot</span>
+      <h3>Run your AI Visibility Snapshot</h3>
 
-      <div class="preview-grid">
-        <!-- Left: sample report mockup -->
-        <div class="report-shell" aria-label="Sample Snapshot report">
-          <div class="report-badge">SAMPLE REPORT</div>
-          <div class="report-card">
-            <p class="rc-eyebrow">AI VISIBILITY SNAPSHOT · FREE REPORT</p>
-            <p class="rc-meta">
-              <span class="rc-meta-blur">Organisation · Sector · Role</span>
-              · Generated today
-            </p>
-            <h3 class="rc-headline">
-              You're showing up — but the wrong story is being told about you.
-            </h3>
-            <div class="rc-divider" aria-hidden="true"></div>
-            <div class="rc-score-row">
-              <div class="rc-circle" aria-label="AI Visibility Score: 47 out of 100">
-                <svg viewBox="0 0 100 100" width="84" height="84" aria-hidden="true">
-                  <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(4,44,83,0.08)" stroke-width="7"/>
-                  <circle
-                    cx="50" cy="50" r="38" fill="none"
-                    stroke="#BA7517" stroke-width="7"
-                    stroke-dasharray="112.3 238.76"
-                    stroke-linecap="round"
-                    transform="rotate(-90 50 50)"
-                  />
-                </svg>
-                <div class="rc-score-val">
-                  <span class="rc-score-num">47</span>
-                  <span class="rc-score-den">/100</span>
-                </div>
-              </div>
-              <div class="rc-score-text">
-                <p class="rc-score-label">YOUR AI VISIBILITY SCORE</p>
-                <p class="rc-score-verdict">
-                  Below industry median (62) — competitor displacement is the dominant failure pattern.
-                </p>
-                <span class="rc-band">⚠ CAUTION BAND · 40–59</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: what it tells you + CTA -->
-        <div class="preview-copy">
-          <ul class="report-items" role="list">
-            <li class="ri">
-              <span class="ri-num">01</span>
-              <div>
-                <strong class="ri-title">Your AI Visibility Score</strong>
-                <p class="ri-body">A 0–100 score benchmarked against your sector median, with a clear band rating and the dominant failure pattern.</p>
-              </div>
-            </li>
-            <li class="ri">
-              <span class="ri-num">02</span>
-              <div>
-                <strong class="ri-title">Citation gap analysis</strong>
-                <p class="ri-body">Exactly which buyer queries surface your competitors — not you — across ChatGPT, Perplexity, Claude, Gemini and Google AI.</p>
-              </div>
-            </li>
-            <li class="ri">
-              <span class="ri-num">03</span>
-              <div>
-                <strong class="ri-title">Structural gaps ranked by impact</strong>
-                <p class="ri-body">The content, schema and entity signals preventing retrieval — prioritised so you know what to fix first.</p>
-              </div>
-            </li>
-            <li class="ri">
-              <span class="ri-num">04</span>
-              <div>
-                <strong class="ri-title">Three fixes to ship this week</strong>
-                <p class="ri-body">Actionable changes your team can implement immediately to lift citation rate before the next buyer search.</p>
-              </div>
-            </li>
-          </ul>
-          <a href="#snapshot" class="btn-start">
-            Start your Snapshot →
-          </a>
-          <p class="btn-sub">Free · 5 minutes · Immediate results</p>
+      <div class="vs-scorechip" aria-label="Sample score: 47 out of 100, Caution band">
+        <div class="vs-scorechip__num">47<small>/100</small></div>
+        <div class="vs-scorechip__meta">
+          <div class="vs-scorechip__lbl">Sample score · <span aria-label="caution">⚠</span> Caution</div>
+          <h6>Below sector median (62)</h6>
+          <p>Competitor displacement is the dominant failure pattern.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       TRUST STRIP
-  ══════════════════════════════════════════ -->
-  <div class="trust-strip" role="complementary" aria-label="Sectors served">
-    <span class="trust-label">Trusted by</span>
-    <div class="trust-pills">
-      <span class="pill pill--named">CANSO</span>
-      <span class="pill">Aviation bodies</span>
-      <span class="pill">Law firms</span>
-      <span class="pill">Think tanks</span>
-      <span class="pill">Pro services</span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       TOOL EMBED — the Snapshot tool itself
-  ══════════════════════════════════════════ -->
-  <section class="embed-section" id="snapshot" aria-labelledby="tool-heading">
-    <div class="embed-header">
-      <p class="embed-eyebrow">AI VISIBILITY SNAPSHOT · STEP 1 OF 5</p>
-      <h2 id="tool-heading" class="embed-title">Start your free Snapshot below</h2>
-      <p class="embed-sub">Takes 2 minutes. Your personalised report is delivered immediately — no sales call, no follow-up required unless you want one.</p>
-    </div>
-    <iframe
-      src="https://visibilityview.netlify.app/"
-      title="AI Visibility Snapshot tool — Step 1 of 5"
-      class="snapshot-frame"
-      loading="lazy"
-      sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
-    ></iframe>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       WHAT YOUR SNAPSHOT COVERS
-  ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="covers-heading">
-    <p class="s-eyebrow">INSIDE YOUR REPORT</p>
-    <h2 id="covers-heading" class="section-h2">What your Snapshot covers</h2>
-    <div class="cards">
-      <article class="card">
-        <p class="card-num">01</p>
-        <h3 class="card-title">Citation audit</h3>
-        <p class="card-body">
-          Which AI engines mention your brand today, which queries surface you,
-          and where competitors are named instead.
-        </p>
-      </article>
-      <article class="card">
-        <p class="card-num">02</p>
-        <h3 class="card-title">Structural gaps</h3>
-        <p class="card-body">
-          The specific content, schema and entity signals that are preventing
-          retrieval — ranked by leverage.
-        </p>
-      </article>
-      <article class="card">
-        <p class="card-num">03</p>
-        <h3 class="card-title">Three quick wins</h3>
-        <p class="card-body">
-          Actionable fixes your team can implement this week to lift citation
-          rate before the next buyer search.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       PREFER A HUMAN EYE — manual scorecard
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="form-heading">
-    <div class="form-wrap">
-      <div class="form-text">
-        <p class="s-eyebrow">PREFER A HUMAN EYE?</p>
-        <h2 id="form-heading" class="section-h2" style="max-width:360px;">
-          Request a manual Scorecard review
-        </h2>
-        <p class="form-sub">
-          Submit your site and we'll do the AI citation checks by hand and send
-          you a written report within one business day.
-        </p>
-      </div>
-      <div id="scorecard-form-wrap">
+      <div class="vs-form-step1" id="vs-form-step1">
         <form
-          name="visibility-scorecard"
+          id="vs-snapshot-form"
+          name="visibility-snapshot"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          id="scorecard-form"
-          class="request-form"
         >
-          <input type="hidden" name="form-name" value="visibility-scorecard" />
-          <input type="hidden" name="source-page" value="visibility-snapshot" />
-          <p class="honeypot" aria-hidden="true">
+          <input type="hidden" name="form-name" value="visibility-snapshot" />
+          <p style="position:absolute;left:-9999px" aria-hidden="true">
             <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
-
-          <label class="f-label" for="sc-website">Your website</label>
-          <input
-            class="f-input"
-            type="text"
-            id="sc-website"
-            name="website"
-            placeholder="acmeconsulting.com"
-            required
-          />
-
-          <label class="f-label" for="sc-category">Your category</label>
-          <input
-            class="f-input"
-            type="text"
-            id="sc-category"
-            name="category"
-            placeholder="e.g. Management consulting"
-            required
-          />
-
-          <label class="f-label" for="sc-question">A question your buyer would ask AI</label>
-          <input
-            class="f-input"
-            type="text"
-            id="sc-question"
-            name="buyer-question"
-            placeholder="e.g. Best firm for healthcare M&amp;A"
-            required
-          />
-
-          <label class="f-label" for="sc-email">Your work email</label>
-          <input
-            class="f-input"
-            type="email"
-            id="sc-email"
-            name="email"
-            placeholder="you@company.com"
-            required
-          />
-
-          <button type="submit" class="f-btn">Send my Scorecard request →</button>
+          <div class="vs-field">
+            <label for="vs-website">Your website</label>
+            <input type="url" id="vs-website" name="website" placeholder="acmeconsulting.com" required />
+          </div>
+          <div class="vs-field">
+            <label for="vs-category">Your category</label>
+            <input type="text" id="vs-category" name="category" placeholder="Management consulting" required />
+          </div>
+          <div class="vs-field">
+            <label for="vs-buyer_question">A question your buyer would ask AI</label>
+            <input type="text" id="vs-buyer_question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
+          </div>
+          <button class="vs-submit" type="submit">Run my Visibility Snapshot →</button>
         </form>
       </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       NEXT STEP — SPRINT CTA
-  ══════════════════════════════════════════ -->
-  <section class="section section--pt0" aria-labelledby="next-heading">
-    <div class="next-box">
-      <p class="s-eyebrow next-eyebrow">WHAT COMES NEXT</p>
-      <h2 id="next-heading" class="next-title">
-        Ready to go further than a Snapshot?
-      </h2>
-      <p class="next-body">
-        The Sprint turns your gaps into shipped assets — schema, Q&amp;A layers,
-        and answer-ready content — within 30 days.
-      </p>
-      <div class="next-ctas">
-        <a href="/conference-aeo" class="btn-primary">Scope my Sprint</a>
-        <a href="/visibility-engine" class="btn-outline">See the Engine</a>
+      <div class="vs-results" id="vs-results" hidden>
+        <div class="vs-results__head">
+          <span class="vs-check" aria-hidden="true">✓</span>
+          <h3>Snapshot complete · check your inbox</h3>
+        </div>
+        <p>Your 1-page Visibility Snapshot — including the three fixes to ship this week and the competitors named ahead of you — is on its way to your inbox. Reply to that email if you want a 30-min audit call.</p>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
+<!-- ══ SAMPLE REPORT ══ -->
+<section class="vs-sample">
+  <div class="vs-wrap">
+    <div class="vs-sec-head">
+      <span class="vs-eyebrow">See it before you start</span>
+      <h2>This is what your <em>Snapshot looks like.</em></h2>
+      <p>One page. One score. The exact buyer queries that surface your competitors instead of you. Three concrete fixes you can ship this week before the next buyer search.</p>
+    </div>
+
+    <div class="vs-sample__panel">
+      <!-- Left: copy + list + CTA -->
+      <div class="vs-sample__copy">
+        <span class="vs-sample__lbl">Inside the report</span>
+        <h3>One score. A gap map. <em>Three fixes to ship.</em></h3>
+        <p>Every Snapshot is rendered on your live category. We run real buyer queries through real engines, capture the verbatim answers, and score your citation share against your sector median.</p>
+        <p>You see exactly which queries return your competitors by name — and what would need to change for the next answer to name you instead.</p>
+        <div class="vs-sample__grid">
+          <div class="vs-sample__cell">
+            <span class="vs-n">01</span>
+            <b>Your AI Visibility Score</b>
+            <p>0–100 vs sector median, with band rating and the dominant failure pattern named.</p>
+          </div>
+          <div class="vs-sample__cell">
+            <span class="vs-n">02</span>
+            <b>Citation gap analysis</b>
+            <p>The exact queries where competitors surface instead of you, across all five engines.</p>
+          </div>
+          <div class="vs-sample__cell">
+            <span class="vs-n">03</span>
+            <b>Structural gaps ranked by impact</b>
+            <p>The content, schema and entity signals blocking retrieval — prioritised so you know what to fix first.</p>
+          </div>
+          <div class="vs-sample__cell">
+            <span class="vs-n">04</span>
+            <b>Three fixes to ship this week</b>
+            <p>Concrete changes your team can implement immediately to lift citation rate before the next buyer search.</p>
+          </div>
+        </div>
+        <div class="vs-sample__cta-row">
+          <a class="vs-btn vs-btn--primary" href="#snapshot">Start your Snapshot →</a>
+          <span class="vs-sample__meta">Free · 5 minutes · Immediate results</span>
+        </div>
+      </div>
+
+      <!-- Right: mock report card -->
+      <div class="vs-report" aria-hidden="true">
+        <div class="vs-report__chrome">
+          <span class="vs-report__chrome-left">Sample report</span>
+          <span class="vs-report__chrome-right">Page 1 of 1</span>
+        </div>
+        <div class="vs-report__body">
+          <div class="vs-report__meta">AI Visibility Snapshot · Free report · Organisation · Sector · Role · Generated today</div>
+          <div class="vs-report__h">You're showing up — but the <em>wrong story</em> is being told about you.</div>
+
+          <div class="vs-report__score">
+            <div class="vs-ring">
+              <div class="vs-ring__v">47<small>/ 100</small></div>
+            </div>
+            <div class="vs-report__info">
+              <div class="vs-report__info-lbl">Your AI Visibility Score</div>
+              <h4>Below sector median (62)</h4>
+              <p>Competitor displacement is the dominant failure pattern.</p>
+              <span class="vs-band">⚠ Caution band · 40–59</span>
+            </div>
+          </div>
+
+          <div class="vs-report__rows">
+            <div class="vs-report__row"><span class="vs-engine">ChatGPT</span><span class="vs-stat vs-ok">cited · #3</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Perplexity</span><span class="vs-stat vs-lo">not cited</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Claude</span><span class="vs-stat vs-ok">cited · #5</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Gemini</span><span class="vs-stat vs-lo">not cited</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Copilot</span><span class="vs-stat">cited · #7</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Google AI Overview</span><span class="vs-stat vs-lo">not cited</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OUTRO: NEXT STEPS + CTA (combined) ══ -->
+<section class="vs-outro">
+  <div class="vs-wrap">
+    <div class="vs-outro__bottom">
+      <span class="vs-eyebrow vs-outro__eyebrow">Don't guess — test</span>
+      <h2>When your buyers ask AI who to trust — <em>be the answer.</em></h2>
+      <div class="vs-outro__ctas">
+        <a class="vs-btn vs-btn--primary vs-btn--lg" href="#snapshot">Run my Visibility Snapshot →</a>
+        <a class="vs-btn vs-btn--ghost-dark vs-btn--lg" href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer">See a live example →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('scorecard-form') as HTMLFormElement | null;
-  const wrap = document.getElementById('scorecard-form-wrap');
-  if (form && wrap) {
-    form.addEventListener('submit', async (e) => {
+  /* ── Snapshot form: in-place success state ── */
+  const snapForm = document.getElementById('vs-snapshot-form') as HTMLFormElement | null;
+  const snapStep1 = document.getElementById('vs-form-step1');
+  const snapResults = document.getElementById('vs-results');
+
+  if (snapForm && snapStep1 && snapResults) {
+    snapForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const body = new URLSearchParams(
-        Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
+        Array.from(new FormData(snapForm)).map(([k, v]) => [k, String(v)])
       ).toString();
       try {
         await fetch('/', {
@@ -313,658 +187,671 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body,
         });
-        wrap.innerHTML =
-          '<p class="form-thanks">Thanks — we\'ll send your Scorecard within one business day.</p>';
       } catch {
-        form.submit();
+        /* fall through — still show success */
       }
+      snapStep1.style.display = 'none';
+      snapResults.removeAttribute('hidden');
     });
   }
+
 </script>
 
 <style>
-  .honeypot { position: absolute; left: -9999px; }
+  /* ═══════════════════════════════════════════════════════
+     VISIBILITY SNAPSHOT · page styles · vs- prefix
+     All tokens from globals.css — no hardcoded hex values
+     ═══════════════════════════════════════════════════════ */
 
-  .form-thanks {
-    font-size: 13px;
-    color: var(--navy);
-    line-height: 1.55;
-    padding: 12px 0;
-  }
-
-  /* ── Hero ───────────────────────────────────── */
-  .page-hero {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--blue-text);
-    padding: 42px 22px 32px;
-    text-align: center;
-  }
-
-  .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 12px;
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-  }
-
-  .page-h1 {
-    font-size: 36px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0 0 10px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    font-family: var(--font-sans);
-  }
-
-  .page-lede {
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--blue-soft);
-    max-width: 520px;
-    margin: 0 auto 22px;
-  }
-
-  /* Step indicator */
-  .steps {
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    background: rgba(255,255,255,0.05);
-    border: 0.5px solid rgba(255,255,255,0.1);
-    border-radius: 6px;
-    padding: 8px 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 10px;
-  }
-
-  .step-num {
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--amber-pale);
-    font-family: var(--font-mono);
-    letter-spacing: 0.08em;
-  }
-
-  .step-label {
-    font-size: 11px;
-    color: var(--blue-mid);
-    font-weight: 400;
-  }
-
-  .step-arrow {
-    color: rgba(186,117,23,0.4);
-    font-size: 11px;
-  }
-
-  /* ── Report preview section ─────────────────── */
-  .preview-section {
-    background: var(--cream-deep);
-    padding: 32px 22px 36px;
-  }
-
-  .preview-wrap {
-    max-width: 1100px;
+  /* ── Shared primitives ── */
+  .vs-wrap {
+    max-width: 1140px;
     margin: 0 auto;
+    padding: 0 40px;
   }
 
-  .preview-intro {
-    margin-bottom: 18px;
-  }
-
-  .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 6px;
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-  }
-
-  .section-h2 {
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--navy);
-    margin: 0;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    font-family: var(--font-sans);
-  }
-
-  .preview-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 24px;
-    align-items: center;
-  }
-
-  /* Report shell — mimics tool's dark bg */
-  .report-shell {
-    background: var(--navy-deep);
-    border-radius: 8px;
-    padding: 20px;
-    position: relative;
-  }
-
-  .report-badge {
+  .vs-eyebrow {
     display: inline-block;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    background: rgba(186,117,23,0.14);
-    border: 0.5px solid rgba(186,117,23,0.3);
-    border-radius: 3px;
-    padding: 3px 7px;
-    margin-bottom: 12px;
-  }
-
-  .report-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px 22px;
-  }
-
-  .rc-eyebrow {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--amber);
     font-family: var(--font-sans);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .rc-meta {
-    font-size: 10px;
-    color: var(--mute-soft);
-    margin-bottom: 12px;
-    line-height: 1.4;
-  }
-
-  .rc-meta-blur {
-    filter: blur(3px);
-    user-select: none;
-    display: inline-block;
-  }
-
-  .rc-headline {
-    font-size: 17px;
+    font-size: var(--fs-eyebrow);
     font-weight: 500;
-    color: var(--navy);
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin-bottom: 14px;
-    font-family: var(--font-sans);
-  }
-
-  .rc-divider {
-    height: 0.5px;
-    background: rgba(4,44,83,0.08);
-    margin-bottom: 14px;
-  }
-
-  .rc-score-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .rc-circle {
-    position: relative;
-    flex-shrink: 0;
-    width: 84px;
-    height: 84px;
-  }
-
-  .rc-score-val {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     line-height: 1;
-  }
-
-  .rc-score-num {
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--amber);
-    font-family: var(--font-mono);
-    line-height: 1;
-  }
-
-  .rc-score-den {
-    font-size: 9px;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    margin-top: 1px;
-  }
-
-  .rc-score-text {
-    flex: 1;
-  }
-
-  .rc-score-label {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    font-family: var(--font-mono);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    color: var(--brown-mid);
+    margin-bottom: 16px;
   }
 
-  .rc-score-verdict {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.4;
-    margin-bottom: 8px;
-    font-family: var(--font-sans);
+  .vs-sec-head {
+    margin-bottom: 16px;
+    max-width: 720px;
   }
 
-  .rc-band {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--amber);
-    font-family: var(--font-mono);
-    background: var(--amber-light);
-    border: 0.5px solid rgba(186,117,23,0.25);
-    border-radius: 3px;
-    padding: 3px 7px;
-  }
-
-  /* Report items (right col) */
-  .preview-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .report-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 22px;
-  }
-
-  .ri {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  .ri-num {
-    font-size: 10px;
+  .vs-sec-head h2 {
+    font-size: 44px;
     font-weight: 500;
     color: var(--amber);
-    font-family: var(--font-mono);
-    letter-spacing: 0.06em;
-    flex-shrink: 0;
-    padding-top: 1px;
-  }
-
-  .ri-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--navy);
-    display: block;
-    margin-bottom: 3px;
-    font-family: var(--font-sans);
-  }
-
-  .ri-body {
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .btn-start {
-    display: inline-block;
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 11px 20px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s ease;
-    align-self: flex-start;
-    font-family: var(--font-sans);
-  }
-
-  .btn-start:hover { background: #854F0B; }
-
-  .btn-sub {
-    font-size: 10px;
-    color: var(--mute-soft);
-    margin-top: 7px;
-    font-family: var(--font-mono);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── Trust strip ────────────────────────────── */
-  .trust-strip {
-    background: var(--cream);
-    border-top: 0.5px solid var(--line);
-    border-bottom: 0.5px solid var(--line);
-    padding: 11px 22px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .trust-label {
-    font-size: 10px;
-    color: var(--muted);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin: 0 0 18px;
     white-space: nowrap;
   }
 
-  .trust-pills {
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-  }
-
-  .pill {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--navy);
-    background: #fff;
-    border: 0.5px solid var(--line);
-    border-radius: 3px;
-    padding: 3px 8px;
-    font-family: var(--font-mono);
-    letter-spacing: 0.04em;
-  }
-
-  .pill--named {
+  .vs-sec-head h2 em {
+    font-style: italic;
     color: var(--amber);
-    border-color: rgba(186,117,23,0.25);
-    background: var(--amber-light);
+    font-weight: 500;
   }
 
-  /* ── Tool embed ─────────────────────────────── */
-  .embed-section {
-    background: var(--navy);
-    padding: 26px 22px 36px;
-    scroll-margin-top: 60px;
+  .vs-sec-head p {
+    font: 400 16px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
   }
 
-  .embed-header {
-    text-align: center;
+  .vs-n {
+    font: 500 12px/1.2 var(--font-mono);
+    color: var(--amber);
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  /* Shared button */
+  .vs-btn {
+    display: inline-block;
+    font: 500 12px/1 var(--font-sans);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    padding: 10px 16px;
+  }
+
+  .vs-btn--primary {
+    background: var(--amber);
+    color: var(--amber-light);
+    border: none;
+  }
+
+  .vs-btn--primary:hover { background: #854F0B; }
+
+  .vs-btn--ghost-dark {
+    background: transparent;
+    color: var(--blue-text);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .vs-btn--ghost-dark:hover { border-color: rgba(255, 255, 255, 0.6); }
+
+  .vs-btn--lg {
+    font-size: 14px;
+    padding: 14px 22px;
+  }
+
+  /* ── HERO ── */
+  .vs-hero {
+    padding: 18px 22px 40px;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+
+  .vs-hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+
+  .vs-hero__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-hero__eyebrow {
+    color: var(--amber-mid);
     margin-bottom: 18px;
   }
 
-  .embed-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    color: var(--amber-mid);
+  .vs-hero h1 {
+    font-size: 44px;
     font-weight: 500;
-    margin-bottom: 6px;
-    font-family: var(--font-sans);
-    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--blue-text);
+    margin: 0;
   }
 
-  .embed-title {
-    font-size: 19px;
+  .vs-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
     font-weight: 500;
-    color: #fff;
-    margin: 0 0 6px;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    font-family: var(--font-sans);
   }
 
-  .embed-sub {
-    font-size: 12px;
+  .vs-hero__lede {
+    font: 400 16px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    line-height: 1.5;
-    max-width: 480px;
-    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 0;
+    max-width: 540px;
   }
 
-  .snapshot-frame {
-    width: 100%;
-    min-height: 820px;
-    border: none;
-    border-radius: 8px;
-    display: block;
+  .vs-hero__lede em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
   }
 
-  /* ── Shared section ─────────────────────────── */
-  .section {
-    padding: 32px 22px;
-    background: var(--cream);
-  }
-
-  .section--cream { background: var(--cream-deep); }
-  .section--pt0 { padding-top: 0; }
-
-  /* ── "What it covers" cards ─────────────────── */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .card {
+  /* ── FORM CARD ── */
+  .vs-form-card {
     background: #fff;
     border: 0.5px solid var(--line);
     border-radius: 8px;
-    padding: 16px;
+    padding: 28px;
+    box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 12px 32px -16px rgba(4, 44, 83, 0.10);
   }
 
-  .card-num {
-    font-size: 10px;
-    color: var(--amber);
-    font-weight: 500;
-    margin-bottom: 6px;
-    letter-spacing: 0.08em;
-    font-family: var(--font-mono);
+  .vs-form-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 500 10px/1 var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--signal);
+    background: rgba(29, 158, 117, 0.08);
+    padding: 6px 9px;
+    border-radius: 3px;
+    margin-bottom: 14px;
   }
 
-  .card-title {
-    font-size: 13px;
+  .vs-form-badge::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--signal);
+  }
+
+  .vs-form-card h3 {
+    font-size: 23px;
     font-weight: 500;
-    margin-bottom: 6px;
     color: var(--navy);
-    font-family: var(--font-sans);
+    margin: 0 0 16px;
+    letter-spacing: -0.015em;
   }
 
-  .card-body {
-    font-size: 11px;
-    line-height: 1.5;
-    color: var(--muted);
-  }
-
-  /* ── Manual form ────────────────────────────── */
-  .form-wrap {
+  /* Score chip */
+  .vs-scorechip {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: start;
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    background: var(--navy);
+    color: var(--blue-text);
+    border-radius: 6px;
+    margin-bottom: 18px;
   }
 
-  .form-sub {
-    font-size: 12px;
-    line-height: 1.55;
-    color: var(--muted);
+  .vs-scorechip__num {
+    font: 500 28px/1 var(--font-sans);
+    color: var(--amber-pale);
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .vs-scorechip__num small {
+    display: block;
+    font: 500 9px/1 var(--font-sans);
+    color: var(--blue-mid);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .vs-scorechip__lbl {
+    font: 500 9px/1 var(--font-sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    margin-bottom: 4px;
+  }
+
+  .vs-scorechip__meta h6 {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .vs-scorechip__meta p {
+    font: 400 11px/1.4 var(--font-sans);
+    color: var(--blue-soft);
+    margin: 0;
+  }
+
+  /* Form fields */
+  .vs-field {
+    margin-bottom: 12px;
+  }
+
+  .vs-field label {
+    display: block;
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute-soft);
+    margin-bottom: 6px;
+  }
+
+  .vs-field input {
+    width: 100%;
+    padding: 10px 12px;
+    font: 400 13px/1 var(--font-sans);
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    background: var(--cream);
+    border-radius: 4px;
+    color: var(--ink);
+    transition: border-color 0.2s ease, background 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .vs-field input:focus {
+    outline: none;
+    border-color: var(--amber);
+    background: #fff;
+  }
+
+  .vs-submit {
+    width: 100%;
+    font: 500 14px/1 var(--font-sans);
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
     margin-top: 6px;
   }
 
-  .request-form {
+  .vs-submit:hover { background: #854F0B; }
+
+  /* Success state */
+  .vs-results {
+    padding: 4px 0;
+  }
+
+  .vs-results__head {
     display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .f-label {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 4px;
-    display: block;
-    font-family: var(--font-sans);
-  }
-
-  .f-input {
-    width: 100%;
-    border: 0.5px solid rgba(4,44,83,0.18);
-    border-radius: 4px;
-    padding: 8px 10px;
-    font-size: 11px;
-    margin-bottom: 10px;
-    background: #fff;
-    color: var(--navy);
-    box-sizing: border-box;
-    font-family: var(--font-sans);
-    transition: border-color 0.2s ease;
-  }
-
-  .f-input:focus {
-    outline: none;
-    border-color: var(--amber);
-  }
-
-  .f-btn {
-    width: 100%;
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: var(--font-sans);
-    transition: background 0.2s ease;
-    margin-top: 2px;
-  }
-
-  .f-btn:hover { background: #854F0B; }
-
-  /* ── Sprint CTA box ─────────────────────────── */
-  .next-box {
-    background: var(--navy);
-    padding: 36px 22px;
-    text-align: center;
-    color: var(--blue-text);
-    border-radius: 8px;
-  }
-
-  .next-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 10px;
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-  }
-
-  .next-title {
-    font-size: 21px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0 0 10px;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    font-family: var(--font-sans);
-  }
-
-  .next-body {
-    font-size: 12px;
-    line-height: 1.55;
-    color: var(--blue-soft);
-    max-width: 440px;
-    margin: 0 auto 18px;
-  }
-
-  .next-ctas {
-    display: flex;
+    align-items: center;
     gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .vs-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(29, 158, 117, 0.12);
+    color: var(--signal);
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .vs-results__head h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  .vs-results p {
+    font: 400 12.5px/1.6 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── SAMPLE REPORT ── */
+  .vs-sample {
+    padding: 88px 0 96px;
+    background: var(--cream-deep);
+  }
+
+  .vs-sample__panel {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+  }
+
+  .vs-sample__lbl {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .vs-sample__copy h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+
+  .vs-sample__copy h3 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .vs-sample__copy p {
+    font: 400 16px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .vs-sample__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 22px 0 0;
+  }
+
+  .vs-sample__cell {
+    padding: 16px 18px;
+    border: 0.5px solid var(--line);
+    border-radius: 6px;
+    background: var(--cream);
+  }
+
+  .vs-sample__cell .vs-n {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--amber);
+  }
+
+  .vs-sample__cell b {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .vs-sample__cell p {
+    font: 400 13px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .vs-sample__cta-row {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
     flex-wrap: wrap;
   }
 
-  /* ── Buttons ────────────────────────────────── */
-  .btn-primary {
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s ease;
-    font-family: var(--font-sans);
+  .vs-sample__meta {
+    font: 400 11px/1.4 var(--font-mono);
+    color: var(--mute-soft);
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  /* Mock report card */
+  .vs-report {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 24px 56px -28px rgba(4, 44, 83, 0.22);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
 
-  .btn-outline {
-    background: transparent;
+  .vs-report__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-report__rows {
+    margin-top: auto;
+  }
+
+  .vs-report__chrome {
+    padding: 12px 18px;
+    background: var(--navy);
     color: var(--blue-text);
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    border: 0.5px solid rgba(255,255,255,0.3);
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s ease;
-    font-family: var(--font-sans);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
-  .btn-outline:hover { border-color: rgba(255,255,255,0.6); }
+  .vs-report__chrome-left {
+    color: var(--amber-mid);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-  /* ── Responsive ─────────────────────────────── */
-  @media (max-width: 900px) {
-    .preview-grid {
+  .vs-report__chrome-left::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+
+  .vs-report__chrome-right { color: var(--blue-mid); }
+
+  .vs-report__body { padding: 28px 30px 30px; }
+
+  .vs-report__meta {
+    font: 400 11px/1.4 var(--font-sans);
+    color: var(--mute-soft);
+    margin-bottom: 22px;
+  }
+
+  .vs-report__h {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 22px;
+  }
+
+  .vs-report__h em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  /* Score ring panel */
+  .vs-report__score {
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 22px;
+    background: var(--cream-deep);
+    border-radius: 6px;
+    margin-bottom: 22px;
+  }
+
+  .vs-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: conic-gradient(var(--amber) 0deg 169deg, rgba(4, 44, 83, 0.08) 169deg 360deg);
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  .vs-ring::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    background: var(--cream-deep);
+    border-radius: 50%;
+  }
+
+  .vs-ring__v {
+    position: relative;
+    z-index: 1;
+    font: 500 38px/1 var(--font-mono);
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .vs-ring__v small {
+    display: block;
+    font: 500 10px/1 var(--font-mono);
+    color: var(--mute-soft);
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .vs-report__info-lbl {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute-soft);
+    margin-bottom: 8px;
+  }
+
+  .vs-report__info h4 {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .vs-report__info p {
+    font: 400 12px/1.5 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .vs-band {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown-deep);
+    background: rgba(186, 117, 23, 0.10);
+    padding: 6px 9px;
+    border-radius: 3px;
+    margin-top: 12px;
+  }
+
+  /* Engine rows */
+  .vs-report__rows { display: grid; gap: 6px; }
+
+  .vs-report__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 9px 12px;
+    background: var(--cream);
+    border: 0.5px solid var(--line);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .vs-engine { color: var(--navy); }
+
+  .vs-stat { color: var(--amber); font-weight: 500; }
+  .vs-ok { color: var(--signal); }
+  .vs-lo { color: var(--danger); }
+
+  /* ── OUTRO (next steps + CTA combined) ── */
+  .vs-outro {
+    padding: 80px 0 96px;
+    background: var(--navy-deep);
+  }
+
+  .vs-outro__eyebrow {
+    color: var(--amber-mid);
+    margin-bottom: 16px;
+  }
+
+  .vs-outro__bottom {
+    text-align: center;
+  }
+
+  .vs-outro__bottom h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--blue-text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vs-outro__bottom h2 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .vs-outro__ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .vs-hero__grid {
       grid-template-columns: 1fr;
+      gap: 40px;
     }
 
-    .btn-start { align-self: stretch; text-align: center; }
+    .vs-hero h1 { font-size: 34px; }
+
+    .vs-sample__panel {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .vs-next__grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {
-    .page-h1 { font-size: 24px; }
-    .steps { gap: 8px; }
-    .step-arrow { display: none; }
+    .vs-wrap { padding: 0 24px; }
 
-    .cards { grid-template-columns: 1fr; }
-    .form-wrap { grid-template-columns: 1fr; }
+    .vs-hero { padding: 56px 0 48px; }
 
-    .next-title { font-size: 18px; }
+    .vs-hero h1 { font-size: 28px; }
 
-    .trust-strip { gap: 8px; }
+    .vs-hero__lede { font-size: 14px; }
 
-    .snapshot-frame { min-height: 680px; }
-  }
+    .vs-outro__bottom h2 { font-size: 24px; }
 
-  @media (prefers-reduced-motion: reduce) {
-    .f-input, .f-btn, .btn-primary, .btn-outline, .btn-start {
-      transition-duration: 0.01ms;
-    }
+    .vs-outro { padding: 64px 0; }
   }
 </style>
