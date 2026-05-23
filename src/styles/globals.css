@@ -683,7 +683,7 @@ section.deepest .eyebrow {
 }
 
 .footer h5 {
-  font: 500 10px/1 var(--font-mono);
+  font: 500 10px/1 var(--font-sans);
   color: var(--brown-mid);
   text-transform: uppercase;
   letter-spacing: 0.12em;
