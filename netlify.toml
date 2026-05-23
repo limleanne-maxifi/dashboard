@@ -6,6 +6,12 @@
   to     = "/work"
   status = 301
   force  = true
+
+[[redirects]]
+  from   = "/work/canso-airspace-world"
+  to     = "/work/airspaceworld"
+  status = 301
+  force  = true
   publish   = "dist"
   functions = "netlify/functions"
 
