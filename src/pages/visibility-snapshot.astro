@@ -24,7 +24,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="vs-form-card" id="snapshot">
       <span class="vs-form-badge">Free Snapshot</span>
       <h3>Run your AI Visibility Snapshot</h3>
-      <p class="vs-form-lede">Three fields. One report. Inbox in 24 hours.</p>
 
       <div class="vs-scorechip" aria-label="Sample score: 47 out of 100, Caution band">
         <div class="vs-scorechip__num">47<small>/100</small></div>
@@ -59,7 +58,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <input type="text" id="vs-buyer_question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
           </div>
           <button class="vs-submit" type="submit">Run my Visibility Snapshot →</button>
-          <p class="vs-legal">Live across ChatGPT · Claude · Copilot · Gemini · Perplexity. Inbox in 24h.</p>
         </form>
       </div>
 
@@ -372,17 +370,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-form-card h3 {
-    font-size: 19px;
+    font-size: 23px;
     font-weight: 500;
     color: var(--navy);
-    margin: 0 0 6px;
+    margin: 0 0 16px;
     letter-spacing: -0.015em;
-  }
-
-  .vs-form-lede {
-    font: 400 12px/1.5 var(--font-sans);
-    color: var(--muted);
-    margin-bottom: 16px;
   }
 
   /* Score chip */
@@ -399,7 +391,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-scorechip__num {
-    font: 500 28px/1 var(--font-mono);
+    font: 500 28px/1 var(--font-sans);
     color: var(--amber-pale);
     letter-spacing: -0.01em;
     text-align: center;
@@ -407,15 +399,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-scorechip__num small {
     display: block;
-    font: 500 9px/1 var(--font-mono);
+    font: 500 9px/1 var(--font-sans);
     color: var(--blue-mid);
     margin-top: 4px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
   }
 
   .vs-scorechip__lbl {
-    font: 500 9px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font: 500 9px/1 var(--font-sans);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 4px;
@@ -430,7 +422,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-scorechip__meta p {
-    font: 400 11px/1.4 var(--font-mono);
+    font: 400 11px/1.4 var(--font-sans);
     color: var(--blue-soft);
     margin: 0;
   }
@@ -481,13 +473,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-submit:hover { background: #854F0B; }
-
-  .vs-legal {
-    font: 400 10px/1.4 var(--font-mono);
-    color: var(--mute-soft);
-    margin-top: 12px;
-    letter-spacing: 0.02em;
-  }
 
   /* Success state */
   .vs-results {
