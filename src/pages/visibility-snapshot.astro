@@ -18,34 +18,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
       <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
 
-      <div class="vs-inside">
-        <div class="vs-inside__h">What you get · in 24 hours</div>
-        <ul>
-          <li>
-            <span class="vs-n">01</span>
-            <span class="vs-t"><b>Your AI Visibility Score</b>0–100 vs sector median, with the dominant failure pattern named.</span>
-          </li>
-          <li>
-            <span class="vs-n">02</span>
-            <span class="vs-t"><b>Citation gap map</b>The exact queries where competitors are named instead of you, across all 5 engines.</span>
-          </li>
-          <li>
-            <span class="vs-n">03</span>
-            <span class="vs-t"><b>Structural gaps ranked</b>The schema, entity and content signals blocking retrieval — prioritised.</span>
-          </li>
-          <li>
-            <span class="vs-n">04</span>
-            <span class="vs-t"><b>Three fixes to ship this week</b>Concrete changes your team can implement before the next buyer search.</span>
-          </li>
-        </ul>
-      </div>
     </div>
 
     <!-- Right column · form card -->
     <div class="vs-form-card" id="snapshot">
       <span class="vs-form-badge">Free Snapshot</span>
       <h3>Run your AI Visibility Snapshot</h3>
-      <p class="vs-form-lede">Three fields. One report. Inbox in 24 hours.</p>
 
       <div class="vs-scorechip" aria-label="Sample score: 47 out of 100, Caution band">
         <div class="vs-scorechip__num">47<small>/100</small></div>
@@ -80,7 +58,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <input type="text" id="vs-buyer_question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
           </div>
           <button class="vs-submit" type="submit">Run my Visibility Snapshot →</button>
-          <p class="vs-legal">Live across ChatGPT · Claude · Copilot · Gemini · Perplexity. Inbox in 24h.</p>
         </form>
       </div>
 
@@ -168,6 +145,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="vs-report__row"><span class="vs-engine">Claude</span><span class="vs-stat vs-ok">cited · #5</span></div>
             <div class="vs-report__row"><span class="vs-engine">Gemini</span><span class="vs-stat vs-lo">not cited</span></div>
             <div class="vs-report__row"><span class="vs-engine">Copilot</span><span class="vs-stat">cited · #7</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Google AI Overview</span><span class="vs-stat vs-lo">not cited</span></div>
           </div>
         </div>
       </div>
@@ -245,17 +223,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sec-head {
-    margin-bottom: 36px;
+    margin-bottom: 16px;
     max-width: 720px;
   }
 
   .vs-sec-head h2 {
     font-size: 44px;
     font-weight: 500;
-    color: var(--navy);
+    color: var(--amber);
     line-height: 1.08;
     letter-spacing: -0.025em;
     margin: 0 0 18px;
+    white-space: nowrap;
   }
 
   .vs-sec-head h2 em {
@@ -361,49 +340,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
   }
 
-  /* "What you get" mini-list */
-  .vs-inside {
-    margin-top: 16px;
-    padding-top: 20px;
-    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .vs-inside__h {
-    font: 500 11px/1 var(--font-mono);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue-mid);
-    margin-bottom: 16px;
-  }
-
-  .vs-inside ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 26px;
-  }
-
-  .vs-inside li {
-    display: flex;
-    gap: 11px;
-    align-items: flex-start;
-  }
-
-  .vs-t {
-    font: 400 16px/1.55 var(--font-sans);
-    color: var(--blue-soft);
-  }
-
-  .vs-t b {
-    display: block;
-    font-weight: 500;
-    color: var(--blue-text);
-    margin-bottom: 3px;
-    font-size: 16px;
-  }
-
   /* ── FORM CARD ── */
   .vs-form-card {
     background: #fff;
@@ -436,17 +372,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-form-card h3 {
-    font-size: 19px;
+    font-size: 23px;
     font-weight: 500;
     color: var(--navy);
-    margin: 0 0 6px;
+    margin: 0 0 16px;
     letter-spacing: -0.015em;
-  }
-
-  .vs-form-lede {
-    font: 400 12px/1.5 var(--font-sans);
-    color: var(--muted);
-    margin-bottom: 16px;
   }
 
   /* Score chip */
@@ -463,7 +393,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-scorechip__num {
-    font: 500 28px/1 var(--font-mono);
+    font: 500 28px/1 var(--font-sans);
     color: var(--amber-pale);
     letter-spacing: -0.01em;
     text-align: center;
@@ -471,15 +401,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-scorechip__num small {
     display: block;
-    font: 500 9px/1 var(--font-mono);
+    font: 500 9px/1 var(--font-sans);
     color: var(--blue-mid);
     margin-top: 4px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
   }
 
   .vs-scorechip__lbl {
-    font: 500 9px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font: 500 9px/1 var(--font-sans);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 4px;
@@ -494,7 +424,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-scorechip__meta p {
-    font: 400 11px/1.4 var(--font-mono);
+    font: 400 11px/1.4 var(--font-sans);
     color: var(--blue-soft);
     margin: 0;
   }
@@ -546,13 +476,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-submit:hover { background: #854F0B; }
 
-  .vs-legal {
-    font: 400 10px/1.4 var(--font-mono);
-    color: var(--mute-soft);
-    margin-top: 12px;
-    letter-spacing: 0.02em;
-  }
-
   /* Success state */
   .vs-results {
     padding: 4px 0;
@@ -602,7 +525,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 0.85fr 1fr;
     gap: 36px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .vs-sample__lbl {
@@ -690,6 +613,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 8px;
     box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 24px 56px -28px rgba(4, 44, 83, 0.22);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-report__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-report__rows {
+    margin-top: auto;
   }
 
   .vs-report__chrome {
@@ -724,9 +659,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-report__body { padding: 28px 30px 30px; }
 
   .vs-report__meta {
-    font: 400 11px/1.4 var(--font-mono);
+    font: 400 11px/1.4 var(--font-sans);
     color: var(--mute-soft);
-    letter-spacing: 0.02em;
     margin-bottom: 22px;
   }
 
@@ -898,8 +832,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .vs-hero h1 { font-size: 34px; }
-
-    .vs-inside ul { grid-template-columns: 1fr; }
 
     .vs-sample__panel {
       grid-template-columns: 1fr;
