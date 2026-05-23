@@ -13,22 +13,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="vs-wrap vs-hero__grid">
 
     <!-- Left column -->
-    <div>
+    <div class="vs-hero__left">
       <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
       <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
       <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
-
-      <div class="vs-urgency">
-        <span class="vs-urgency__dot" aria-hidden="true"></span>
-        <span>Audit slots refresh weekly · 12 of 25 remaining for May</span>
-      </div>
-
-      <div class="vs-proof">
-        <div class="vs-avatars" role="img" aria-label="Clients including CANSO, aviation bodies, law firms, think tanks">
-          <span aria-hidden="true">CA</span><span aria-hidden="true">AV</span><span aria-hidden="true">LF</span><span aria-hidden="true">TT</span>
-        </div>
-        <span>Audits run for CANSO, aviation bodies, law firms, think tanks.</span>
-      </div>
 
       <div class="vs-inside">
         <div class="vs-inside__h">What you get · in 24 hours</div>
@@ -273,7 +261,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-eyebrow {
     display: inline-block;
-    font: 500 10px/1 var(--font-mono);
+    font-family: var(--font-sans);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    line-height: 1;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--brown-mid);
@@ -307,7 +298,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-n {
-    font: 500 11px/1.2 var(--font-mono);
+    font: 500 12px/1.2 var(--font-mono);
     color: var(--amber);
     letter-spacing: 0.08em;
     flex-shrink: 0;
@@ -355,7 +346,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1.05fr 1fr;
     gap: 56px;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .vs-hero__left {
+    display: flex;
+    flex-direction: column;
   }
 
   .vs-hero__eyebrow {
@@ -382,6 +378,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font: 400 16px/1.55 var(--font-sans);
     color: var(--blue-soft);
     margin-top: 20px;
+    margin-bottom: 0;
     max-width: 540px;
   }
 
@@ -391,69 +388,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
   }
 
-  /* Urgency strip */
-  .vs-urgency {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 26px;
-    padding: 11px 14px;
-    background: rgba(186, 117, 23, 0.12);
-    border: 0.5px solid rgba(186, 117, 23, 0.35);
-    border-radius: 5px;
-    font: 400 11px/1.4 var(--font-mono);
-    color: var(--amber-pale);
-    letter-spacing: 0.02em;
-  }
-
-  .vs-urgency__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--amber);
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(186, 117, 23, 0.18);
-  }
-
-  /* Avatar proof */
-  .vs-proof {
-    margin-top: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    color: var(--blue-mid);
-    font: 400 11.5px/1.4 var(--font-sans);
-  }
-
-  .vs-avatars {
-    display: flex;
-  }
-
-  .vs-avatars span {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--navy-soft);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    margin-left: -7px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font: 500 9px/1 var(--font-mono);
-    color: var(--blue-text);
-  }
-
-  .vs-avatars span:first-child { margin-left: 0; }
-
   /* "What you get" mini-list */
   .vs-inside {
-    margin-top: 36px;
-    padding-top: 28px;
+    margin-top: 16px;
+    padding-top: 20px;
     border-top: 0.5px solid rgba(255, 255, 255, 0.1);
   }
 
   .vs-inside__h {
-    font: 500 10px/1 var(--font-mono);
+    font: 500 11px/1 var(--font-mono);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--blue-mid);
@@ -476,7 +419,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-t {
-    font: 400 12.5px/1.5 var(--font-sans);
+    font: 400 16px/1.55 var(--font-sans);
     color: var(--blue-soft);
   }
 
@@ -484,8 +427,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: block;
     font-weight: 500;
     color: var(--blue-text);
-    margin-bottom: 2px;
-    font-size: 12.5px;
+    margin-bottom: 3px;
+    font-size: 16px;
   }
 
   /* ── FORM CARD ── */

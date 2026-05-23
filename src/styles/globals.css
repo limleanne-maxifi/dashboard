@@ -67,6 +67,7 @@
   --fs-body:      12px;
   --fs-body-sm:   11px;
   --fs-tiny:      10px;
+  --fs-eyebrow:   10px;   /* single source of truth for all section eyebrows */
   --fs-cta:       12px;
   --fs-cta-hero:  14px;
   --fs-nav:       12px;
@@ -221,7 +222,7 @@ h3, .h3 {
 .eyebrow {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: var(--fs-tiny);
+  font-size: var(--fs-eyebrow);
   font-weight: var(--fw-heading);
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
@@ -683,7 +684,10 @@ section.deepest .eyebrow {
 }
 
 .footer h5 {
-  font: 500 10px/1 var(--font-mono);
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  line-height: 1;
   color: var(--brown-mid);
   text-transform: uppercase;
   letter-spacing: 0.12em;
