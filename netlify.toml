@@ -1,5 +1,11 @@
 [build]
   command   = "npm run build"
+
+[[redirects]]
+  from   = "/visibility-engine"
+  to     = "/work"
+  status = 301
+  force  = true
   publish   = "dist"
   functions = "netlify/functions"
 
