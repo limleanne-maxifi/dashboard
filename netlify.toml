@@ -1,5 +1,6 @@
 [build]
   command   = "npm run build"
+  publish   = "dist"
 
 [[redirects]]
   from   = "/visibility-engine"
@@ -12,8 +13,6 @@
   to     = "/work/airspaceworld"
   status = 301
   force  = true
-  publish   = "dist"
-  functions = "netlify/functions"
 
 [[headers]]
   for = "/*"
