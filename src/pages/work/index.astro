@@ -9,19 +9,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
 
   <!-- ══════════════════════════════════════════
-       PAGE HEADER
-  ══════════════════════════════════════════ -->
-  <section class="page-header">
-    <div class="wrap-inner">
-      <p class="page-eyebrow">BUILD AI AUTHORITY</p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
        SYSTEM — THE 3-STAGE VISIBILITY ENGINE
   ══════════════════════════════════════════ -->
   <section class="system-section section--navy" aria-labelledby="system-heading">
     <div class="wrap-inner">
+      <p class="system-eyebrow">BUILD AI AUTHORITY</p>
       <div class="system-head">
         <h2 id="system-heading" class="system-title">The Visibility Engine — a 3-stage system that <em>compounds</em></h2>
         <p class="system-description">Not a content sprint. Not a one-off audit. A managed system that takes your expertise from invisible to indexed, then keeps citation share growing — quarter on quarter.</p>
@@ -155,20 +147,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     padding: 0 40px;
   }
 
-  /* ── Page Header ─────────────────────────────── */
-  .page-header {
-    background: var(--cream);
-    padding: 32px 0 24px;
-  }
-
-  .page-eyebrow {
+  /* ── System Eyebrow ─────────────────────────── */
+  .system-eyebrow {
     font-family: var(--font-sans);
     font-size: 10px;
     letter-spacing: 0.14em;
     color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 24px;
+    text-align: center;
   }
 
   /* ── Shared section ─────────────────────────── */
@@ -208,12 +196,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .system-section {
     background: var(--navy);
     color: var(--blue-text);
-    padding: 88px 0 104px;
+    padding: 48px 0 104px;
   }
 
   .system-head {
     max-width: 720px;
-    margin-bottom: 36px;
+    margin: 0 auto 36px;
   }
 
   .system-title {
