@@ -9,6 +9,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 >
 
   <!-- ══════════════════════════════════════════
+       PAGE HEADER
+  ══════════════════════════════════════════ -->
+  <section class="page-header">
+    <div class="wrap-inner">
+      <p class="page-eyebrow">BUILD AI AUTHORITY</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
        SYSTEM — THE 3-STAGE VISIBILITY ENGINE
   ══════════════════════════════════════════ -->
   <section class="system-section section--navy" aria-labelledby="system-heading">
@@ -144,6 +153,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
+  }
+
+  /* ── Page Header ─────────────────────────────── */
+  .page-header {
+    background: var(--cream);
+    padding: 32px 0 24px;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
   }
 
   /* ── Shared section ─────────────────────────── */
@@ -459,6 +484,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   /* ── CTA ────────────────────────────────────── */
+  .section:has(.cta-box) {
+    padding: 48px 40px;
+  }
+
   .cta-box {
     background: var(--navy);
     padding: 40px 32px;
