@@ -736,6 +736,43 @@ All 20 response strings in the `EC_RESPONSES` object are **fabricated simulation
 
 ---
 
+## HOMEPAGE SECTIONS — LOCKED (v3.2, 2026-05-23)
+
+The following homepage sections (in `src/pages/index.astro`) are **locked** and must not be altered without explicit instruction:
+
+### Locked sections (before "The Shift"):
+
+**SECTION 2 — Hero** (Main hero with HeroLoop)
+- Eyebrow, H1, buyer queries, lede, CTAs
+- HeroLoop animated 5-engine simulator on right column
+- CSS: `.hero`, `.hero-row`, `.hero-left`, `.hero-body`, `.hero-ctas`, `.hero-h1`, `.hero-queries`, `.lede`, `.dyk-*`
+- Layout: subgrid height-matching between left column and HeroLoop
+- Do not alter dimensions, spacing, or HeroLoop timer logic
+
+**SECTION 3 — Visibility Snapshot Hero** (Form card funnel)
+- Eyebrow: "Free · 5 minutes · No call required"
+- H1: "When your market asks AI who to trust, does your company show up?"
+- Two AEO context paragraphs
+- Right column: white form card with "Free Snapshot" badge, score chip (47/100), 3 form fields
+- Form name: `visibility-snapshot` (Netlify Forms)
+- CTA routes to `https://visibilityview.netlify.app/` (external, new tab)
+- CSS: `.vs-hero`, `.vs-hero__grid`, `.vs-hero__left`, `.vs-form-card`, `.vs-form-badge`, `.vs-scorechip`, `.vs-field`, `.vs-submit`, `.vs-results`
+- Do not modify form fields, badge styling, or score chip layout
+
+**SECTION 4 — Sample Snapshot** (Preview of report)
+- Eyebrow: "See it before you start"
+- H2: "This is what your Snapshot looks like" (with amber italic em text)
+- Left column: 2×2 grid of 4 features + CTA
+- Right column: mock report card with navy chrome, conic-gradient score ring, engine rows
+- CSS: `.vs-sample`, `.vs-sample__panel`, `.vs-sample__copy`, `.vs-sample__grid`, `.vs-sample__cell`, `.vs-report`, `.vs-ring`, `.vs-report__rows`
+- Do not alter grid structure, report styling, or feature descriptions
+
+### Sections still available for editing:
+
+Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem frame) remains open for changes without explicit instruction.
+
+---
+
 ## REVISION HISTORY
 
 - v1: Initial spec with Fraunces serif and weight 600 — SUPERSEDED
