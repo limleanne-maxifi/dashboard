@@ -145,6 +145,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="vs-report__row"><span class="vs-engine">Claude</span><span class="vs-stat vs-ok">cited · #5</span></div>
             <div class="vs-report__row"><span class="vs-engine">Gemini</span><span class="vs-stat vs-lo">not cited</span></div>
             <div class="vs-report__row"><span class="vs-engine">Copilot</span><span class="vs-stat">cited · #7</span></div>
+            <div class="vs-report__row"><span class="vs-engine">Google AI Overview</span><span class="vs-stat vs-lo">not cited</span></div>
           </div>
         </div>
       </div>
@@ -524,7 +525,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 0.85fr 1fr;
     gap: 36px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .vs-sample__lbl {
@@ -612,6 +613,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 8px;
     box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 24px 56px -28px rgba(4, 44, 83, 0.22);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-report__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vs-report__rows {
+    margin-top: auto;
   }
 
   .vs-report__chrome {
