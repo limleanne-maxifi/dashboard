@@ -18,18 +18,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
       <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
 
-      <div class="vs-urgency">
-        <span class="vs-urgency__dot" aria-hidden="true"></span>
-        <span>Audit slots refresh weekly · 12 of 25 remaining for May</span>
-      </div>
-
-      <div class="vs-proof">
-        <div class="vs-avatars" role="img" aria-label="Clients including CANSO, aviation bodies, law firms, think tanks">
-          <span aria-hidden="true">CA</span><span aria-hidden="true">AV</span><span aria-hidden="true">LF</span><span aria-hidden="true">TT</span>
-        </div>
-        <span>Audits run for CANSO, aviation bodies, law firms, think tanks.</span>
-      </div>
-
       <div class="vs-inside">
         <div class="vs-inside__h">What you get · in 24 hours</div>
         <ul>
@@ -392,59 +380,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* Urgency strip */
-  .vs-urgency {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 26px;
-    padding: 11px 14px;
-    background: rgba(186, 117, 23, 0.12);
-    border: 0.5px solid rgba(186, 117, 23, 0.35);
-    border-radius: 5px;
-    font: 400 11px/1.4 var(--font-mono);
-    color: var(--amber-pale);
-    letter-spacing: 0.02em;
-  }
-
-  .vs-urgency__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--amber);
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(186, 117, 23, 0.18);
-  }
-
-  /* Avatar proof */
-  .vs-proof {
-    margin-top: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    color: var(--blue-mid);
-    font: 400 11.5px/1.4 var(--font-sans);
-  }
-
-  .vs-avatars {
-    display: flex;
-  }
-
-  .vs-avatars span {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--navy-soft);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    margin-left: -7px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font: 500 9px/1 var(--font-mono);
-    color: var(--blue-text);
-  }
-
-  .vs-avatars span:first-child { margin-left: 0; }
-
   /* "What you get" mini-list */
   .vs-inside {
     margin-top: 36px;
