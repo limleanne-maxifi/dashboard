@@ -736,6 +736,44 @@ All 20 response strings in the `EC_RESPONSES` object are **fabricated simulation
 
 ---
 
+## SHARED COMPONENTS (single source of truth, v3.2+)
+
+All Visibility Snapshot sections are now **reusable Astro components**. This eliminates duplication and prevents drift.
+
+### VisibilitySnapshotHero
+**Location:** `src/components/sections/VisibilitySnapshotHero.astro`
+
+**Used on:**
+- `src/pages/index.astro` (SECTION 3)
+- `src/pages/visibility-snapshot.astro` (hero)
+
+**Contains:** Navy gradient hero with H1, AEO context paragraphs, white form card with badge, score chip, 3 form fields, submit button
+
+**Props:** None (static)
+
+**CSS classes:** `.vs-hero`, `.vs-hero__grid`, `.vs-hero__left`, `.vs-hero__eyebrow`, `.vs-form-card`, `.vs-form-badge`, `.vs-scorechip`, `.vs-field`, `.vs-submit`, `.vs-results`
+
+**If changed:** Test on BOTH index.astro and visibility-snapshot.astro immediately
+
+### VisibilitySnapshotSample
+**Location:** `src/components/sections/VisibilitySnapshotSample.astro`
+
+**Used on:**
+- `src/pages/index.astro` (SECTION 4)
+- `src/pages/visibility-snapshot.astro` (after hero)
+
+**Contains:** Cream-deep section with "This is what your Snapshot looks like" H2, 2×2 feature grid, mock report card with conic-gradient ring
+
+**Props:** None (static)
+
+**CSS classes:** `.vs-sample`, `.vs-sample__panel`, `.vs-sample__copy`, `.vs-sample__grid`, `.vs-sample__cell`, `.vs-report`, `.vs-ring`, `.vs-report__rows`, `.vs-report__chrome`
+
+**If changed:** Test on BOTH index.astro and visibility-snapshot.astro immediately
+
+**Rule:** Never modify the HTML in both pages separately. Always edit the component file, then test on both pages.
+
+---
+
 ## HOMEPAGE SECTIONS — LOCKED (v3.2, 2026-05-23)
 
 The following homepage sections (in `src/pages/index.astro`) are **locked** and must not be altered without explicit instruction:
