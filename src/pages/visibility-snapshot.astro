@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="vs-wrap vs-hero__grid">
 
     <!-- Left column -->
-    <div>
+    <div class="vs-hero__left">
       <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
       <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
       <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
@@ -346,7 +346,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1.05fr 1fr;
     gap: 56px;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .vs-hero__left {
+    display: flex;
+    flex-direction: column;
   }
 
   .vs-hero__eyebrow {
@@ -382,10 +387,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
   }
 
-  /* Urgency strip */
   /* "What you get" mini-list */
   .vs-inside {
-    margin-top: 36px;
+    margin-top: auto;
     padding-top: 28px;
     border-top: 0.5px solid rgba(255, 255, 255, 0.1);
   }
