@@ -11,198 +11,281 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ══════════════════════════════════════════
        HERO
   ══════════════════════════════════════════ -->
-  <section class="page-hero" aria-labelledby="sprint-heading">
-    <p class="eyebrow">CONFERENCE AEO SPRINT</p>
-    <h1 id="sprint-heading" class="page-h1">
-      Your conference content has a shelf life. The Sprint extends it forever.
-    </h1>
-    <p class="page-lede">
-      Sessions, speakers and keynote insights are among the richest expert content
-      in any industry. Yet most of it lives in PDFs, decks and YouTube — invisible
-      to AI engines. The Sprint changes that in 30 days.
-    </p>
-    <div class="hero-ctas">
-      <a
-        href="mailto:hello@maxifidigital.com?subject=Conference%20AEO%20Sprint%20enquiry&body=I%27d%20like%20to%20discuss%20the%20Conference%20AEO%20Sprint%20for%20my%20event."
-        class="btn-primary"
-      >
-        Scope my Sprint
-      </a>
-      <a href="/visibility-snapshot" class="btn-ghost">Start with a Snapshot</a>
+  <section class="c-hero">
+    <div class="wrap">
+      <p class="c-eyebrow">CONFERENCE AEO SPRINT</p>
+      <h1 id="sprint-heading" class="c-h1">
+        Your conference content has a shelf life.<br />
+        <em>The Sprint extends it forever.</em>
+      </h1>
+      <p class="c-lede">
+        Sessions, speakers and keynote insights are among the richest expert content
+        in any industry. Yet most of it lives in PDFs, decks and YouTube — invisible
+        to AI engines. The Sprint changes that in 30 days.
+      </p>
+      <div class="c-hero-ctas">
+        <a
+          href="mailto:hello@maxifidigital.com?subject=Conference%20AEO%20Sprint%20enquiry&body=I%27d%20like%20to%20discuss%20the%20Conference%20AEO%20Sprint%20for%20my%20event."
+          class="c-btn-primary"
+        >
+          Scope my Sprint
+        </a>
+        <a href="/visibility-snapshot" class="c-btn-ghost">Start with a Snapshot</a>
+      </div>
+      <p class="c-hero-meta">30-day engagement · Fixed fee · Expert-led</p>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════
-       VIDEO — ASW CASE STUDY
+       CASE STUDY — ASW VIDEO + METRICS
   ══════════════════════════════════════════ -->
-  <section class="video-section" aria-label="Airspace World AEO case study video">
-    <div class="video-wrap">
-      <video
-        class="case-video"
-        controls
-        preload="metadata"
-        poster=""
-        aria-label="Airspace World 2026 — AEO case study"
-      >
-        <source src="/asw-explainer.mp4" type="video/mp4" />
-        <p>Your browser doesn't support HTML5 video.
-           <a href="/asw-explainer.mp4">Download the video</a>.</p>
-      </video>
-      <div class="video-caption">
-        <p class="vc-eyebrow">FEATURED CASE</p>
-        <p class="vc-title">CANSO · Airspace World 2026</p>
-        <p class="vc-body">
-          How we turned a 3-day aviation conference into a structured AI Knowledge Hub —
-          47 Q&amp;A pairs, 92% schema coverage, 3× citation growth.
-        </p>
+  <section class="c-case-section">
+    <div class="wrap">
+      <div class="c-case-grid">
+
+        <!-- Video card -->
+        <div class="c-video-card" aria-label="Airspace World 2026 AEO walkthrough video">
+          <div class="c-video-frame">
+            <video
+              class="c-video"
+              controls
+              preload="metadata"
+              aria-label="Airspace World 2026 — Introduction to Event AEO"
+            >
+              <source src="/asw-explainer.mp4" type="video/mp4" />
+            </video>
+            <div class="c-video-overlay" aria-hidden="true">
+              <button class="c-play-btn" aria-label="Play video">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <polygon points="6,3 20,12 6,21" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-video-foot">
+            <span class="c-video-title">Introduction to Event AEO in 90s</span>
+            <span class="c-video-dur">01:27</span>
+          </div>
+        </div>
+
+        <!-- Case study meta -->
+        <div class="c-case-meta">
+          <p class="c-s-eyebrow">FEATURED CASE · LIVE</p>
+          <h2 class="c-case-h2">CANSO · Airspace World 2026</h2>
+          <p class="c-case-body">
+            We turned a 3-day aviation conference into a structured AI Knowledge Hub —
+            answer-ready Q&amp;A pairs, full schema coverage, and measurable citation
+            growth within 30 days of launch.
+          </p>
+
+          <div class="c-metrics">
+            <div class="c-metric">
+              <span class="c-metric-val">47</span>
+              <span class="c-metric-lbl">Q&A pairs built</span>
+            </div>
+            <div class="c-metric">
+              <span class="c-metric-val">92%</span>
+              <span class="c-metric-lbl">Schema coverage</span>
+            </div>
+            <div class="c-metric">
+              <span class="c-metric-val">3×</span>
+              <span class="c-metric-lbl">Citation growth</span>
+            </div>
+          </div>
+
+          <a
+            href="https://aswhub.maxifidigital.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="c-case-link"
+          >
+            View the live AI Hub ↗
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════
-       WHAT A SPRINT PRODUCES
+       SPRINT DELIVERABLES
   ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="outputs-heading">
-    <p class="s-eyebrow">WHAT YOU GET</p>
-    <h2 id="outputs-heading" class="section-h2">Sprint deliverables</h2>
-    <div class="outputs">
-      <article class="output-card">
-        <p class="oc-num">01</p>
-        <h3 class="oc-title">AI Visibility Snapshot</h3>
-        <p class="oc-body">
-          A pre-Sprint audit of your current citation footprint. Which engines name
-          your event today, which queries surface competitors, and the structural gaps
-          that explain the difference.
+  <section class="c-section" aria-labelledby="outputs-heading">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <p class="c-s-eyebrow">WHAT YOU GET</p>
+        <h2 id="outputs-heading" class="c-sec-h2">Six deliverables in 30 days.</h2>
+        <p class="c-sec-sub">
+          Every Sprint includes the same six outputs — structured, reviewed and ready
+          for AI ingestion before the engagement closes.
         </p>
-      </article>
-      <article class="output-card">
-        <p class="oc-num">02</p>
-        <h3 class="oc-title">Q&A pair library</h3>
-        <p class="oc-body">
-          30–60 buyer questions mapped to your sessions, speakers and themes —
-          each answered in the structured format LLMs retrieve and cite.
-        </p>
-      </article>
-      <article class="output-card">
-        <p class="oc-num">03</p>
-        <h3 class="oc-title">Schema + structured data layer</h3>
-        <p class="oc-body">
-          JSON-LD markup for every key asset: Event, Speaker, FAQPage, Article.
-          The vocabulary that turns your content into machine-readable authority signals.
-        </p>
-      </article>
-      <article class="output-card">
-        <p class="oc-num">04</p>
-        <h3 class="oc-title">Answer-ready landing pages</h3>
-        <p class="oc-body">
-          Session and theme pages rebuilt as AI-retrievable knowledge nodes — not
-          event marketing pages, but authoritative answer sources your brand owns.
-        </p>
-      </article>
-      <article class="output-card">
-        <p class="oc-num">05</p>
-        <h3 class="oc-title">Distribution playbook</h3>
-        <p class="oc-body">
-          Where and how to publish your assets to maximise ingestion into AI
-          training and retrieval pipelines — with a 90-day content calendar.
-        </p>
-      </article>
-      <article class="output-card">
-        <p class="oc-num">06</p>
-        <h3 class="oc-title">30-day citation report</h3>
-        <p class="oc-body">
-          A follow-up Snapshot 30 days after launch, showing citation movement
-          across all five engines vs. the pre-Sprint baseline.
-        </p>
-      </article>
+      </div>
+      <div class="c-outputs">
+        <article class="c-output-card">
+          <p class="c-oc-num">01</p>
+          <h3 class="c-oc-title">AI Visibility Snapshot</h3>
+          <p class="c-oc-body">
+            A pre-Sprint audit of your current citation footprint. Which engines name
+            your event today, which queries surface competitors, and the structural gaps
+            that explain the difference.
+          </p>
+        </article>
+        <article class="c-output-card">
+          <p class="c-oc-num">02</p>
+          <h3 class="c-oc-title">Q&A pair library</h3>
+          <p class="c-oc-body">
+            30–60 buyer questions mapped to your sessions, speakers and themes —
+            each answered in the structured format LLMs retrieve and cite.
+          </p>
+        </article>
+        <article class="c-output-card">
+          <p class="c-oc-num">03</p>
+          <h3 class="c-oc-title">Schema + structured data layer</h3>
+          <p class="c-oc-body">
+            JSON-LD markup for every key asset: Event, Speaker, FAQPage, Article.
+            The vocabulary that turns your content into machine-readable authority signals.
+          </p>
+        </article>
+        <article class="c-output-card">
+          <p class="c-oc-num">04</p>
+          <h3 class="c-oc-title">Answer-ready landing pages</h3>
+          <p class="c-oc-body">
+            Session and theme pages rebuilt as AI-retrievable knowledge nodes — not
+            event marketing pages, but authoritative answer sources your brand owns.
+          </p>
+        </article>
+        <article class="c-output-card">
+          <p class="c-oc-num">05</p>
+          <h3 class="c-oc-title">Distribution playbook</h3>
+          <p class="c-oc-body">
+            Where and how to publish your assets to maximise ingestion into AI
+            training and retrieval pipelines — with a 90-day content calendar.
+          </p>
+        </article>
+        <article class="c-output-card">
+          <p class="c-oc-num">06</p>
+          <h3 class="c-oc-title">30-day citation report</h3>
+          <p class="c-oc-body">
+            A follow-up Snapshot 30 days after launch, showing citation movement
+            across all five engines vs. the pre-Sprint baseline.
+          </p>
+        </article>
+      </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════
        WHO IT'S FOR
   ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="for-heading">
-    <p class="s-eyebrow">WHO IT'S FOR</p>
-    <h2 id="for-heading" class="section-h2">The Sprint is built for</h2>
-    <div class="audience-grid">
-      {[
-        { title: 'Conference & event organisers', body: 'Annual conferences, summits, trade shows with recorded sessions and speaker content.' },
-        { title: 'Professional associations', body: 'Industry bodies whose publications and events are the authoritative source for their sector.' },
-        { title: 'Think tanks', body: 'Research-led organisations whose output should be the answer AI gives to policy questions.' },
-        { title: 'Law & consulting firms', body: 'Expert practices that speak at events and publish thought leadership — but are invisible to AI.' },
-      ].map((item) => (
-        <article class="audience-card">
-          <h3 class="ac-title">{item.title}</h3>
-          <p class="ac-body">{item.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       PROCESS TIMELINE
-  ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="process-heading">
-    <p class="s-eyebrow">THE 30-DAY PROCESS</p>
-    <h2 id="process-heading" class="section-h2">How the Sprint runs</h2>
-    <div class="timeline">
-      <article class="tl-step">
-        <p class="tl-week">Week 1</p>
-        <h3 class="tl-title">Snapshot + audit</h3>
-        <p class="tl-body">Full citation audit, content inventory, buyer question research. We map your existing assets to the gaps AI engines expose.</p>
-      </article>
-      <article class="tl-step">
-        <p class="tl-week">Week 2</p>
-        <h3 class="tl-title">Q&A architecture</h3>
-        <p class="tl-body">Q&A library drafted and approved. Schema architecture designed. Answer-ready page structure agreed with your team.</p>
-      </article>
-      <article class="tl-step">
-        <p class="tl-week">Week 3</p>
-        <h3 class="tl-title">Build + markup</h3>
-        <p class="tl-body">Pages built, schema added, Q&A pairs published. All assets reviewed and signed off before going live.</p>
-      </article>
-      <article class="tl-step">
-        <p class="tl-week">Week 4</p>
-        <h3 class="tl-title">Launch + distribute</h3>
-        <p class="tl-body">Assets live. Distribution playbook handed over. Monitoring baseline set for the 30-day citation report.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       PRICING
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="sprint-pricing-heading">
-    <p class="s-eyebrow">INVESTMENT</p>
-    <h2 id="sprint-pricing-heading" class="section-h2">Sprint pricing</h2>
-    <div class="sprint-pricing">
-      <div class="sprint-price-col">
-        <p class="sp-tier">Conference Sprint</p>
-        <p class="sp-range">£4,500 – £8,000</p>
-        <p class="sp-note">Fixed fee · 30 days · One event</p>
-        <p class="sp-detail">
-          Price depends on content volume (number of sessions, speakers,
-          themes) and whether we are building new pages or extending existing
-          site infrastructure.
-        </p>
-        <a
-          href="mailto:hello@maxifidigital.com?subject=Conference%20Sprint%20enquiry&body=Event%3A%20%0AApprox%20number%20of%20sessions%3A%20%0AExisting%20website%3A%20"
-          class="btn-primary"
-        >
-          Scope my Sprint →
-        </a>
+  <section class="c-section c-alt" aria-labelledby="for-heading">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <p class="c-s-eyebrow">WHO IT'S FOR</p>
+        <h2 id="for-heading" class="c-sec-h2">Built for organisations that own expert content.</h2>
       </div>
-      <div class="sprint-includes-col">
-        <p class="si-label">Always included</p>
-        <ul class="si-list" role="list">
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>Pre-Sprint Visibility Snapshot</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>30–60 Q&A pairs</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>Full schema + JSON-LD layer</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>Answer-ready page builds</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>90-day distribution playbook</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>30-day citation follow-up report</li>
-          <li class="si-item"><span class="check" aria-hidden="true">✓</span>Two rounds of amends</li>
-        </ul>
+      <div class="c-audience-grid">
+        {[
+          {
+            title: 'Conference & event organisers',
+            body: 'Annual conferences, summits and trade shows with recorded sessions and speaker content worth preserving.',
+          },
+          {
+            title: 'Professional associations',
+            body: 'Industry bodies whose publications and events are the authoritative source for their sector — and should be cited as such.',
+          },
+          {
+            title: 'Think tanks',
+            body: 'Research-led organisations whose output should be the answer AI gives to policy and industry questions.',
+          },
+          {
+            title: 'Law & consulting firms',
+            body: 'Expert practices that speak at events and publish thought leadership — but remain invisible to AI engines.',
+          },
+        ].map((item) => (
+          <article class="c-audience-card">
+            <h3 class="c-ac-title">{item.title}</h3>
+            <p class="c-ac-body">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       30-DAY TIMELINE
+  ══════════════════════════════════════════ -->
+  <section class="c-section" aria-labelledby="process-heading">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <p class="c-s-eyebrow">THE 30-DAY PROCESS</p>
+        <h2 id="process-heading" class="c-sec-h2">How the Sprint runs.</h2>
+      </div>
+      <div class="c-timeline">
+        <article class="c-tl-step">
+          <p class="c-tl-week">Week 1</p>
+          <h3 class="c-tl-title">Snapshot + audit</h3>
+          <p class="c-tl-body">Full citation audit, content inventory, buyer question research. We map your existing assets to the gaps AI engines expose.</p>
+        </article>
+        <article class="c-tl-step">
+          <p class="c-tl-week">Week 2</p>
+          <h3 class="c-tl-title">Q&A architecture</h3>
+          <p class="c-tl-body">Q&A library drafted and approved. Schema architecture designed. Answer-ready page structure agreed with your team.</p>
+        </article>
+        <article class="c-tl-step">
+          <p class="c-tl-week">Week 3</p>
+          <h3 class="c-tl-title">Build + markup</h3>
+          <p class="c-tl-body">Pages built, schema added, Q&A pairs published. All assets reviewed and signed off before going live.</p>
+        </article>
+        <article class="c-tl-step">
+          <p class="c-tl-week">Week 4</p>
+          <h3 class="c-tl-title">Launch + distribute</h3>
+          <p class="c-tl-body">Assets live. Distribution playbook handed over. Monitoring baseline set for the 30-day citation report.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SPRINT PRICING
+  ══════════════════════════════════════════ -->
+  <section class="c-section c-dark" aria-labelledby="sprint-pricing-heading">
+    <div class="wrap">
+      <div class="c-pricing-grid">
+        <div class="c-price-col">
+          <p class="c-s-eyebrow c-eyebrow-dark">INVESTMENT</p>
+          <h2 id="sprint-pricing-heading" class="c-price-h2">Conference Sprint</h2>
+          <p class="c-price-range">£4,500 – £8,000</p>
+          <p class="c-price-note">Fixed fee · 30 days · One event</p>
+          <p class="c-price-detail">
+            Price depends on content volume — number of sessions, speakers and
+            themes — and whether we are building new pages or extending existing
+            site infrastructure.
+          </p>
+          <a
+            href="mailto:hello@maxifidigital.com?subject=Conference%20Sprint%20enquiry&body=Event%3A%20%0AApprox%20number%20of%20sessions%3A%20%0AExisting%20website%3A%20"
+            class="c-btn-primary"
+          >
+            Scope my Sprint →
+          </a>
+        </div>
+        <div class="c-includes-col">
+          <p class="c-si-label">Always included</p>
+          <ul class="c-si-list" role="list">
+            {[
+              'Pre-Sprint Visibility Snapshot',
+              '30–60 Q&A pairs',
+              'Full schema + JSON-LD layer',
+              'Answer-ready page builds',
+              '90-day distribution playbook',
+              '30-day citation follow-up report',
+              'Two rounds of amends',
+            ].map((item) => (
+              <li class="c-si-item">
+                <span class="c-check" aria-hidden="true">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -210,24 +293,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ══════════════════════════════════════════
        FINAL CTA
   ══════════════════════════════════════════ -->
-  <section class="section section--pt0" aria-labelledby="sprint-cta-heading">
-    <div class="cta-box">
-      <p class="s-eyebrow cta-eyebrow">NEXT STEP</p>
-      <h2 id="sprint-cta-heading" class="cta-title">
+  <section class="c-section c-deepest" aria-labelledby="sprint-cta-heading">
+    <div class="wrap c-cta-wrap">
+      <p class="c-s-eyebrow c-eyebrow-dark">NEXT STEP</p>
+      <h2 id="sprint-cta-heading" class="c-cta-h2">
         Tell us about your event and we'll scope the Sprint.
       </h2>
-      <p class="cta-body">
+      <p class="c-cta-body">
         A 30-minute scoping call is enough to confirm fit, agree deliverables and
         set a start date. No obligation.
       </p>
-      <div class="cta-buttons">
+      <div class="c-cta-buttons">
         <a
           href="mailto:hello@maxifidigital.com?subject=Conference%20AEO%20Sprint%20scope&body=Event%20name%3A%20%0AEvent%20date%2Fpast%2Fupcoming%3A%20%0AApprox%20sessions%3A%20%0AWebsite%3A%20"
-          class="btn-primary"
+          class="c-btn-primary"
         >
           Email hello@maxifidigital.com
         </a>
-        <a href="/visibility-snapshot" class="btn-outline">Not ready? Get a Snapshot first</a>
+        <a href="/visibility-snapshot" class="c-btn-ghost">
+          Not ready? Get a Snapshot first
+        </a>
       </div>
     </div>
   </section>
@@ -254,375 +339,593 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  /* ── Page hero ──────────────────────────────── */
-  .page-hero {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--blue-text);
-    padding: 40px 22px 36px;
-    text-align: center;
+  /* ── Hero ─────────────────────────────────────── */
+  .c-hero {
+    background: var(--navy);
+    padding: 80px 0 72px;
   }
 
-  .eyebrow {
+  .c-eyebrow {
+    font-family: var(--font-mono);
     font-size: 10px;
+    font-weight: 500;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .c-h1 {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #fff;
+    max-width: 680px;
+    margin: 0 0 16px;
+  }
+
+  .c-h1 em {
+    font-style: italic;
     color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 10px;
   }
 
-  .page-h1 {
-    font-size: 30px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0 auto 12px;
-    line-height: 1.18;
-    font-family: 'Inter', sans-serif;
-    max-width: 660px;
-  }
-
-  .page-lede {
-    font-size: 13px;
+  .c-lede {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 580px;
-    margin: 0 auto 20px;
+    max-width: 560px;
+    margin: 0 0 24px;
   }
 
-  .hero-ctas {
+  .c-hero-ctas {
     display: flex;
     gap: 10px;
-    justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 16px;
   }
 
-  /* ── Video section ──────────────────────────── */
-  .video-section {
+  .c-hero-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--blue-mid);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Case study section ───────────────────────── */
+  .c-case-section {
     background: var(--cream-deep);
-    padding: 24px 22px;
+    padding: 64px 0;
+    border-bottom: 0.5px solid var(--line);
   }
 
-  .video-wrap {
+  .c-case-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
     align-items: center;
   }
 
-  .case-video {
-    width: 100%;
+  /* Video card */
+  .c-video-card {
+    background: var(--navy-deep);
     border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .c-video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--navy-deep);
+  }
+
+  .c-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    background: #000;
   }
 
-  .vc-eyebrow {
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
+  .c-video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 31, 61, 0.45);
+    pointer-events: none;
+  }
+
+  /* Hide overlay once video starts */
+  .c-video:not([paused]) ~ .c-video-overlay { opacity: 0; }
+
+  .c-play-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--amber-light);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    pointer-events: all;
+  }
+
+  .c-play-btn:hover {
+    background: #9E640E;
+    box-shadow: 0 0 18px 5px rgba(186, 117, 23, 0.45);
+  }
+
+  .c-video-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .c-video-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--blue-soft);
+  }
+
+  .c-video-dur {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--blue-mid);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 7px;
+    border-radius: 3px;
+  }
+
+  /* Case meta */
+  .c-s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
     font-weight: 500;
-    margin-bottom: 6px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: block;
+    margin-bottom: 10px;
   }
 
-  .vc-title {
-    font-size: 15px;
+  .c-eyebrow-dark { color: var(--amber-mid); }
+
+  .c-case-h2 {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin: 0 0 10px;
+  }
+
+  .c-case-body {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .c-metrics {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 0.5px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .c-metric {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    border-right: 0.5px solid var(--line);
+  }
+
+  .c-metric:last-child { border-right: none; }
+
+  .c-metric-val {
+    font-family: var(--font-mono);
+    font-size: 18px;
     font-weight: 500;
     color: var(--navy);
-    margin-bottom: 8px;
-    font-family: 'Inter', sans-serif;
+    line-height: 1;
   }
 
-  .vc-body {
+  .c-metric-lbl {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .c-case-link {
+    font-family: var(--font-sans);
     font-size: 12px;
+    font-weight: 500;
+    color: var(--amber);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .c-case-link:hover { color: var(--navy); }
+
+  /* ── Shared section ───────────────────────────── */
+  .c-section {
+    background: var(--cream);
+    padding: 64px 0;
+  }
+
+  .c-alt { background: var(--cream-deep); }
+
+  .c-dark {
+    background: var(--navy);
+    color: var(--blue-text);
+  }
+
+  .c-deepest {
+    background: var(--navy-deep);
+    color: var(--blue-text);
+  }
+
+  .c-sec-head {
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+
+  .c-sec-h2 {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+
+  .c-dark .c-sec-h2,
+  .c-deepest .c-sec-h2 { color: #fff; }
+
+  .c-sec-sub {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ── Sprint deliverables ──────────────────────── */
+  .c-outputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .c-output-card {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.2s ease;
+  }
+
+  .c-output-card:hover { border-color: rgba(4, 44, 83, 0.18); }
+
+  .c-oc-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .c-oc-title {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 6px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .c-oc-body {
+    font-family: var(--font-sans);
+    font-size: 11px;
     line-height: 1.55;
     color: var(--muted);
   }
 
-  /* ── Shared ─────────────────────────────────── */
-  .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .section-h2 {
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--navy);
-    margin: 0 0 18px;
-    line-height: 1.25;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .section {
-    padding: 30px 22px;
-    background: var(--cream);
-  }
-
-  .section--cream { background: var(--cream-deep); }
-  .section--pt0 { padding-top: 0; }
-
-  /* ── Sprint deliverables ────────────────────── */
-  .outputs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .output-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 14px;
-  }
-
-  .oc-num {
-    font-size: 10px;
-    color: var(--amber);
-    font-weight: 500;
-    margin-bottom: 5px;
-    letter-spacing: 0.08em;
-  }
-
-  .oc-title {
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
-  }
-
-  .oc-body {
-    font-size: 11px;
-    line-height: 1.5;
-    color: var(--muted);
-  }
-
-  /* ── Audience ───────────────────────────────── */
-  .audience-grid {
+  /* ── Audience ─────────────────────────────────── */
+  .c-audience-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 
-  .audience-card {
+  .c-audience-card {
     background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border: 0.5px solid var(--line);
     border-radius: 8px;
-    padding: 14px;
+    padding: 20px 22px;
   }
 
-  .ac-title {
+  .c-ac-title {
+    font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
     color: var(--navy);
-    margin-bottom: 5px;
-    font-family: 'Inter', sans-serif;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
   }
 
-  .ac-body {
+  .c-ac-body {
+    font-family: var(--font-sans);
     font-size: 11px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--muted);
   }
 
-  /* ── Timeline ───────────────────────────────── */
-  .timeline {
+  /* ── Timeline ─────────────────────────────────── */
+  .c-timeline {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-
-  .tl-step {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    gap: 0;
+    border: 0.5px solid var(--line);
     border-radius: 8px;
-    padding: 14px;
-    border-top: 2px solid #BA7517;
+    overflow: hidden;
   }
 
-  .tl-week {
+  .c-tl-step {
+    padding: 20px 20px 22px;
+    border-right: 0.5px solid var(--line);
+    border-top: 2px solid var(--amber);
+    background: #fff;
+    position: relative;
+  }
+
+  .c-tl-step:last-child { border-right: none; }
+
+  .c-tl-week {
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--amber);
     font-weight: 500;
+    color: var(--amber);
     letter-spacing: 0.06em;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    display: block;
   }
 
-  .tl-title {
+  .c-tl-title {
+    font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
     color: var(--navy);
-    margin-bottom: 6px;
-    font-family: 'Inter', sans-serif;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
   }
 
-  .tl-body {
+  .c-tl-body {
+    font-family: var(--font-sans);
     font-size: 11px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--muted);
   }
 
-  /* ── Sprint pricing ─────────────────────────── */
-  .sprint-pricing {
+  /* ── Pricing ──────────────────────────────────── */
+  .c-pricing-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 48px;
     align-items: start;
   }
 
-  .sp-tier {
-    font-size: 14px;
+  .c-price-h2 {
+    font-family: var(--font-sans);
+    font-size: 19px;
     font-weight: 500;
-    color: var(--navy);
+    color: #fff;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+
+  .c-price-range {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--amber-pale);
     margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
+    line-height: 1;
   }
 
-  .sp-range {
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 3px;
-  }
-
-  .sp-note {
+  .c-price-note {
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--mute-soft);
-    margin-bottom: 10px;
-  }
-
-  .sp-detail {
-    font-size: 12px;
-    line-height: 1.55;
-    color: var(--muted);
+    color: var(--blue-mid);
     margin-bottom: 14px;
+    letter-spacing: 0.03em;
   }
 
-  .si-label {
+  .c-price-detail {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--blue-soft);
+    margin-bottom: 20px;
+  }
+
+  .c-includes-col {
+    padding-top: 28px;
+  }
+
+  .c-si-label {
+    font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 500;
-    color: var(--amber);
+    color: var(--amber-mid);
     letter-spacing: 0.08em;
-    margin-bottom: 10px;
     text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
   }
 
-  .si-list { list-style: none; }
+  .c-si-list { list-style: none; padding: 0; margin: 0; }
 
-  .si-item {
+  .c-si-item {
+    font-family: var(--font-sans);
     font-size: 12px;
-    color: #444441;
-    padding: 4px 0;
+    color: var(--blue-soft);
+    padding: 8px 0;
     display: flex;
-    gap: 6px;
+    gap: 8px;
     align-items: baseline;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
     line-height: 1.4;
   }
 
-  .si-item:last-child { border-bottom: none; }
+  .c-si-item:last-child { border-bottom: none; }
 
-  .check {
+  .c-check {
     color: var(--signal);
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 11px;
     flex-shrink: 0;
   }
 
-  /* ── CTA box ────────────────────────────────── */
-  .cta-box {
-    background: var(--navy);
-    padding: 34px 22px;
+  /* ── Final CTA ────────────────────────────────── */
+  .c-cta-wrap {
     text-align: center;
-    color: var(--blue-text);
-    border-radius: 8px;
   }
 
-  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
-
-  .cta-title {
-    font-size: 21px;
+  .c-cta-h2 {
+    font-family: var(--font-sans);
+    font-size: 24px;
     font-weight: 500;
     color: #fff;
-    margin: 0 0 10px;
+    max-width: 560px;
+    margin: 0 auto 10px;
     line-height: 1.25;
-    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.015em;
   }
 
-  .cta-body {
+  .c-cta-body {
+    font-family: var(--font-sans);
     font-size: 12px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--blue-soft);
     max-width: 440px;
-    margin: 0 auto 18px;
+    margin: 0 auto 24px;
   }
 
-  .cta-buttons {
+  .c-cta-buttons {
     display: flex;
     gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
   }
 
-  /* ── Shared buttons ─────────────────────────── */
-  .btn-primary {
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 10px 16px;
-    border-radius: 5px;
+  /* ── Shared buttons ───────────────────────────── */
+  .c-btn-primary {
+    font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 18px;
+    border-radius: 5px;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
+    border: none;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .c-btn-primary:hover { background: #854F0B; }
 
-  .btn-ghost {
-    background: transparent;
-    color: var(--blue-text);
-    padding: 10px 16px;
-    border-radius: 5px;
+  .c-btn-ghost {
+    font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 500;
+    background: transparent;
+    color: var(--blue-text);
+    padding: 10px 18px;
+    border-radius: 5px;
     border: 0.5px solid rgba(255, 255, 255, 0.3);
     text-decoration: none;
     display: inline-block;
     transition: border-color 0.2s ease;
   }
 
-  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.6); }
+  .c-btn-ghost:hover { border-color: rgba(255, 255, 255, 0.6); }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--blue-text);
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s ease;
+  /* ── Responsive ───────────────────────────────── */
+  @media (max-width: 900px) {
+    .c-hero { padding: 56px 0 48px; }
+    .c-h1 { font-size: 26px; }
+    .c-case-section { padding: 48px 0; }
+    .c-case-grid { grid-template-columns: 1fr; gap: 28px; }
+    .c-section { padding: 48px 0; }
+    .c-outputs { grid-template-columns: 1fr 1fr; }
+    .c-audience-grid { grid-template-columns: 1fr; }
+    .c-timeline { grid-template-columns: 1fr 1fr; }
+    .c-tl-step { border-right: none; border-bottom: 0.5px solid var(--line); }
+    .c-tl-step:nth-child(odd) { border-right: 0.5px solid var(--line); }
+    .c-pricing-grid { grid-template-columns: 1fr; gap: 32px; }
+    .c-includes-col { padding-top: 0; }
   }
 
-  .btn-outline:hover { border-color: rgba(255, 255, 255, 0.6); }
-
-  /* ── Responsive ─────────────────────────────── */
-  @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
-    .video-wrap { grid-template-columns: 1fr; }
-    .outputs { grid-template-columns: 1fr; }
-    .audience-grid { grid-template-columns: 1fr; }
-    .timeline { grid-template-columns: 1fr; }
-    .sprint-pricing { grid-template-columns: 1fr; }
-    .cta-title { font-size: 18px; }
+  @media (max-width: 640px) {
+    .c-h1 { font-size: 22px; }
+    .c-outputs { grid-template-columns: 1fr; }
+    .c-timeline { grid-template-columns: 1fr; }
+    .c-tl-step { border-right: none; }
+    .c-tl-step:nth-child(odd) { border-right: none; }
+    .c-price-range { font-size: 24px; }
+    .c-cta-h2 { font-size: 20px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn-primary, .btn-ghost, .btn-outline { transition-duration: 0.01ms; }
+    .c-btn-primary,
+    .c-btn-ghost,
+    .c-play-btn { transition-duration: 0.01ms; }
   }
 </style>
+
+<script>
+  /* Play button hides the overlay once the user starts the video */
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.c-video') as HTMLVideoElement | null;
+    const overlay = document.querySelector('.c-video-overlay') as HTMLElement | null;
+    const playBtn = document.querySelector('.c-play-btn') as HTMLButtonElement | null;
+
+    if (!video || !overlay || !playBtn) return;
+
+    playBtn.addEventListener('click', () => {
+      video.play();
+      overlay.style.display = 'none';
+    });
+
+    video.addEventListener('pause', () => {
+      overlay.style.display = 'flex';
+    });
+
+    video.addEventListener('ended', () => {
+      overlay.style.display = 'flex';
+    });
+  });
+</script>
