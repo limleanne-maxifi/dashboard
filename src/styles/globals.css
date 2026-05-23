@@ -220,7 +220,7 @@ h3, .h3 {
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-tiny);
   font-weight: var(--fw-heading);
   letter-spacing: var(--ls-eyebrow);
