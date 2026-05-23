@@ -174,25 +174,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <!-- ══ OUTRO: NEXT STEPS + CTA (combined) ══ -->
 <section class="vs-outro">
   <div class="vs-wrap">
-    <div class="vs-outro__head">
-      <span class="vs-eyebrow vs-outro__eyebrow">What comes next</span>
-      <h2>Liked your Snapshot? <em>This is what shipping looks like.</em></h2>
-      <p>The Sprint turns your gaps into shipped assets — schema, Q&A layers, and answer-ready content — within 30 days. The Engine keeps citation share growing, quarter on quarter.</p>
-    </div>
-    <div class="vs-next__grid">
-      <div class="vs-next__card vs-next__card--featured">
-        <span class="vs-next__tag">Done with you · 30 days</span>
-        <h3>Scope my <em>Sprint</em></h3>
-        <p>A 30-day delivery of the three highest-leverage fixes from your Snapshot. Schema, Q&A pages, structured profiles. Shipped, deployed, measured.</p>
-        <a class="vs-next__cta" href="/work">Book a scoping call →</a>
-      </div>
-      <div class="vs-next__card">
-        <span class="vs-next__tag">Recurring · Quarterly</span>
-        <h3>See the <em>Engine</em></h3>
-        <p>The managed system. Snapshot every quarter, sprint every quarter, monitor every week. From invisible to indexed to compounding.</p>
-        <a class="vs-next__cta" href="/visibility-engine">View the Engine →</a>
-      </div>
-    </div>
     <div class="vs-outro__bottom">
       <span class="vs-eyebrow vs-outro__eyebrow">Don't guess — test</span>
       <h2>When your buyers ask AI who to trust — <em>be the answer.</em></h2>
@@ -871,99 +852,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--navy-deep);
   }
 
-  .vs-outro__head {
-    text-align: center;
-    margin-bottom: 36px;
-  }
-
-  .vs-outro__head h2 {
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--blue-text);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin: 0 0 14px;
-  }
-
-  .vs-outro__head h2 em {
-    font-style: italic;
-    color: var(--amber);
-    font-weight: 500;
-  }
-
-  .vs-outro__head p {
-    font: 400 13.5px/1.65 var(--font-sans);
-    color: var(--blue-soft);
-    max-width: 580px;
-    margin: 0 auto;
-  }
-
   .vs-outro__eyebrow {
     color: var(--amber-mid);
     margin-bottom: 16px;
   }
 
-  .vs-next__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 64px;
-  }
-
-  .vs-next__card {
-    padding: 26px 28px;
-    background: #fff;
-    border: 0.5px solid var(--line);
-    border-radius: 8px;
-    transition: border-color 0.2s ease;
-  }
-
-  .vs-next__card--featured {
-    border: 2px solid var(--amber);
-  }
-
-  .vs-next__tag {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 12px;
-    display: inline-block;
-  }
-
-  .vs-next__card h3 {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: -0.015em;
-    margin: 0 0 8px;
-  }
-
-  .vs-next__card h3 em {
-    font-style: italic;
-    color: var(--amber);
-    font-weight: 500;
-  }
-
-  .vs-next__card p {
-    font: 400 12.5px/1.55 var(--font-sans);
-    color: var(--muted);
-    margin: 0 0 16px;
-  }
-
-  .vs-next__cta {
-    font: 500 12px/1 var(--font-mono);
-    color: var(--amber);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-  }
-
-  .vs-next__cta:hover { color: var(--brown-deep); }
-
   .vs-outro__bottom {
     text-align: center;
-    padding-top: 64px;
-    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
   .vs-outro__bottom h2 {
