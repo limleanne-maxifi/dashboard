@@ -8,7 +8,7 @@ const { currentPage = '/' } = Astro.props;
 const links = [
   { label: 'Check Your Visibility',      href: '/visibility-snapshot' },
   { label: 'Understand AEO',             href: '/aeo' },
-  { label: 'Build AI Authority',         href: '/work' },
+  { label: 'Build AI Authority',         href: '/visibility-engine' },
   { label: 'Turn Events into Authority', href: '/conference-aeo' },
   { label: 'Start Your Visibility Audit', href: '/visibility-snapshot' },
 ];
@@ -41,7 +41,7 @@ const links = [
   </nav>
 
   <div class="nav-end">
-    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta">Get the Report</a>
+    <a href="/visibility-snapshot" class="nav-cta">Get the Report</a>
     <button
       class="hamburger"
       id="nav-hamburger"
@@ -69,7 +69,7 @@ const links = [
         </li>
       ))}
     </ul>
-    <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="nav-cta" style="display:inline-block;margin-top:12px;">
+    <a href="/visibility-snapshot" class="nav-cta" style="display:inline-block;margin-top:12px;">
       Get the Report
     </a>
   </nav>
