@@ -18,27 +18,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
       <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
 
-      <div class="vs-inside">
-        <div class="vs-inside__h">What you get · in 24 hours</div>
-        <ul>
-          <li>
-            <span class="vs-n">01</span>
-            <span class="vs-t"><b>Your AI Visibility Score</b>0–100 vs sector median, with the dominant failure pattern named.</span>
-          </li>
-          <li>
-            <span class="vs-n">02</span>
-            <span class="vs-t"><b>Citation gap map</b>The exact queries where competitors are named instead of you, across all 5 engines.</span>
-          </li>
-          <li>
-            <span class="vs-n">03</span>
-            <span class="vs-t"><b>Structural gaps ranked</b>The schema, entity and content signals blocking retrieval — prioritised.</span>
-          </li>
-          <li>
-            <span class="vs-n">04</span>
-            <span class="vs-t"><b>Three fixes to ship this week</b>Concrete changes your team can implement before the next buyer search.</span>
-          </li>
-        </ul>
-      </div>
     </div>
 
     <!-- Right column · form card -->
@@ -359,49 +338,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-style: italic;
     color: var(--amber);
     font-weight: 500;
-  }
-
-  /* "What you get" mini-list */
-  .vs-inside {
-    margin-top: 16px;
-    padding-top: 20px;
-    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .vs-inside__h {
-    font: 500 11px/1 var(--font-mono);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue-mid);
-    margin-bottom: 16px;
-  }
-
-  .vs-inside ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 26px;
-  }
-
-  .vs-inside li {
-    display: flex;
-    gap: 11px;
-    align-items: flex-start;
-  }
-
-  .vs-t {
-    font: 400 16px/1.55 var(--font-sans);
-    color: var(--blue-soft);
-  }
-
-  .vs-t b {
-    display: block;
-    font-weight: 500;
-    color: var(--blue-text);
-    margin-bottom: 3px;
-    font-size: 16px;
   }
 
   /* ── FORM CARD ── */
@@ -898,8 +834,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .vs-hero h1 { font-size: 34px; }
-
-    .vs-inside ul { grid-template-columns: 1fr; }
 
     .vs-sample__panel {
       grid-template-columns: 1fr;
