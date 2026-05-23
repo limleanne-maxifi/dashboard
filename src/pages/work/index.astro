@@ -328,12 +328,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 56px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .stages {
     display: grid;
     gap: 14px;
+    height: 100%;
   }
 
   .stage {
@@ -382,8 +383,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     padding: 22px;
     font-family: var(--font-mono);
     font-size: 11px;
-    position: sticky;
-    top: 90px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .snap-hdr {
@@ -857,9 +859,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     .system-grid {
       grid-template-columns: 1fr;
+      align-items: start;
     }
 
-    .snap-card { position: static; }
+    .snap-card { height: auto; }
 
     .includes,
     .pricing-grid {
