@@ -966,16 +966,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-ok { color: var(--signal); }
   .vs-lo { color: var(--danger); }
 
-  /* ── NEXT STEP LADDER ── */
-  .vs-next {
-    padding: 80px 0;
-    background: var(--cream);
+  /* ── OUTRO (next steps + CTA combined) ── */
+  .vs-outro {
+    padding: 80px 0 96px;
+    background: var(--navy-deep);
+  }
+
+  .vs-outro__head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .vs-outro__head h2 {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--blue-text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+  }
+
+  .vs-outro__head h2 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  .vs-outro__head p {
+    font: 400 13.5px/1.65 var(--font-sans);
+    color: var(--blue-soft);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .vs-outro__eyebrow {
+    color: var(--amber-mid);
+    margin-bottom: 16px;
   }
 
   .vs-next__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    margin-bottom: 64px;
   }
 
   .vs-next__card {
@@ -1028,25 +1061,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-next__cta:hover { color: var(--brown-deep); }
 
-  /* ── FINAL CTA ── */
-  .vs-finalcta {
-    padding: 96px 0;
-    background: var(--navy-deep);
+  .vs-outro__bottom {
     text-align: center;
+    padding-top: 64px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
-  .vs-finalcta__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .vs-finalcta__eyebrow {
-    color: var(--amber-mid);
-    margin-bottom: 18px;
-  }
-
-  .vs-finalcta h2 {
+  .vs-outro__bottom h2 {
     font-size: 30px;
     font-weight: 500;
     color: var(--blue-text);
@@ -1054,15 +1075,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: -0.02em;
     margin: 0 0 32px;
     max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .vs-finalcta h2 em {
+  .vs-outro__bottom h2 em {
     font-style: italic;
     color: var(--amber);
     font-weight: 500;
   }
 
-  .vs-finalcta__ctas {
+  .vs-outro__ctas {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
@@ -1080,26 +1103,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .vs-inside ul { grid-template-columns: 1fr; }
 
-    .vs-steps {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .vs-arrow { display: none; }
-
     .vs-sample__panel {
       grid-template-columns: 1fr;
       gap: 28px;
     }
-
-    .vs-stats-row { grid-template-columns: 1fr; }
-
-    .vs-stat-item {
-      border-right: none;
-      border-bottom: 0.5px solid var(--line);
-    }
-
-    .vs-stat-item:last-child { border-bottom: none; }
 
     .vs-next__grid { grid-template-columns: 1fr; }
   }
@@ -1113,8 +1120,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .vs-hero__lede { font-size: 14px; }
 
-    .vs-finalcta h2 { font-size: 24px; }
+    .vs-outro__bottom h2 { font-size: 24px; }
 
-    .vs-finalcta { padding: 64px 0; }
+    .vs-outro { padding: 64px 0; }
   }
 </style>
