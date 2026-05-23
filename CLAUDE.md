@@ -421,7 +421,9 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 ❌ Do not use Fraunces, Georgia, or any serif font
 ❌ Do not use JetBrains Mono, Courier, or any monospace font other than IBM Plex Mono
 ❌ Do not use font-weight 600, 700, 800 or 900
+   **Exception:** `HeroLoop.ec-ct-cta` keeps `font-weight: 700` for conversion urgency on the "Check now →" CTA
 ❌ Do not use border-radius larger than 8px (no big rounded corners)
+   **Exception:** `HeroLoop` engine input pills use 20px (ChatGPT) and 24px (Gemini) to mimic those engines' input bars — brand-fidelity
 ❌ Do not hardcode hex values — only use the CSS variables defined above
 ❌ Do not use 2px+ borders except on featured cards
 ❌ Do not use shadcn, headlessui, or any component library
