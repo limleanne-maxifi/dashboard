@@ -97,15 +97,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="ca-slide ca-slide--video" data-slide="2">
               <span class="ca-eyebrow">Watch · Event AEO walkthrough</span>
               <div class="ca-body">
-                <a class="ca-video-card" href="#" aria-label="Play the Event AEO explainer video">
-                  <span class="ca-video-title">Introduction to Event AEO in 90s</span>
-                  <span class="ca-play" aria-hidden="true"></span>
-                  <span class="ca-duration">01:27</span>
-                </a>
+                <div class="ca-video-shell">
+                  <video
+                    class="ca-video"
+                    controls
+                    preload="metadata"
+                    aria-label="Introduction to Event AEO in 90s — Maxifi Digital"
+                    playsinline
+                  >
+                    <source src="/asw-explainer.mp4" type="video/mp4" />
+                  </video>
+                  <!-- Caption bar -->
+                  <div class="ca-caption-bar" aria-live="polite">
+                    <span class="ca-caption-title">Introduction to Event AEO in 90s</span>
+                    <span class="ca-caption-meta">Maxifi Digital · 01:27 · HD</span>
+                  </div>
+                </div>
               </div>
               <div class="ca-footer">
                 <span class="ca-src">01:27 · hd 1080p</span>
-                <a class="ca-cta" href="#">Play the 90-second explainer →</a>
+                <a class="ca-cta" href="/asw-explainer.mp4" download>Download video ↓</a>
               </div>
             </div>
 
@@ -138,16 +149,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       const slides = car.querySelectorAll('.ca-slide');
       const dots = car.querySelectorAll('.ca-dot');
+      const video = car.querySelector('.ca-video') as HTMLVideoElement | null;
       let i = 0;
       let timer: ReturnType<typeof setInterval> | null = null;
+      let videoPaused = false;
 
       function show(n: number) {
         i = (n + slides.length) % slides.length;
         slides.forEach((s, k) => s.classList.toggle('is-on', k === i));
         dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
+        // Pause video when navigating away from slide 3
+        if (video && i !== 2) video.pause();
       }
 
       function tick() {
+        // Don't auto-advance while video is playing
+        if (video && !video.paused) return;
         show(i + 1);
       }
 
@@ -167,7 +184,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (timer) clearInterval(timer);
       });
 
-      car.addEventListener('mouseleave', restart);
+      car.addEventListener('mouseleave', () => {
+        // Don't restart rotation while video is playing
+        if (video && !video.paused) return;
+        restart();
+      });
+
+      // Resume rotation once video ends
+      if (video) {
+        video.addEventListener('ended', restart);
+        video.addEventListener('pause', () => {
+          if (i === 2) restart();
+        });
+        video.addEventListener('play', () => {
+          if (timer) clearInterval(timer);
+        });
+      }
 
       restart();
     })();
@@ -405,94 +437,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Slide 3: Video */
   .ca-slide--video .ca-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0;
+    display: flex;
+    align-items: stretch;
   }
 
-  .ca-video-card {
-    position: relative;
-    width: 100%;
-    max-width: 460px;
-    aspect-ratio: 16 / 9;
-    background: var(--navy-deep);
-    border: 0.5px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    overflow: hidden;
-    cursor: pointer;
-    display: block;
-    text-decoration: none;
-  }
-
-  .ca-video-card::before {
-    content: '';
+  .ca-video-shell {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(186, 117, 23, 0.08) 0%, rgba(4, 44, 83, 0) 60%);
-    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
-  .ca-play {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--amber);
+  .ca-video {
+    flex: 1;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+    min-height: 0;
+  }
+
+  /* Caption bar */
+  .ca-caption-bar {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
-                0 0 32px 6px rgba(186, 117, 23, 0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 14px;
+    background: rgba(3, 31, 61, 0.92);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
-  .ca-play::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 14px solid var(--amber-light);
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    margin-left: 4px;
-  }
-
-  .ca-video-card:hover .ca-play {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
-                0 0 40px 10px rgba(186, 117, 23, 0.55);
-  }
-
-  .ca-video-title {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    top: 16px;
+  .ca-caption-title {
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 500;
-    line-height: 1.3;
+    color: var(--blue-text);
     letter-spacing: -0.005em;
-    color: #fff;
-    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .ca-duration {
-    position: absolute;
-    right: 16px;
-    bottom: 14px;
+  .ca-caption-meta {
     font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--blue-soft);
+    color: var(--blue-mid);
     letter-spacing: 0.04em;
-    padding: 5px 7px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* ── Slide footer (shared) ──────────────────────── */
