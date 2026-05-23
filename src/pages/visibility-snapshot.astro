@@ -494,7 +494,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* ── HERO ── */
   .vs-hero {
     padding: 88px 0 80px;
-    background: var(--cream);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
 
   .vs-hero__grid {
@@ -505,7 +505,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-hero__eyebrow {
-    color: var(--brown-mid);
+    color: var(--amber-mid);
     margin-bottom: 18px;
   }
 
@@ -514,7 +514,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
     line-height: 1.08;
     letter-spacing: -0.025em;
-    color: var(--navy);
+    color: var(--blue-text);
     margin: 0;
   }
 
@@ -526,7 +526,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-hero__lede {
     font: 400 16px/1.55 var(--font-sans);
-    color: var(--ink);
+    color: var(--blue-soft);
     margin-top: 20px;
     max-width: 540px;
   }
@@ -544,11 +544,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 10px;
     margin-top: 26px;
     padding: 11px 14px;
-    background: rgba(186, 117, 23, 0.08);
-    border: 0.5px solid rgba(186, 117, 23, 0.25);
+    background: rgba(186, 117, 23, 0.12);
+    border: 0.5px solid rgba(186, 117, 23, 0.35);
     border-radius: 5px;
     font: 400 11px/1.4 var(--font-mono);
-    color: var(--brown-deep);
+    color: var(--amber-pale);
     letter-spacing: 0.02em;
   }
 
@@ -558,7 +558,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 50%;
     background: var(--amber);
     flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(186, 117, 23, 0.12);
+    box-shadow: 0 0 0 4px rgba(186, 117, 23, 0.18);
   }
 
   /* Avatar proof */
@@ -567,7 +567,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     align-items: center;
     gap: 14px;
-    color: var(--muted);
+    color: var(--blue-mid);
     font: 400 11.5px/1.4 var(--font-sans);
   }
 
@@ -579,14 +579,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: var(--cream-deep);
-    border: 2px solid var(--cream);
+    background: var(--navy-soft);
+    border: 2px solid rgba(255, 255, 255, 0.15);
     margin-left: -7px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font: 500 9px/1 var(--font-mono);
-    color: var(--navy);
+    color: var(--blue-text);
   }
 
   .vs-avatars span:first-child { margin-left: 0; }
@@ -595,14 +595,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-inside {
     margin-top: 36px;
     padding-top: 28px;
-    border-top: 0.5px solid var(--line);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
   }
 
   .vs-inside__h {
     font: 500 10px/1 var(--font-mono);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--mute-soft);
+    color: var(--blue-mid);
     margin-bottom: 16px;
   }
 
@@ -623,13 +623,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-t {
     font: 400 12.5px/1.5 var(--font-sans);
-    color: var(--ink);
+    color: var(--blue-soft);
   }
 
   .vs-t b {
     display: block;
     font-weight: 500;
-    color: var(--navy);
+    color: var(--blue-text);
     margin-bottom: 2px;
     font-size: 12.5px;
   }
