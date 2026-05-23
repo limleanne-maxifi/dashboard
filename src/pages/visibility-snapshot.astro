@@ -120,36 +120,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
 </div>
 
-<!-- ══ PROCESS ══ -->
-<section class="vs-process">
-  <div class="vs-wrap">
-    <div class="vs-sec-head">
-      <span class="vs-eyebrow">How it works</span>
-      <h2>Three fields. <em>One full picture.</em></h2>
-      <p>We run your live category questions across the five engines your buyers actually use, score your citations, and send a 1-page report you can act on the same day.</p>
-    </div>
-    <div class="vs-steps">
-      <div class="vs-step">
-        <div class="vs-step__num">01 · You</div>
-        <h3>Your details</h3>
-        <p>Site · category · one buyer question. Takes 90 seconds.</p>
-      </div>
-      <div class="vs-arrow" aria-hidden="true">→</div>
-      <div class="vs-step">
-        <div class="vs-step__num">02 · We</div>
-        <h3>AI scans 5 engines</h3>
-        <p>ChatGPT · Claude · Copilot · Gemini · Perplexity. Verbatim citations, named competitors.</p>
-      </div>
-      <div class="vs-arrow" aria-hidden="true">→</div>
-      <div class="vs-step">
-        <div class="vs-step__num">03 · Inbox</div>
-        <h3>Report in 24h</h3>
-        <p>Score · gap map · structural fixes · three quick wins. In your inbox.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ SAMPLE REPORT ══ -->
 <section class="vs-sample">
   <div class="vs-wrap">
@@ -225,86 +195,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
 </section>
 
-<!-- ══ SOCIAL PROOF ══ -->
-<section class="vs-socialproof">
+<!-- ══ OUTRO: NEXT STEPS + CTA (combined) ══ -->
+<section class="vs-outro">
   <div class="vs-wrap">
-    <div class="vs-sec-head">
-      <span class="vs-eyebrow">Why this matters</span>
-      <h2>Buyers ask AI first. <em>Then they decide who to call.</em></h2>
-    </div>
-    <div class="vs-stats-row">
-      <div class="vs-stat-item">
-        <div class="vs-stat-item__v">67%</div>
-        <div class="vs-stat-item__l">of B2B buyers prefer a rep-free buying experience. Gartner · 2026.</div>
-      </div>
-      <div class="vs-stat-item">
-        <div class="vs-stat-item__v">1,300%</div>
-        <div class="vs-stat-item__l">growth in AI-driven referral traffic year-on-year. Adobe Analytics.</div>
-      </div>
-      <div class="vs-stat-item">
-        <div class="vs-stat-item__v">3×</div>
-        <div class="vs-stat-item__l">citation growth on the Airspace World 2026 hub in 90 days. Maxifi case data.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ MANUAL SCORECARD DISCLOSURE ══ -->
-<section class="vs-scorecard" id="scorecard">
-  <div class="vs-wrap vs-scorecard__inner">
-    <button
-      type="button"
-      class="vs-scorecard__head"
-      aria-expanded="false"
-      aria-controls="vs-scorecard-body"
-      id="vs-scorecard-toggle"
-    >
-      <div>
-        <span class="vs-scorecard__lbl">Prefer a human eye?</span>
-        <h3>Request a <em>manual Scorecard</em> review instead</h3>
-      </div>
-      <span class="vs-scorecard__ind" aria-hidden="true">→</span>
-    </button>
-    <div class="vs-scorecard__body" id="vs-scorecard-body" hidden>
-      <p>If you'd rather have a senior strategist do the citation checks by hand and write the report themselves, we'll send a manual Scorecard within one business day. Same four artefacts. Same brand voice. No automation.</p>
-      <form
-        id="vs-scorecard-form"
-        name="visibility-scorecard"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="visibility-scorecard" />
-        <p style="position:absolute;left:-9999px" aria-hidden="true">
-          <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-        </p>
-        <div class="vs-sc-field">
-          <label for="vs-sc-website">Your website</label>
-          <input type="url" id="vs-sc-website" name="website" placeholder="acmeconsulting.com" required />
-        </div>
-        <div class="vs-sc-field">
-          <label for="vs-sc-category">Your category</label>
-          <input type="text" id="vs-sc-category" name="category" placeholder="Management consulting" required />
-        </div>
-        <div class="vs-sc-field">
-          <label for="vs-sc-question">A question your buyer would ask AI</label>
-          <input type="text" id="vs-sc-question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
-        </div>
-        <div class="vs-sc-field">
-          <label for="vs-sc-email">Your work email</label>
-          <input type="email" id="vs-sc-email" name="email" placeholder="your@work-email.com" required />
-        </div>
-        <button class="vs-sc-submit" type="submit">Send my Scorecard request →</button>
-        <p class="vs-sc-meta">Reply within 1 business day · Singapore / London</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ══ NEXT STEP LADDER ══ -->
-<section class="vs-next">
-  <div class="vs-wrap">
-    <div class="vs-sec-head">
-      <span class="vs-eyebrow">What comes next</span>
+    <div class="vs-outro__head">
+      <span class="vs-eyebrow vs-outro__eyebrow">What comes next</span>
       <h2>Liked your Snapshot? <em>This is what shipping looks like.</em></h2>
       <p>The Sprint turns your gaps into shipped assets — schema, Q&A layers, and answer-ready content — within 30 days. The Engine keeps citation share growing, quarter on quarter.</p>
     </div>
@@ -322,17 +217,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a class="vs-next__cta" href="/visibility-engine">View the Engine →</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══ FINAL CTA ══ -->
-<section class="vs-finalcta">
-  <div class="vs-wrap vs-finalcta__inner">
-    <span class="vs-eyebrow vs-finalcta__eyebrow">Don't guess — test</span>
-    <h2>When your buyers ask AI who to trust — <em>be the answer.</em></h2>
-    <div class="vs-finalcta__ctas">
-      <a class="vs-btn vs-btn--primary vs-btn--lg" href="#snapshot">Run my Snapshot →</a>
-      <a class="vs-btn vs-btn--ghost-dark vs-btn--lg" href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer">See a live example →</a>
+    <div class="vs-outro__bottom">
+      <span class="vs-eyebrow vs-outro__eyebrow">Don't guess — test</span>
+      <h2>When your buyers ask AI who to trust — <em>be the answer.</em></h2>
+      <div class="vs-outro__ctas">
+        <a class="vs-btn vs-btn--primary vs-btn--lg" href="#snapshot">Run my Snapshot →</a>
+        <a class="vs-btn vs-btn--ghost-dark vs-btn--lg" href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer">See a live example →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -365,43 +256,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     });
   }
 
-  /* ── Scorecard disclosure toggle ── */
-  const toggle = document.getElementById('vs-scorecard-toggle') as HTMLButtonElement | null;
-  const body = document.getElementById('vs-scorecard-body');
-  const section = toggle?.closest('.vs-scorecard');
-
-  if (toggle && body && section) {
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      if (open) {
-        body.setAttribute('hidden', '');
-        section.classList.remove('vs-scorecard--open');
-      } else {
-        body.removeAttribute('hidden');
-        section.classList.add('vs-scorecard--open');
-      }
-    });
-  }
-
-  /* ── Scorecard form: in-place success ── */
-  const scForm = document.getElementById('vs-scorecard-form') as HTMLFormElement | null;
-  if (scForm) {
-    scForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new URLSearchParams(
-        Array.from(new FormData(scForm)).map(([k, v]) => [k, String(v)])
-      ).toString();
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: fd,
-        });
-      } catch { /* ignore */ }
-      scForm.innerHTML = '<p class="vs-sc-thanks">Thanks — we\'ll send your Scorecard within one business day.</p>';
-    });
-  }
 </script>
 
 <style>
@@ -854,57 +708,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 0.02em;
   }
 
-  /* ── PROCESS ── */
-  .vs-process {
-    padding: 80px 0;
-    background: var(--cream);
-  }
-
-  .vs-steps {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    align-items: stretch;
-    gap: 0;
-  }
-
-  .vs-step {
-    padding: 24px;
-    background: #fff;
-    border: 0.5px solid var(--line);
-    border-radius: 8px;
-  }
-
-  .vs-step__num {
-    font: 500 11px/1 var(--font-mono);
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    margin-bottom: 14px;
-  }
-
-  .vs-step h3 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--navy);
-    margin: 0 0 6px;
-    letter-spacing: -0.01em;
-  }
-
-  .vs-step p {
-    font: 400 12.5px/1.5 var(--font-sans);
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .vs-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 18px;
-    font-family: var(--font-mono);
-    color: var(--mute-soft);
-    font-size: 14px;
-  }
-
   /* ── SAMPLE REPORT ── */
   .vs-sample {
     padding: 88px 0 96px;
@@ -1162,176 +965,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-stat { color: var(--amber); font-weight: 500; }
   .vs-ok { color: var(--signal); }
   .vs-lo { color: var(--danger); }
-
-  /* ── SOCIAL PROOF ── */
-  .vs-socialproof {
-    padding: 80px 0;
-    background: var(--cream);
-  }
-
-  .vs-stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 0.5px solid var(--line);
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .vs-stat-item {
-    padding: 28px 26px;
-    border-right: 0.5px solid var(--line);
-  }
-
-  .vs-stat-item:last-child { border-right: none; }
-
-  .vs-stat-item__v {
-    font: 500 36px/1 var(--font-mono);
-    color: var(--navy);
-    letter-spacing: -0.01em;
-  }
-
-  .vs-stat-item__l {
-    font: 400 11.5px/1.5 var(--font-sans);
-    color: var(--muted);
-    margin-top: 10px;
-    max-width: 240px;
-  }
-
-  /* ── SCORECARD DISCLOSURE ── */
-  .vs-scorecard {
-    padding: 72px 0;
-    background: var(--cream-deep);
-    border-top: 0.5px solid var(--line);
-  }
-
-  .vs-scorecard__inner {
-    max-width: 760px;
-  }
-
-  .vs-scorecard__head {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
-    align-items: center;
-    padding: 22px 26px;
-    background: #fff;
-    border: 0.5px solid var(--line);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
-    width: 100%;
-    text-align: left;
-  }
-
-  .vs-scorecard__head:hover { border-color: var(--amber); }
-
-  .vs-scorecard__lbl {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--brown-mid);
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .vs-scorecard__head h3 {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-
-  .vs-scorecard__head h3 em {
-    font-style: italic;
-    color: var(--amber);
-    font-weight: 500;
-  }
-
-  .vs-scorecard__ind {
-    font-family: var(--font-mono);
-    font-size: 14px;
-    color: var(--amber);
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-  }
-
-  .vs-scorecard--open .vs-scorecard__ind { transform: rotate(90deg); }
-
-  .vs-scorecard__body {
-    padding: 28px 26px 30px;
-    background: #fff;
-    border: 0.5px solid var(--line);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    margin-top: -8px;
-  }
-
-  .vs-scorecard__body p {
-    font: 400 13px/1.6 var(--font-sans);
-    color: var(--muted);
-    margin: 0 0 18px;
-    max-width: 560px;
-  }
-
-  .vs-sc-field { margin-bottom: 12px; }
-
-  .vs-sc-field label {
-    display: block;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mute-soft);
-    margin-bottom: 6px;
-  }
-
-  .vs-sc-field input {
-    width: 100%;
-    max-width: 480px;
-    padding: 10px 12px;
-    font: 400 13px/1 var(--font-sans);
-    border: 0.5px solid rgba(4, 44, 83, 0.18);
-    background: var(--cream);
-    border-radius: 4px;
-    color: var(--ink);
-    transition: border-color 0.2s ease, background 0.2s ease;
-    box-sizing: border-box;
-  }
-
-  .vs-sc-field input:focus {
-    outline: none;
-    border-color: var(--amber);
-    background: #fff;
-  }
-
-  .vs-sc-submit {
-    font: 500 13px/1 var(--font-sans);
-    background: var(--navy);
-    color: #fff;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s ease;
-  }
-
-  .vs-sc-submit:hover { background: var(--navy-deep); }
-
-  .vs-sc-meta {
-    font: 400 11px/1.4 var(--font-mono);
-    color: var(--mute-soft);
-    margin-top: 14px;
-    letter-spacing: 0.02em;
-  }
-
-  .vs-sc-thanks {
-    font: 400 13px/1.6 var(--font-sans);
-    color: var(--navy);
-    padding: 12px 0;
-  }
 
   /* ── NEXT STEP LADDER ── */
   .vs-next {
