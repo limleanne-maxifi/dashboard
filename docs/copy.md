@@ -1,80 +1,95 @@
 # Maxifi Digital — Page Copy
 
-All copy for `index.astro`. Pull from here verbatim. British English throughout.
+All copy for `index.astro` (homepage), reflecting the live site as of May 2026. Pull from here verbatim. British English throughout.
+
+> **Note:** Per CLAUDE.md v3.1, the homepage hero is locked. Treat this doc as the authoritative record of what's shipped; do not edit without an explicit instruction.
 
 ---
 
-## Meta
+## §1 · Meta
 
-- **Title:** Maxifi Digital — The Visibility Layer for Expert-Led Brands
-- **Description:** (to be confirmed)
-
----
-
-## Nav
-
-- Logo alt: Maxifi Digital
-- Links: AEO · Visibility Engine · Conference AEO · Work · Insights
-- CTA button: "Check My AI Visibility →" → `#snapshot`
+- **Title:** Maxifi Digital | AI Visibility for Expert-Led Brands
+- **Description:** Maxifi Digital helps expert-led brands become the answer AI cites. Free AI Visibility Scorecard across ChatGPT, Claude, Gemini, Perplexity and Google AI.
 
 ---
 
-## Hero
+## §2 · Nav (4 links)
 
-**Eyebrow:** AI visibility for expert-led brands and businesses
+- **Logo:** Maxifi Digital
+- **Links (4, in order):**
+  - Check Your Visibility → `/visibility-snapshot`
+  - Understand AEO → `/aeo`
+  - Build AI Authority → `/work`
+  - Turn Events into Authority → `/conference-aeo`
+- **CTA button:** "Get the Report" → `https://visibilityview.netlify.app/` (external, new tab)
+
+---
+
+## §3 · Hero (locked)
+
+**Eyebrow:** AI VISIBILITY FOR EXPERT-LED BRANDS
+
+**Did You Know stat card (left, above hero body):**
+- Label: #didyouknow
+- Value (rotates): e.g. "25% decline in traditional search by 2026" (Gartner)
+- Source: e.g. "Gartner"
 
 **H1:**
-> Be the answer
-> *AI cites.*
+> Your buyers are no longer only searching Google
+> *They are asking AI:*
+
+**Buyer query list (below H1):**
+- "Who are the best providers?"
+- "Which solution should we shortlist?"
+- "Who has credible expertise in this space?"
+- "What companies should we compare?"
 
 **Lede:**
-> Your buyers are no longer only searching Google. They are asking ChatGPT, Claude, Copilot, Gemini and Perplexity who to trust. We turn your expertise into structured authority assets that AI engines find, understand and cite.
+> If AI cannot understand why your company is worth citing, your competitors become easier to recommend. Maxifi Digital turns your expertise, content and proof into structured authority assets that AI engines can find, understand and cite.
 
 **CTAs:**
-- Primary: "Check My AI Visibility →" → `#snapshot`
-- Ghost: "See a Live Example →" → `https://aswhub.maxifidigital.com/`
+- Primary: "Get my AI Visibility Snapshot" → `https://visibilityview.netlify.app/`
+- Ghost: "See how it works - Airspace World case study" → `https://aswhub.maxifidigital.com/`
+
+**Right column:** `HeroLoop` component (animated 5-engine query simulator). No scorecard form on the homepage hero.
 
 ---
 
-## Scorecard Form (Hero right panel)
+## §4 · Sample Snapshot (clickable proof)
 
-**Status badge:** Free · 5 minutes · No call required
+**Eyebrow:** SEE A REAL ONE
 
-**Title:** AI Visibility Snapshot
+**H2:** This is what your AI Visibility Snapshot looks like.
 
-**Fields:**
-1. Label: "Your website" / Placeholder: `acmeconsulting.com`
-2. Label: "Your category" / Placeholder: `Management consulting`
-3. Label: "A question your buyer would ask AI" / Placeholder: `Best firm for healthcare M&A`
+**Sub:** Real client. Real scores. Real fixes. Pick your industry to see both the form and the report.
 
-**Submit:** Check My AI Visibility →
+**Tabs:** Commercial Aviation · Aerospace Manufacturing · Space Exploration · MRO
 
-**Footer:** Live across ChatGPT, Claude, Copilot, Gemini, Perplexity. Results in your inbox.
+**Form card (left of duo):**
+- Header label: AI VISIBILITY SNAPSHOT
+- Sector chip: (e.g.) COMMERCIAL AVIATION
+- Field 1: YOUR WEBSITE / placeholder `yourcompany.com`
+- Field 2: YOUR AVIATION SPECIALISM / placeholder `e.g. CNS/ATM, airport ops, MRO`
+- Field 3: A BUYER QUESTION YOU SHOULD WIN / placeholder `e.g. Who are the leading CNS/ATM providers in Europe?`
+- Submit: "Get my AI Visibility Snapshot →" → `https://visibilityview.netlify.app/`
 
----
-
-## Trust Strip
-
-**Label:** Trusted by
-
-**Client types:** CANSO · Aviation Bodies · Law Firms · Think Tanks · Pro Services
+**Report card (right of duo, also clickable to external tool):** mock report visualisation per industry.
 
 ---
 
-## The Problem (Section 1)
+## §5 · Problem (The Shift)
 
-**Eyebrow:** The shift
+**Eyebrow:** THE SHIFT
 
-**H2:**
-> Most expert content is *invisible to AI* — at the exact moment buyers are asking better questions.
+**H2:** Most expert content is invisible to AI — at the exact moment buyers are asking better questions.
 
 **Card 01**
 - Title: Buyers ask AI first
-- Body: 67% of B2B buyers prefer a rep-free experience (Gartner, 2026). ChatGPT is the new shortlist builder.
+- Body: 67% of B2B buyers prefer a rep-free experience. ChatGPT is the new shortlist builder.
 
 **Card 02**
-- Title: AI cites structure, not depth
-- Body: Retrieval rewards entity-rich, answer-formatted, schema-tagged content. Most expert content is none of these.
+- Title: AI cites structure
+- Body: Retrieval rewards entity-rich, answer-formatted content. Most expert content is none of these.
 
 **Card 03**
 - Title: Absence costs trust
@@ -82,170 +97,137 @@ All copy for `index.astro`. Pull from here verbatim. British English throughout.
 
 ---
 
-## SEO vs AEO (Section 2)
+## §6 · SEO vs AEO
 
-**Eyebrow:** The category
+**Eyebrow:** CATEGORY
 
-**H2:**
-> SEO got you ranked. *AEO gets you cited.*
+**H2:** SEO got you ranked. AEO gets you cited.
 
-**SEO column (navy):**
-- Ranks your page
-- Targets keywords
-- Optimises for clicks
-- Lives on Google
-- Output: traffic
+**SEO column:** Ranks your page · Targets keywords · Optimises for clicks · Lives on Google · Output: traffic
 
-**AEO column (amber):**
-- Cites your answer
-- Targets buyer questions
-- Optimises for retrieval
-- Lives across 5 AI engines
-- Output: authority
+**AEO column:** Cites your answer · Targets buyer questions · Optimises for retrieval · Lives across 5 AI engines · Output: authority
 
 ---
 
-## Offer Ladder (Section 3)
+## §7 · Offer Ladder
 
-**Eyebrow:** The offer ladder
+**Eyebrow:** THE OFFER LADDER
 
-**H2:**
-> Three ways *to work with Maxifi.*
+**H2:** Three ways to work with Maxifi.
 
-**Card 1 — Snapshot**
-- Tag: Start here
-- Name: Snapshot
-- Price: Free · 1-page report
+**Card 1 — Snapshot** (Start here)
 - Features: The 3 highest-leverage fixes · Where AI cites you today · Top competitors named · 5 buyer questions tested
-- CTA: "Get my Snapshot"
+- CTA: "Run my Visibility Snapshot →" → `https://visibilityview.netlify.app/`
 
-**Card 2 — Sprint** *(featured / most popular)*
-- Tag: Done with you
-- Name: Sprint
-- Price: From £X · 30 days
+**Card 2 — Sprint** (featured, Done with you)
 - Features: Answer-ready assets shipped · Schema + Q&A layer built · Citation lift in 30 days · Senior strategist embedded
 - CTA: "Scope my Sprint"
 
-**Card 3 — Engine**
-- Tag: Recurring
-- Name: Engine
-- Price: From £Y / month
-- Features: Quarterly Snapshot reports · Weekly citation monitoring · Content shipped quarterly · Monthly strategy review
-- CTA: "See the Engine"
+**Card 3 — Engine** (Recurring)
+- Features: Quarterly Snapshots · Weekly citation monitoring · Content shipped quarterly · Monthly strategy review
+- CTA: "See the Engine" → `/work`
 
 ---
 
-## Case Study (Section 4)
+## §8 · Case Study (CANSO · Airspace World 2026)
 
-**Eyebrow:** Featured case study
+**Eyebrow:** FEATURED CASE
 
-**H2:**
-> How one industry event became an *AI-searchable authority system.*
+**H2:** How one industry event became an AI-searchable authority system.
 
-**Case eyebrow:** CANSO · Airspace World 2026
+**Case eyebrow:** CANSO · AIRSPACE WORLD 2026
 
-**Case title:**
-> From PDF graveyard
-> to citation engine.
+**Case title:** From PDF graveyard to citation engine.
 
-**Case body:**
-> We turned a 3-day aviation conference into a structured AI Knowledge Hub. Sessions, speakers and themes became answer-ready assets that keep earning citations long after the room empties.
+**Case body:** We turned a 3-day aviation conference into a structured AI Knowledge Hub. Sessions, speakers and themes became answer-ready assets that keep earning citations long after the room empties.
 
 **Metrics:**
-- 47 — Q&A pairs indexed
+- 47 — Q&A pairs
 - 92% — Schema coverage
-- 3× — Citation growth (90d)
-
-**CTAs:**
-- Primary: "View the Live Hub →" → `https://aswhub.maxifidigital.com/`
-- Ghost: "Read the case study"
+- 3× — Citation growth
 
 **Score widget (right panel):**
-- Eyebrow: AEO Visibility Score
+- Label: AEO VISIBILITY SCORE
 - Score: 78 / 100
-- Label: Above sector average
+
+*Note: no CTAs in this section on live. Live ASW Hub linked from hero ghost CTA.*
 
 ---
 
-## Conference AEO (Section 5)
+## §9 · Newsletter (The Cited Brief)
 
-**Eyebrow:** Conference AEO
-
-**H2:**
-> Your event spend shouldn't *disappear with the booth.*
-
-**Body paragraph 1:**
-> Most conference content dies 30 days after the closing keynote. PDFs go un-indexed. Recordings stay locked behind paywalls. Speaker insights vanish from AI memory.
-
-**Body paragraph 2:**
-> We turn conference presence into AI-searchable authority assets — speaker pages, session summaries, post-event insights — that keep working long after the lanyards come off.
-
-**CTAs:**
-- Primary: "Scope my Conference Sprint →"
-- Ghost: "See the Live Hub →" → `https://aswhub.maxifidigital.com/`
-
-**Featured card (dark):**
-- Live badge: "Live now"
-- Label: Featured
-- Title: Airspace World 2026 AI Knowledge Hub
-- Body: Built for CANSO. 8 themed tracks. 47 indexed Q&A pairs. 3× citation growth in 90 days. Cited by ChatGPT and Perplexity for aviation queries.
-- Tags: ChatGPT · Perplexity · Claude · Gemini
-- Link: aswhub.maxifidigital.com →
-
----
-
-## Newsletter (Section 6)
-
-**Eyebrow:** Newsletter · Fridays
+**Eyebrow:** NEWSLETTER · WEEKLY
 
 **Title:** The Cited Brief
 
-**Body:**
-> One Friday email. One buyer question AI is getting wrong, one move to fix it, one example from the field. 4-minute read.
+**Body:** One Friday email. One buyer question AI is getting wrong, one move to fix it, one example from the field. 4-minute read.
 
 **Form fields:**
-1. Placeholder: `your@work-email.com`
-2. Placeholder: `Role`
+1. Placeholder: `your@work-email.com` (email, required)
+2. Placeholder: `Role: Head of Marketing` (text)
 
-**Submit:** Subscribe →
-
-**Footer:** No spam. No upsells. No recycled LinkedIn posts.
+**Submit:** Subscribe
 
 ---
 
-## Final CTA
+## §10 · Stats Trust Strip
 
-**H2:**
-> When your buyers ask AI
-> *who to trust — be the answer.*
+**Eyebrow:** THE AEO SHIFT, IN NUMBERS
+
+**H2:** Why this matters now.
+
+**Stats grid:** rendered from the `stats-strip` block in `index.astro` (per-section metrics like declining search volume, AI citation share, etc.).
+
+---
+
+## §11 · Final CTA
+
+**H2:** Find out what AI says about your business — in 5 minutes.
 
 **CTAs:**
-- Primary: "Check My AI Visibility →" → `#snapshot`
-- Ghost: "See a Live Example →" → `https://aswhub.maxifidigital.com/`
+- Primary: "Run my Visibility Snapshot →" → `https://visibilityview.netlify.app/`
+- Ghost: "Book a Snapshot" → `https://visibilityview.netlify.app/`
 
 ---
 
-## Footer
+## §12 · Footer
 
 **Tagline:** The visibility layer for expert-led brands in the AI search era.
 
-**Services column:**
-- Visibility Snapshot
-- Visibility Engine
-- Conference AEO
-- AEO Strategy
+**Services column** (all active links):
+- Visibility Snapshot → `/visibility-snapshot`
+- Build AI Authority → `/work`
+- Conference AEO → `/conference-aeo`
+- AEO Strategy → `/aeo`
 
 **Resources column:**
-- Insights
-- The Cited Brief
-- Work · Case studies
-- ASW Hub →
+- Insights *(disabled / placeholder)*
+- The Cited Brief *(disabled / placeholder)*
+- ASW Hub ↗ → `https://aswhub.maxifidigital.com/` (external)
 
 **Company column:**
-- Method
-- About
-- Contact
+- Method *(disabled / placeholder)*
+- About *(disabled / placeholder)*
+- Contact → `mailto:hello@maxifidigital.com`
 
 **Bottom bar:**
 - Left: © 2026 Maxifi Digital
-- Right: Singapore · London
+- Right: Singapore · London · Working globally
+
+---
+
+## Routes summary (post-audit)
+
+| Route | Source | Purpose |
+|---|---|---|
+| `/` | `src/pages/index.astro` | Homepage |
+| `/visibility-snapshot` | `src/pages/visibility-snapshot.astro` | Free Snapshot landing |
+| `/aeo` | `src/pages/aeo.astro` | Understand AEO |
+| `/work` | `src/pages/work/index.astro` | Build AI Authority (the Engine product page) |
+| `/conference-aeo` | `src/pages/conference-aeo.astro` | Conference AEO sprint |
+| `/method` | `src/pages/method.astro` | *(orphan — not linked from nav/footer)* |
+| `/insights` | `src/pages/insights.astro` | *(orphan — not linked from nav/footer)* |
+| `/insights/what-ai-engines-actually-cite` | (insights article) | *(2 broken sibling links inside — pending)* |
+| `/about` | `src/pages/about.astro` | About page *(orphan)* |
+
+**Removed in this audit:** `/visibility-engine`, `/work/airspaceworld`, the `work.astro` case-studies index. The Engine product now lives at `/work`. The Airspace World case study lives externally at `https://aswhub.maxifidigital.com/`.
