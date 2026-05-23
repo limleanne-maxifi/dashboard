@@ -330,6 +330,7 @@ import HeroLoop from '../components/HeroLoop.astro';
           <li class="offer-line"><span class="check" aria-hidden="true">✓</span>Top competitors named</li>
         </ul>
         <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="offer-cta offer-cta--outline">Run my Visibility Snapshot →</a>
+        <a href="/visibility-snapshot" class="offer-learn">What's in the Snapshot →</a>
       </article>
 
       <article class="offer offer--featured">
@@ -390,6 +391,10 @@ import HeroLoop from '../components/HeroLoop.astro';
             <dt class="case-lbl">Citation growth</dt>
           </div>
         </dl>
+        <div class="case-ctas">
+          <a href="/work/airspaceworld" class="btn-ghost">Read the case study →</a>
+          <a href="/work" class="case-all-link">See all case studies →</a>
+        </div>
       </div>
       <div class="case-visual" aria-hidden="true">
         <div class="case-preview">
@@ -1023,6 +1028,39 @@ import HeroLoop from '../components/HeroLoop.astro';
     color: var(--blue-soft);
     margin-top: 2px;
   }
+
+  .case-ctas {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .case-all-link {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--blue-soft);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .case-all-link:hover { opacity: 1; }
+
+  .offer-learn {
+    display: block;
+    margin-top: 8px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--navy);
+    opacity: 0.6;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .offer-learn:hover { opacity: 1; }
 
   .case-visual {
     background: var(--navy-soft);
