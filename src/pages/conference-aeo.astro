@@ -13,11 +13,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        3-slide rotating carousel + section head
   ══════════════════════════════════════════ -->
   <section class="ca-section" data-screen-label="Conference AEO section">
-    <div class="wrap">
+    <div class="ca-wrap">
 
       <!-- Section head -->
       <div class="ca-head">
-        <div class="ca-eyebrow">TURN EVENTS INTO AUTHORITY</div>
+        <div class="ca-actmark">TURN EVENTS INTO AUTHORITY</div>
         <h2 class="ca-h2">
           Your event spend shouldn't disappear <em>with the booth.</em>
         </h2>
@@ -128,7 +128,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </a>
       </div>
 
-    </div>
+    </div><!-- /ca-wrap -->
   </section>
 
   <script>
@@ -176,6 +176,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+  /* ── Container (1140px — matches design spec) ─────── */
+  .ca-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
   /* ── Section container ──────────────────────────── */
   .ca-section {
     background: var(--navy);
@@ -189,7 +196,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 36px;
   }
 
-  .ca-eyebrow {
+  /* Section head eyebrow — no pip, plain text */
+  .ca-actmark {
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 500;
@@ -200,6 +208,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: center;
     gap: 10px;
     margin-bottom: 14px;
+  }
+
+  /* Slide eyebrow — has amber pip dot */
+  .ca-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .ca-eyebrow::before {
