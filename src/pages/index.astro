@@ -273,43 +273,58 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
-       SECTION 6 — VISIBILITY ENGINE PREVIEW (mirrors /work)
+       SECTION 6 — BUILD AI AUTHORITY (System 3 design)
   ══════════════════════════════════════════ -->
-  <section class="engine-preview" aria-labelledby="engine-preview-heading">
+  <section class="system-section section--navy" aria-labelledby="system-heading">
     <div class="wrap-inner">
-      <p class="ep-eyebrow">BUILD AI AUTHORITY</p>
-      <div class="ep-head">
-        <h2 id="engine-preview-heading" class="ep-title">The Visibility Engine — a 3-stage system that <em>compounds</em></h2>
-        <p class="ep-description">Not a content sprint. Not a one-off audit. A managed system that takes your expertise from invisible to indexed, then keeps citation share growing — quarter on quarter.</p>
+      <p class="system-eyebrow">BUILD AI AUTHORITY</p>
+      <div class="system-head">
+        <h2 id="system-heading" class="system-title">The Visibility Engine — a 3-stage system that <em>compounds</em></h2>
+        <p class="system-description">Not a content sprint. Not a one-off audit. A managed system that takes your expertise from invisible to indexed, then keeps citation share growing — quarter on quarter.</p>
       </div>
 
-      <div class="ep-stages">
-        <article class="ep-stage">
-          <div class="ep-stage-label">Stage 01<br>Visibility Snapshot</div>
-          <div class="ep-stage-content">
-            <h3 class="ep-stage-title">See where AI cites you today</h3>
-            <p class="ep-stage-body">We map your citation share across all five engines and 25–50 buyer questions in your category. You get the three highest-leverage fixes within fourteen days.</p>
+      <div class="system-grid">
+        <div class="stages">
+          <div class="stage">
+            <div class="stage-label">Stage 01<br>Visibility Snapshot</div>
+            <div class="stage-content">
+              <h3 class="stage-title">See where AI cites you today</h3>
+              <p class="stage-body">We map your citation share across all five engines and 25–50 buyer questions in your category. You get the three highest-leverage fixes within fourteen days.</p>
+            </div>
           </div>
-        </article>
-        <article class="ep-stage">
-          <div class="ep-stage-label">Stage 02<br>Visibility Report</div>
-          <div class="ep-stage-content">
-            <h3 class="ep-stage-title">Ship answer-ready assets</h3>
-            <p class="ep-stage-body">We build the Q&amp;A layer, schema scaffolding and entity files AI engines need to cite you cleanly. Senior strategist embedded throughout.</p>
+          <div class="stage">
+            <div class="stage-label">Stage 02<br>Visibility Report</div>
+            <div class="stage-content">
+              <h3 class="stage-title">Ship answer-ready assets</h3>
+              <p class="stage-body">We build the Q&amp;A layer, schema scaffolding and entity files AI engines need to cite you cleanly. Senior strategist embedded throughout.</p>
+            </div>
           </div>
-        </article>
-        <article class="ep-stage">
-          <div class="ep-stage-label">Stage 03<br>Visibility Engine</div>
-          <div class="ep-stage-content">
-            <h3 class="ep-stage-title">Monitor, lift, defend</h3>
-            <p class="ep-stage-body">Weekly citation monitoring, quarterly Snapshot, monthly strategy review. Each cited answer trains the next — the curve accelerates.</p>
+          <div class="stage">
+            <div class="stage-label">Stage 03<br>Visibility Engine</div>
+            <div class="stage-content">
+              <h3 class="stage-title">Monitor, lift, defend</h3>
+              <p class="stage-body">Weekly citation monitoring, quarterly Snapshot, monthly strategy review. Each cited answer trains the next — the curve accelerates.</p>
+            </div>
           </div>
-        </article>
-      </div>
+        </div>
 
-      <div class="ep-cta-row">
-        <a href="/work" class="ep-cta-primary">See the full Engine breakdown →</a>
-        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="ep-cta-ghost">Start with a free Snapshot</a>
+        <div class="snap-card" aria-label="Sample Snapshot preview">
+          <div class="snap-hdr">
+            <h4 class="snap-title">Snapshot · Acme Consulting</h4>
+            <span class="snap-score">78<em>/100</em></span>
+          </div>
+          <div class="snap-row"><span>Best firm for healthcare M&amp;A · ChatGPT</span><span class="snap-value snap-value--cited">cited · #2</span></div>
+          <div class="snap-row"><span>Best firm for healthcare M&amp;A · Claude</span><span class="snap-value snap-value--cited">cited · #1</span></div>
+          <div class="snap-row"><span>Best firm for healthcare M&amp;A · Perplexity</span><span class="snap-value snap-value--not">not cited</span></div>
+          <div class="snap-row"><span>Healthcare regulatory advisors · Gemini</span><span class="snap-value snap-value--cited">cited · #4</span></div>
+          <div class="snap-row"><span>Top M&amp;A litigation specialists · Copilot</span><span class="snap-value snap-value--not">not cited</span></div>
+          <div class="snap-row"><span>Cross-border health regulation · ChatGPT</span><span class="snap-value snap-value--cited">cited · #3</span></div>
+          <div class="snap-legend">
+            <span><i class="legend-dot legend-dot--cited"></i>Cited</span>
+            <span><i class="legend-dot legend-dot--not"></i>Not cited</span>
+            <span>· 6 of 25 queries shown</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1077,133 +1092,6 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   /* ── Engine Preview (mirrors /work) ───────────────────────────── */
-  .engine-preview {
-    background: var(--navy);
-    padding: 80px 0;
-    color: var(--blue-text);
-  }
-
-  .ep-eyebrow {
-    display: block;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    color: var(--amber-mid);
-    text-transform: uppercase;
-    margin: 0 0 24px;
-  }
-
-  .ep-head {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 48px;
-  }
-
-  .ep-title {
-    font-family: var(--font-sans);
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: #fff;
-    margin: 0 0 16px;
-  }
-
-  .ep-title em {
-    font-style: italic;
-    color: var(--amber-mid);
-  }
-
-  .ep-description {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--blue-soft);
-    margin: 0;
-  }
-
-  .ep-stages {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-
-  .ep-stage {
-    background: rgba(255, 255, 255, 0.04);
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 24px;
-  }
-
-  .ep-stage-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--amber-pale);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .ep-stage-title {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    color: #fff;
-    margin: 0 0 8px;
-  }
-
-  .ep-stage-body {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--blue-soft);
-    margin: 0;
-  }
-
-  .ep-cta-row {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .ep-cta-primary {
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s ease;
-  }
-
-  .ep-cta-primary:hover { background: #854F0B; }
-
-  .ep-cta-ghost {
-    background: transparent;
-    color: #fff;
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: border-color 0.2s ease;
-  }
-
-  .ep-cta-ghost:hover { border-color: rgba(255, 255, 255, 0.6); }
 
   .wrap-inner {
     max-width: 1280px;
@@ -1211,17 +1099,6 @@ import HeroLoop from '../components/HeroLoop.astro';
     padding: 0 40px;
   }
 
-  @media (max-width: 900px) {
-    .ep-stages {
-      grid-template-columns: 1fr;
-    }
-    .engine-preview {
-      padding: 56px 0;
-    }
-    .ep-title {
-      font-size: 22px;
-    }
-  }
 
   /* ── Offer ladder ───────────────────────────── */
   .offers {
