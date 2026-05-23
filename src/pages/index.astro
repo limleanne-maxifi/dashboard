@@ -56,194 +56,154 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
-       SECTION 3 — SAMPLE SNAPSHOT (clickable proof)
+       SECTION 3 — VISIBILITY SNAPSHOT HERO
   ══════════════════════════════════════════ -->
-  <section class="sample-snapshot-section" aria-labelledby="sample-snapshot-heading">
-    <div class="wrap">
-      <div class="sample-intro">
-        <p class="s-eyebrow">SEE A REAL ONE</p>
-        <h2 id="sample-snapshot-heading" class="section-h2">This is what your AI Visibility Snapshot looks like.</h2>
-        <p class="sample-sub">Real client. Real scores. Real fixes. Pick your industry to see both the form and the report.</p>
+  <section class="vs-hero">
+    <div class="vs-wrap vs-hero__grid">
+
+      <!-- Left column -->
+      <div class="vs-hero__left">
+        <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
+        <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
+        <p class="vs-hero__lede">Online search used to reward the best-ranked page. Now AI rewards the page that is structured for retrieval, written for citation. AEO is the visibility layer for the AI search era. Learn how Answer Engine Optimisation makes your brand the source ChatGPT, Claude and Perplexity cite.</p>
+        <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
+
       </div>
-      <div class="sample-shell">
-        <div class="sample-tabs" role="tablist">
-          <button class="sample-tab active" role="tab" aria-selected="true" data-snap="commercial">Commercial Aviation</button>
-          <button class="sample-tab" role="tab" aria-selected="false" data-snap="manufacturing">Aerospace Manufacturing</button>
-          <button class="sample-tab" role="tab" aria-selected="false" data-snap="space">Space Exploration</button>
-          <button class="sample-tab" role="tab" aria-selected="false" data-snap="mro">MRO</button>
+
+      <!-- Right column · form card -->
+      <div class="vs-form-card" id="snapshot">
+        <span class="vs-form-badge">Free Snapshot</span>
+        <h3>Run your AI Visibility Snapshot</h3>
+
+        <div class="vs-scorechip" aria-label="Sample score: 47 out of 100, Caution band">
+          <div class="vs-scorechip__num">47<small>/100</small></div>
+          <div class="vs-scorechip__meta">
+            <div class="vs-scorechip__lbl">Sample score · <span aria-label="caution">⚠</span> Caution</div>
+            <h6>Below sector median (62)</h6>
+            <p>Competitor displacement is the dominant failure pattern.</p>
+          </div>
         </div>
-        <div class="sample-duo">
-          <!-- LEFT: form card -->
-          <div class="snap-form-card">
-            <div class="snap-form-header">
-              <span class="snap-form-label">AI VISIBILITY SNAPSHOT</span>
-              <span class="snap-form-sector" id="snap-form-sector">COMMERCIAL AVIATION</span>
+
+        <div class="vs-form-step1" id="vs-form-step1">
+          <form
+            id="vs-snapshot-form"
+            name="visibility-snapshot"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="visibility-snapshot" />
+            <p style="position:absolute;left:-9999px" aria-hidden="true">
+              <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+            <div class="vs-field">
+              <label for="vs-website">Your website</label>
+              <input type="url" id="vs-website" name="website" placeholder="acmeconsulting.com" required />
             </div>
-            <div class="snap-form-body">
-              <div class="snap-field">
-                <div class="snap-label">YOUR WEBSITE</div>
-                <div class="snap-input" id="snap-f-website">yourcompany.com</div>
-              </div>
-              <div class="snap-field">
-                <div class="snap-label" id="snap-f-specialism-label">YOUR AVIATION SPECIALISM</div>
-                <div class="snap-input" id="snap-f-specialism">e.g. CNS/ATM, airport ops, MRO</div>
-              </div>
-              <div class="snap-field">
-                <div class="snap-label">A BUYER QUESTION YOU SHOULD WIN</div>
-                <div class="snap-input" id="snap-f-question">e.g. Who are the leading CNS/ATM providers in Europe?</div>
-              </div>
-              <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="snap-submit">Get my AI Visibility Snapshot →</a>
+            <div class="vs-field">
+              <label for="vs-category">Your category</label>
+              <input type="text" id="vs-category" name="category" placeholder="Management consulting" required />
+            </div>
+            <div class="vs-field">
+              <label for="vs-buyer_question">A question your buyer would ask AI</label>
+              <input type="text" id="vs-buyer_question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
+            </div>
+            <button class="vs-submit" type="submit">Run my Visibility Snapshot →</button>
+          </form>
+        </div>
+
+        <div class="vs-results" id="vs-results" hidden>
+          <div class="vs-results__head">
+            <span class="vs-check" aria-hidden="true">✓</span>
+            <h3>Snapshot complete · check your inbox</h3>
+          </div>
+          <p>Your 1-page Visibility Snapshot — including the three fixes to ship this week and the competitors named ahead of you — is on its way to your inbox. Reply to that email if you want a 30-min audit call.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — SAMPLE SNAPSHOT (mirrors /visibility-snapshot)
+  ══════════════════════════════════════════ -->
+  <section class="vs-sample" aria-labelledby="sample-snapshot-heading">
+    <div class="wrap">
+      <div class="vs-sec-head">
+        <span class="vs-eyebrow">See it before you start</span>
+        <h2 id="sample-snapshot-heading">This is what your <em>Snapshot looks like</em></h2>
+        <p>One page. One score. The exact buyer queries that surface your competitors instead of you. Three concrete fixes you can ship this week before the next buyer search.</p>
+      </div>
+
+      <div class="vs-sample__panel">
+        <!-- Left: copy + 2x2 grid + CTA -->
+        <div class="vs-sample__copy">
+          <span class="vs-sample__lbl">Inside the report</span>
+          <h3>One score. A gap map.<br/><em>Three fixes to ship.</em></h3>
+          <p>Every Snapshot is rendered on your live category. We run real buyer queries through real engines, capture the verbatim answers, and score your citation share against your sector median.</p>
+          <p>You see exactly which queries return your competitors by name — and what would need to change for the next answer to name you instead.</p>
+          <div class="vs-sample__grid">
+            <div class="vs-sample__cell">
+              <span class="vs-n">01</span>
+              <b>Your AI Visibility Score</b>
+              <p>0–100 vs sector median, with band rating and the dominant failure pattern named.</p>
+            </div>
+            <div class="vs-sample__cell">
+              <span class="vs-n">02</span>
+              <b>Citation gap analysis</b>
+              <p>The exact queries where competitors surface instead of you, across all five engines.</p>
+            </div>
+            <div class="vs-sample__cell">
+              <span class="vs-n">03</span>
+              <b>Structural gaps ranked by impact</b>
+              <p>The content, schema and entity signals blocking retrieval — prioritised so you know what to fix first.</p>
+            </div>
+            <div class="vs-sample__cell">
+              <span class="vs-n">04</span>
+              <b>Three fixes to ship this week</b>
+              <p>Concrete changes your team can implement immediately to lift citation rate before the next buyer search.</p>
             </div>
           </div>
-          <!-- RIGHT: report card -->
-          <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="sample-card" aria-label="Open the AI Visibility Snapshot tool">
-            <div class="sample-card-header">
-              <div class="sample-card-meta">
-                <span class="sample-card-tag"><span class="sample-live-dot"></span>Sample Report</span>
-                <span class="sample-card-sector" id="snap-sector">COMMERCIAL AVIATION</span>
+          <div class="vs-sample__cta-row">
+            <a class="vs-btn vs-btn--primary" href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer">Start your Snapshot →</a>
+            <span class="vs-sample__meta">Free · 5 minutes · Immediate results</span>
+          </div>
+        </div>
+
+        <!-- Right: mock report card -->
+        <div class="vs-report" aria-hidden="true">
+          <div class="vs-report__chrome">
+            <span class="vs-report__chrome-left">Sample report</span>
+            <span class="vs-report__chrome-right">Page 1 of 1</span>
+          </div>
+          <div class="vs-report__body">
+            <div class="vs-report__meta">AI Visibility Snapshot · Free report · Organisation · Sector · Role · Generated today</div>
+            <div class="vs-report__h">You're showing up — but the <em>wrong story</em> is being told about you.</div>
+
+            <div class="vs-report__score">
+              <div class="vs-ring">
+                <div class="vs-ring__v">47<small>/ 100</small></div>
               </div>
-              <span class="sample-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <div class="sample-card-body">
-              <p class="sample-client" id="snap-client">PAN-EUROPEAN ANSP · Q2 2026</p>
-              <p class="sample-title" id="snap-title">Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.</p>
-              <div class="sample-stats" id="snap-stats">
-                <div class="sample-stat"><div class="sample-stat-num">19<span class="up">↑38%</span></div><div class="sample-stat-label">AI Citations</div></div>
-                <div class="sample-stat"><div class="sample-stat-num">2/5</div><div class="sample-stat-label">Engines Citing</div></div>
-                <div class="sample-stat"><div class="sample-stat-num">4/12</div><div class="sample-stat-label">Topics Owned</div></div>
-              </div>
-              <div class="sample-fixes-header">
-                <span class="sample-fixes-label">Top 3 Priority Fixes</span>
-                <span class="sample-priority">RANKED BY IMPACT</span>
-              </div>
-              <div id="snap-fixes">
-                <div class="sample-fix"><div class="sample-fix-num">1</div><div class="sample-fix-content"><div class="sample-fix-title">CNS/ATM capability comparison page</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+19%</span> · 2 weeks</div></div></div>
-                <div class="sample-fix"><div class="sample-fix-num">2</div><div class="sample-fix-content"><div class="sample-fix-title">SESAR &amp; ICAO entity schema build</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+13%</span> · 1 week</div></div></div>
-                <div class="sample-fix"><div class="sample-fix-num">3</div><div class="sample-fix-content"><div class="sample-fix-title">ANSP case study FAQ pages (×6)</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+9%</span> · 3 days</div></div></div>
-              </div>
-              <div class="sample-card-cta">
-                <span class="sample-cta-text">View full report →</span>
+              <div class="vs-report__info">
+                <div class="vs-report__info-lbl">Your AI Visibility Score</div>
+                <h4>Below sector median (62)</h4>
+                <p>Competitor displacement is the dominant failure pattern.</p>
+                <span class="vs-band">⚠ Caution band · 40–59</span>
               </div>
             </div>
-          </a>
+
+            <div class="vs-report__rows">
+              <div class="vs-report__row"><span class="vs-engine">ChatGPT</span><span class="vs-stat vs-ok">cited · #3</span></div>
+              <div class="vs-report__row"><span class="vs-engine">Perplexity</span><span class="vs-stat vs-lo">not cited</span></div>
+              <div class="vs-report__row"><span class="vs-engine">Claude</span><span class="vs-stat vs-ok">cited · #5</span></div>
+              <div class="vs-report__row"><span class="vs-engine">Gemini</span><span class="vs-stat vs-lo">not cited</span></div>
+              <div class="vs-report__row"><span class="vs-engine">Copilot</span><span class="vs-stat">cited · #7</span></div>
+              <div class="vs-report__row"><span class="vs-engine">Google AI Overview</span><span class="vs-stat vs-lo">not cited</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <script is:inline>
-  (function() {
-    var SNAPS = {
-      commercial: {
-        sectorLabel: 'COMMERCIAL AVIATION',
-        specialismLabel: 'YOUR AVIATION SPECIALISM',
-        specialism: 'e.g. CNS/ATM, airport ops, MRO',
-        question: 'e.g. Who are the leading CNS/ATM providers in Europe?',
-        client: 'PAN-EUROPEAN ANSP · Q2 2026',
-        title: 'Citation share at <span class="num">22%</span>.<br/>3 fixes to reach 48% by Q4.',
-        stats: [
-          { num: '19<span class="up">↑38%</span>', label: 'AI Citations' },
-          { num: '2/5', label: 'Engines Citing' },
-          { num: '4/12', label: 'Topics Owned' }
-        ],
-        fixes: [
-          { title: 'CNS/ATM capability comparison page', impact: '+19% · 2 weeks' },
-          { title: 'SESAR &amp; ICAO entity schema build', impact: '+13% · 1 week' },
-          { title: 'ANSP case study FAQ pages (×6)', impact: '+9% · 3 days' }
-        ]
-      },
-      manufacturing: {
-        sectorLabel: 'AEROSPACE MANUFACTURING',
-        specialismLabel: 'YOUR MANUFACTURING SPECIALISM',
-        specialism: 'e.g. aerostructures, avionics, composites',
-        question: 'e.g. Which European firms lead in composite airframe manufacturing?',
-        client: 'TIER-1 AEROSTRUCTURES OEM · Q1 2026',
-        title: 'Citation share at <span class="num">17%</span>.<br/>4 fixes to reach 41% by Q3.',
-        stats: [
-          { num: '14<span class="up">↑29%</span>', label: 'AI Citations' },
-          { num: '2/5', label: 'Engines Citing' },
-          { num: '3/11', label: 'Topics Owned' }
-        ],
-        fixes: [
-          { title: 'Composite materials capability hub', impact: '+16% · 3 weeks' },
-          { title: 'OEM supply chain FAQ schema', impact: '+11% · 1 week' },
-          { title: 'Certification timeline comparison page', impact: '+8% · 2 weeks' }
-        ]
-      },
-      space: {
-        sectorLabel: 'SPACE EXPLORATION',
-        specialismLabel: 'YOUR SPACE SPECIALISM',
-        specialism: 'e.g. satellite integration, launch services, propulsion',
-        question: 'e.g. Who are the top smallsat integrators for LEO missions?',
-        client: 'EU SMALLSAT INTEGRATOR · Q2 2026',
-        title: 'Citation share at <span class="num">11%</span>.<br/>5 fixes to reach 34% by Q4.',
-        stats: [
-          { num: '9<span class="up">↑44%</span>', label: 'AI Citations' },
-          { num: '1/5', label: 'Engines Citing' },
-          { num: '2/10', label: 'Topics Owned' }
-        ],
-        fixes: [
-          { title: 'LEO constellation deployment explainer', impact: '+14% · 2 weeks' },
-          { title: 'Propulsion systems comparison hub', impact: '+10% · 1 week' },
-          { title: 'Mission assurance FAQ pages (×4)', impact: '+7% · 3 days' }
-        ]
-      },
-      mro: {
-        sectorLabel: 'MRO',
-        specialismLabel: 'YOUR MRO SPECIALISM',
-        specialism: 'e.g. line maintenance, heavy checks, avionics repair',
-        question: 'e.g. Which MRO providers specialise in A320 heavy checks?',
-        client: 'INDEPENDENT MRO PROVIDER · Q1 2026',
-        title: 'Citation share at <span class="num">14%</span>.<br/>3 fixes to reach 38% by Q3.',
-        stats: [
-          { num: '12<span class="up">↑33%</span>', label: 'AI Citations' },
-          { num: '2/5', label: 'Engines Citing' },
-          { num: '3/9', label: 'Topics Owned' }
-        ],
-        fixes: [
-          { title: 'Heavy check capability comparison page', impact: '+15% · 2 weeks' },
-          { title: 'Airworthiness standards FAQ schema', impact: '+10% · 1 week' },
-          { title: 'Turn-time benchmark case studies (×3)', impact: '+7% · 2 weeks' }
-        ]
-      }
-    };
-
-    function renderSnap(key) {
-      var d = SNAPS[key];
-      // form card
-      document.getElementById('snap-form-sector').textContent = d.sectorLabel;
-      document.getElementById('snap-f-specialism-label').textContent = d.specialismLabel;
-      document.getElementById('snap-f-specialism').textContent = d.specialism;
-      document.getElementById('snap-f-question').textContent = d.question;
-      // report card
-      document.getElementById('snap-sector').textContent = d.sectorLabel;
-      document.getElementById('snap-client').textContent = d.client;
-      document.getElementById('snap-title').innerHTML = d.title;
-      var statsEl = document.getElementById('snap-stats');
-      statsEl.innerHTML = d.stats.map(function(s) {
-        return '<div class="sample-stat"><div class="sample-stat-num">' + s.num + '</div><div class="sample-stat-label">' + s.label + '</div></div>';
-      }).join('');
-      var fixesEl = document.getElementById('snap-fixes');
-      fixesEl.innerHTML = d.fixes.map(function(f, i) {
-        return '<div class="sample-fix"><div class="sample-fix-num">' + (i+1) + '</div><div class="sample-fix-content"><div class="sample-fix-title">' + f.title + '</div><div class="sample-fix-impact">Estimated citation lift: <span class="lift">+' + f.impact.split(' · ')[0].replace('+','') + '</span> · ' + f.impact.split(' · ')[1] + '</div></div></div>';
-      }).join('');
-    }
-
-    document.querySelectorAll('.sample-tab').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.sample-tab').forEach(function(b) {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        renderSnap(btn.dataset.snap);
-      });
-    });
-
-    renderSnap('commercial');
-  })();
-  </script>
 
 <!-- ══════════════════════════════════════════
        SECTION 4 — PROBLEM FRAME
@@ -1456,330 +1416,283 @@ import HeroLoop from '../components/HeroLoop.astro';
     }
   }
 
-  /* ── Sample Snapshot section ────────────────── */
-  .sample-snapshot-section {
-    padding: 60px 0 40px;
-    background: var(--cream);
-  }
-  .sample-intro {
-    max-width: 720px;
-    margin: 0 auto 28px;
-    text-align: center;
-  }
-  .sample-intro .s-eyebrow {
-    justify-content: center;
-    display: inline-flex;
-  }
-  .sample-intro .section-h2 { margin-bottom: 10px; }
-  .sample-sub {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.55;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  /* ── Sample snapshot tabs + duo layout ──── */
-  .sample-shell { max-width: 1040px; margin: 0 auto; }
-  .sample-tabs {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-  }
-  .sample-tab {
+
+  /* ── Sample section (mirrors /visibility-snapshot) ── */
+  .vs-eyebrow {
+    display: inline-block;
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--fs-eyebrow);
     font-weight: 500;
-    color: var(--muted);
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    margin-bottom: 16px;
+  }
+  .vs-sample {
+    padding: 48px 0 96px;
     background: var(--cream-deep);
-    border: 0.5px solid var(--line);
-    border-radius: 4px;
-    padding: 6px 12px;
-    cursor: pointer;
-    letter-spacing: 0.04em;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
-  .sample-tab:hover { color: var(--navy); border-color: rgba(4,44,83,0.2); }
-  .sample-tab.active {
-    background: var(--navy);
-    color: var(--amber-light);
-    border-color: var(--navy);
+  .vs-sec-head { margin-bottom: 16px; max-width: 720px; }
+  .vs-sec-head h2 {
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--amber);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin: 0 0 18px;
+    white-space: nowrap;
   }
-  .sample-duo {
+  .vs-sec-head h2 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .vs-sec-head p {
+    font: 400 16px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+  .vs-sample__panel {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+  }
+  .vs-sample__lbl {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .vs-sample__copy h3 {
+    font-size: 33.6px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .vs-sample__copy h3 em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .vs-sample__copy p {
+    font: 400 16px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .vs-sample__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-items: start;
+    gap: 14px;
+    margin: 22px 0 0;
   }
-  /* ── Form card (left) ─────────────────────── */
-  .snap-form-card {
-    background: var(--navy);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 0.5px solid rgba(255,255,255,0.06);
+  .vs-sample__cell {
+    padding: 16px 18px;
+    border: 0.5px solid var(--line);
+    border-radius: 6px;
+    background: var(--cream);
   }
-  .snap-form-header {
+  .vs-n {
+    font: 500 12px/1.2 var(--font-mono);
+    color: var(--amber);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .vs-sample__cell b {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .vs-sample__cell p {
+    font: 400 13px/1.55 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+  .vs-sample__cta-row {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .vs-sample__meta {
+    font: 400 11px/1.4 var(--font-mono);
+    color: var(--mute-soft);
+  }
+  .vs-btn {
+    display: inline-block;
+    font: 500 12px/1 var(--font-sans);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.2s ease;
+    padding: 10px 16px;
+  }
+  .vs-btn--primary {
     background: var(--amber);
-    padding: 10px 18px;
+    color: var(--amber-light);
+    border: none;
+  }
+  .vs-btn--primary:hover { background: #854F0B; }
+  /* Mock report */
+  .vs-report {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(4, 44, 83, 0.04), 0 24px 56px -28px rgba(4, 44, 83, 0.22);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 2px;
   }
-  .snap-form-label {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
+  .vs-report__chrome {
+    padding: 12px 18px;
+    background: var(--navy);
+    color: var(--blue-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 500 10px/1 var(--font-mono);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--amber-light);
-    opacity: 0.75;
   }
-  .snap-form-sector {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--amber-light);
-  }
-  .snap-form-body {
-    padding: 20px 20px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .snap-field { display: flex; flex-direction: column; gap: 4px; }
-  .snap-label {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--blue-mid);
-  }
-  .snap-input {
-    background: rgba(255,255,255,0.06);
-    border: 0.5px solid rgba(255,255,255,0.12);
-    border-radius: 4px;
-    padding: 8px 10px;
-    font-size: 11px;
-    font-family: var(--font-sans);
-    color: rgba(230,241,251,0.45);
-    line-height: 1.4;
-  }
-  .snap-submit {
-    display: block;
-    margin-top: 4px;
-    background: var(--amber);
-    color: var(--amber-light);
-    text-decoration: none;
-    text-align: center;
-    padding: 10px 14px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: var(--font-sans);
-    transition: background 0.2s ease;
-  }
-  .snap-submit:hover { background: #854F0B; }
-
-  .sample-card {
-    display: block;
-    max-width: none;
-    margin: 0;
-    background: #fff;
-    border-radius: 8px;
-    border: 0.5px solid var(--line);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    cursor: pointer;
-  }
-  .sample-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px -20px rgba(4, 44, 83, 0.18);
-    border-color: rgba(186, 117, 23, 0.4);
-  }
-  .sample-card:hover .sample-card-arrow { transform: translateX(4px); color: var(--amber); }
-  .sample-card-header {
-    padding: 13px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 0.5px solid var(--line);
-    background: linear-gradient(180deg, #FCFAF6 0%, #F8F4ED 100%);
-  }
-  .sample-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .sample-card-tag {
+  .vs-report__chrome-left {
+    color: var(--amber-mid);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-family: var(--font-mono);
   }
-  .sample-live-dot {
-    width: 7px; height: 7px;
+  .vs-report__chrome-left::before {
+    content: "";
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--signal);
-    display: inline-block;
-    animation: hl-pulse 1.8s infinite;
+    background: var(--amber);
   }
-  .sample-card-sector {
-    font-size: 9px;
-    color: var(--amber);
-    background: var(--amber-light);
-    padding: 3px 7px;
-    border-radius: 3px;
+  .vs-report__chrome-right { color: var(--blue-mid); }
+  .vs-report__body {
+    padding: 28px 30px 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .vs-report__rows { margin-top: auto; display: grid; gap: 6px; }
+  .vs-report__meta {
+    font: 400 11px/1.4 var(--font-sans);
+    color: var(--mute-soft);
+    margin-bottom: 22px;
+  }
+  .vs-report__h {
+    font-size: 17px;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-family: var(--font-mono);
-  }
-  .sample-card-arrow {
-    font-size: 18px;
-    color: var(--muted);
-    transition: transform 0.25s ease, color 0.25s ease;
-  }
-  .sample-card-body { padding: 24px 26px 26px; }
-  .sample-client {
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 6px;
-    font-family: var(--font-mono);
-  }
-  .sample-title {
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 16px;
-    line-height: 1.25;
+    line-height: 1.35;
     letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 22px;
   }
-  .sample-title .num { color: var(--amber); font-family: var(--font-mono); }
-  .sample-stats {
+  .vs-report__h em {
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .vs-report__score {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 18px;
+    grid-template-columns: 132px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 22px;
+    background: var(--cream-deep);
+    border-radius: 6px;
+    margin-bottom: 22px;
   }
-  .sample-stat {
-    background: var(--cream);
-    border-radius: 7px;
-    padding: 12px;
+  .vs-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: conic-gradient(var(--amber) 0deg 169deg, rgba(4, 44, 83, 0.08) 169deg 360deg);
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  .vs-ring::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    background: var(--cream-deep);
+    border-radius: 50%;
+  }
+  .vs-ring__v {
+    position: relative;
+    z-index: 1;
+    font: 500 38px/1 var(--font-mono);
+    color: var(--navy);
+    letter-spacing: -0.02em;
     text-align: center;
   }
-  .sample-stat-num {
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 5px;
-    letter-spacing: -0.02em;
-    font-family: var(--font-mono);
-  }
-  .sample-stat-num .up {
-    color: var(--signal);
-    font-size: 10px;
-    font-weight: 500;
-    margin-left: 3px;
-    font-family: var(--font-mono);
-  }
-  .sample-stat-label {
-    font-size: 9px;
-    color: var(--muted);
+  .vs-ring__v small {
+    display: block;
+    font: 500 10px/1 var(--font-mono);
+    color: var(--mute-soft);
+    margin-top: 4px;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-family: var(--font-mono);
+    text-align: center;
   }
-  .sample-fixes-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .vs-report__info-lbl {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute-soft);
     margin-bottom: 8px;
   }
-  .sample-fixes-label {
-    font-size: 10px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
+  .vs-report__info h4 {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .vs-report__info p {
+    font: 400 12px/1.5 var(--font-sans);
+    color: var(--muted);
+    margin: 0;
+  }
+  .vs-band {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-weight: 500;
+    color: var(--brown-deep);
+    background: rgba(186, 117, 23, 0.10);
+    padding: 6px 9px;
+    border-radius: 3px;
+    margin-top: 12px;
+  }
+  .vs-report__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 9px 12px;
+    background: var(--cream);
+    border: 0.5px solid var(--line);
+    border-radius: 4px;
     font-family: var(--font-mono);
+    font-size: 11px;
   }
-  .sample-priority {
-    font-size: 9px;
-    background: var(--amber-light);
-    color: var(--amber);
-    padding: 3px 7px;
-    border-radius: 8px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    font-family: var(--font-mono);
-  }
-  .sample-fix {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 0.5px solid var(--line);
-  }
-  .sample-fix:last-of-type { border: none; }
-  .sample-fix-num {
-    background: var(--navy);
-    color: #fff;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 500;
-    flex-shrink: 0; margin-top: 1px;
-    font-family: var(--font-mono);
-  }
-  .sample-fix-title {
-    color: var(--navy); font-weight: 500; font-size: 12px;
-    margin-bottom: 2px;
-  }
-  .sample-fix-impact {
-    color: var(--muted); font-size: 10px;
-  }
-  .sample-fix-impact .lift {
-    color: var(--signal); font-weight: 500; font-family: var(--font-mono);
-  }
-  .sample-card-cta {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 0.5px solid var(--line);
-    text-align: center;
-  }
-  .sample-cta-text {
-    font-size: 12px;
-    color: var(--amber);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  @keyframes hl-pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.2); }
-  }
-  @media (max-width: 900px) {
-    .sample-duo { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 640px) {
-    .sample-stats { grid-template-columns: 1fr; }
-    .sample-card-body { padding: 18px 18px 20px; }
-    .sample-snapshot-section { padding: 40px 0 30px; }
-    .sample-tabs { gap: 6px; }
-    .sample-tab { font-size: 10px; padding: 5px 10px; }
+  .vs-engine { color: var(--navy); }
+  .vs-stat { color: var(--amber); font-weight: 500; }
+  .vs-ok { color: var(--signal); }
+  .vs-lo { color: var(--danger); }
+  @media (max-width: 960px) {
+    .vs-sample__panel { grid-template-columns: 1fr; gap: 28px; }
+    .vs-sec-head h2 { white-space: normal; font-size: 32px; }
   }
 </style>
