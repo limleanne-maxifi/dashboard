@@ -1,0 +1,148 @@
+---
+interface CompareItem {
+  label: string;
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  seoLabel?: string;
+  seoSubtitle?: string;
+  seoItems?: CompareItem[];
+  aeoLabel?: string;
+  aeoSubtitle?: string;
+  aeoItems?: CompareItem[];
+}
+
+const {
+  seoLabel = 'SEO · The decade that was',
+  seoSubtitle = 'Built for a single engine and ten blue links.',
+  seoItems = [
+    { label: 'Ranks your page', icon: '·' },
+    { label: 'Targets keywords', icon: '·' },
+    { label: 'Optimises for clicks', icon: '·' },
+    { label: 'Lives on Google', icon: '·' },
+    { label: 'Output: traffic', icon: '·' },
+  ],
+  aeoLabel = 'AEO · The decade ahead',
+  aeoSubtitle = 'Built for five engines and one direct answer.',
+  aeoItems = [
+    { label: 'Cites your answer', icon: '✓' },
+    { label: 'Targets buyer questions', icon: '✓' },
+    { label: 'Optimises for retrieval', icon: '✓' },
+    { label: 'Lives across 5 AI engines', icon: '✓' },
+    { label: 'Output: authority', icon: '✓' },
+  ],
+} = Astro.props;
+---
+
+<div class="compare__table">
+  <div class="compare__col compare__col--seo">
+    <h3>{seoLabel}</h3>
+    <p class="sub">{seoSubtitle}</p>
+    <ul>
+      {seoItems.map((item) => (
+        <li>
+          <span class="compare__icon">{item.icon}</span>
+          {item.label}
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="compare__col compare__col--aeo">
+    <h3>{aeoLabel}</h3>
+    <p class="sub">{aeoSubtitle}</p>
+    <ul>
+      {aeoItems.map((item) => (
+        <li>
+          <span class="compare__icon">{item.icon}</span>
+          {item.label}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .compare__table {
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .compare__col {
+    padding: 32px 28px;
+  }
+
+  .compare__col--seo {
+    background: var(--cream);
+  }
+
+  .compare__col--aeo {
+    background: var(--navy);
+    color: var(--blue-text);
+  }
+
+  .compare__col h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--navy);
+  }
+
+  .compare__col--aeo h3 {
+    color: #fff;
+  }
+
+  .compare__col p.sub {
+    font: 400 12px/1.5 var(--font-sans);
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+
+  .compare__col--aeo p.sub {
+    color: var(--blue-soft);
+  }
+
+  .compare__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 11px;
+  }
+
+  .compare__col li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font: 400 13px/1.5 var(--font-sans);
+    color: var(--ink);
+  }
+
+  .compare__col--aeo li {
+    color: var(--blue-soft);
+  }
+
+  .compare__icon {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    flex-shrink: 0;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .compare__col--aeo .compare__icon {
+    color: var(--amber-pale);
+  }
+
+  @media (max-width: 900px) {
+    .compare__table {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

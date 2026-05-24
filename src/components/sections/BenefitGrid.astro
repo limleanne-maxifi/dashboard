@@ -1,0 +1,113 @@
+---
+interface BenefitItem {
+  number: string;
+  title: string;
+  description: string;
+  featured?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+interface Props {
+  items?: BenefitItem[];
+}
+
+const {
+  items = [
+    {
+      number: '01',
+      title: 'Shortlist presence',
+      description: 'You appear in the AI-generated shortlist before a buyer ever opens a browser tab.',
+    },
+    {
+      number: '02',
+      title: 'Categorical authority',
+      description: 'AI engines name you as the source for category questions — by your terms, not your competitors\'.',
+    },
+    {
+      number: '03',
+      title: 'Compound citations',
+      description: 'Each cited answer trains the next answer. Authority accrues to the structured.',
+    },
+    {
+      number: '04',
+      title: 'Asset reuse',
+      description: 'One AEO sprint produces speaker pages, Q&A pairs, and indexed citations that work for years, not weeks.',
+    },
+    {
+      number: '05',
+      title: 'Sales-cycle compression',
+      description: 'Buyers arrive pre-qualified — they already know your name from the AI answer.',
+    },
+    {
+      number: '06',
+      title: 'Audit before you spend',
+      description: 'Start with the free Snapshot. See your citation map before committing to any work.',
+      featured: true,
+      ctaText: 'Run the Snapshot →',
+      ctaHref: '/visibility-snapshot',
+    },
+  ],
+} = Astro.props;
+---
+
+<div class="benefit-grid">
+  {items.map((item) => (
+    <div class={`benefit-card ${item.featured ? 'benefit-card--feature' : ''}`}>
+      <span class="benefit-number">{item.number}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      {item.featured && item.ctaText && item.ctaHref && (
+        <a href={item.ctaHref} class="btn btn--primary" style="margin-top: 14px;">
+          {item.ctaText}
+        </a>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .benefit-card {
+    background: var(--cream);
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 26px;
+    transition: border-color var(--t-base);
+  }
+
+  .benefit-card--feature {
+    border: 2px solid var(--amber);
+    padding: 25px;
+  }
+
+  .benefit-number {
+    font: 500 28px/1 var(--font-mono);
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .benefit-card h3 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+
+  .benefit-card p {
+    font: 400 13px/1.55 var(--font-sans);
+    color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .benefit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
