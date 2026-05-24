@@ -206,10 +206,10 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
 <!-- ══════════════════════════════════════════
-       SECTION 4 — PROBLEM FRAME
+       SECTION 4 — UNDERSTAND AEO (combined problem + category)
   ══════════════════════════════════════════ -->
   <section class="section" aria-labelledby="problem-heading">
-    <p class="s-eyebrow">THE SHIFT</p>
+    <p class="s-eyebrow">UNDERSTAND AEO</p>
     <h2 id="problem-heading" class="section-h2" style="max-width:500px;">
       Most expert content is invisible to AI — at the exact moment buyers are asking
       better questions.
@@ -240,14 +240,8 @@ import HeroLoop from '../components/HeroLoop.astro';
         </p>
       </article>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       SECTION 5 — SEO VS AEO
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="compare-heading">
-    <p class="s-eyebrow">CATEGORY</p>
-    <h2 id="compare-heading" class="section-h2">SEO got you ranked. AEO gets you cited.</h2>
+    <h3 class="compare-h3" id="compare-heading">SEO got you ranked. AEO gets you cited.</h3>
     <div class="compare">
       <div class="compare-col compare-col--seo">
         <p class="cc-label">SEO</p>
@@ -269,6 +263,10 @@ import HeroLoop from '../components/HeroLoop.astro';
           <li class="cc-line cc-line--last">Output: authority</li>
         </ul>
       </div>
+    </div>
+
+    <div class="aeo-cta-row">
+      <a href="/aeo" class="btn-primary">Understand AEO →</a>
     </div>
   </section>
 
@@ -1193,6 +1191,22 @@ import HeroLoop from '../components/HeroLoop.astro';
   }
 
   /* ── SEO vs AEO ─────────────────────────────── */
+  .compare-h3 {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 40px 0 18px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .aeo-cta-row {
+    margin-top: 28px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   .compare {
     border-radius: 8px;
     overflow: hidden;
