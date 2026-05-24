@@ -1846,11 +1846,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   @media (max-width: 900px) {
     .system-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
     .system-title { font-size: 26px; }
     .snap-card { height: auto; }
+    .stages { width: 100%; }
   }
 
   .stages {
