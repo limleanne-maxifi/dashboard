@@ -257,6 +257,18 @@ const definitionCards = [
     max-width: 620px;
   }
 
+  /* Stack columns vertically for the two "column" sections.
+     CompareTable: 2 cols -> 2x1 stacked rows
+     Definition cards (.grid-3): 3 cols -> 3x1 stacked rows
+     :global() needed to pierce CompareTable's scoped styles. */
+  .aeo-section :global(.compare__table),
+  .aeo-section .grid-3 {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .card__label {
     font: 500 10px/1 var(--font-mono);
     letter-spacing: 0.1em;
