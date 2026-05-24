@@ -1,6 +1,4 @@
 ---
-import Button from '../ui/Button.astro';
-
 interface Props {
   heading: string;
   subtext?: string;
@@ -28,14 +26,14 @@ const {
     <h2 id="final-cta-heading" class="heading" set:html={heading} />
     {subtext && <p class="subtext">{subtext}</p>}
     <div class="ctas">
-      <Button href={primaryHref}>{primaryLabel}</Button>
-      <Button
+      <a href={primaryHref} class="btn btn--hero btn--primary">{primaryLabel}</a>
+      <a
         href={secondaryHref}
-        variant="ghost"
-        external={secondaryExternal}
+        class="btn btn--hero btn--ghost-dark"
+        {...secondaryExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
       >
         {secondaryLabel}
-      </Button>
+      </a>
     </div>
   </div>
 </section>

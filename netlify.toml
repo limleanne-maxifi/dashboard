@@ -10,13 +10,13 @@
 
 [[redirects]]
   from   = "/work/canso-airspace-world"
-  to     = "/work/airspaceworld"
+  to     = "https://aswhub.maxifidigital.com/"
   status = 301
   force  = true
 
 [[redirects]]
   from   = "/work/airspaceworld"
-  to     = "/conference-aeo"
+  to     = "https://aswhub.maxifidigital.com/"
   status = 301
   force  = true
 
