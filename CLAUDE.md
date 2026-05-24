@@ -448,6 +448,37 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 - CSS variables (in `globals.css`) for colours and tokens
 - No CSS modules, no styled-components, no SASS
 
+### CRITICAL: Mobile breakpoint rules MUST live in `globals.css`
+
+**Discovered 2026-05-24 after long debugging session.** Page-level scoped `<style>` blocks in `.astro` files do NOT reliably compile their `@media` rules — particularly for responsive grid collapses. Symptoms: mobile layout fails on production while local dev appears correct, and the compiled CSS file is missing the media query entirely.
+
+**Rule of thumb:**
+- ✅ Mobile/responsive breakpoint rules → `src/styles/globals.css` with `!important`
+- ✅ Static component styles → scoped `<style>` in the `.astro` file
+- ❌ Never put `@media (max-width: ...)` rules in page-level `<style>` tags expecting them to override base rules
+
+**Mobile rules currently in `globals.css` (do not move back to page-level):**
+```css
+@media (max-width: 900px) {
+  .wrap-inner { padding: 0 24px !important; }
+  .system-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .vs-hero__grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .vs-hero h1 { font-size: 32px !important; }
+}
+@media (max-width: 640px) {
+  .wrap-inner { padding: 0 16px !important; }
+  .vs-hero h1 { font-size: 26px !important; }
+}
+```
+
+### CRITICAL: Netlify Node version
+
+`netlify.toml` must specify `NODE_VERSION = "22"` (or higher). Astro v6+ requires Node ≥22.12.0. Builds fail silently on default Node 20.
+
+### CRITICAL: Watch for malformed closing `</style>` tags
+
+Astro is lenient about malformed HTML in `.astro` files — a missing `>` on `</style>` will compile without error but silently strip the entire stylesheet. Always verify the end of large `.astro` files ends with `</style>` followed by a newline.
+
 ### Component patterns
 - One component per `.astro` file
 - Props typed with TypeScript interface at top of file
@@ -779,3 +810,5 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - v2: System sans-serif, weight 500, editorial tight aesthetic — SUPERSEDED
 - **v3 (current): Inter (400/500/600) for all text + IBM Plex Mono (400/500) for all numeric data and eyebrows. Imported via Google Fonts. Referenced via `--font-sans` and `--font-mono` CSS variables.**
 - **v3.1 (2026-05-21): Nav locked to 5 links + "Get the Report" CTA; Hero subgrid height-matching; HeroLoop thinking indicator + conversion trigger; all animation timers locked.**
+- **v3.2 (2026-05-24): Pre-launch audit pass — orphan components/files removed; redirects consolidated; mobile breakpoints standardized.**
+- **v3.3 (2026-05-24): Mobile CSS rules relocated to `globals.css` after discovering Astro scoped `<style>` blocks unreliably compile `@media` rules. NODE_VERSION pinned to 22 in `netlify.toml`. Fixed silent `</style>` tag corruption bug.**
