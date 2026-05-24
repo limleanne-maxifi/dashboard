@@ -516,81 +516,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   </script>
 
   <!-- ══════════════════════════════════════════
-       SECTION 8 — NEWSLETTER
-  ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="nl-heading">
-    <div class="newsletter">
-      <div class="nl-grid">
-        <div class="nl-text">
-          <p class="s-eyebrow nl-eyebrow">NEWSLETTER · WEEKLY</p>
-          <h2 id="nl-heading" class="nl-title">The Cited Brief</h2>
-          <p class="nl-body">
-            One Friday email. One buyer question AI is getting wrong, one move to fix
-            it, one example from the field. 4-minute read.
-          </p>
-        </div>
-        <div id="nl-form-wrap">
-          <form
-            name="cited-brief"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            id="cited-brief-form"
-            class="nl-form"
-          >
-            <input type="hidden" name="form-name" value="cited-brief" />
-            <p class="honeypot" aria-hidden="true">
-              <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-            </p>
-            <label class="sr-only" for="nl-email">Email address</label>
-            <input
-              class="nl-input"
-              type="email"
-              id="nl-email"
-              name="email"
-              placeholder="your@work-email.com"
-              required
-            />
-            <label class="sr-only" for="nl-role">Your role</label>
-            <input
-              class="nl-input"
-              type="text"
-              id="nl-role"
-              name="role"
-              placeholder="Role: Head of Marketing"
-            />
-            <button type="submit" class="nl-btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       SECTION 8b — STATS TRUST STRIP
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="stats-heading">
-    <p class="s-eyebrow">THE AEO SHIFT, IN NUMBERS</p>
-    <h2 id="stats-heading" class="section-h2">Why this matters now</h2>
-    <div class="stats-strip">
-      <article class="stat-card">
-        <p class="stat-num">25%</p>
-        <p class="stat-label">decline in traditional search engine volume by 2026.</p>
-        <p class="stat-source">Gartner · Predicts 2024: How GenAI Will Reshape Marketing</p>
-      </article>
-      <article class="stat-card">
-        <p class="stat-num">~60%</p>
-        <p class="stat-label">of Google searches now end without a click — the zero-click trend feeding AI answers.</p>
-        <p class="stat-source">SparkToro · 2024 analysis of Similarweb clickstream data</p>
-      </article>
-      <article class="stat-card">
-        <p class="stat-num">1,300%</p>
-        <p class="stat-label">YoY growth in AI-driven referral traffic to retail sites (Cyber Monday 2024 vs 2023).</p>
-        <p class="stat-source">Adobe Analytics · December 2024</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
        SECTION 9 — FINAL CTA
   ══════════════════════════════════════════ -->
   <section class="section section--pt0" aria-labelledby="final-heading">
@@ -667,8 +592,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
 <style>
   /* ── Shared utilities ───────────────────────── */
-  .honeypot { position: absolute; left: -9999px; }
-
   .sr-only {
     position: absolute;
     width: 1px;
@@ -949,8 +872,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     padding: 30px 22px;
     background: var(--cream);
   }
-
-  .section--cream { background: var(--cream-deep); }
 
   .section--pt0 { padding-top: 0; }
 
@@ -1481,117 +1402,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     letter-spacing: 0.05em;
   }
 
-  /* ── Newsletter ─────────────────────────────── */
-  .newsletter {
-    background: var(--amber-light);
-    padding: 24px;
-    border-radius: 8px;
-  }
-
-  .nl-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .nl-eyebrow { color: var(--amber); }
-
-  .nl-title {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--brown-deep);
-    margin-bottom: 6px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .nl-body {
-    font-size: 11px;
-    line-height: 1.55;
-    color: var(--brown-mid);
-  }
-
-  .nl-form {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .nl-input {
-    background: #fff;
-    border: 0.5px solid rgba(65, 36, 2, 0.2);
-    padding: 8px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    color: var(--brown-deep);
-    font-family: 'Inter', sans-serif;
-    transition: border-color 0.2s ease;
-  }
-
-  .nl-input:focus {
-    outline: none;
-    border-color: var(--amber);
-  }
-
-  .nl-btn {
-    background: var(--navy);
-    color: var(--blue-text);
-    border: none;
-    padding: 9px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: background 0.2s ease;
-  }
-
-  .nl-btn:hover { background: #031F3D; }
-
-  /* ── Stats trust strip ──────────────────────── */
-  .stats-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .stat-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 20px 18px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stat-num {
-    font-size: 36px;
-    font-weight: 500;
-    color: var(--amber);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
-    font-family: var(--font-mono);
-  }
-
-  .stat-label {
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--navy);
-    margin-bottom: 12px;
-    flex: 1;
-  }
-
-  .stat-source {
-    font-size: 10px;
-    color: var(--muted);
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    padding-top: 10px;
-    border-top: 0.5px solid var(--line);
-    font-family: var(--font-mono);
-  }
-
   /* ── Final CTA ──────────────────────────────── */
   .final {
     background: var(--navy);
@@ -1626,8 +1436,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   @media (max-width: 768px) {
-    .hero-row,
-    .nl-grid {
+    .hero-row {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
     }
@@ -1646,8 +1455,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     .hero-h1-tail  { font-size: 17px; }
 
     .hp-aeo__defcards,
-    .offers,
-    .stats-strip {
+    .offers {
       grid-template-columns: 1fr;
     }
 
@@ -1680,19 +1488,12 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     .hero-ctas .btn-primary,
     .hero-ctas .btn-ghost { display: block; text-align: center; }
 
-    /* Stat numbers: prevent overflow on narrow widths */
-    .stat-num { font-size: 28px; }
-
-    /* Newsletter button: adequate tap target */
-    .nl-btn { padding: 12px 16px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .btn-primary,
     .btn-ghost,
-    .offer-cta,
-    .nl-input,
-    .nl-btn {
+    .offer-cta {
       transition-duration: 0.01ms;
     }
   }
