@@ -263,7 +263,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
       </div>
 
       <div class="hp-aeo__cta">
-        <a href="/aeo" class="btn btn--hero btn--primary">Understand AEO →</a>
+        <span class="btn btn--hero btn--ghost-dim">Read more at Visibility Rules News</span>
       </div>
     </div>
   </section>
@@ -1085,7 +1085,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__h2 {
-    font-size: 40px;
+    font-size: 42px;
     line-height: 1.14;
     letter-spacing: -0.025em;
     color: white;
@@ -1161,6 +1161,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin-top: 56px;
     display: flex;
     justify-content: flex-start;
+  }
+
+  .btn--ghost-dim {
+    background: transparent;
+    color: rgba(181, 212, 244, 0.45);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    cursor: default;
+    pointer-events: none;
   }
 
   /* ── Engine Preview (mirrors /work) ───────────────────────────── */
