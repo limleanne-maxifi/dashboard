@@ -77,14 +77,5 @@ const websiteSchema = {
       <slot />
     </main>
     <Footer />
-    <div id="viewport-debug" style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: #0f0; padding: 8px 12px; font-size: 12px; font-family: monospace; z-index: 9999; border-radius: 4px;"></div>
-    <script is:inline>
-      const debug = document.getElementById('viewport-debug');
-      function updateViewport() {
-        debug.textContent = `w: ${window.innerWidth}px (breakpoint: ${window.innerWidth <= 900 ? '900px ✓' : '>900px ✗'})`;
-      }
-      updateViewport();
-      window.addEventListener('resize', updateViewport);
-    </script>
   </body>
 </html>

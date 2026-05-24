@@ -743,11 +743,24 @@ section.deepest .eyebrow {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
+
+  .vs-hero__grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .vs-hero h1 {
+    font-size: 32px !important;
+  }
 }
 
 @media (max-width: 640px) {
   .wrap-inner {
     padding: 0 16px !important;
+  }
+
+  .vs-hero h1 {
+    font-size: 26px !important;
   }
 }
 
