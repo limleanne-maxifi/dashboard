@@ -305,10 +305,18 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
         </div>
 
         <div class="snap-card" aria-label="Sample Snapshot preview">
+          <div class="snap-toplabel">Sample scorecard</div>
           <div class="snap-hdr">
-            <h4 class="snap-title">Snapshot · Acme Consulting</h4>
-            <span class="snap-score">78<em>/100</em></span>
+            <div class="snap-hdr__left">
+              <h4 class="snap-title">Acme Consulting</h4>
+              <div class="snap-subtitle">AI Visibility Snapshot · Maxifi Digital</div>
+            </div>
+            <div class="snap-score-group">
+              <span class="snap-score-lbl">AI Visibility Score</span>
+              <span class="snap-score">78<em>/100</em></span>
+            </div>
           </div>
+          <div class="snap-summary">4 cited &nbsp;·&nbsp; 2 not cited &nbsp;·&nbsp; 25 queries tested</div>
           <div class="snap-row"><span>Best firm for healthcare M&amp;A · ChatGPT</span><span class="snap-value snap-value--cited">cited · #2</span></div>
           <div class="snap-row"><span>Best firm for healthcare M&amp;A · Claude</span><span class="snap-value snap-value--cited">cited · #1</span></div>
           <div class="snap-row"><span>Best firm for healthcare M&amp;A · Perplexity</span><span class="snap-value snap-value--not">not cited</span></div>
@@ -1885,20 +1893,35 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     border: 0.5px solid rgba(255,255,255,0.08);
     border-radius: 8px;
     padding: 22px;
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 11px;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
+  .snap-toplabel {
+    font: 500 9px/1 var(--font-sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    margin-bottom: 14px;
+  }
+
   .snap-hdr {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 12px;
     border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    margin-bottom: 14px;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .snap-hdr__left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .snap-title {
@@ -1906,12 +1929,33 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     font-size: 13px;
     font-weight: 500;
     font-family: var(--font-sans);
-    line-height: 1;
+    line-height: 1.2;
+  }
+
+  .snap-subtitle {
+    font: 400 9px/1.3 var(--font-sans);
+    color: var(--blue-mid);
+    letter-spacing: 0.03em;
+  }
+
+  .snap-score-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  .snap-score-lbl {
+    font: 400 9px/1 var(--font-sans);
+    color: var(--blue-mid);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
   }
 
   .snap-score {
-    font-family: var(--font-mono);
-    font-size: 22px;
+    font-family: var(--font-sans);
+    font-size: 20px;
     font-weight: 500;
     color: var(--amber-pale);
     line-height: 1;
@@ -1921,6 +1965,13 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     font-style: normal;
     font-size: 11px;
     color: var(--blue-mid);
+  }
+
+  .snap-summary {
+    font: 400 10px/1 var(--font-sans);
+    color: var(--blue-mid);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
   }
 
   .snap-row {
