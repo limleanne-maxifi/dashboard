@@ -1,0 +1,231 @@
+---
+interface Metric {
+  value: string;
+  label: string;
+}
+
+interface EngineResult {
+  engine: string;
+  citation: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+  paragraphs?: string[];
+  metrics?: Metric[];
+  primaryCTA?: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+  engineResults?: EngineResult[];
+  query?: string;
+}
+
+const {
+  eyebrow = 'Before · After',
+  heading = 'From PDF graveyard <em>to citation engine.</em>',
+  description = 'We turned a 3-day aviation conference into a structured AI Knowledge Hub. Sessions, speakers and themes became answer-ready assets that keep earning citations long after the room emptied.',
+  paragraphs = [],
+  metrics = [
+    { value: '47', label: 'Q&A pairs indexed' },
+    { value: '92%', label: 'Schema coverage' },
+    { value: '3×', label: 'Citation growth (90d)' },
+    { value: '5/5', label: 'Engines cite the hub' },
+  ],
+  primaryCTA = {
+    text: 'View the Live Hub →',
+    href: 'https://aswhub.maxifidigital.com/',
+  },
+  secondaryCTA = {
+    text: 'Read the case study',
+    href: '/work',
+  },
+  engineResults = [
+    { engine: 'ChatGPT', citation: 'cited · #1' },
+    { engine: 'Perplexity', citation: 'cited · #2' },
+    { engine: 'Claude', citation: 'cited · #1' },
+    { engine: 'Gemini', citation: 'cited · #3' },
+    { engine: 'Copilot', citation: 'cited · #2' },
+  ],
+  query = '"Top sources on aviation AEO"',
+} = Astro.props;
+---
+
+<div class="casebar">
+  <div class="wrap casebar__grid">
+    <div>
+      <span class="eyebrow eyebrow--dark" style="margin-bottom: 18px;">{eyebrow}</span>
+      <h2 class="case-heading" set:html={heading} />
+      <p class="case-description">{description}</p>
+      {paragraphs.map((p) => (
+        <p class="case-paragraph">{p}</p>
+      ))}
+      <div class="casebar__metrics">
+        {metrics.map((metric) => (
+          <div>
+            <div class="metric-value">{metric.value}</div>
+            <div class="metric-label">{metric.label}</div>
+          </div>
+        ))}
+      </div>
+      <div class="case-ctas">
+        <a
+          href={primaryCTA.href}
+          class="btn btn--primary"
+          target={primaryCTA.href.startsWith('http') ? '_blank' : undefined}
+          rel={primaryCTA.href.startsWith('http')
+            ? 'noopener noreferrer'
+            : undefined}
+        >
+          {primaryCTA.text}
+        </a>
+        <a href={secondaryCTA.href} class="btn btn--ghost-dark">
+          {secondaryCTA.text}
+        </a>
+      </div>
+    </div>
+    <div class="casebar__visual">
+      <div class="visual-row visual-row--header">
+        <span class="visual-label">Engine</span>
+        <span class="visual-label">Citation</span>
+      </div>
+      {engineResults.map((result) => (
+        <div class="visual-row">
+          <span>{result.engine}</span>
+          <span class="visual-value">{result.citation}</span>
+        </div>
+      ))}
+      <div class="visual-row visual-row--query" style="margin-top: 8px; padding-top: 14px; border-top: 0.5px solid rgba(255, 255, 255, 0.2);">
+        <span class="visual-label">Query</span>
+        <span class="visual-query">{query}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .casebar {
+    background: var(--navy);
+    color: var(--blue-text);
+    padding: 72px 0;
+  }
+
+  .casebar__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .case-heading {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  :global(.case-heading em) {
+    color: var(--amber-mid);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .case-description {
+    color: var(--blue-soft);
+    font: 400 14px/1.55 var(--font-sans);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .case-paragraph {
+    color: var(--blue-soft);
+    font: 400 14px/1.55 var(--font-sans);
+    margin-top: 12px;
+  }
+
+  .casebar__metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .casebar__metrics div {
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+  }
+
+  .metric-value {
+    font: 500 26px/1 var(--font-mono);
+    color: var(--amber-pale);
+  }
+
+  .metric-label {
+    font: 400 11px/1.4 var(--font-sans);
+    color: var(--blue-soft);
+    margin-top: 6px;
+  }
+
+  .case-ctas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .casebar__visual {
+    background: var(--navy-soft);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--blue-text);
+    line-height: 1.8;
+  }
+
+  .visual-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .visual-row:last-child {
+    border: none;
+  }
+
+  .visual-row--header {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .visual-label {
+    color: var(--blue-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  .visual-value {
+    color: var(--amber-pale);
+    font-weight: 500;
+  }
+
+  .visual-query {
+    color: var(--blue-text);
+  }
+
+  @media (max-width: 900px) {
+    .casebar__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .case-heading {
+      font-size: 24px;
+    }
+  }
+</style>

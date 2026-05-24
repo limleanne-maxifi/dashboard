@@ -1,549 +1,335 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CompareTable from '../components/sections/CompareTable.astro';
+import BenefitGrid from '../components/sections/BenefitGrid.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const tocItems = [
+  { label: 'What is AEO', href: '#what' },
+  { label: 'SEO vs AEO', href: '#vs' },
+  { label: 'Benefits', href: '#benefits' },
+  { label: 'Case proof', href: '#proof' },
+  { label: 'Your next step', href: '#next' },
+];
+
+const definitionCards = [
+  {
+    label: 'Retrieval',
+    title: 'Engines cite, not crawl',
+    description:
+      "AI engines pull short citations into a generated answer. Ranked pages and meta tags are no longer the unit of distribution — answer-formatted blocks are.",
+  },
+  {
+    label: 'Structure',
+    title: 'Schema is the new keyword',
+    description:
+      'Entities, Q&A pairs, FAQ schema, organisation markup. These are what an LLM\'s retrieval layer reaches for first.',
+  },
+  {
+    label: 'Authority',
+    title: 'Citations compound',
+    description:
+      'Once an engine cites you on a buyer question, you become the default answer. Every uncited answer is a competitor\'s earned trust moment.',
+  },
+];
 ---
 
 <BaseLayout
-  title="What is AEO? | Answer Engine Optimisation | Maxifi Digital"
-  description="AEO (Answer Engine Optimisation) is the discipline of making expert content retrievable by AI engines. Learn what it is, why it matters, and how Maxifi Digital builds it."
+  title="Understand AEO · The evolution beyond SEO · Maxifi Digital"
+  description="AEO — Answer Engine Optimisation — is how expert-led brands get cited by ChatGPT, Claude, Copilot, Gemini and Perplexity. The evolution beyond SEO."
   currentPage="/aeo"
 >
 
-  <!-- ══════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════ -->
-  <section class="page-hero" aria-labelledby="aeo-heading">
-    <p class="eyebrow">ANSWER ENGINE OPTIMISATION</p>
-    <h1 id="aeo-heading" class="page-h1">
-      AEO is what happens when AI becomes the search engine.
-    </h1>
-    <p class="page-lede">
-      SEO ranked your page on Google. AEO determines whether AI engines — ChatGPT,
-      Perplexity, Claude, Gemini and Google AI — cite your brand when buyers ask
-      the questions that matter.
-    </p>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       WHAT IS AEO
-  ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="what-heading">
-    <p class="s-eyebrow">DEFINITION</p>
-    <h2 id="what-heading" class="section-h2">What is AEO?</h2>
-    <div class="prose-grid">
-      <div class="prose-col">
-        <p class="prose">
-          Answer Engine Optimisation (AEO) is the practice of structuring, formatting
-          and distributing expert content so that AI language models retrieve and cite
-          it when responding to buyer queries.
-        </p>
-        <p class="prose">
-          Where traditional SEO optimises for the Google crawler — ranking pages by
-          links and keyword density — AEO optimises for large language models (LLMs)
-          that reason over structured knowledge rather than index raw pages.
-        </p>
-        <p class="prose">
-          The discipline spans four layers: content structure (entity-rich, answer-formatted
-          prose), schema markup (JSON-LD that makes facts machine-readable), authority
-          signals (citations, external mentions, E-E-A-T), and distribution (where your
-          content lives in the training and retrieval data that AI models consume).
-        </p>
-      </div>
-      <div class="stat-col">
-        <div class="stat-card">
-          <p class="stat-num">67%</p>
-          <p class="stat-label">of B2B buyers prefer a rep-free experience</p>
-        </div>
-        <div class="stat-card">
-          <p class="stat-num">5</p>
-          <p class="stat-label">AI engines now influencing B2B shortlists</p>
-        </div>
-        <div class="stat-card">
-          <p class="stat-num">&lt;3%</p>
-          <p class="stat-label">of expert organisations are AEO-ready today</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       SEO vs AEO COMPARISON
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="compare-heading">
-    <p class="s-eyebrow">SEO VS AEO</p>
-    <h2 id="compare-heading" class="section-h2">Same goal. Different game.</h2>
-    <div class="compare">
-      <div class="compare-col compare-col--seo">
-        <p class="cc-label">SEO</p>
-        <ul class="cc-lines" role="list">
-          <li class="cc-line">Ranks your page on Google</li>
-          <li class="cc-line">Targets keyword volume</li>
-          <li class="cc-line">Optimises for crawler bots</li>
-          <li class="cc-line">Success = organic clicks</li>
-          <li class="cc-line">Visible in SERPs</li>
-          <li class="cc-line cc-line--last">Output: traffic</li>
-        </ul>
-      </div>
-      <div class="compare-col compare-col--aeo">
-        <p class="cc-label">AEO</p>
-        <ul class="cc-lines" role="list">
-          <li class="cc-line">Cites your answer in AI engines</li>
-          <li class="cc-line">Targets buyer questions</li>
-          <li class="cc-line">Optimises for LLM retrieval</li>
-          <li class="cc-line">Success = citations + attribution</li>
-          <li class="cc-line">Present across 5 AI platforms</li>
-          <li class="cc-line cc-line--last">Output: authority</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       THE FOUR LAYERS
-  ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="layers-heading">
-    <p class="s-eyebrow">HOW IT WORKS</p>
-    <h2 id="layers-heading" class="section-h2">The four layers of AEO</h2>
-    <div class="layers">
-      <article class="layer-card">
-        <p class="layer-num">01</p>
-        <h3 class="layer-title">Content structure</h3>
-        <p class="layer-body">
-          Answer-formatted prose organised around specific buyer questions. Entity-rich
-          language that gives AI models unambiguous facts to retrieve. No filler content —
-          every sentence must answer something.
-        </p>
-      </article>
-      <article class="layer-card">
-        <p class="layer-num">02</p>
-        <h3 class="layer-title">Schema markup</h3>
-        <p class="layer-body">
-          JSON-LD structured data that wraps your expertise in machine-readable signals:
-          FAQPage, Article, Organization, Person, Service. Schema is the vocabulary AI
-          engines use to identify authoritative sources.
-        </p>
-      </article>
-      <article class="layer-card">
-        <p class="layer-num">03</p>
-        <h3 class="layer-title">Authority signals</h3>
-        <p class="layer-body">
-          External citations, media mentions, speaker credits and publication history that
-          build your E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
-          profile across the open web.
-        </p>
-      </article>
-      <article class="layer-card">
-        <p class="layer-num">04</p>
-        <h3 class="layer-title">Distribution</h3>
-        <p class="layer-body">
-          Strategic placement of answer-ready content across AI-indexed channels:
-          your own site, partner publications, open repositories and platforms
-          that AI training data and retrieval pipelines prioritise.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FAQ / SCHEMA
-  ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="faq-heading">
-    <p class="s-eyebrow">FAQ</p>
-    <h2 id="faq-heading" class="section-h2">Common questions about AEO</h2>
-    <div class="faqs" role="list">
-      <article class="faq" role="listitem">
-        <h3 class="faq-q">Does AEO replace SEO?</h3>
-        <p class="faq-a">
-          No — they are complementary. SEO remains essential for Google search traffic.
-          AEO addresses the separate (and growing) channel where buyers query AI engines
-          directly. Many AEO best practices — structured content, authority signals,
-          technical schema — also strengthen SEO.
-        </p>
-      </article>
-      <article class="faq" role="listitem">
-        <h3 class="faq-q">Which AI engines does AEO target?</h3>
-        <p class="faq-a">
-          Maxifi Digital tracks five: ChatGPT, Perplexity, Google AI Overviews, Claude
-          and Gemini. Each has different retrieval architectures, but the foundational
-          signals — structured content, entity clarity, authority — work across all five.
-        </p>
-      </article>
-      <article class="faq" role="listitem">
-        <h3 class="faq-q">How long does it take to see citation lift?</h3>
-        <p class="faq-a">
-          Early structural fixes (schema, content formatting, entity signals) can influence
-          citation rates within 30 days for real-time retrieval engines like Perplexity
-          and Google AI Overviews. Training-data-dependent models (ChatGPT base) update
-          on longer cycles — typically 3–6 months.
-        </p>
-      </article>
-      <article class="faq" role="listitem">
-        <h3 class="faq-q">Is AEO only for large organisations?</h3>
-        <p class="faq-a">
-          No. In fact, focused expert organisations — niche law firms, specialist
-          consultancies, professional associations — have a structural advantage. AI engines
-          reward genuine depth and specificity over broad, generic content. A 50-person
-          firm with real expertise can outrank a global generalist on its specific questions.
-        </p>
-      </article>
-      <article class="faq" role="listitem">
-        <h3 class="faq-q">What makes Maxifi Digital's approach different?</h3>
-        <p class="faq-a">
-          We focus exclusively on expert-led organisations in regulated and knowledge-intensive
-          industries. We do not offer volume content production or generic SEO packages.
-          Every engagement starts with a Visibility Snapshot — a structured audit of how
-          AI engines currently cite (or ignore) the client — and builds from there.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       CTA
-  ══════════════════════════════════════════ -->
-  <section class="section section--pt0" aria-labelledby="cta-heading">
-    <div class="cta-box">
-      <p class="s-eyebrow cta-eyebrow">GET STARTED</p>
-      <h2 id="cta-heading" class="cta-title">
-        Find out where you stand in 5 minutes.
-      </h2>
-      <p class="cta-body">
-        Your free AI Visibility Snapshot shows exactly which engines cite you,
-        which queries you're missing, and three things you can fix this week.
+  <!-- Hero Section -->
+  <section class="aeo-hero">
+    <div class="wrap aeo-hero__inner">
+      <span class="eyebrow aeo-eyebrow--brown" style="margin-bottom: 18px;">The category · AEO</span>
+      <h1 class="aeo-hero__h1">
+        SEO got you ranked. <em>AEO gets you cited.</em>
+      </h1>
+      <p class="aeo-hero__lede">
+        Answer Engine Optimisation is the discipline of becoming a source AI
+        engines retrieve, understand, and quote by name. Different distribution
+        layer, different unit of content, different optimisation playbook.
       </p>
-      <div class="cta-buttons">
-        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my free Snapshot</a>
-        <a href="/work" class="btn-outline">See our Engine</a>
+      <div class="aeo-hero__meta">
+        <span><span class="aeo-meta__dot"></span>8 minute read</span>
+        <span><span class="aeo-meta__dot"></span>Maxifi · The Category Brief</span>
+        <span><span class="aeo-meta__dot"></span>Updated May 2026</span>
       </div>
     </div>
   </section>
 
-  <script type="application/ld+json" is:inline>
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does AEO replace SEO?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No — they are complementary. SEO remains essential for Google search traffic. AEO addresses the separate and growing channel where buyers query AI engines directly. Many AEO best practices also strengthen SEO."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which AI engines does AEO target?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Maxifi Digital tracks five: ChatGPT, Perplexity, Google AI Overviews, Claude and Gemini. Each has different retrieval architectures, but the foundational signals work across all five."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to see citation lift?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Early structural fixes can influence citation rates within 30 days for real-time retrieval engines like Perplexity and Google AI Overviews. Training-data-dependent models update on longer cycles, typically 3 to 6 months."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is AEO only for large organisations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Focused expert organisations have a structural advantage. AI engines reward genuine depth and specificity. A 50-person firm with real expertise can outrank a global generalist on its specific questions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes Maxifi Digital's approach different?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Maxifi Digital focuses exclusively on expert-led organisations in regulated and knowledge-intensive industries. Every engagement starts with a Visibility Snapshot — a structured audit of how AI engines currently cite the client."
-        }
-      }
-    ]
-  }
-  </script>
+  <!-- Section 02: SEO vs AEO -->
+  <section id="vs" class="aeo-section aeo-section--alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow aeo-eyebrow--brown">01 · The comparison</span>
+        <h2>The shift, in two columns.</h2>
+        <p>
+          SEO and AEO are not competing strategies. AEO is what SEO became when
+          retrieval replaced ranking as the distribution layer.
+        </p>
+      </div>
+      <CompareTable />
+    </div>
+  </section>
+
+  <!-- Section 01: What is AEO -->
+  <section id="what" class="aeo-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow aeo-eyebrow--brown">02 · The definition</span>
+        <h2>AEO is how AI amplifies <em>your authority.</em></h2>
+        <p>
+          Every retrieval-augmented engine — ChatGPT, Claude, Copilot, Gemini,
+          Perplexity — answers buyer questions by citing sources. AEO is the
+          discipline of becoming a source that's structured, schema-tagged, and
+          answer-formatted so those engines find you, understand you, and quote
+          you by name.
+        </p>
+      </div>
+      <div class="grid-3">
+        {definitionCards.map((card) => (
+          <div class="card card--dark">
+            <span class="card__label">{card.label}</span>
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Benefits -->
+  <section id="benefits" class="aeo-section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow aeo-eyebrow--brown">03 · The benefits</span>
+        <h2>What AEO actually does <em>for your pipeline.</em></h2>
+      </div>
+      <BenefitGrid />
+    </div>
+  </section>
+
+  <!-- Section 04: Next Step -->
+  <section id="next" class="aeo-nextstep">
+    <div class="wrap aeo-nextstep__inner">
+      <div>
+        <span class="eyebrow aeo-eyebrow--default">Your next step</span>
+        <h2>See where AI cites you <em>today.</em></h2>
+        <p>
+          Start with a free, 5-minute visibility audit. We test your category
+          questions across the five engines and email you the results.
+        </p>
+      </div>
+      <div class="aeo-nextstep__ctas">
+        <a href="/visibility-snapshot" class="btn btn--hero btn--primary">
+          Get your Snapshot →
+        </a>
+        <a href="/work" class="btn btn--hero btn--ghost-light">
+          Book a consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <FinalCTA
+    heading="When your buyers ask AI who to trust — <em>be the answer.</em>"
+    primaryLabel="Check My AI Visibility →"
+    primaryHref="/visibility-snapshot"
+    secondaryLabel="See a Live Example →"
+    secondaryHref="https://aswhub.maxifidigital.com/"
+    secondaryExternal={true}
+  />
 
 </BaseLayout>
 
 <style>
-  /* ── Page hero ──────────────────────────────── */
-  .page-hero {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--blue-text);
-    padding: 40px 22px 36px;
-    text-align: center;
-  }
-
-  .eyebrow {
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .page-h1 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0 0 12px;
-    line-height: 1.18;
-    font-family: 'Inter', sans-serif;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .page-lede {
-    font-size: 13px;
-    line-height: 1.55;
-    color: var(--blue-soft);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* ── Shared ─────────────────────────────────── */
-  .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--amber-mid);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .section-h2 {
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--navy);
-    margin: 0 0 18px;
-    line-height: 1.25;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .section {
-    padding: 30px 22px;
-    background: var(--cream);
-  }
-
-  .section--cream { background: var(--cream-deep); }
-  .section--pt0 { padding-top: 0; }
-
-  /* ── Prose + stats ──────────────────────────── */
-  .prose-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 24px;
-    align-items: start;
-  }
-
-  .prose {
-    font-size: 13px;
-    line-height: 1.7;
-    color: #444441;
-    margin-bottom: 12px;
-  }
-
-  .stat-col { display: flex; flex-direction: column; gap: 10px; }
-
-  .stat-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 14px;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  /* ── SEO vs AEO compare ─────────────────────── */
-  .compare {
-    border-radius: 8px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .compare-col { padding: 18px; }
-  .compare-col--seo { background: var(--navy); }
-  .compare-col--aeo { background: var(--amber); }
-
-  .cc-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    margin-bottom: 14px;
-  }
-
-  .compare-col--seo .cc-label { color: var(--blue-mid); }
-  .compare-col--aeo .cc-label { color: var(--brown-deep); }
-
-  .cc-lines { list-style: none; }
-
-  .cc-line {
-    font-size: 12px;
-    padding: 7px 0;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
-    line-height: 1.3;
-  }
-
-  .cc-line--last { border: none; }
-  .compare-col--seo .cc-line { color: var(--blue-text); }
-
-  .compare-col--aeo .cc-line {
-    color: var(--brown-deep);
-    border-bottom-color: rgba(0, 0, 0, 0.14);
-  }
-
-  /* ── Four layers ────────────────────────────── */
-  .layers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .layer-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 16px;
-  }
-
-  .layer-num {
-    font-size: 10px;
-    color: var(--amber);
-    font-weight: 500;
-    margin-bottom: 6px;
-    letter-spacing: 0.08em;
-  }
-
-  .layer-title {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 7px;
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
-  }
-
-  .layer-body {
-    font-size: 12px;
-    line-height: 1.55;
-    color: var(--muted);
-  }
-
-  /* ── FAQ ────────────────────────────────────── */
-  .faqs { display: flex; flex-direction: column; gap: 0; }
-
-  .faq {
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
-    padding: 14px 0;
-  }
-
-  .faq:last-child { border-bottom: none; }
-
-  .faq-q {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 6px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .faq-a {
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--muted);
-  }
-
-  /* ── CTA box ────────────────────────────────── */
-  .cta-box {
+  .aeo-hero {
+    padding: 88px 0 72px;
     background: var(--navy);
-    padding: 34px 22px;
-    text-align: center;
-    color: var(--blue-text);
-    border-radius: 8px;
+    color: white;
   }
 
-  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
+  .aeo-hero__inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
 
-  .cta-title {
-    font-size: 21px;
+  .aeo-hero__h1 {
+    font-size: 36px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
     font-weight: 500;
-    color: #fff;
-    margin: 0 0 10px;
-    line-height: 1.25;
-    font-family: 'Inter', sans-serif;
+    color: white;
   }
 
-  .cta-body {
-    font-size: 12px;
-    line-height: 1.55;
+  .aeo-hero__h1 em {
+    font-style: italic;
+    color: var(--amber-mid);
+    font-weight: 500;
+  }
+
+  .aeo-hero__lede {
+    font: 400 14px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    max-width: 460px;
-    margin: 0 auto 18px;
+    max-width: 680px;
+    margin: 0;
   }
 
-  .cta-buttons {
+  .aeo-hero__meta {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+    font: 400 11px/1 var(--font-mono);
+    color: var(--blue-mid);
+    letter-spacing: 0.04em;
     flex-wrap: wrap;
   }
 
-  .btn-primary {
-    background: var(--amber);
-    color: var(--amber-light);
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
+  .aeo-hero__meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .aeo-meta__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--blue-mid);
     display: inline-block;
-    transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .aeo-eyebrow--brown {
+    color: var(--amber-mid);
+  }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--blue-text);
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 12px;
+  .aeo-eyebrow--default {
+    color: var(--amber-mid);
+  }
+
+  .aeo-section {
+    padding: 80px 0;
+    background: var(--navy-deep);
+    color: var(--blue-soft);
+  }
+
+  .aeo-section h2 {
+    color: white;
+  }
+
+  .aeo-section h3 {
+    color: white;
+  }
+
+  .aeo-section--alt {
+    background: var(--navy);
+  }
+
+  .aeo-section .sec-head h2 {
+    color: white;
+  }
+
+  .aeo-section .sec-head h2 em {
+    font-style: italic;
+    color: var(--amber-mid);
     font-weight: 500;
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s ease;
   }
 
-  .btn-outline:hover { border-color: rgba(255, 255, 255, 0.6); }
-
-  /* ── Responsive ─────────────────────────────── */
-  @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
-    .prose-grid { grid-template-columns: 1fr; }
-    .compare { grid-template-columns: 1fr; }
-    .layers { grid-template-columns: 1fr; }
-    .cta-title { font-size: 18px; }
+  .aeo-section .sec-head p {
+    font: 400 13px/1.55 var(--font-sans);
+    color: var(--blue-soft);
+    margin-top: 12px;
+    max-width: 600px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .btn-primary, .btn-outline { transition-duration: 0.01ms; }
+  .card__label {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .aeo-nextstep {
+    background: var(--navy-deep);
+    padding: 80px 0;
+    color: var(--blue-soft);
+  }
+
+  .aeo-nextstep__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.4fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .aeo-nextstep h2 {
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: white;
+    max-width: 600px;
+  }
+
+  .aeo-nextstep h2 em {
+    color: var(--amber-mid);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .aeo-nextstep p {
+    font: 400 13px/1.55 var(--font-sans);
+    color: var(--blue-soft);
+    margin-top: 10px;
+    max-width: 600px;
+    margin-bottom: 0;
+  }
+
+  .aeo-nextstep .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .aeo-nextstep__ctas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 900px) {
+    .aeo-hero {
+      padding: 64px 0 48px;
+    }
+
+    .aeo-hero__h1 {
+      font-size: 26px;
+    }
+
+    .aeo-section {
+      padding: 48px 0;
+    }
+
+    .aeo-nextstep {
+      padding: 48px 0;
+    }
+
+    .aeo-nextstep__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .aeo-nextstep__ctas {
+      justify-content: flex-start;
+    }
   }
 </style>
