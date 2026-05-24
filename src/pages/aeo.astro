@@ -4,14 +4,6 @@ import CompareTable from '../components/sections/CompareTable.astro';
 import BenefitGrid from '../components/sections/BenefitGrid.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
 
-const tocItems = [
-  { label: 'What is AEO', href: '#what' },
-  { label: 'SEO vs AEO', href: '#vs' },
-  { label: 'Benefits', href: '#benefits' },
-  { label: 'Case proof', href: '#proof' },
-  { label: 'Your next step', href: '#next' },
-];
-
 const definitionCards = [
   {
     label: 'Retrieval',
@@ -43,7 +35,7 @@ const definitionCards = [
   <!-- Hero Section -->
   <section class="aeo-hero">
     <div class="wrap aeo-hero__inner">
-      <span class="eyebrow aeo-eyebrow--brown" style="margin-bottom: 18px;">The category · AEO</span>
+      <span class="eyebrow aeo-eyebrow--brown aeo-hero__eyebrow">The category · AEO</span>
       <h1 class="aeo-hero__h1">
         SEO got you ranked. <em>AEO gets you cited.</em>
       </h1>
@@ -60,12 +52,12 @@ const definitionCards = [
     </div>
   </section>
 
-  <!-- Section 02: SEO vs AEO -->
+  <!-- Section 01: SEO vs AEO -->
   <section id="vs" class="aeo-section aeo-section--alt">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow aeo-eyebrow--brown">01 · The comparison</span>
-        <h2>The shift, in two columns.</h2>
+        <h2>The shift, in two columns</h2>
         <p>
           SEO and AEO are not competing strategies. AEO is what SEO became when
           retrieval replaced ranking as the distribution layer.
@@ -75,12 +67,12 @@ const definitionCards = [
     </div>
   </section>
 
-  <!-- Section 01: What is AEO -->
+  <!-- Section 02: What is AEO -->
   <section id="what" class="aeo-section">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow aeo-eyebrow--brown">02 · The definition</span>
-        <h2>AEO is how AI amplifies <em>your authority.</em></h2>
+        <h2>AEO is how AI amplifies <em>your authority</em></h2>
         <p>
           Every retrieval-augmented engine — ChatGPT, Claude, Copilot, Gemini,
           Perplexity — answers buyer questions by citing sources. AEO is the
@@ -106,7 +98,7 @@ const definitionCards = [
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow aeo-eyebrow--brown">03 · The benefits</span>
-        <h2>What AEO actually does <em>for your pipeline.</em></h2>
+        <h2>What AEO actually does <em>for your pipeline</em></h2>
       </div>
       <BenefitGrid />
     </div>
@@ -117,7 +109,7 @@ const definitionCards = [
     <div class="wrap aeo-nextstep__inner">
       <div>
         <span class="eyebrow aeo-eyebrow--default">Your next step</span>
-        <h2>See where AI cites you <em>today.</em></h2>
+        <h2>See where AI cites you <em>today</em></h2>
         <p>
           Start with a free, 5-minute visibility audit. We test your category
           questions across the five engines and email you the results.
@@ -136,7 +128,7 @@ const definitionCards = [
 
   <!-- Final CTA -->
   <FinalCTA
-    heading="When your buyers ask AI who to trust — <em>be the answer.</em>"
+    heading="When your buyers ask AI who to trust — <em>be the answer</em>"
     primaryLabel="Check My AI Visibility →"
     primaryHref="/visibility-snapshot"
     secondaryLabel="See a Live Example →"
@@ -148,7 +140,7 @@ const definitionCards = [
 
 <style>
   .aeo-hero {
-    padding: 88px 0 72px;
+    padding: 64px 0 48px;
     background: var(--navy);
     color: white;
   }
@@ -159,11 +151,16 @@ const definitionCards = [
     padding: 0 40px;
   }
 
+  .aeo-hero__eyebrow {
+    display: block;
+    margin-bottom: 14px;
+  }
+
   .aeo-hero__h1 {
     font-size: 36px;
     line-height: 1.18;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     font-weight: 500;
     color: white;
   }
@@ -177,15 +174,15 @@ const definitionCards = [
   .aeo-hero__lede {
     font: 400 14px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    max-width: 680px;
+    max-width: 620px;
     margin: 0;
   }
 
   .aeo-hero__meta {
     display: flex;
     gap: 18px;
-    margin-top: 20px;
-    font: 400 11px/1 var(--font-mono);
+    margin-top: 14px;
+    font: 400 11px/1 var(--font-sans);
     color: var(--blue-mid);
     letter-spacing: 0.04em;
     flex-wrap: wrap;
@@ -214,7 +211,7 @@ const definitionCards = [
   }
 
   .aeo-section {
-    padding: 80px 0;
+    padding: 56px 0;
     background: var(--navy-deep);
     color: var(--blue-soft);
   }
@@ -231,6 +228,10 @@ const definitionCards = [
     background: var(--navy);
   }
 
+  .aeo-section .sec-head {
+    margin-bottom: 24px;
+  }
+
   .aeo-section .sec-head h2 {
     color: white;
   }
@@ -244,12 +245,24 @@ const definitionCards = [
   .aeo-section .sec-head p {
     font: 400 13px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    margin-top: 12px;
-    max-width: 600px;
+    margin-top: 10px;
+    max-width: 620px;
+  }
+
+  /* Stack columns vertically for the two "column" sections.
+     CompareTable: 2 cols -> 2x1 stacked rows
+     Definition cards (.grid-3): 3 cols -> 3x1 stacked rows
+     :global() needed to pierce CompareTable's scoped styles. */
+  .aeo-section :global(.compare__table),
+  .aeo-section .grid-3 {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .card__label {
-    font: 500 10px/1 var(--font-mono);
+    font: 500 10px/1 var(--font-sans);
     letter-spacing: 0.1em;
     color: var(--amber-mid);
     text-transform: uppercase;
@@ -259,7 +272,7 @@ const definitionCards = [
 
   .aeo-nextstep {
     background: var(--navy-deep);
-    padding: 80px 0;
+    padding: 56px 0;
     color: var(--blue-soft);
   }
 
@@ -279,7 +292,7 @@ const definitionCards = [
     letter-spacing: -0.02em;
     font-weight: 500;
     color: white;
-    max-width: 600px;
+    max-width: 620px;
   }
 
   .aeo-nextstep h2 em {
@@ -292,7 +305,7 @@ const definitionCards = [
     font: 400 13px/1.55 var(--font-sans);
     color: var(--blue-soft);
     margin-top: 10px;
-    max-width: 600px;
+    max-width: 620px;
     margin-bottom: 0;
   }
 
@@ -309,7 +322,7 @@ const definitionCards = [
 
   @media (max-width: 900px) {
     .aeo-hero {
-      padding: 64px 0 48px;
+      padding: 48px 0 40px;
     }
 
     .aeo-hero__h1 {
@@ -317,11 +330,11 @@ const definitionCards = [
     }
 
     .aeo-section {
-      padding: 48px 0;
+      padding: 40px 0;
     }
 
     .aeo-nextstep {
-      padding: 48px 0;
+      padding: 40px 0;
     }
 
     .aeo-nextstep__inner {
