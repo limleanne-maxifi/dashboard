@@ -518,7 +518,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   <!-- ══════════════════════════════════════════
        SECTION 9 — FINAL CTA
   ══════════════════════════════════════════ -->
-  <section class="section section--pt0" aria-labelledby="final-heading">
+  <section class="section section--final" aria-labelledby="final-heading">
     <div class="final">
       <h2 id="final-heading" class="final-title">
         Find out what AI says about your business — in 5 minutes
@@ -582,11 +582,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     });
   }
 
-  bindForm(
-    'cited-brief-form',
-    'nl-form-wrap',
-    "You're subscribed. See you Friday.",
-  );
 
 </script>
 
@@ -1403,6 +1398,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   /* ── Final CTA ──────────────────────────────── */
+  .section--final {
+    padding: 0 40px 40px;
+  }
+
   .final {
     background: var(--navy);
     padding: 34px 22px;
@@ -1665,7 +1664,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: flex;
     flex-direction: column;
   }
-  .vs-report__rows { margin-top: auto; display: grid; gap: 6px; }
+  .vs-report__rows { margin-top: 20px; display: grid; gap: 6px; }
   .vs-report__meta {
     font: 400 11px/1.4 var(--font-sans);
     color: var(--mute-soft);
@@ -1783,18 +1782,20 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     font-weight: 500;
     text-transform: uppercase;
     margin: 0 0 24px;
-    text-align: center;
+    text-align: left;
   }
 
   .system-section {
     background: var(--navy);
     color: var(--blue-text);
     padding: 48px 0 104px;
+    text-align: left;
   }
 
   .system-head {
     max-width: 720px;
-    margin: 0 auto 36px;
+    margin: 0 0 36px;
+    text-align: left;
   }
 
   .system-title {
