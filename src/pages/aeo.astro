@@ -43,7 +43,7 @@ const definitionCards = [
   <!-- Hero Section -->
   <section class="aeo-hero">
     <div class="wrap aeo-hero__inner">
-      <span class="eyebrow aeo-eyebrow--brown" style="margin-bottom: 18px;">The category · AEO</span>
+      <span class="eyebrow aeo-eyebrow--brown aeo-hero__eyebrow">The category · AEO</span>
       <h1 class="aeo-hero__h1">
         SEO got you ranked. <em>AEO gets you cited.</em>
       </h1>
@@ -148,7 +148,7 @@ const definitionCards = [
 
 <style>
   .aeo-hero {
-    padding: 88px 0 72px;
+    padding: 64px 0 48px;
     background: var(--navy);
     color: white;
   }
@@ -159,11 +159,16 @@ const definitionCards = [
     padding: 0 40px;
   }
 
+  .aeo-hero__eyebrow {
+    display: block;
+    margin-bottom: 14px;
+  }
+
   .aeo-hero__h1 {
     font-size: 36px;
     line-height: 1.18;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     font-weight: 500;
     color: white;
   }
@@ -177,14 +182,14 @@ const definitionCards = [
   .aeo-hero__lede {
     font: 400 14px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    max-width: 680px;
+    max-width: 620px;
     margin: 0;
   }
 
   .aeo-hero__meta {
     display: flex;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: 14px;
     font: 400 11px/1 var(--font-mono);
     color: var(--blue-mid);
     letter-spacing: 0.04em;
@@ -214,7 +219,7 @@ const definitionCards = [
   }
 
   .aeo-section {
-    padding: 80px 0;
+    padding: 56px 0;
     background: var(--navy-deep);
     color: var(--blue-soft);
   }
@@ -231,6 +236,10 @@ const definitionCards = [
     background: var(--navy);
   }
 
+  .aeo-section .sec-head {
+    margin-bottom: 24px;
+  }
+
   .aeo-section .sec-head h2 {
     color: white;
   }
@@ -244,8 +253,8 @@ const definitionCards = [
   .aeo-section .sec-head p {
     font: 400 13px/1.55 var(--font-sans);
     color: var(--blue-soft);
-    margin-top: 12px;
-    max-width: 600px;
+    margin-top: 10px;
+    max-width: 620px;
   }
 
   .card__label {
@@ -259,7 +268,7 @@ const definitionCards = [
 
   .aeo-nextstep {
     background: var(--navy-deep);
-    padding: 80px 0;
+    padding: 56px 0;
     color: var(--blue-soft);
   }
 
@@ -279,7 +288,7 @@ const definitionCards = [
     letter-spacing: -0.02em;
     font-weight: 500;
     color: white;
-    max-width: 600px;
+    max-width: 620px;
   }
 
   .aeo-nextstep h2 em {
@@ -292,7 +301,7 @@ const definitionCards = [
     font: 400 13px/1.55 var(--font-sans);
     color: var(--blue-soft);
     margin-top: 10px;
-    max-width: 600px;
+    max-width: 620px;
     margin-bottom: 0;
   }
 
@@ -309,7 +318,7 @@ const definitionCards = [
 
   @media (max-width: 900px) {
     .aeo-hero {
-      padding: 64px 0 48px;
+      padding: 48px 0 40px;
     }
 
     .aeo-hero__h1 {
@@ -317,11 +326,11 @@ const definitionCards = [
     }
 
     .aeo-section {
-      padding: 48px 0;
+      padding: 40px 0;
     }
 
     .aeo-nextstep {
-      padding: 48px 0;
+      padding: 40px 0;
     }
 
     .aeo-nextstep__inner {
