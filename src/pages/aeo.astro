@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TOC from '../components/sections/TOC.astro';
 import CompareTable from '../components/sections/CompareTable.astro';
 import BenefitGrid from '../components/sections/BenefitGrid.astro';
-import CaseBar from '../components/sections/CaseBar.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
 
 const tocItems = [
@@ -62,9 +60,6 @@ const definitionCards = [
     </div>
   </section>
 
-  <!-- TOC -->
-  <TOC items={tocItems} />
-
   <!-- Section 01: What is AEO -->
   <section id="what" class="aeo-section">
     <div class="wrap">
@@ -117,12 +112,7 @@ const definitionCards = [
     </div>
   </section>
 
-  <!-- Section 04: Case Proof -->
-  <section id="proof">
-    <CaseBar />
-  </section>
-
-  <!-- Section 05: Next Step -->
+  <!-- Section 04: Next Step -->
   <section id="next" class="aeo-nextstep">
     <div class="wrap aeo-nextstep__inner">
       <div>
