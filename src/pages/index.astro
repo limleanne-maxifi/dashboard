@@ -518,7 +518,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   <!-- ══════════════════════════════════════════
        SECTION 9 — FINAL CTA
   ══════════════════════════════════════════ -->
-  <section class="section section--pt0" aria-labelledby="final-heading">
+  <section class="section section--final" aria-labelledby="final-heading">
     <div class="final">
       <h2 id="final-heading" class="final-title">
         Find out what AI says about your business — in 5 minutes
@@ -1403,6 +1403,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   /* ── Final CTA ──────────────────────────────── */
+  .section--final {
+    padding: 0 40px 40px;
+  }
+
   .final {
     background: var(--navy);
     padding: 34px 22px;
