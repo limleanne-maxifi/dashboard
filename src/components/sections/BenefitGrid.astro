@@ -44,8 +44,8 @@ const {
       title: 'Audit before you spend',
       description: 'Start with the free Snapshot. See your citation map before committing to any work.',
       featured: true,
-      ctaText: 'Run the Snapshot →',
-      ctaHref: '/visibility-snapshot',
+      ctaText: 'Run the Visibility Snapshot →',
+      ctaHref: 'https://visibilityview.netlify.app/',
     },
   ],
 } = Astro.props;
@@ -58,7 +58,7 @@ const {
       <h3>{item.title}</h3>
       <p>{item.description}</p>
       {item.featured && item.ctaText && item.ctaHref && (
-        <a href={item.ctaHref} class="btn btn--primary" style="margin-top: 14px;">
+        <a href={item.ctaHref} class="btn btn--primary" style="margin-top: 14px;" target="_blank" rel="noopener noreferrer">
           {item.ctaText}
         </a>
       )}
