@@ -826,13 +826,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 960px) {
+  @media (max-width: 900px) {
     .vs-hero__grid {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 32px;
     }
 
-    .vs-hero h1 { font-size: 34px; }
+    .vs-hero h1 { font-size: 32px; }
+    .vs-hero { padding: 32px 0 40px; }
 
     .vs-sample__panel {
       grid-template-columns: 1fr;
