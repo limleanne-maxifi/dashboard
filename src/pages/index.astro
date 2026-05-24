@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroLoop from '../components/HeroLoop.astro';
+import CompareTable from '../components/sections/CompareTable.astro';
+import BenefitGrid from '../components/sections/BenefitGrid.astro';
 ---
 
 <BaseLayout
@@ -206,67 +208,63 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
 <!-- ══════════════════════════════════════════
-       SECTION 4 — UNDERSTAND AEO (combined problem + category)
+       SECTION 4 — UNDERSTAND AEO (navy mirror of /aeo page)
   ══════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="problem-heading">
-    <p class="s-eyebrow">UNDERSTAND AEO</p>
-    <h2 id="problem-heading" class="section-h2" style="max-width:500px;">
-      Most expert content is invisible to AI — at the exact moment buyers are asking
-      better questions.
-    </h2>
-    <div class="problem-grid">
-      <article class="problem-card">
-        <p class="pc-num">01</p>
-        <h3 class="pc-title">Buyers ask AI first</h3>
-        <p class="pc-body">
-          67% of B2B buyers prefer a rep-free experience. ChatGPT is the new
-          shortlist builder.
+  <section class="hp-aeo" aria-labelledby="aeo-heading">
+    <div class="wrap">
+      <div class="hp-aeo__head">
+        <span class="eyebrow hp-aeo__eyebrow">UNDERSTAND AEO</span>
+        <h2 id="aeo-heading" class="hp-aeo__h2">
+          Most expert content is invisible to AI — at the exact moment buyers are asking <em>better questions.</em>
+        </h2>
+        <p class="hp-aeo__lede">
+          Answer Engine Optimisation is the discipline of becoming a source AI engines retrieve, understand, and quote by name. Different distribution layer, different unit of content, different optimisation playbook.
         </p>
-      </article>
-      <article class="problem-card">
-        <p class="pc-num">02</p>
-        <h3 class="pc-title">AI cites structure</h3>
-        <p class="pc-body">
-          Retrieval rewards entity-rich, answer-formatted content. Most expert
-          content is none of these.
-        </p>
-      </article>
-      <article class="problem-card">
-        <p class="pc-num">03</p>
-        <h3 class="pc-title">Absence costs trust</h3>
-        <p class="pc-body">
-          Every uncited answer is a competitor's earned trust moment. Every
-          generic citation is yours, lost.
-        </p>
-      </article>
-    </div>
-
-    <h3 class="compare-h3" id="compare-heading">SEO got you ranked. AEO gets you cited.</h3>
-    <div class="compare">
-      <div class="compare-col compare-col--seo">
-        <p class="cc-label">SEO</p>
-        <ul class="cc-lines" role="list">
-          <li class="cc-line">Ranks your page</li>
-          <li class="cc-line">Targets keywords</li>
-          <li class="cc-line">Optimises for clicks</li>
-          <li class="cc-line">Lives on Google</li>
-          <li class="cc-line cc-line--last">Output: traffic</li>
-        </ul>
       </div>
-      <div class="compare-col compare-col--aeo">
-        <p class="cc-label">AEO</p>
-        <ul class="cc-lines" role="list">
-          <li class="cc-line">Cites your answer</li>
-          <li class="cc-line">Targets buyer questions</li>
-          <li class="cc-line">Optimises for retrieval</li>
-          <li class="cc-line">Lives across 5 AI engines</li>
-          <li class="cc-line cc-line--last">Output: authority</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="aeo-cta-row">
-      <a href="/aeo" class="btn-primary">Understand AEO →</a>
+      <div class="hp-aeo__block">
+        <div class="hp-aeo__subhead">
+          <span class="eyebrow hp-aeo__eyebrow">01 · The comparison</span>
+          <h3 class="hp-aeo__h3">The shift, in two columns.</h3>
+        </div>
+        <CompareTable />
+      </div>
+
+      <div class="hp-aeo__block">
+        <div class="hp-aeo__subhead">
+          <span class="eyebrow hp-aeo__eyebrow">02 · The definition</span>
+          <h3 class="hp-aeo__h3">AEO is how AI amplifies <em>your authority.</em></h3>
+        </div>
+        <div class="hp-aeo__defcards">
+          <div class="card card--dark">
+            <span class="hp-aeo__cardlabel">Retrieval</span>
+            <h4 class="hp-aeo__cardtitle">Engines cite, not crawl</h4>
+            <p class="hp-aeo__cardbody">AI engines pull short citations into a generated answer. Ranked pages and meta tags are no longer the unit of distribution — answer-formatted blocks are.</p>
+          </div>
+          <div class="card card--dark">
+            <span class="hp-aeo__cardlabel">Structure</span>
+            <h4 class="hp-aeo__cardtitle">Schema is the new keyword</h4>
+            <p class="hp-aeo__cardbody">Entities, Q&A pairs, FAQ schema, organisation markup. These are what an LLM's retrieval layer reaches for first.</p>
+          </div>
+          <div class="card card--dark">
+            <span class="hp-aeo__cardlabel">Authority</span>
+            <h4 class="hp-aeo__cardtitle">Citations compound</h4>
+            <p class="hp-aeo__cardbody">Once an engine cites you on a buyer question, you become the default answer. Every uncited answer is a competitor's earned trust moment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hp-aeo__block">
+        <div class="hp-aeo__subhead">
+          <span class="eyebrow hp-aeo__eyebrow">03 · The benefits</span>
+          <h3 class="hp-aeo__h3">What AEO actually does <em>for your pipeline.</em></h3>
+        </div>
+        <BenefitGrid />
+      </div>
+
+      <div class="hp-aeo__cta">
+        <a href="/aeo" class="btn btn--hero btn--primary">Understand AEO →</a>
+      </div>
     </div>
   </section>
 
@@ -1154,97 +1152,101 @@ import HeroLoop from '../components/HeroLoop.astro';
     font-size: 10px;
   }
 
-  /* ── Problem cards ──────────────────────────── */
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  /* ── Homepage UNDERSTAND AEO (navy mirror of /aeo) ───────────── */
+  .hp-aeo {
+    background: var(--navy-deep);
+    color: var(--blue-soft);
+    padding: 80px 0;
   }
 
-  .problem-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 14px;
+  .hp-aeo__head {
+    max-width: 720px;
+    margin-bottom: 56px;
   }
 
-  .pc-num {
-    font-size: 10px;
-    color: var(--amber);
+  .hp-aeo__eyebrow {
+    color: var(--amber-mid);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .hp-aeo__h2 {
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: white;
     font-weight: 500;
-    margin-bottom: 6px;
-    letter-spacing: 0.08em;
+    margin: 0 0 14px;
   }
 
-  .pc-title {
-    font-size: 13px;
+  .hp-aeo__h2 em,
+  .hp-aeo__h3 em {
+    font-style: italic;
+    color: var(--amber-mid);
     font-weight: 500;
-    margin-bottom: 6px;
-    color: var(--navy);
-    font-family: 'Inter', sans-serif;
   }
 
-  .pc-body {
-    font-size: 11px;
-    line-height: 1.5;
-    color: var(--muted);
+  .hp-aeo__lede {
+    font: 400 14px/1.55 var(--font-sans);
+    color: var(--blue-soft);
+    max-width: 620px;
+    margin: 0;
   }
 
-  /* ── SEO vs AEO ─────────────────────────────── */
-  .compare-h3 {
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--navy);
-    margin: 40px 0 18px;
-    line-height: 1.25;
+  .hp-aeo__block {
+    margin-bottom: 56px;
+  }
+
+  .hp-aeo__block:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .hp-aeo__subhead {
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+
+  .hp-aeo__h3 {
+    font-size: 22px;
+    line-height: 1.2;
     letter-spacing: -0.015em;
-    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 500;
+    margin: 0;
   }
 
-  .aeo-cta-row {
-    margin-top: 28px;
+  .hp-aeo__defcards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .hp-aeo__cardlabel {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .hp-aeo__cardtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .hp-aeo__cardbody {
+    font: 400 12px/1.55 var(--font-sans);
+    color: var(--blue-soft);
+  }
+
+  .hp-aeo__cta {
+    margin-top: 56px;
     display: flex;
     justify-content: flex-start;
-  }
-
-  .compare {
-    border-radius: 8px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .compare-col { padding: 18px; }
-
-  .compare-col--seo { background: var(--navy); }
-  .compare-col--aeo { background: var(--amber); }
-
-  .cc-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    margin-bottom: 14px;
-  }
-
-  .compare-col--seo .cc-label { color: var(--blue-mid); }
-  .compare-col--aeo .cc-label { color: var(--brown-deep); }
-
-  .cc-lines { list-style: none; }
-
-  .cc-line {
-    font-size: 12px;
-    padding: 7px 0;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.12);
-    line-height: 1.3;
-  }
-
-  .cc-line--last { border: none; }
-
-  .compare-col--seo .cc-line { color: var(--blue-text); }
-
-  .compare-col--aeo .cc-line {
-    color: var(--brown-deep);
-    border-bottom-color: rgba(0, 0, 0, 0.14);
   }
 
   /* ── Engine Preview (mirrors /work) ───────────────────────────── */
@@ -1645,14 +1647,22 @@ import HeroLoop from '../components/HeroLoop.astro';
     .hero-h1-lead  { font-size: 26px; }
     .hero-h1-tail  { font-size: 17px; }
 
-    .problem-grid,
+    .hp-aeo__defcards,
     .offers,
     .stats-strip {
       grid-template-columns: 1fr;
     }
 
-    .compare {
-      grid-template-columns: 1fr;
+    .hp-aeo {
+      padding: 48px 0;
+    }
+
+    .hp-aeo__h2 {
+      font-size: 22px;
+    }
+
+    .hp-aeo__h3 {
+      font-size: 19px;
     }
 
     .case {
