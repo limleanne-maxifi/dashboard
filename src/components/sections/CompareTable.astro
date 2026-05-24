@@ -2,43 +2,45 @@
 interface CompareItem {
   label: string;
   icon: string;
-  text: string;
 }
 
 interface Props {
   seoLabel?: string;
+  seoH3?: string;
   seoSubtitle?: string;
   seoItems?: CompareItem[];
   aeoLabel?: string;
+  aeoH3?: string;
   aeoSubtitle?: string;
   aeoItems?: CompareItem[];
 }
 
 const {
-  seoLabel = 'SEO · The decade that was',
-  seoSubtitle = 'Built for a single engine and ten blue links.',
+  seoLabel = 'Old · SEO',
+  seoSubtitle = 'A list of ten blue links. The buyer still has to click, read, compare.',
+  seoH3 = 'Ranks your page.',
   seoItems = [
-    { label: 'Ranks your page', icon: '·' },
-    { label: 'Targets keywords', icon: '·' },
-    { label: 'Optimises for clicks', icon: '·' },
-    { label: 'Lives on Google', icon: '·' },
-    { label: 'Output: traffic', icon: '·' },
+    { label: 'Optimises for keywords + backlinks', icon: '·' },
+    { label: 'Wins one spot on a SERP', icon: '·' },
+    { label: 'Measured in rankings + clicks', icon: '·' },
+    { label: 'Buyer still does the shortlist', icon: '·' },
   ],
-  aeoLabel = 'AEO · The decade ahead',
-  aeoSubtitle = 'Built for five engines and one direct answer.',
+  aeoLabel = 'New · AEO',
+  aeoSubtitle = 'One direct answer. The buyer's shortlist is already built.',
+  aeoH3 = 'Gets you cited.',
   aeoItems = [
-    { label: 'Cites your answer', icon: '✓' },
-    { label: 'Targets buyer questions', icon: '✓' },
-    { label: 'Optimises for retrieval', icon: '✓' },
-    { label: 'Lives across 5 AI engines', icon: '✓' },
-    { label: 'Output: authority', icon: '✓' },
+    { label: 'Optimises for retrieval + citation', icon: '✓' },
+    { label: 'Wins the cited answer', icon: '✓' },
+    { label: 'Measured in citation share', icon: '✓' },
+    { label: 'AI does the shortlist for the buyer', icon: '✓' },
   ],
 } = Astro.props;
 ---
 
 <div class="compare__table">
   <div class="compare__col compare__col--seo">
-    <h3>{seoLabel}</h3>
+    <p class="compare__eyebrow">{seoLabel}</p>
+    <h3 class="compare__h3">{seoH3}</h3>
     <p class="sub">{seoSubtitle}</p>
     <ul>
       {seoItems.map((item) => (
@@ -50,7 +52,8 @@ const {
     </ul>
   </div>
   <div class="compare__col compare__col--aeo">
-    <h3>{aeoLabel}</h3>
+    <p class="compare__eyebrow">{aeoLabel}</p>
+    <h3 class="compare__h3">{aeoH3}</h3>
     <p class="sub">{aeoSubtitle}</p>
     <ul>
       {aeoItems.map((item) => (
@@ -87,20 +90,27 @@ const {
     color: var(--blue-soft);
   }
 
-  .compare__col h3 {
-    font-size: 18px;
+  .compare__eyebrow {
+    font: 500 10px/1 var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-mid);
+    margin-bottom: 14px;
+  }
+
+  .compare__h3 {
+    font-size: 22px;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: white;
-    line-height: 1.3;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   .compare__col p.sub {
-    font: 400 11px/1.5 var(--font-mono);
-    color: var(--blue-mid);
+    font: 400 12px/1.5 var(--font-sans);
+    color: var(--blue-soft);
     margin-bottom: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .compare__col ul {
