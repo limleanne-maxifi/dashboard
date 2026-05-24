@@ -330,52 +330,193 @@ import HeroLoop from '../components/HeroLoop.astro';
   </section>
 
   <!-- ══════════════════════════════════════════
-       SECTION 7 — FEATURED CASE STUDY
+       SECTION 7 — TURN EVENTS INTO AUTHORITY
+       (mirrors /conference-aeo hero design)
   ══════════════════════════════════════════ -->
-  <section class="section section--cream" aria-labelledby="case-heading">
-    <p class="s-eyebrow">FEATURED CASE</p>
-    <h2 id="case-heading" class="section-h2">
-      How one industry event became an AI-searchable authority system.
-    </h2>
-    <div class="case">
-      <div class="case-text">
-        <p class="case-eyebrow">CANSO · AIRSPACE WORLD 2026</p>
-        <h3 class="case-title">From PDF graveyard to citation engine.</h3>
-        <p class="case-body">
-          We turned a 3-day aviation conference into a structured AI Knowledge Hub.
-          Sessions, speakers and themes became answer-ready assets that keep earning
-          citations long after the room empties.
+  <section class="ca-section" aria-labelledby="case-heading">
+    <div class="ca-wrap">
+
+      <!-- Section head -->
+      <div class="ca-head">
+        <div class="ca-actmark">TURN EVENTS INTO AUTHORITY</div>
+        <h2 id="case-heading" class="ca-h2">
+          Your event spend shouldn't disappear <em>with the booth</em>
+        </h2>
+        <p class="ca-lede">
+          Speaking at a conference is the single highest-trust signal AI engines retrieve. Wrap it in an AEO layer and every keynote, panel and breakout becomes a citation asset that compounds long after the lanyards come off.
         </p>
-        <dl class="case-metrics">
-          <div class="case-metric">
-            <dd class="case-num">47</dd>
-            <dt class="case-lbl">Q&amp;A pairs</dt>
+      </div>
+
+      <!-- 3-slide rotating carousel -->
+      <div class="ca-carousel-wrap">
+        <div class="ca-carousel" id="aswCarousel" aria-label="ASW Hub case study · stats, live site, explainer">
+          <div class="ca-slides">
+
+            <!-- Slide 1: Stats card -->
+            <div class="ca-slide ca-slide--meta is-on" data-slide="0">
+              <span class="ca-eyebrow">Featured · Live case</span>
+              <div class="ca-body">
+                <div>
+                  <h3 class="ca-slide-h3">Airspace World 2026 · The AI Visibility Hub</h3>
+                  <p class="ca-slide-p">
+                    A live AEO Visibility hub for Airspace World 2026 — the global convergence point of air traffic management. Every speaker, every session, every member organisation presented as answer-ready content for the AI engines used by the industry.
+                  </p>
+                </div>
+                <div class="ca-metrics">
+                  <div class="ca-met">
+                    <div class="ca-v">250+</div>
+                    <div class="ca-l">exhibitors</div>
+                  </div>
+                  <div class="ca-met">
+                    <div class="ca-v">145+</div>
+                    <div class="ca-l">countries</div>
+                  </div>
+                  <div class="ca-met">
+                    <div class="ca-v">80%</div>
+                    <div class="ca-l">senior decision makers</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ca-footer">
+                <span class="ca-src">aswhub.<b>maxifidigital.com</b></span>
+                <a class="ca-cta" href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer">
+                  View the live hub →
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2: Screenshot -->
+            <div class="ca-slide ca-slide--shot" data-slide="1">
+              <span class="ca-eyebrow">Showcase · Live site</span>
+              <div class="ca-body">
+                <div class="ca-shot-wrap">
+                  <a
+                    href="https://aswhub.maxifidigital.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open the ASW Hub live site"
+                  >
+                    <img
+                      src="/asw-hub-screenshot.png"
+                      alt="Airspace World 2026 AI Visibility Hub homepage"
+                      loading="lazy"
+                      width="1815"
+                      height="774"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="ca-footer">
+                <span class="ca-src">aswhub.<b>maxifidigital.com</b></span>
+                <a class="ca-cta" href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer">
+                  Open the hub ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3: Video -->
+            <div class="ca-slide ca-slide--video" data-slide="2">
+              <span class="ca-eyebrow">Watch · Event AEO walkthrough</span>
+              <div class="ca-body">
+                <div class="ca-video-shell">
+                  <video
+                    class="ca-video"
+                    controls
+                    preload="metadata"
+                    aria-label="Introduction to Event AEO in 90s — Maxifi Digital"
+                    playsinline
+                  >
+                    <source src="/asw-explainer.mp4" type="video/mp4" />
+                  </video>
+                  <div class="ca-caption-bar" aria-live="polite">
+                    <span class="ca-caption-title">Introduction to Event AEO in 90s</span>
+                    <span class="ca-caption-meta">Maxifi Digital · 01:27 · HD</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ca-footer">
+                <span class="ca-src">01:27 · hd 1080p</span>
+                <a class="ca-cta" href="/asw-explainer.mp4" download>Download video ↓</a>
+              </div>
+            </div>
+
           </div>
-          <div class="case-metric">
-            <dd class="case-num">92%</dd>
-            <dt class="case-lbl">Schema coverage</dt>
+
+          <!-- Nav dots -->
+          <div class="ca-nav">
+            <button class="ca-dot is-on" data-go="0" aria-label="Show live case stats"></button>
+            <button class="ca-dot" data-go="1" aria-label="Show ASW Hub screenshot"></button>
+            <button class="ca-dot" data-go="2" aria-label="Show explainer video"></button>
           </div>
-          <div class="case-metric">
-            <dd class="case-num">3×</dd>
-            <dt class="case-lbl">Citation growth</dt>
-          </div>
-        </dl>
-        <div class="case-ctas">
-          <a href="/conference-aeo" class="btn-ghost">Scope the sprint →</a>
-          <a href="/work" class="case-all-link">See all case studies →</a>
         </div>
       </div>
-      <div class="case-visual" aria-hidden="true">
-        <div class="case-preview">
-          <div class="cp-line"></div>
-          <div class="cp-line cp-line--short"></div>
-          <div class="cp-line cp-line--amber"></div>
-          <p class="cp-num">78<span class="cp-denom"> / 100</span></p>
-          <p class="cp-lbl">AEO VISIBILITY SCORE</p>
-        </div>
+
+      <!-- Bridge CTA -->
+      <div class="ca-bridge">
+        <span class="ca-bridge-label">Want this for your event?</span>
+        <a href="/conference-aeo" class="ca-btn ca-btn--ghost">Scope the sprint →</a>
       </div>
+
     </div>
   </section>
+
+  <script>
+    (function() {
+      const car = document.getElementById('aswCarousel');
+      if (!car) return;
+
+      const slides = car.querySelectorAll('.ca-slide');
+      const dots = car.querySelectorAll('.ca-dot');
+      const video = car.querySelector('.ca-video') as HTMLVideoElement | null;
+      let i = 0;
+      let timer: ReturnType<typeof setInterval> | null = null;
+
+      function show(n: number) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach((s, k) => s.classList.toggle('is-on', k === i));
+        dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
+        if (video && i !== 2) video.pause();
+      }
+
+      function tick() {
+        if (video && !video.paused) return;
+        show(i + 1);
+      }
+
+      function restart() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(tick, 3500);
+      }
+
+      dots.forEach((d) => {
+        d.addEventListener('click', () => {
+          show(parseInt(d.getAttribute('data-go') || '0', 10));
+          restart();
+        });
+      });
+
+      car.addEventListener('mouseenter', () => {
+        if (timer) clearInterval(timer);
+      });
+
+      car.addEventListener('mouseleave', () => {
+        if (video && !video.paused) return;
+        restart();
+      });
+
+      if (video) {
+        video.addEventListener('ended', restart);
+        video.addEventListener('pause', () => {
+          if (i === 2) restart();
+        });
+        video.addEventListener('play', () => {
+          if (timer) clearInterval(timer);
+        });
+      }
+
+      restart();
+    })();
+  </script>
 
   <!-- ══════════════════════════════════════════
        SECTION 8 — NEWSLETTER
@@ -2007,5 +2148,400 @@ import HeroLoop from '../components/HeroLoop.astro';
   @media (max-width: 960px) {
     .vs-sample__panel { grid-template-columns: 1fr; gap: 28px; }
     .vs-sec-head h2 { white-space: normal; font-size: 32px; }
+  }
+
+  /* ── Conference AEO Hero (Turn Events into Authority) ─── */
+  .ca-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .ca-section {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 48px 0 80px;
+  }
+
+  .ca-head {
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+
+  .ca-actmark {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .ca-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ca-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .ca-h2 {
+    font-family: var(--font-sans);
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #fff;
+    max-width: 760px;
+    margin: 0 0 14px;
+  }
+
+  .ca-h2 em {
+    font-style: italic;
+    color: var(--amber-mid);
+    font-weight: 600;
+  }
+
+  .ca-lede {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--blue-soft);
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .ca-carousel-wrap {
+    margin-bottom: 32px;
+  }
+
+  .ca-carousel {
+    position: relative;
+    background: var(--navy);
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 32px 72px -32px rgba(0, 0, 0, 0.55),
+                0 0 0 1px rgba(186, 117, 23, 0.06);
+  }
+
+  .ca-slides {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 7 / 3;
+    min-height: 400px;
+  }
+
+  .ca-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    padding: 28px 36px 64px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 18px;
+    color: var(--blue-text);
+  }
+
+  .ca-slide.is-on {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ca-body {
+    position: relative;
+    min-height: 0;
+  }
+
+  .ca-slide--meta .ca-body {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 22px;
+    align-content: start;
+    padding: 8px 18px 0;
+  }
+
+  .ca-slide-h3 {
+    font-family: var(--font-sans);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #fff;
+    max-width: 760px;
+    margin: 0 0 12px;
+  }
+
+  .ca-slide-p {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--blue-soft);
+    max-width: 720px;
+    margin: 0;
+  }
+
+  .ca-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    max-width: 720px;
+  }
+
+  .ca-met {
+    border-right: 0.5px solid rgba(255, 255, 255, 0.1);
+    padding-right: 22px;
+  }
+
+  .ca-met:nth-child(2) {
+    padding-left: 22px;
+  }
+
+  .ca-met:last-child {
+    border-right: none;
+    padding-left: 22px;
+    padding-right: 0;
+  }
+
+  .ca-v {
+    font-family: var(--font-sans);
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--amber-pale);
+  }
+
+  .ca-l {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--blue-mid);
+    margin-top: 8px;
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+  }
+
+  .ca-slide--shot .ca-body { padding: 0; }
+
+  .ca-shot-wrap {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--navy-deep);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .ca-shot-wrap a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ca-shot-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .ca-slide--video .ca-body {
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .ca-video-shell {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .ca-video {
+    flex: 1;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+    min-height: 0;
+  }
+
+  .ca-caption-bar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 14px;
+    background: rgba(3, 31, 61, 0.92);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .ca-caption-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--blue-text);
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ca-caption-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--blue-mid);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ca-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--blue-mid);
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  .ca-src b {
+    color: var(--blue-text);
+    font-weight: 500;
+  }
+
+  .ca-cta {
+    color: var(--amber-mid);
+    text-transform: none;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ca-cta:hover { color: var(--amber-pale); }
+
+  .ca-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .ca-dot {
+    pointer-events: auto;
+    width: 28px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.22);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+
+  .ca-dot:hover { background: rgba(255, 255, 255, 0.5); }
+
+  .ca-dot.is-on {
+    background: var(--amber);
+    width: 38px;
+  }
+
+  .ca-bridge {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .ca-bridge-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-mid);
+  }
+
+  .ca-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .ca-btn--ghost {
+    color: #fff;
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+  }
+
+  .ca-btn--ghost:hover {
+    background: var(--navy-soft);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 700px) {
+    .ca-section { padding: 24px 0 60px; }
+    .ca-h2 { font-size: 30px; }
+    .ca-slide { padding: 22px 22px 56px; }
+    .ca-slide--meta .ca-body { padding: 0; }
+    .ca-slide-h3 { font-size: 22px; }
+    .ca-metrics { grid-template-columns: 1fr; }
+    .ca-met {
+      border-right: none;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+      padding: 14px 0;
+    }
+    .ca-met:nth-child(2),
+    .ca-met:last-child { padding-left: 0; }
+    .ca-slides { aspect-ratio: auto; min-height: 640px; }
   }
 </style>
