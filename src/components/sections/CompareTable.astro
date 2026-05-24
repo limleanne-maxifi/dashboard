@@ -65,12 +65,12 @@ const {
 
 <style>
   .compare__table {
-    border: 0.5px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
   .compare__col {
@@ -78,33 +78,29 @@ const {
   }
 
   .compare__col--seo {
-    background: var(--cream);
+    background: var(--navy-soft);
+    color: var(--blue-soft);
   }
 
   .compare__col--aeo {
     background: var(--navy);
-    color: var(--blue-text);
+    color: var(--blue-soft);
   }
 
   .compare__col h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     margin-bottom: 8px;
-    color: var(--navy);
-  }
-
-  .compare__col--aeo h3 {
-    color: #fff;
+    color: white;
+    line-height: 1.3;
   }
 
   .compare__col p.sub {
-    font: 400 12px/1.5 var(--font-sans);
-    color: var(--muted);
+    font: 400 11px/1.5 var(--font-mono);
+    color: var(--blue-mid);
     margin-bottom: 22px;
-  }
-
-  .compare__col--aeo p.sub {
-    color: var(--blue-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .compare__col ul {
@@ -119,11 +115,7 @@ const {
     display: flex;
     gap: 10px;
     align-items: flex-start;
-    font: 400 13px/1.5 var(--font-sans);
-    color: var(--ink);
-  }
-
-  .compare__col--aeo li {
+    font: 400 12px/1.5 var(--font-sans);
     color: var(--blue-soft);
   }
 
@@ -132,7 +124,7 @@ const {
     font-size: 12px;
     line-height: 1.5;
     flex-shrink: 0;
-    color: var(--muted);
+    color: var(--blue-mid);
     font-weight: 400;
   }
 

@@ -160,30 +160,34 @@ const definitionCards = [
 <style>
   .aeo-hero {
     padding: 88px 0 72px;
-    background: var(--cream);
+    background: var(--navy);
+    color: white;
   }
 
   .aeo-hero__inner {
     max-width: 820px;
+    margin: 0 auto;
+    padding: 0 40px;
   }
 
   .aeo-hero__h1 {
-    font-size: 46px;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    margin-bottom: 22px;
+    font-size: 44px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
     font-weight: 500;
+    color: white;
   }
 
   .aeo-hero__h1 em {
     font-style: italic;
-    color: var(--amber);
+    color: var(--amber-mid);
     font-weight: 500;
   }
 
   .aeo-hero__lede {
-    font: 400 17px/1.55 var(--font-sans);
-    color: var(--ink);
+    font: 400 14px/1.55 var(--font-sans);
+    color: var(--blue-soft);
     max-width: 680px;
     margin: 0;
   }
@@ -191,9 +195,9 @@ const definitionCards = [
   .aeo-hero__meta {
     display: flex;
     gap: 18px;
-    margin-top: 28px;
+    margin-top: 20px;
     font: 400 11px/1 var(--font-mono);
-    color: var(--mute-soft);
+    color: var(--blue-mid);
     letter-spacing: 0.04em;
     flex-wrap: wrap;
   }
@@ -205,27 +209,37 @@ const definitionCards = [
   }
 
   .aeo-meta__dot {
-    width: 5px;
-    height: 5px;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
-    background: var(--amber);
+    background: var(--blue-mid);
     display: inline-block;
   }
 
   .aeo-eyebrow--brown {
-    color: var(--brown-mid);
+    color: var(--amber-mid);
   }
 
   .aeo-eyebrow--default {
-    color: var(--brown-mid);
+    color: var(--amber-mid);
   }
 
   .aeo-section {
     padding: 80px 0;
+    background: var(--navy-deep);
+    color: var(--blue-soft);
+  }
+
+  .aeo-section h2 {
+    color: white;
+  }
+
+  .aeo-section h3 {
+    color: white;
   }
 
   .aeo-section--alt {
-    background: var(--cream-deep);
+    background: var(--navy);
   }
 
   .aeo-section .sec-head {
@@ -237,35 +251,40 @@ const definitionCards = [
     font-size: 28px;
     line-height: 1.18;
     letter-spacing: -0.02em;
+    color: white;
   }
 
   .aeo-section .sec-head h2 em {
     font-style: italic;
-    color: var(--amber);
+    color: var(--amber-mid);
     font-weight: 500;
   }
 
   .aeo-section .sec-head p {
-    color: var(--muted);
+    color: var(--blue-soft);
     margin-top: 12px;
     max-width: 600px;
   }
 
   .card__label {
-    font: 500 11px/1 var(--font-mono);
+    font: 500 10px/1 var(--font-mono);
     letter-spacing: 0.1em;
-    color: var(--brown-mid);
+    color: var(--amber-mid);
     text-transform: uppercase;
     margin-bottom: 14px;
     display: block;
   }
 
   .aeo-nextstep {
-    background: var(--cream-deep);
-    padding: 64px 0;
+    background: var(--navy-deep);
+    padding: 80px 0;
+    color: var(--blue-soft);
   }
 
   .aeo-nextstep__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
     display: grid;
     grid-template-columns: 1.4fr auto;
     gap: 40px;
@@ -277,16 +296,17 @@ const definitionCards = [
     line-height: 1.18;
     letter-spacing: -0.02em;
     font-weight: 500;
+    color: white;
   }
 
   .aeo-nextstep h2 em {
-    color: var(--amber);
+    color: var(--amber-mid);
     font-style: italic;
     font-weight: 500;
   }
 
   .aeo-nextstep p {
-    color: var(--muted);
+    color: var(--blue-soft);
     margin-top: 10px;
     max-width: 540px;
     margin-bottom: 0;
