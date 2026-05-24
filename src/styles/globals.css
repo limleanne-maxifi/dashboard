@@ -732,6 +732,25 @@ section.deepest .eyebrow {
   }
 }
 
+/* ======= MOBILE LAYOUT FIXES ======= */
+
+@media (max-width: 900px) {
+  .wrap-inner {
+    padding: 0 24px !important;
+  }
+
+  .system-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap-inner {
+    padding: 0 16px !important;
+  }
+}
+
 /* ======= HELPERS ======= */
 
 .spacer-1 {
