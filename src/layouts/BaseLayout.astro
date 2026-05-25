@@ -7,44 +7,67 @@ interface Props {
   title: string;
   description: string;
   currentPage?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
-const { title, description, currentPage = '/' } = Astro.props;
+const {
+  title,
+  description,
+  currentPage = '/',
+  ogImage = 'https://maxifidigital.com/logos/maxifi-logo-black.png',
+  ogImageAlt = 'Maxifi Digital — AI Visibility for Expert-Led Brands',
+} = Astro.props;
 
 const canonicalURL = Astro.url.href;
 const pageTitle = title;
 
-const org = {
-  name: 'Maxifi Digital',
-  url: 'https://maxifidigital.com',
-  email: 'hello@maxifidigital.com',
-  description: 'AEO consultancy helping expert-led brands become the answer AI engines cite.',
-  locations: ['Singapore', 'London'],
-};
-
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: org.name,
-  url: org.url,
-  email: org.email,
-  description: org.description,
-  areaServed: org.locations,
+  name: 'Maxifi Digital',
+  url: 'https://maxifidigital.com',
+  logo: 'https://maxifidigital.com/logos/maxifi-logo-black.png',
+  description: 'Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that helps expert-led brands become the source AI engines cite when buyers ask questions in their category.',
+  founder: {
+    '@type': 'Person',
+    name: 'Lim Le-Anne',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '60 Paya Lebar Road, #07-54, Paya Lebar Square',
+    addressLocality: 'Singapore',
+    postalCode: '409051',
+    addressCountry: 'SG',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@maxifidigital.com',
+    contactType: 'customer service',
+  },
   sameAs: [
-    'https://linkedin.com/company/maxifi-digital',
+    '[INSERT_LINKEDIN_COMPANY_URL]',
+    '[INSERT_TWITTER_URL]',
+  ],
+  knowsAbout: [
+    'Answer Engine Optimisation',
+    'AI Search Visibility',
+    'Generative Engine Optimisation',
+    'AEO Strategy',
+    'Conference AEO',
   ],
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: org.name,
-  url: org.url,
+  name: 'Maxifi Digital',
+  url: 'https://maxifidigital.com',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: `${org.url}/insights?q={search_term_string}`,
+      urlTemplate: 'https://maxifidigital.com/insights?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -65,11 +88,16 @@ const websiteSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <meta name="msvalidate.01" content="1F14880D43A6A0045A2FDA30B5BDA3B0" />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
+    <slot name="head" />
   </head>
   <body>
     <Nav currentPage={currentPage} />

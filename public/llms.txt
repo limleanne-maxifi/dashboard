@@ -1,0 +1,37 @@
+# Maxifi Digital
+
+> Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy founded by Lim Le-Anne. We help expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and think tanks — become the source AI engines cite when buyers research their category. As search behaviour shifts from Google keyword queries to AI-generated answers in ChatGPT, Perplexity, Google AI Overviews, and Copilot, we build the visibility layer that keeps our clients inside those answers.
+
+## Services
+
+- **Visibility Snapshot** (https://maxifidigital.com/visibility-snapshot) — A five-minute AI citation audit scoring how a brand currently appears across five major AI engines, with a gap report identifying what to fix and why.
+- **Visibility Engine** (https://maxifidigital.com/work) — A three-stage AEO programme (Snapshot → Sprint → Monitor) that builds and compounds AI citation authority for expert-led brands over time.
+- **Conference AEO Sprint** (https://maxifidigital.com/conference-aeo) — A focused engagement that converts an industry conference or event into a permanent, AI-indexed citation hub, extending event ROI indefinitely.
+
+## Key Concepts
+
+**Answer Engine Optimisation (AEO)**
+AEO is the discipline of structuring a brand's content, expertise, and digital presence so that AI engines — including ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot, and Anthropic Claude — name that brand as a source when buyers ask category questions. It is distinct from SEO: where SEO pursues link clicks, AEO pursues citation and attribution in synthesised AI responses. For expert-led brands, AEO is the primary mechanism for maintaining buyer visibility as the research journey moves into AI.
+
+**Citation Share**
+Citation share is the proportion of relevant AI-generated answers in which a brand is named or attributed. It is the AEO equivalent of share of voice and is the core metric Maxifi Digital tracks across all engagements. A brand with high citation share appears consistently when buyers ask questions in its category — regardless of which AI engine they use.
+
+**Visibility Engine**
+The Visibility Engine is Maxifi Digital's proprietary three-stage system for building AI citation authority. Stage one (Snapshot) establishes a scored baseline of current AI visibility across five engines. Stage two (Sprint) creates and deploys structured content assets — FAQs, entity pages, expert commentary, and structured data — designed to close citation gaps. Stage three (Monitor) tracks citation share over time and updates assets as engine behaviour evolves.
+
+**Conference AEO**
+Conference AEO is the practice of transforming event content — speaker sessions, panel transcripts, exhibitor insights — into structured, machine-readable content hubs that AI engines can index and cite. Most conference investment evaporates within weeks of the event; Conference AEO converts it into a compounding citation asset. Maxifi Digital's Conference AEO Sprint is delivered around a single event and produces results that persist in AI responses for months.
+
+## Case Study
+
+**Airspace World 2026 — AI Citation Hub**
+The Airspace World 2026 hub (https://aswhub.maxifidigital.com/) is a live demonstration of Conference AEO in practice. Built for the aviation industry's flagship ATM event, it structures event content — sessions, speakers, exhibitor profiles, and industry insights — into a citation-optimised knowledge hub that AI engines can retrieve and attribute. It demonstrates what Maxifi Digital delivers for conference organisers and industry bodies seeking to extend event visibility into AI search.
+
+## Contact
+
+- Email: hello@maxifidigital.com
+- Location: Singapore (60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051)
+
+## Founder
+
+**Lim Le-Anne** is the founder of Maxifi Digital and a specialist in AI search visibility and Answer Engine Optimisation. She built Maxifi Digital after observing that expert-led brands were being systematically excluded from AI-generated answers — not because their expertise was insufficient, but because their content was not structured for machine comprehension. Her work focuses on closing that gap for professional services firms, industry bodies, and specialist consultancies operating in high-trust B2B categories.

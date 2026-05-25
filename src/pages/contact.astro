@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Maxifi Digital | AEO Consultancy Singapore"
+  description="Contact Maxifi Digital — Singapore-based AEO consultancy. Email hello@maxifidigital.com or book a consultation to discuss AI visibility for your brand."
+  currentPage="/contact"
+  ogImageAlt="Contact Maxifi Digital — AEO Consultancy Singapore"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{`{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Maxifi Digital",
+  "url": "https://maxifidigital.com/contact",
+  "description": "Contact Maxifi Digital — Singapore-based AEO consultancy. Email hello@maxifidigital.com or book a consultation to discuss AI visibility for your brand.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Maxifi Digital",
+    "url": "https://maxifidigital.com",
+    "email": "hello@maxifidigital.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "60 Paya Lebar Road, #07-54, Paya Lebar Square",
+      "addressLocality": "Singapore",
+      "postalCode": "409051",
+      "addressCountry": "SG"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@maxifidigital.com",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    }
+  }
+}`}</script>
+  </Fragment>
+
+  <section class="contact-hero" aria-labelledby="contact-heading">
+    <p class="c-eyebrow">GET IN TOUCH</p>
+    <h1 id="contact-heading" class="contact-h1">Contact Maxifi Digital</h1>
+    <p class="contact-lede">
+      Singapore-based. Working globally. Reach us by email or book a consultation directly.
+    </p>
+  </section>
+
+  <section class="contact-body">
+    <div class="contact-wrap">
+
+      <div class="contact-details">
+        <div class="cd-block">
+          <p class="cd-label">Email</p>
+          <a href="mailto:hello@maxifidigital.com" class="cd-value cd-link">hello@maxifidigital.com</a>
+        </div>
+
+        <div class="cd-block">
+          <p class="cd-label">Book a consultation</p>
+          <a
+            href="https://lunacal.ai/maxifidigital"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cd-value cd-link"
+          >lunacal.ai/maxifidigital →</a>
+        </div>
+
+        <div class="cd-block">
+          <p class="cd-label">Office</p>
+          <address class="cd-value cd-address">
+            60 Paya Lebar Road, #07-54<br />
+            Paya Lebar Square<br />
+            Singapore 409051
+          </address>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <p class="cn-heading">Not sure where to start?</p>
+        <p class="cn-body">
+          The fastest first step is a free Visibility Snapshot — a 5-minute audit of your
+          current AI citation footprint across ChatGPT, Perplexity, Google AI Overviews,
+          Copilot, and Claude. No sales call required.
+        </p>
+        <a
+          href="https://visibilityview.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >Get my free Snapshot →</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 48px 22px 40px;
+    text-align: center;
+  }
+
+  .c-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .contact-h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 12px;
+    line-height: 1.18;
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+
+  .contact-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .contact-body {
+    background: var(--cream);
+    padding: 48px 22px;
+  }
+
+  .contact-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .cd-block { display: flex; flex-direction: column; gap: 4px; }
+
+  .cd-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .cd-value {
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.55;
+  }
+
+  .cd-link {
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(4, 44, 83, 0.2);
+    display: inline-block;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+  }
+
+  .cd-link:hover {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .cd-address {
+    font-style: normal;
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  .contact-note {
+    background: var(--cream-deep);
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .cn-heading {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-family: var(--font-sans);
+  }
+
+  .cn-body {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover { background: #854F0B; }
+
+  @media (max-width: 640px) {
+    .contact-wrap { grid-template-columns: 1fr; gap: 28px; }
+    .contact-h1 { font-size: 24px; }
+  }
+</style>

@@ -6,7 +6,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   title="Build AI Authority | The Visibility Engine | Maxifi Digital"
   description="The Visibility Engine — a quarterly AEO retainer that compounds your citation footprint across all five AI platforms. Snapshot, Sprint, Monitor, Repeat."
   currentPage="/work"
+  ogImageAlt="Visibility Engine — AEO Services by Maxifi Digital"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{`{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Visibility Engine",
+  "provider": {
+    "@type": "Organization",
+    "name": "Maxifi Digital",
+    "url": "https://maxifidigital.com"
+  },
+  "description": "The Visibility Engine is Maxifi Digital's core AEO programme, a three-stage system — Snapshot, Sprint, Monitor — that builds and sustains AI citation authority for expert-led brands. It structures existing expertise into machine-readable, citation-optimised content assets that AI engines can retrieve, attribute, and surface in buyer queries.",
+  "url": "https://maxifidigital.com/work",
+  "areaServed": ["Singapore", "Global"]
+}`}</script>
+  </Fragment>
 
   <!-- ══════════════════════════════════════════
        SYSTEM — THE 3-STAGE VISIBILITY ENGINE

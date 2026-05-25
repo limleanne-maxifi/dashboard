@@ -6,7 +6,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Conference AEO Sprint | Turn Events into Authority | Maxifi Digital"
   description="Your event spend shouldn't disappear with the booth. Turn conference content into an AI citation engine with the Conference AEO Sprint."
   currentPage="/conference-aeo"
+  ogImageAlt="Conference AEO Sprint — Maxifi Digital"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{`{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Conference AEO Sprint",
+  "provider": {
+    "@type": "Organization",
+    "name": "Maxifi Digital",
+    "url": "https://maxifidigital.com"
+  },
+  "description": "The Conference AEO Sprint converts a single industry event into a permanent AI citation asset by transforming speaker sessions, panel insights, and event content into structured, AEO-optimised content hubs that AI engines can index and cite long after the event closes. It is designed for conference organisers and sponsors who want event investment to compound beyond the event window.",
+  "url": "https://maxifidigital.com/conference-aeo",
+  "areaServed": ["Singapore", "Global"]
+}`}</script>
+  </Fragment>
 
   <!-- ══════════════════════════════════════════
        SECTION: Turn Events into Authority

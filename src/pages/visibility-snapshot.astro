@@ -6,7 +6,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="AI Visibility Snapshot · Maxifi Digital"
   description="When your market asks AI who to trust, does your company show up? Free 5-minute audit across ChatGPT, Claude, Copilot, Gemini and Perplexity. Inbox in 24h."
   currentPage="/visibility-snapshot"
+  ogImageAlt="Free AI Visibility Snapshot — Maxifi Digital"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{`{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Visibility Snapshot",
+  "provider": {
+    "@type": "Organization",
+    "name": "Maxifi Digital",
+    "url": "https://maxifidigital.com"
+  },
+  "description": "The Visibility Snapshot is a rapid AI citation audit that scores how frequently and accurately a brand appears in responses from five major AI engines — ChatGPT, Perplexity, Google AI Overviews, Copilot, and Claude. It delivers a scored baseline report in five minutes, identifying the exact citation gaps and content deficiencies preventing AI engines from surfacing the brand.",
+  "url": "https://maxifidigital.com/visibility-snapshot",
+  "areaServed": ["Singapore", "Global"]
+}`}</script>
+  </Fragment>
 
 <!-- ══ HERO ══ -->
 <section class="vs-hero">
