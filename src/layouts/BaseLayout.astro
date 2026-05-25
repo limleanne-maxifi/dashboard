@@ -71,6 +71,22 @@ const websiteSchema = {
     'query-input': 'required name=search_term_string',
   },
 };
+
+const breadcrumbItems = [
+  { name: 'Home', url: 'https://maxifidigital.com' },
+  ...(currentPage !== '/' ? [{ name: currentPage.slice(1).split('/')[0].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), url: `https://maxifidigital.com${currentPage}` }] : []),
+];
+
+const breadcrumbSchema = currentPage !== '/' ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+} : null;
 ---
 
 <!doctype html>
@@ -96,6 +112,7 @@ const websiteSchema = {
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />}
     <slot name="head" />
   </head>
   <body>
