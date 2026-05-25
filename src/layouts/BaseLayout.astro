@@ -15,9 +15,10 @@ const {
   title,
   description,
   currentPage = '/',
-  ogImage = 'https://maxifidigital.com/logos/maxifi-logo-black.png',
-  ogImageAlt = 'Maxifi Digital — AI Visibility for Expert-Led Brands',
+  ogImage = 'https://maxifidigital.com/og-default.png',
+  ogImageAlt,
 } = Astro.props;
+const finalOgImageAlt = ogImageAlt || `${title} | Maxifi Digital`;
 
 const canonicalURL = Astro.url.href;
 const pageTitle = title;
@@ -47,6 +48,7 @@ const orgSchema = {
   },
   sameAs: [
     'https://www.linkedin.com/company/maxifi-digital/',
+    'https://share.google/YsPuoLlhu1lpQFbDw',
   ],
   knowsAbout: [
     'Answer Engine Optimisation',
@@ -106,7 +108,7 @@ const breadcrumbSchema = currentPage !== '/' ? {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:image:alt" content={finalOgImageAlt} />
 
     <meta name="msvalidate.01" content="1F14880D43A6A0045A2FDA30B5BDA3B0" />
 
