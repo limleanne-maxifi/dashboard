@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="AEO Insights & Resources | Maxifi Digital"
+  description="Expert articles, research, and resources on Answer Engine Optimisation (AEO), AI citation authority, and visibility in ChatGPT, Claude, Perplexity, Gemini, and Copilot."
+  currentPage="/insights"
+>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="insights-hero" aria-labelledby="insights-heading">
+    <p class="insights-eyebrow">INSIGHTS & RESOURCES</p>
+    <h1 id="insights-heading" class="insights-h1">
+      Learn AEO for your brand
+    </h1>
+    <p class="insights-lede">
+      Expert articles on Answer Engine Optimisation, AI citation authority, and how to become
+      the answer ChatGPT, Claude, Perplexity, Gemini and Copilot cite when buyers research your category.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       COMING SOON
+  ══════════════════════════════════════════ -->
+  <section class="insights-section">
+    <div class="insights-wrap">
+      <div class="coming-soon">
+        <p class="coming-eyebrow">COMING SOON</p>
+        <h2>Research and resources are being published.</h2>
+        <p class="coming-body">
+          In the meantime, explore our free
+          <a href="/visibility-snapshot">Visibility Snapshot</a> tool to audit your current
+          AI citation footprint, or visit our
+          <a href="/aeo">AEO primer</a> to understand the methodology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════ -->
+  <section class="insights-cta-section">
+    <div class="insights-cta">
+      <p class="insights-cta-eyebrow">START HERE</p>
+      <h2 class="insights-cta-title">
+        Ready to improve your AI visibility?
+      </h2>
+      <p class="insights-cta-body">
+        Get a free, 5-minute audit of your current citation footprint across all five AI engines.
+      </p>
+      <a href="/visibility-snapshot" class="insights-btn">Get your Snapshot →</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────── */
+  .insights-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 40px 22px 36px;
+    text-align: center;
+  }
+
+  .insights-eyebrow {
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .insights-h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 12px;
+    line-height: 1.18;
+    font-family: var(--font-sans);
+    max-width: 600px;
+  }
+
+  .insights-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── Section ────────────────────────────────── */
+  .insights-section {
+    background: var(--cream);
+    padding: 48px 22px;
+  }
+
+  .insights-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── Coming soon ────────────────────────────── */
+  .coming-soon {
+    text-align: center;
+    padding: 40px;
+    background: var(--cream-deep);
+    border-radius: 8px;
+    border: 0.5px solid rgba(4, 44, 83, 0.08);
+  }
+
+  .coming-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .coming-soon h2 {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 12px;
+    line-height: 1.25;
+    font-family: var(--font-sans);
+  }
+
+  .coming-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .coming-body a {
+    color: var(--navy);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .coming-body a:hover {
+    color: var(--amber);
+  }
+
+  /* ── CTA ────────────────────────────────────── */
+  .insights-cta-section {
+    background: var(--navy);
+    padding: 48px 22px;
+  }
+
+  .insights-cta {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--blue-text);
+  }
+
+  .insights-cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .insights-cta-title {
+    font-size: 21px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.25;
+    font-family: var(--font-sans);
+  }
+
+  .insights-cta-body {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--blue-soft);
+    margin: 0 0 18px;
+  }
+
+  .insights-btn {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+  }
+
+  .insights-btn:hover {
+    background: #854F0B;
+  }
+
+  /* ── Responsive ─────────────────────────────── */
+  @media (max-width: 768px) {
+    .insights-h1 { font-size: 24px; }
+    .insights-cta-title { font-size: 18px; }
+    .insights-wrap { padding: 0 24px; }
+  }
+</style>
