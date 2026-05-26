@@ -44,7 +44,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
             and cite.
           </p>
           <div class="hero-ctas">
-            <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my AI Visibility Snapshot</a>
+            <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my AI Visibility Snapshot</a>
             <a href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener" class="btn-ghost">
               See how it works - Airspace World case study
             </a>
@@ -166,7 +166,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
             </div>
           </div>
           <div class="vs-sample__cta-row">
-            <a class="vs-btn vs-btn--primary" href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer">Start your Snapshot →</a>
+            <a class="vs-btn vs-btn--primary" href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer">Start your Snapshot →</a>
             <span class="vs-sample__meta">Free · 5 minutes · Immediate results</span>
           </div>
         </div>
@@ -532,8 +532,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
         Find out what AI says about your business — in 5 minutes
       </h2>
       <div class="final-ctas">
-        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">Run my Visibility Snapshot →</a>
-        <a href="https://visibilityview.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Schedule a consultation</a>
+        <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Run my Visibility Snapshot →</a>
+        <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Schedule a consultation</a>
       </div>
     </div>
   </section>
@@ -590,7 +590,30 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     });
   }
 
-
+  /* Homepage visibility-snapshot form: capture lead + open the tool in a new tab */
+  const snapForm = document.getElementById('vs-snapshot-form');
+  const snapStep1 = document.getElementById('vs-form-step1');
+  const snapResults = document.getElementById('vs-results');
+  if (snapForm && snapStep1 && snapResults) {
+    snapForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = new URLSearchParams(
+        Array.from(new FormData(snapForm)).map(([k, v]) => [k, v.toString()]),
+      ).toString();
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+      } catch {
+        /* fall through — still redirect to the tool */
+      }
+      window.open('https://checkyourvisibility.maxifidigital.com/', '_blank', 'noopener,noreferrer');
+      snapStep1.style.display = 'none';
+      snapResults.removeAttribute('hidden');
+    });
+  }
 </script>
 
 <style>

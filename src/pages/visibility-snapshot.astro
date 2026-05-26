@@ -251,8 +251,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           body,
         });
       } catch {
-        /* fall through — still show success */
+        /* fall through — still redirect to the tool */
       }
+      window.open('https://checkyourvisibility.maxifidigital.com/', '_blank', 'noopener,noreferrer');
       snapStep1.style.display = 'none';
       snapResults.removeAttribute('hidden');
     });
