@@ -87,30 +87,19 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
         </div>
 
         <div class="vs-form-step1" id="vs-form-step1">
-          <form
-            id="vs-snapshot-form"
-            name="visibility-snapshot"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="visibility-snapshot" />
-            <p style="position:absolute;left:-9999px" aria-hidden="true">
-              <label>Skip: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-            </p>
-            <div class="vs-field">
-              <label for="vs-website">Your website</label>
-              <input type="url" id="vs-website" name="website" placeholder="acmeconsulting.com" required />
-            </div>
-            <div class="vs-field">
-              <label for="vs-category">Your category</label>
-              <input type="text" id="vs-category" name="category" placeholder="Management consulting" required />
-            </div>
-            <div class="vs-field">
-              <label for="vs-buyer_question">A question your buyer would ask AI</label>
-              <input type="text" id="vs-buyer_question" name="buyer_question" placeholder="Best firm for healthcare M&amp;A" required />
-            </div>
-            <button class="vs-submit" type="submit">Run my Visibility Snapshot →</button>
-          </form>
+          <div class="vs-field">
+            <label for="vs-website">Your website</label>
+            <input type="text" id="vs-website" placeholder="acmeconsulting.com" readonly tabindex="-1" aria-hidden="true" />
+          </div>
+          <div class="vs-field">
+            <label for="vs-category">Your category</label>
+            <input type="text" id="vs-category" placeholder="Management consulting" readonly tabindex="-1" aria-hidden="true" />
+          </div>
+          <div class="vs-field">
+            <label for="vs-buyer_question">A question your buyer would ask AI</label>
+            <input type="text" id="vs-buyer_question" placeholder="Best firm for healthcare M&amp;A" readonly tabindex="-1" aria-hidden="true" />
+          </div>
+          <a class="vs-submit" href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer">Run my Visibility Snapshot →</a>
         </div>
 
         <div class="vs-results" id="vs-results" hidden>
@@ -590,30 +579,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     });
   }
 
-  /* Homepage visibility-snapshot form: capture lead + open the tool in a new tab */
-  const snapForm = document.getElementById('vs-snapshot-form');
-  const snapStep1 = document.getElementById('vs-form-step1');
-  const snapResults = document.getElementById('vs-results');
-  if (snapForm && snapStep1 && snapResults) {
-    snapForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const body = new URLSearchParams(
-        Array.from(new FormData(snapForm)).map(([k, v]) => [k, v.toString()]),
-      ).toString();
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-        });
-      } catch {
-        /* fall through — still redirect to the tool */
-      }
-      window.open('https://checkyourvisibility.maxifidigital.com/', '_blank', 'noopener,noreferrer');
-      snapStep1.style.display = 'none';
-      snapResults.removeAttribute('hidden');
-    });
-  }
 </script>
 
 <style>
@@ -821,7 +786,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .vs-submit {
+    display: block;
     width: 100%;
+    box-sizing: border-box;
     font: 500 14px/1 var(--font-sans);
     background: var(--amber);
     color: var(--amber-light);
@@ -829,6 +796,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
     transition: background 0.2s ease;
     margin-top: 6px;
   }
