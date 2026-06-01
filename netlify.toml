@@ -24,6 +24,20 @@
   status = 301
   force  = true
 
+# maxifidigital.com — redirect the retired /asw-hub page to the canonical hub.
+# Location: netlify.toml at the ROOT of the maxifidigital.com site repository.
+[[redirects]]
+  from   = "/asw-hub"
+  to     = "https://aswhub.maxifidigital.com/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/asw-hub/*"
+  to     = "https://aswhub.maxifidigital.com/:splat"
+  status = 301
+  force  = true
+
 [[headers]]
   for = "/*"
   [headers.values]
