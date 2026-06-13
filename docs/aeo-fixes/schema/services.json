@@ -1,0 +1,43 @@
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Visibility Snapshot",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://maxifidigital.com/#organization",
+      "name": "Maxifi Digital"
+    },
+    "description": "The Visibility Snapshot is a free AEO audit that maps your citation share across five AI engines and 25 to 50 buyer questions. It scores you against your sector median and surfaces the three highest-leverage fixes to start getting cited.",
+    "url": "https://maxifidigital.com/visibility-snapshot",
+    "areaServed": ["Singapore", "Global"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Visibility Engine",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://maxifidigital.com/#organization",
+      "name": "Maxifi Digital"
+    },
+    "description": "The Visibility Engine is an ongoing AEO programme that turns your expertise into structured, citable authority across AI engines. It runs a continuous Snapshot, Sprint, and Monitor loop so your citation share grows month over month.",
+    "url": "https://maxifidigital.com/work",
+    "areaServed": ["Singapore", "Global"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Conference AEO Sprint",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://maxifidigital.com/#organization",
+      "name": "Maxifi Digital"
+    },
+    "description": "The Conference AEO Sprint converts the expertise from your event sessions, panels, and speakers into permanent AI citation assets. It captures conference content and structures it so AI engines cite your brand long after the event ends.",
+    "url": "https://maxifidigital.com/conference-aeo",
+    "areaServed": ["Singapore", "Global"]
+  }
+]
+</script>

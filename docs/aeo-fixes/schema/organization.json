@@ -1,0 +1,40 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://maxifidigital.com/#organization",
+  "name": "Maxifi Digital",
+  "url": "https://maxifidigital.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://maxifidigital.com/logos/maxifi-logo-black.png"
+  },
+  "description": "Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that makes expert-led brands the source AI engines cite. We build the visibility layer that gets companies retrieved, understood, and quoted by name across ChatGPT, Claude, Perplexity, Gemini, and Copilot.",
+  "founder": {
+    "@type": "Person",
+    "name": "Lim Le-Anne"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "60 Paya Lebar Road, #07-54, Paya Lebar Square",
+    "addressLocality": "Singapore",
+    "postalCode": "409051",
+    "addressCountry": "SG"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@maxifidigital.com",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/maxifi-digital/"
+  ],
+  "knowsAbout": [
+    "Answer Engine Optimisation",
+    "AI Search Visibility",
+    "Generative Engine Optimisation",
+    "AEO Strategy",
+    "Conference AEO"
+  ]
+}
+</script>

@@ -1,0 +1,87 @@
+{
+  "/": {
+    "_script_wrapper": "<script type=\"application/ld+json\">...</script>",
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://maxifidigital.com/"
+      }
+    ]
+  },
+  "/aeo": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://maxifidigital.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Understand AEO",
+        "item": "https://maxifidigital.com/aeo"
+      }
+    ]
+  },
+  "/work": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://maxifidigital.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://maxifidigital.com/work"
+      }
+    ]
+  },
+  "/visibility-snapshot": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://maxifidigital.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Visibility Snapshot",
+        "item": "https://maxifidigital.com/visibility-snapshot"
+      }
+    ]
+  },
+  "/conference-aeo": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://maxifidigital.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Conference AEO",
+        "item": "https://maxifidigital.com/conference-aeo"
+      }
+    ]
+  }
+}

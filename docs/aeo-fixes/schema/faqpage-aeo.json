@@ -1,0 +1,48 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO (Answer Engine Optimisation) is the practice of structuring your expertise so AI engines can retrieve, understand, and cite it by name. It optimises for inclusion in the synthesised answer an AI gives, not for a ranked position in a blue-link list."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do AI citations compound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each time an AI engine cites your brand, it reinforces the association between your name and your category in future answers. Citations compound because models and the sources they draw on increasingly treat already-cited entities as authoritative, widening your lead over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What engines does AEO target?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO targets the five engines buyers now use to screen vendors: ChatGPT, Claude, Perplexity, Gemini, and Copilot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does AEO do for pipeline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO puts you on the AI-generated shortlist before a buyer ever visits your site, builds authority by getting you cited as the named source, and compresses the sales cycle because prospects arrive already convinced of your expertise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AEO different from SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO is about ranking a page in a list of results. AEO is about retrieval and citation inside an AI-generated answer where no list exists. One competes for the click; the other competes to be the quoted source."
+      }
+    }
+  ]
+}
+</script>
