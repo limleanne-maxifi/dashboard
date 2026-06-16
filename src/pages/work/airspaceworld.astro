@@ -229,6 +229,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
   </script>
 
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Airspace World 2026",
+    "startDate": "2026-05-26",
+    "endDate": "2026-05-28",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Feira Internacional de Lisboa",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lisbon",
+        "addressCountry": "PT"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "CANSO",
+      "url": "https://canso.org/"
+    },
+    "description": "Airspace World 2026 was the global air traffic management event, held 26-28 May 2026 at Feira Internacional de Lisboa (FIL) in Lisbon, Portugal, organised by CANSO. Maxifi Digital built an AI citation hub preserving the event's session and speaker content as a permanent, AI-citable reference.",
+    "url": "https://aswhub.maxifidigital.com/"
+  }
+  </script>
+
 </BaseLayout>
 
 <style>

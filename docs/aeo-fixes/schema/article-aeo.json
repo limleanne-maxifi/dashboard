@@ -1,0 +1,29 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO got you ranked. AEO gets you cited.",
+  "description": "Answer Engine Optimisation makes your brand the source AI engines retrieve, understand, and quote by name. Learn how AEO differs from SEO and why citation share is the new visibility metric.",
+  "author": {
+    "@type": "Person",
+    "name": "Lim Le-Anne"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://maxifidigital.com/#organization",
+    "name": "Maxifi Digital",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://maxifidigital.com/logos/maxifi-logo-black.png"
+    }
+  },
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-05-01",
+  "url": "https://maxifidigital.com/aeo",
+  "image": "https://maxifidigital.com/og-default.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://maxifidigital.com/aeo"
+  }
+}
+</script>

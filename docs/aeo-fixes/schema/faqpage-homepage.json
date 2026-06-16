@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Answer Engine Optimisation (AEO)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO is the discipline of becoming a source AI engines retrieve, understand, and quote by name. Unlike SEO which ranks pages in a list, AEO optimises for inclusion in AI-generated answers across ChatGPT, Claude, Perplexity, Gemini, and Copilot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AEO different from SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO ranks pages in a search results list. AEO gets you cited in synthesised AI answers where there is no list. SEO competes for clicks; AEO competes for citation share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Visibility Snapshot show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A free audit that maps your citation share across five AI engines and 25 to 50 buyer questions, scores you against your sector median, and identifies the three highest-leverage fixes."
+      }
+    }
+  ]
+}
+</script>

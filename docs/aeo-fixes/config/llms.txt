@@ -1,0 +1,30 @@
+# Maxifi Digital
+
+> Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that makes expert-led brands the source AI engines cite. We help companies in aviation, professional services, law, and think tanks get retrieved, understood, and quoted by name across ChatGPT, Claude, Perplexity, Gemini, and Copilot. Founded by Lim Le-Anne.
+
+## Services
+
+- [Visibility Snapshot](https://maxifidigital.com/visibility-snapshot) — A free AEO audit that maps your citation share across five AI engines and 25–50 buyer questions, scores you against your sector median, and identifies the three highest-leverage fixes.
+- [Visibility Engine](https://maxifidigital.com/work) — An ongoing AEO programme that turns your expertise into structured, citable authority through a continuous Snapshot → Sprint → Monitor loop.
+- [Conference AEO Sprint](https://maxifidigital.com/conference-aeo) — Converts event sessions, panels, and speakers into permanent AI citation assets so engines keep citing your brand long after the event ends.
+
+## Key Concepts
+
+- **AEO (Answer Engine Optimisation):** The discipline of becoming a source AI engines retrieve, understand, and quote by name. Unlike SEO, which ranks pages in a list, AEO optimises for inclusion in AI-generated answers. It competes for citation share, not clicks.
+- **Citation share:** The proportion of relevant AI answers in your category that name your brand as a source. It is the core AEO metric, measured across engines and buyer questions, and benchmarked against your sector median.
+- **Visibility Engine:** Maxifi Digital's ongoing programme that grows citation share month over month. It runs a continuous loop of auditing (Snapshot), fixing (Sprint), and tracking (Monitor) to compound authority over time.
+- **Conference AEO:** The practice of capturing the expertise generated at conferences — sessions, panels, speakers — and structuring it so AI engines cite it permanently, turning a one-off event into a durable citation asset.
+
+## Case Study
+
+- **Airspace World 2026 hub** — A permanent, AI-citable reference hub preserving session and speaker content from Airspace World 2026 (the global air traffic management event, 26–28 May 2026, FIL Lisbon, organised by CANSO). https://aswhub.maxifidigital.com/
+
+## Contact
+
+- Email: hello@maxifidigital.com
+- Location: Singapore (60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051)
+- Booking: https://lunacal.ai/maxifidigital
+
+## Founder
+
+Lim Le-Anne is the founder of Maxifi Digital. With a senior communications background spanning Singapore's public sector and industry, she built Maxifi Digital after observing that AI engines cannot cite expertise that isn't structured for retrieval.
