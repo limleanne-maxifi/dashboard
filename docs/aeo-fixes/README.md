@@ -1,5 +1,7 @@
 # Maxifi Digital — AI Readability & Structured-Data Fixes
 
+> ⚠️ **SUPERSEDED — 2026-06-23.** These notes assume `maxifidigital.com` is a **Webflow** site. It is not: the main domain now runs on this **Astro + Netlify** repo (`limleanne-maxifi/dashboard`). This file is kept only as a historical record of the pre-migration site — **do not follow the Webflow steps for the live site.** Apply equivalent changes in the Astro/Netlify codebase instead.
+
 This package fixes all 19 AI-readability and structured-data issues for `maxifidigital.com` and the `aswhub.maxifidigital.com` case-study hub. Every JSON-LD file is validated JSON (straight quotes, no trailing commas) and wrapped in `<script type="application/ld+json">` where it ships in a page head.
 
 **Company facts used throughout:** Maxifi Digital, Singapore only (no London), founded by Lim Le-Anne. Primary contact: hello@maxifidigital.com. Booking: https://lunacal.ai/maxifidigital.

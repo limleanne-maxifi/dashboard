@@ -1,5 +1,7 @@
 # Webflow: Where to Paste Each JSON-LD Block
 
+> ⚠️ **SUPERSEDED — 2026-06-23.** These notes assume `maxifidigital.com` is a **Webflow** site. It is not: the main domain now runs on this **Astro + Netlify** repo (`limleanne-maxifi/dashboard`). This file is kept only as a historical record of the pre-migration site — **do not follow the Webflow steps for the live site.** Apply equivalent changes in the Astro/Netlify codebase instead.
+
 JSON-LD belongs in the page `<head>`. In Webflow:
 
 **Per-page head code:** Open the page in the Designer > click the page name gear / **Pages panel > Page Settings (gear icon)** > scroll to **Custom Code** > **Inside `<head>` tag** > paste the relevant `<script type="application/ld+json">` blocks > **Save** > **Publish**.

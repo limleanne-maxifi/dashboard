@@ -1,4 +1,6 @@
 # Main Domain (maxifidigital.com / Webflow) — Execution SOP
+
+> ⚠️ **SUPERSEDED — 2026-06-23.** These notes assume `maxifidigital.com` is a **Webflow** site. It is not: the main domain now runs on this **Astro + Netlify** repo (`limleanne-maxifi/dashboard`). This file is kept only as a historical record of the pre-migration site — **do not follow the Webflow steps for the live site.** Apply equivalent changes in the Astro/Netlify codebase instead.
 _Self-contained. Manual paste in Webflow Designer — not a code repo. Do in this order._
 
 > Webflow navigation reused below:

@@ -1,5 +1,7 @@
 # Fixing the Google Search Console JSON-LD Parse Error
 
+> ⚠️ **SUPERSEDED — 2026-06-23.** These notes assume `maxifidigital.com` is a **Webflow** site. It is not: the main domain now runs on this **Astro + Netlify** repo (`limleanne-maxifi/dashboard`). This file is kept only as a historical record of the pre-migration site — **do not follow the Webflow steps for the live site.** Apply equivalent changes in the Astro/Netlify codebase instead.
+
 **Error reported:** `Parsing error: Missing '}' or object member name` inside a `<script type="application/ld+json">` block on the homepage.
 
 This means one of the JSON-LD blocks on `https://maxifidigital.com/` is not valid JSON. Follow these steps to locate and fix it.

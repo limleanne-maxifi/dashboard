@@ -1,12 +1,12 @@
 # ASW Hub — Audit Findings & Review Register
-_Chief-of-Staff review · prepared 2026-06-13 · status: live-crawl pending egress access_
+_Chief-of-Staff review · prepared 2026-06-13 · updated 2026-06-23 (C2 `/asw-hub` dedupe resolved via `netlify.toml`) · status: live-crawl pending egress access_
 
-## 0. Surface map (verify first)
-Search reveals the hub content exists on **two surfaces**:
-- `aswhub.maxifidigital.com` — Netlify static subdomain (the "hub")
-- `maxifidigital.com/asw-hub` — a page on the main Webflow site, titled _"Airspace World 2026 AEO Hub | ATM, AAM & Future Skies | Maxifi Digital"_
+## 0. Surface map
+The hub content was previously reachable on **two surfaces**:
+- `aswhub.maxifidigital.com` — Netlify static subdomain (the "hub") — **canonical**
+- `maxifidigital.com/asw-hub` — formerly a duplicate, titled _"Airspace World 2026 AEO Hub | ATM, AAM & Future Skies | Maxifi Digital"_
 
-**This is the single most important thing to resolve.** Two live URLs serving the same content split your citation signal and can read as duplicate content — the opposite of what an AEO hub should do. Decide which is canonical and make the other defer to it.
+**Status: resolved.** `maxifidigital.com` runs on this Astro + Netlify repo, which builds **no** `/asw-hub` route. Every request to `/asw-hub` (and `/asw-hub/*`) is 301-redirected to the canonical subdomain via `netlify.toml` (see C2), so the two surfaces no longer split citation signal.
 
 ---
 
@@ -27,7 +27,13 @@ All must be `200`. Also confirm no Netlify password/Basic-Auth, no Cloudflare bo
 
 ### C2 — One canonical surface — DECISION LOCKED: `aswhub.maxifidigital.com`
 Canonical = the **subdomain** `aswhub.maxifidigital.com`. Actions:
-1. On the Webflow page `maxifidigital.com/asw-hub`: add `<link rel="canonical" href="https://aswhub.maxifidigital.com/">` in Page Settings > head, **and** set it to 301-redirect to the subdomain (Webflow Site Settings > Publishing > 301 redirects: `/asw-hub` → `https://aswhub.maxifidigital.com/`). Pick redirect over canonical-only if `/asw-hub` has no unique purpose.
+1. **DONE.** `maxifidigital.com/asw-hub` → `https://aswhub.maxifidigital.com/` is 301-redirected at the platform level in `netlify.toml` (added 2026-06-02, commit `40d8d87`). `maxifidigital.com` runs on this Astro + Netlify repo and builds no `/asw-hub` page, so the redirect fully retires the old duplicate — no canonical tag required:
+   ```toml
+   [[redirects]]
+     from = "/asw-hub"     to = "https://aswhub.maxifidigital.com/"        status = 301  force = true
+   [[redirects]]
+     from = "/asw-hub/*"   to = "https://aswhub.maxifidigital.com/:splat"  status = 301  force = true
+   ```
 2. Every internal/external link and the Event JSON-LD `url` must point to the subdomain.
 3. Submit the subdomain in GSC as its own property; request removal/recrawl of the duplicate `/asw-hub` URL.
 4. All schema `@id`/`url` and OG `og:url` on the hub resolve to `https://aswhub.maxifidigital.com/...`.
@@ -73,6 +79,5 @@ Four `/services/*` URLs likely 404. Apply `dead-links-audit.md` (repoint to `/vi
 1. Live HTTP status to AI user-agents (C1).
 2. Whether the report page content is in real text vs canvas/JS (C3).
 3. Exact footer URLs and current tense strings (H1/H4).
-4. Whether `aswhub` or `/asw-hub` is currently canonical (C2).
 
 Unblock by adding the host to this environment's egress allowlist, or paste the report-page HTML.
