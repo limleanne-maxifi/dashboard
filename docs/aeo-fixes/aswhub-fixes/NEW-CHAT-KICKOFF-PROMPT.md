@@ -1,6 +1,6 @@
 # Kickoff prompt — paste into a new Claude Code chat opened on the ASW HUB repo
 
-> Open the new session on the **ASW Hub repository** (the Netlify static site that serves `aswhub.maxifidigital.com` — e.g. `limleanne-maxifi/<asw-hub-repo>`). The main domain `maxifidigital.com` is Webflow (no repo) and is handled manually — do not look for it here.
+> Open the new session on the **ASW Hub repository** (the Netlify static site that serves `aswhub.maxifidigital.com` — e.g. `limleanne-maxifi/<asw-hub-repo>`). The main domain `maxifidigital.com` is a separate Astro + Netlify site with its own repo (`limleanne-maxifi/dashboard`) — do not look for it here.
 
 ---
 
