@@ -3,10 +3,86 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="About Maxifi Digital | AEO for Expert-Led Brands"
-  description="Maxifi Digital is a specialist AEO consultancy helping expert-led organisations become the answer AI cites. Learn who we are, how we work, and how to get in touch."
+  title="About Maxifi Digital | AEO Consultancy, Singapore"
+  description="Maxifi Digital is a Singapore-based AEO consultancy founded by Le-Anne Lim. Not affiliated with MaxiFi Planner. Learn who we are and how we prove our work."
   currentPage="/about"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://maxifidigital.com/#organization",
+  "name": "Maxifi Digital",
+  "url": "https://maxifidigital.com",
+  "logo": "https://maxifidigital.com/logos/maxifi-logo-black.png",
+  "description": "Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility consultancy founded by Le-Anne Lim. It helps expert-led brands become the source AI engines cite when buyers research their category. Maxifi Digital is not affiliated with MaxiFi Planner (maxifi.com) or maxify.digital.",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Singapore"
+  },
+  "founder": {
+    "@type": "Person",
+    "@id": "https://maxifidigital.com/about#le-anne-lim",
+    "name": "Le-Anne Lim"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/maxifi-digital/"
+  ]
+}</script>
+    <script type="application/ld+json" is:inline>{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://maxifidigital.com/about#le-anne-lim",
+  "name": "Le-Anne Lim",
+  "alternateName": "Lim Le-Anne",
+  "jobTitle": "Founder",
+  "worksFor": {
+    "@type": "Organization",
+    "@id": "https://maxifidigital.com/#organization",
+    "name": "Maxifi Digital",
+    "url": "https://maxifidigital.com"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/limleanne/"
+  ],
+  "knowsAbout": [
+    "Answer Engine Optimisation",
+    "AI Search Visibility",
+    "AEO for Events",
+    "Generative Engine Optimisation"
+  ]
+}</script>
+    <script type="application/ld+json" is:inline>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Maxifi Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility consultancy, working globally. It helps expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and specialist consultancies — become the source AI engines such as ChatGPT, Perplexity, Copilot, Gemini, and Claude cite when buyers research their category."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who runs Maxifi Digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maxifi Digital was founded and is run by Le-Anne Lim (also written Lim Le-Anne), a Singapore-based specialist in AI search visibility and Answer Engine Optimisation. Her LinkedIn profile is linkedin.com/in/limleanne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Maxifi Digital related to MaxiFi Planner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Maxifi Digital (maxifidigital.com) is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital. Maxifi Digital is an independent Answer Engine Optimisation consultancy based in Singapore."
+      }
+    }
+  ]
+}</script>
+  </Fragment>
 
   <!-- ══════════════════════════════════════════
        HERO
@@ -17,11 +93,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       About Maxifi Digital
     </h1>
     <p class="page-lede">
-      Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy
-      that builds AI citation authority for expert-led brands. We work with professional
-      services firms, industry associations, aviation and aerospace bodies, law firms, and
-      specialist consultancies — organisations whose buyers now research vendors in AI tools
-      before they ever visit a website.
+      Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy,
+      founded by Le-Anne Lim and working globally, that builds AI citation authority for
+      expert-led brands. We work with professional services firms, industry associations,
+      aviation and aerospace bodies, law firms, and specialist consultancies — organisations
+      whose buyers now research vendors in AI tools before they ever visit a website.
     </p>
   </section>
 
@@ -57,11 +133,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ══════════════════════════════════════════ -->
   <section class="section" aria-labelledby="founder-heading">
     <p class="s-eyebrow">OUR FOUNDER</p>
-    <h2 id="founder-heading" class="section-h2">Lim Le-Anne</h2>
+    <h2 id="founder-heading" class="section-h2 founder-name">Le-Anne Lim</h2>
+    <p class="founder-title">
+      Founder, Maxifi Digital ·
+      <a href="https://www.linkedin.com/in/limleanne/" target="_blank" rel="noopener noreferrer" class="founder-link">LinkedIn</a>
+    </p>
     <div class="prose-grid">
       <div class="prose-col">
         <p class="prose">
-          Lim Le-Anne founded Maxifi Digital after observing a consistent pattern: expert-led
+          Le-Anne Lim founded Maxifi Digital after observing a consistent pattern: expert-led
           brands that had invested years building genuine authority were invisible in
           AI-generated answers — not because their expertise was thin, but because their
           content was not structured for machine comprehension.
@@ -81,6 +161,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="values-col">
+        <!-- Photo slot: drop the founder photo into /public/founder/le-anne-lim.jpg,
+             then replace this placeholder div with:
+             <img class="founder-photo" src="/founder/le-anne-lim.jpg"
+                  alt="Le-Anne Lim, founder of Maxifi Digital" width="360" height="360" /> -->
+        <figure class="founder-photo-slot" aria-hidden="true">
+          <span class="founder-photo-initials">LL</span>
+          <figcaption class="founder-photo-caption">Le-Anne Lim · Founder</figcaption>
+        </figure>
         <div class="value-card">
           <h3 class="vc-title">Depth over volume</h3>
           <p class="vc-body">We work with a small number of clients at a time. Deep beats broad every quarter.</p>
@@ -93,6 +181,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3 class="vc-title">Expert-led, always</h3>
           <p class="vc-body">We structure and amplify the expertise that already exists — we don't generate content for volume.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROOF — ASW HUB
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proof-heading">
+    <p class="s-eyebrow">PROOF, NOT PROMISES</p>
+    <h2 id="proof-heading" class="section-h2">The ASW hub: from launch to AI citation in 62 days</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        We test our own method in public. In 2026 we built the
+        <a href="https://aswhub.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="prose-link">Airspace World 2026 AI Visibility Hub</a>
+        — a citation-optimised knowledge hub for the aviation industry's flagship air traffic
+        management event — and tracked how long it took AI engines to start citing it.
+        The answer: 62 days from launch to first citation.
+      </p>
+      <p class="prose">
+        By the July 2026 citation audit, Microsoft Copilot was building its answer to the
+        event discovery query directly from hub pages — placing the hub above the official
+        event website — and citing a hub insight article inside its AI answer. Perplexity
+        was recommending the hub as the "best starting point" for researching the event.
+        The hub is live, and every claim can be re-run in the engines today.
+      </p>
+    </div>
+    <div class="proof-stats">
+      <div class="proof-stat">
+        <div class="proof-stat__value">62 days</div>
+        <div class="proof-stat__label">launch to first AI citation</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat__value">Copilot</div>
+        <div class="proof-stat__label">discovery answer built from hub pages · Jul 2026</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat__value">Perplexity</div>
+        <div class="proof-stat__label">cited the hub as "best starting point" · Jul 2026</div>
       </div>
     </div>
   </section>
@@ -277,6 +403,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           without additional spend. The visibility grows without growing the cost.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DISAMBIGUATION + FAQ
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <p class="s-eyebrow">COMMON QUESTIONS</p>
+    <h2 id="faq-heading" class="section-h2">Frequently asked questions</h2>
+
+    <div class="disambig" role="note">
+      <p class="disambig-text">
+        <strong>Not to be confused with:</strong> Maxifi Digital is not affiliated with
+        MaxiFi Planner (maxifi.com) or maxify.digital. Maxifi Digital is an independent
+        Answer Engine Optimisation consultancy based in Singapore, found at maxifidigital.com.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <article class="faq-item">
+        <h3 class="faq-q">What is Maxifi Digital?</h3>
+        <p class="faq-a">
+          Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility
+          consultancy, working globally. It helps expert-led brands — professional services firms,
+          aviation and aerospace bodies, industry associations, law firms, and specialist
+          consultancies — become the source AI engines such as ChatGPT, Perplexity, Copilot,
+          Gemini, and Claude cite when buyers research their category.
+        </p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-q">Who runs Maxifi Digital?</h3>
+        <p class="faq-a">
+          Maxifi Digital was founded and is run by Le-Anne Lim (also written Lim Le-Anne),
+          a Singapore-based specialist in AI search visibility and Answer Engine Optimisation.
+          Her LinkedIn profile is
+          <a href="https://www.linkedin.com/in/limleanne/" target="_blank" rel="noopener noreferrer" class="prose-link">linkedin.com/in/limleanne</a>.
+        </p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-q">Is Maxifi Digital related to MaxiFi Planner?</h3>
+        <p class="faq-a">
+          No. Maxifi Digital (maxifidigital.com) is not affiliated with MaxiFi Planner
+          (maxifi.com), a personal financial planning software product, or with maxify.digital.
+          Maxifi Digital is an independent Answer Engine Optimisation consultancy based in Singapore.
+        </p>
+      </article>
     </div>
   </section>
 
@@ -513,6 +685,137 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 11px;
     line-height: 1.5;
     color: var(--muted);
+  }
+
+  .founder-name { margin-bottom: 4px; }
+
+  .founder-title {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .founder-link {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(4, 44, 83, 0.2);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .founder-link:hover { color: var(--amber); border-color: var(--amber); }
+
+  .founder-photo-slot {
+    background: var(--navy);
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 4px;
+  }
+
+  .founder-photo-initials {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--amber-pale);
+    letter-spacing: 0.1em;
+  }
+
+  .founder-photo-caption {
+    font-size: 10px;
+    color: var(--blue-mid);
+  }
+
+  .prose-link {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(4, 44, 83, 0.2);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .prose-link:hover { color: var(--amber); border-color: var(--amber); }
+
+  /* ── Proof stats ────────────────────────────── */
+  .proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 640px;
+  }
+
+  .proof-stat {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .proof-stat__value {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .proof-stat__label {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  /* ── Disambiguation + FAQ ───────────────────── */
+  .disambig {
+    background: #fff;
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-left: 2px solid var(--amber);
+    border-radius: 4px;
+    padding: 12px 16px;
+    max-width: 640px;
+    margin-bottom: 18px;
+  }
+
+  .disambig-text {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #444441;
+    margin: 0;
+  }
+
+  .disambig-text strong { font-weight: 500; color: var(--navy); }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 640px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .faq-q {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 7px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .faq-a {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
   }
 
   /* ── Method ─────────────────────────────────── */
@@ -761,6 +1064,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (max-width: 768px) {
     .page-h1 { font-size: 24px; }
     .prose-grid { grid-template-columns: 1fr; }
+    .proof-stats { grid-template-columns: 1fr; }
     .method-steps { grid-template-columns: 1fr; }
     .principles-grid { grid-template-columns: 1fr; }
     .outcomes-grid { grid-template-columns: 1fr; }

@@ -1,12 +1,18 @@
 # Maxifi Digital
 
-> Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy founded by Lim Le-Anne. We help expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and think tanks — become the source AI engines cite when buyers research their category. As search behaviour shifts from Google keyword queries to AI-generated answers in ChatGPT, Perplexity, Google AI Overviews, and Copilot, we build the visibility layer that keeps our clients inside those answers.
+> Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy founded by Le-Anne Lim (also written Lim Le-Anne). We help expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and think tanks — become the source AI engines cite when buyers research their category. As search behaviour shifts from Google keyword queries to AI-generated answers in ChatGPT, Perplexity, Google AI Overviews, and Copilot, we build the visibility layer that keeps our clients inside those answers. Maxifi Digital is not affiliated with MaxiFi Planner (maxifi.com) or maxify.digital.
+
+## Company
+
+- **About Maxifi Digital** (https://maxifidigital.com/about) — What the company is, who founded and runs it (Le-Anne Lim), the Airspace World hub proof story (first AI citation 62 days after launch; Copilot and Perplexity citations in July 2026), and disambiguation from similarly named entities.
 
 ## Services
 
 - **Visibility Snapshot** (https://maxifidigital.com/visibility-snapshot) — A five-minute AI citation audit scoring how a brand currently appears across five major AI engines, with a gap report identifying what to fix and why.
 - **Visibility Engine** (https://maxifidigital.com/work) — A three-stage AEO programme (Snapshot → Sprint → Monitor) that builds and compounds AI citation authority for expert-led brands over time.
 - **Conference AEO Sprint** (https://maxifidigital.com/conference-aeo) — A focused engagement that converts an industry conference or event into a permanent, AI-indexed citation hub, extending event ROI indefinitely.
+- **AEO for Aviation & Aerospace Events** (https://maxifidigital.com/aeo-aviation-events) — Specialist AEO for aviation events, air traffic management conferences, and aerospace shows, proven on the Airspace World 2026 hub. (AEO here means Answer Engine Optimisation, not the Civil Air Patrol's Aerospace Education Officer role.)
+- **Revenue at Risk — the MAXIFI Model** (https://maxifidigital.com/revenue-at-risk) — How much revenue is at risk when AI engines cite competitors instead of you. Revenue at risk is the annual value of buyer decisions influenced by AI answers that cite your competitors instead of you — calculable, per the MAXIFI model, from six numbers a business already has.
 
 ## Key Concepts
 
@@ -34,4 +40,4 @@ The Airspace World 2026 hub (https://aswhub.maxifidigital.com/) is a live demons
 
 ## Founder
 
-**Lim Le-Anne** is the founder of Maxifi Digital and a specialist in AI search visibility and Answer Engine Optimisation. She built Maxifi Digital after observing that expert-led brands were being systematically excluded from AI-generated answers — not because their expertise was insufficient, but because their content was not structured for machine comprehension. Her work focuses on closing that gap for professional services firms, industry bodies, and specialist consultancies operating in high-trust B2B categories.
+**Le-Anne Lim** (also written Lim Le-Anne; LinkedIn: https://www.linkedin.com/in/limleanne/) is the founder of Maxifi Digital and a specialist in AI search visibility and Answer Engine Optimisation. She built Maxifi Digital after observing that expert-led brands were being systematically excluded from AI-generated answers — not because their expertise was insufficient, but because their content was not structured for machine comprehension. Her work focuses on closing that gap for professional services firms, industry bodies, and specialist consultancies operating in high-trust B2B categories.
