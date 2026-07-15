@@ -35,6 +35,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   "@id": "https://maxifidigital.com/about#le-anne-lim",
   "name": "Lim Le-Anne",
   "alternateName": "Le-Anne Lim",
+  "image": "https://maxifidigital.com/founder/le-anne-lim.jpg",
   "jobTitle": "Founder",
   "worksFor": {
     "@type": "Organization",
@@ -161,12 +162,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="values-col">
-        <!-- Photo slot: drop the founder photo into /public/founder/le-anne-lim.jpg,
-             then replace this placeholder div with:
-             <img class="founder-photo" src="/founder/le-anne-lim.jpg"
-                  alt="Lim Le-Anne, founder of Maxifi Digital" width="360" height="360" /> -->
-        <figure class="founder-photo-slot" aria-hidden="true">
-          <span class="founder-photo-initials">LL</span>
+        <figure class="founder-figure">
+          <img
+            class="founder-photo"
+            src="/founder/le-anne-lim.jpg"
+            alt="Lim Le-Anne, founder of Maxifi Digital"
+            width="720"
+            height="1079"
+            loading="lazy"
+          />
           <figcaption class="founder-photo-caption">Lim Le-Anne · Founder</figcaption>
         </figure>
         <div class="value-card">
@@ -733,30 +737,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .founder-link:hover { color: var(--amber); border-color: var(--amber); }
 
-  .founder-photo-slot {
-    background: var(--navy);
-    border-radius: 8px;
-    aspect-ratio: 1 / 1;
-    max-width: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .founder-figure {
     margin: 0 0 4px;
+    max-width: 300px;
   }
 
-  .founder-photo-initials {
-    font-family: var(--font-mono);
-    font-size: var(--text-h1);
-    font-weight: 500;
-    color: var(--amber-pale);
-    letter-spacing: var(--track-caps);
+  .founder-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 0.5px solid var(--line);
+    display: block;
   }
 
   .founder-photo-caption {
-    font-size: var(--text-small);
-    color: var(--blue-mid);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--mute-soft);
+    margin-top: 8px;
   }
 
   .prose-link {
