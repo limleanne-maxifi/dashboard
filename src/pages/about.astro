@@ -180,17 +180,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="values-col">
-        <figure class="founder-figure">
-          <img
-            class="founder-photo"
-            src="/founder/le-anne-lim.jpg"
-            alt="Lim Le-Anne, founder of Maxifi Digital"
-            width="720"
-            height="1079"
-            loading="lazy"
-          />
-          <figcaption class="founder-photo-caption">Lim Le-Anne · Founder</figcaption>
-        </figure>
+        <img
+          class="founder-photo"
+          src="/founder/le-anne-lim.jpg"
+          alt="Lim Le-Anne, founder of Maxifi Digital"
+          width="720"
+          height="1079"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -726,7 +723,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .prose {
@@ -741,7 +738,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 20px;
   }
 
-  .values-col { display: flex; flex-direction: column; gap: 10px; }
+  .values-col { position: relative; min-height: 0; }
 
   .founder-name { margin-bottom: 4px; }
 
@@ -760,24 +757,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .founder-link:hover { color: var(--amber); border-color: var(--amber); }
 
-  .founder-figure {
-    margin: 0 0 4px;
-    max-width: 300px;
-  }
-
+  /* Absolutely positioned so the bio text column sets the row height;
+     the photo crops to match. Mobile override lives in globals.css. */
   .founder-photo {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 26%;
     border-radius: 8px;
     border: 0.5px solid var(--line);
     display: block;
-  }
-
-  .founder-photo-caption {
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    color: var(--mute-soft);
-    margin-top: 8px;
   }
 
   .prose-link {

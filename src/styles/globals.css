@@ -822,6 +822,13 @@ section.deepest .eyebrow {
     gap: 28px !important;
   }
 
+  /* /about founder photo: static natural-aspect image when the grid stacks */
+  .founder-photo {
+    position: static !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+  }
+
   .factor-grid,
   .av-stat-grid {
     grid-template-columns: 1fr 1fr !important;
