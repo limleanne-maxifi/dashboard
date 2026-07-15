@@ -593,28 +593,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     if (sourceEl) sourceEl.textContent = randomStat.source;
   })();
 
-  function bindForm(formId, wrapId, thanks) {
-    const form = document.getElementById(formId);
-    const wrap = document.getElementById(wrapId);
-    if (!form || !wrap) return;
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const body = new URLSearchParams(
-        Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
-      ).toString();
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-        });
-        wrap.innerHTML = `<p class="form-thanks">${thanks}</p>`;
-      } catch {
-        form.submit();
-      }
-    });
-  }
-
 </script>
 
 <style>

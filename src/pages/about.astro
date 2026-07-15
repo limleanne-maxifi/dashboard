@@ -106,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ══════════════════════════════════════════ -->
   <section class="section section--cream" aria-labelledby="why-heading">
     <p class="s-eyebrow">WHY THIS MATTERS NOW</p>
-    <h2 id="why-heading" class="section-h2">Search behavior is shifting to AI</h2>
+    <h2 id="why-heading" class="section-h2">Search behaviour is shifting to AI</h2>
     <div class="prose-col prose-wide">
       <p class="prose">
         For twenty years, expert-led brands built authority by ranking on Google. Today, that
@@ -346,7 +346,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="principle-body">
           AI citation authority compounds. A brand that appears consistently in AI answers over months
           and quarters builds an association that is increasingly difficult for competitors to displace.
-          We optimize for sustained visibility, not short-term spikes.
+          We optimise for sustained visibility, not short-term spikes.
         </p>
       </article>
       <article class="principle-card">
@@ -373,14 +373,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="outcomes-grid">
       <div class="outcome-item">
-        <span class="outcome-icon">📊</span>
         <h3 class="outcome-title">Citation share increases</h3>
         <p class="outcome-body">
           More AI responses surface your brand by name, across more engines, in response to more buyer questions.
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">🎯</span>
         <h3 class="outcome-title">Buyer pipeline shifts</h3>
         <p class="outcome-body">
           Inbound inquiries come from buyers who encountered your brand in AI answers. These prospects have higher
@@ -388,7 +386,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">⚡</span>
         <h3 class="outcome-title">Authority compounds</h3>
         <p class="outcome-body">
           Each piece of structured content and citation reinforces your brand-category association. Growth accelerates
@@ -396,7 +393,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">💰</span>
         <h3 class="outcome-title">No recurring cost per impression</h3>
         <p class="outcome-body">
           Unlike paid ads that cost money every time someone sees them, structured content and citations compound
@@ -478,6 +474,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div id="contact-form-wrap">
         <form
           name="contact"
+          method="POST"
+          action="/thanks"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           id="contact-form"
@@ -556,19 +554,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   if (form && wrap) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
       const body = new URLSearchParams(
         Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
       ).toString();
+
+      const showError = () => {
+        if (submitBtn) submitBtn.disabled = false;
+        let err = form.querySelector<HTMLElement>('.form-error');
+        if (!err) {
+          err = document.createElement('p');
+          err.className = 'form-error';
+          err.setAttribute('role', 'alert');
+          form.appendChild(err);
+        }
+        err.innerHTML =
+          'Something went wrong sending your message. Please try again, or email us directly at <a href="mailto:hello@maxifidigital.com">hello@maxifidigital.com</a>.';
+      };
+
       try {
-        await fetch('/', {
+        const response = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body,
         });
-        wrap.innerHTML =
-          '<p class="form-thanks">Thank you — we\'ll be in touch within one business day.</p>';
+        if (response.ok) {
+          wrap.innerHTML =
+            '<p class="form-thanks">Thank you — we\'ll be in touch within one business day.</p>';
+        } else {
+          showError();
+        }
       } catch {
-        form.submit();
+        showError();
       }
     });
   }
@@ -582,6 +600,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--navy);
     line-height: 1.55;
     padding: 12px 0;
+  }
+
+  .form-error {
+    font-size: var(--text-small);
+    color: var(--danger);
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
+  .form-error :global(a) {
+    text-decoration: underline;
   }
 
   /* ── Hero ───────────────────────────────────── */
@@ -1049,11 +1078,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
 
-  .outcome-icon {
-    font-size: var(--text-h1);
-    display: block;
-    margin-bottom: 10px;
-  }
 
   .outcome-title {
     font-size: var(--text-small);
