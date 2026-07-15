@@ -758,14 +758,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .founder-link:hover { color: var(--amber); border-color: var(--amber); }
 
   /* Absolutely positioned so the bio text column sets the row height;
-     the photo crops to match. Mobile override lives in globals.css. */
+     the full photo scales to that height, uncropped (width follows the
+     natural aspect ratio). Mobile override lives in globals.css. */
   .founder-photo {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     height: 100%;
-    object-fit: cover;
-    object-position: 50% 26%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
     border-radius: 8px;
     border: 0.5px solid var(--line);
     display: block;

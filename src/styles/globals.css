@@ -826,7 +826,8 @@ section.deepest .eyebrow {
   .founder-photo {
     position: static !important;
     height: auto !important;
-    aspect-ratio: 3 / 4;
+    width: 100% !important;
+    transform: none !important;
   }
 
   .factor-grid,
