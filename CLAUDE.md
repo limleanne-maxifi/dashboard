@@ -235,14 +235,14 @@ If logo image unavailable, render "Maxifi Digital" as text:
 - Padding: 14px var(--gutter)
 - Mobile hamburger breakpoint: **900px**
 
-### Links (between logo and CTA) — locked v4.1, 5 items
+### Links (between logo and CTA) — locked v4.2, 5 items in this order
 | Label | Route (Phase 1 — existing URLs) |
 |---|---|
-| Executive | `/executive` |
-| Events | `/conference-aeo` |
-| Enterprise | `/work` |
-| Why AEO | `/aeo` |
 | About | `/about` |
+| Why AEO | `/aeo` |
+| Executive:AI | `/executive` |
+| Event:AI | `/conference-aeo` |
+| Enterprise:AI | `/work` |
 
 Route migrations (`/events`, `/enterprise`) are **Phase 2** — after the 1 Aug citation audit. Do not add 301s or rename routes in Phase 1.
 
