@@ -136,9 +136,12 @@ grep -rn  'padding: *[0-9]*px 22px' src                    # dead 22px gutter
 
 ### Gutter system (v4.1 — kills the old 22px/40px mismatch)
 ```
---gutter: 48px            /* 32px ≤900px, 24px ≤640px — via :root media queries */
+--gutter: 56px            /* 40px ≤900px, 28px ≤640px — via :root media queries */
+--gutter-page             /* full-bleed sections WITHOUT an inner .wrap: grows past
+                             --gutter on wide viewports so the content edge matches
+                             the centred 1280px container */
 ```
-Every full-bleed section, nav, hero, page-hero and footer uses `padding-left/right: var(--gutter)`. The left page edge must align through nav → hero → sections → footer at every breakpoint.
+Every full-bleed section, nav, hero, page-hero and footer uses `padding-left/right: var(--gutter)` (or `var(--gutter-page)` when the section has no inner max-width wrap). The left page edge must align through nav → hero → sections → footer at every breakpoint.
 
 ### Containers & measures
 ```
@@ -809,3 +812,4 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v3.2 (2026-05-24): Pre-launch audit pass — orphan components/files removed; redirects consolidated; mobile breakpoints standardized.**
 - **v3.3 (2026-05-24): Mobile CSS rules relocated to `globals.css` after discovering Astro scoped `<style>` blocks unreliably compile `@media` rules. NODE_VERSION pinned to 22 in `netlify.toml`. Fixed silent `</style>` tag corruption bug.**
 - **v4.1 (2026-07-15): Type re-scale to benchmark size, rem tokens, WCAG AA contrast corrections, gutter/measure system, Three-E nav + /executive page with approved SGD pricing (Phase 1). Approved by Le-Anne 15 Jul 2026.**
+- **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**
