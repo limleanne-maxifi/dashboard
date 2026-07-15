@@ -177,8 +177,8 @@ Vertical: `padding: var(--section-pad) 0`. Hero: `padding: 64px var(--gutter) 80
 
 ### Container
 ```css
-.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-.wrap-narrow { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.wrap-narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 var(--gutter); }
 ```
 
 ### Hero grid
@@ -254,7 +254,7 @@ Each link: `--text-small`, weight 400, color var(--navy), opacity 0.72 default, 
 - Padding: 12px 20px, min-height 44px, border-radius 5px, `--text-small`, weight 500, nowrap
 - Also rendered in the mobile drawer.
 
-### Footer service labels match the nav: "Executive AI Visibility" → `/executive`, "Enterprise" → `/work`, "Events" → `/conference-aeo`.
+### Footer service labels keep the fuller names: "Executive AI Visibility" → `/executive`, "Enterprise" → `/work`, "Events" → `/conference-aeo` (nav uses the compact `:AI` labels; routes identical).
 
 ---
 
@@ -284,9 +284,10 @@ Each link: `--text-small`, weight 400, color var(--navy), opacity 0.72 default, 
 
 All tap targets ≥ 44px min-height.
 
-### Universal CTAs across the site
-Primary: "Get my Scorecard" → `#snapshot` (homepage form) or `/visibility-snapshot`
-Secondary: "ASW case study" or "See a Live Example →" → `https://aswhub.maxifidigital.com/` (external, new tab)
+### Universal CTAs across the site (v4.2)
+Primary: "Check my visibility →" / "Get my AI Visibility Snapshot" → `https://checkyourvisibility.maxifidigital.com/` (external, new tab)
+Executive variant: "Run my Executive Baseline →" → `https://checkyourvisibility.maxifidigital.com/exec` (external, new tab)
+Secondary: "Schedule a consultation" → `https://lunacal.ai/maxifidigital`, or "ASW case study" → `https://aswhub.maxifidigital.com/` (external, new tab)
 
 ---
 
@@ -334,7 +335,7 @@ Secondary: "ASW case study" or "See a Live Example →" → `https://aswhub.maxi
 /executive               Executive AI Visibility (free Baseline → SGD monitored programme)
 /thanks                  Form-submission thank-you (native fallback target)
 /aeo                     AEO education + sales
-/visibility-snapshot     Standalone Snapshot tool (embeds visibilityview.netlify.app)
+/visibility-snapshot     Standalone Snapshot page (routes to checkyourvisibility.maxifidigital.com)
 /visibility-engine       Engine sales page
 /conference-aeo          Conference offer + ASW video
 /work                    Case study index
@@ -355,11 +356,14 @@ Every page wraps in `BaseLayout.astro` which includes:
 
 ---
 
-## EXTERNAL LINKS
+## EXTERNAL LINKS (v4.2)
 
-- Snapshot tool: `https://visibilityview.netlify.app/`
+- Visibility Snapshot tool: `https://checkyourvisibility.maxifidigital.com/`
+- Executive Baseline tool: `https://checkyourvisibility.maxifidigital.com/exec` (Stripe checkout for monitoring lives inside the tool)
 - ASW Hub (live demo): `https://aswhub.maxifidigital.com/`
-- Both open in new tab with `rel="noopener noreferrer"`
+- Consultation booking: `https://lunacal.ai/maxifidigital`
+- All open in new tab with `rel="noopener noreferrer"`
+- `visibilityview.netlify.app` is retired — do not link to it
 
 ---
 
@@ -505,7 +509,7 @@ Astro is lenient about malformed HTML in `.astro` files — a missing `>` on `</
 ### Netlify configuration (netlify.toml at root)
 - 301 redirect www → apex
 - Security headers: X-Frame-Options, X-Content-Type-Options, Referrer-Policy
-- Special CSP header for `/visibility-snapshot`: allow `frame-src https://visibilityview.netlify.app`
+- No iframe/CSP exception needed: `/visibility-snapshot` no longer embeds an external tool (routes to `checkyourvisibility.maxifidigital.com` instead)
 
 ---
 
@@ -740,7 +744,7 @@ Visible during thinking phase only (shown while `ec-answer-area` is hidden). Hid
 }
 ```
 Copy: question = **"Are AI engines citing you?"**, CTA = **"Check now →"**
-Links to: `https://visibilityview.netlify.app/` (external, new tab)
+Links to: `https://checkyourvisibility.maxifidigital.com/` (external, new tab)
 
 ### JS animation rules (locked — prevent stale timer bugs)
 Four timer state variables must exist:
@@ -785,7 +789,7 @@ The following homepage sections (in `src/pages/index.astro`) are **locked** and 
 - Two AEO context paragraphs
 - Right column: white form card with "Free Snapshot" badge, score chip (47/100), 3 form fields
 - Form name: `visibility-snapshot` (Netlify Forms)
-- CTA routes to `https://visibilityview.netlify.app/` (external, new tab)
+- CTA routes to `https://checkyourvisibility.maxifidigital.com/` (external, new tab)
 - CSS: `.vs-hero`, `.vs-hero__grid`, `.vs-hero__left`, `.vs-form-card`, `.vs-form-badge`, `.vs-scorechip`, `.vs-field`, `.vs-submit`, `.vs-results`
 - Do not modify form fields, badge styling, or score chip layout
 
@@ -813,3 +817,4 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v3.3 (2026-05-24): Mobile CSS rules relocated to `globals.css` after discovering Astro scoped `<style>` blocks unreliably compile `@media` rules. NODE_VERSION pinned to 22 in `netlify.toml`. Fixed silent `</style>` tag corruption bug.**
 - **v4.1 (2026-07-15): Type re-scale to benchmark size, rem tokens, WCAG AA contrast corrections, gutter/measure system, Three-E nav + /executive page with approved SGD pricing (Phase 1). Approved by Le-Anne 15 Jul 2026.**
 - **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**
+- **v4.3 (2026-07-15, merged #65): Nav reordered and relabelled — About / Why AEO / Executive:AI / Event:AI / Enterprise:AI (routes unchanged); /about hero lede raised to `--text-lede` (18px); stale `visibilityview.netlify.app` references replaced with `checkyourvisibility.maxifidigital.com` throughout the docs. Approved by Le-Anne 15 Jul 2026.**
