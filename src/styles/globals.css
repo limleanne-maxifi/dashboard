@@ -117,7 +117,7 @@
   --pad-form:    36px;
 
   /* ── LAYOUT v4.1 ── */
-  --gutter: 48px;                 /* 32px ≤900px, 24px ≤640px via media queries */
+  --gutter: 56px;                 /* 40px ≤900px, 28px ≤640px via media queries */
   --container:        1280px;
   --container-narrow:  960px;
   --container-prose:   720px;
@@ -140,8 +140,8 @@
   --t-slow:  0.35s ease;
 }
 
-@media (max-width: 900px) { :root { --gutter: 32px; --section-pad: 64px; } }
-@media (max-width: 640px) { :root { --gutter: 24px; --section-pad: 48px; --text-display: 2.5rem; } }
+@media (max-width: 900px) { :root { --gutter: 40px; --section-pad: 64px; } }
+@media (max-width: 640px) { :root { --gutter: 28px; --section-pad: 48px; --text-display: 2.5rem; } }
 
 /* ======= BASE RESETS ======= */
 
