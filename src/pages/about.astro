@@ -35,6 +35,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   "@id": "https://maxifidigital.com/about#le-anne-lim",
   "name": "Lim Le-Anne",
   "alternateName": "Le-Anne Lim",
+  "image": "https://maxifidigital.com/founder/le-anne-lim.jpg",
   "jobTitle": "Founder",
   "worksFor": {
     "@type": "Organization",
@@ -88,17 +89,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        HERO
   ══════════════════════════════════════════ -->
   <section class="page-hero" aria-labelledby="about-heading">
-    <p class="eyebrow">ABOUT MAXIFI DIGITAL</p>
-    <h1 id="about-heading" class="page-h1">
-      About Maxifi Digital
-    </h1>
-    <p class="page-lede">
-      Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy,
-      founded by Lim Le-Anne and working globally, that builds AI citation authority for
-      expert-led brands. We work with professional services firms, industry associations,
-      aviation and aerospace bodies, law firms, and specialist consultancies — organisations
-      whose buyers now research vendors in AI tools before they ever visit a website.
-    </p>
+    <div class="about-hero__grid">
+      <div class="about-hero__copy">
+        <p class="eyebrow">ABOUT MAXIFI DIGITAL</p>
+        <h1 id="about-heading" class="page-h1">
+          About Maxifi Digital
+        </h1>
+        <p class="page-lede">
+          Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy,
+          founded by Lim Le-Anne and working globally, that builds AI citation authority for
+          expert-led brands. We work with professional services firms, industry associations,
+          aviation and aerospace bodies, law firms, and specialist consultancies — organisations
+          whose buyers now research vendors in AI tools before they ever visit a website.
+        </p>
+      </div>
+      <div class="about-hero__values">
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Depth over volume</h2>
+          <p class="hvc-body">We work with a small number of clients at a time. Deep beats broad every quarter.</p>
+        </div>
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Results before rhetoric</h2>
+          <p class="hvc-body">Every engagement starts with a Snapshot. Every claim is measured against a baseline.</p>
+        </div>
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Expert-led, always</h2>
+          <p class="hvc-body">We structure and amplify the expertise that already exists — we don't generate content for volume.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -106,7 +125,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ══════════════════════════════════════════ -->
   <section class="section section--cream" aria-labelledby="why-heading">
     <p class="s-eyebrow">WHY THIS MATTERS NOW</p>
-    <h2 id="why-heading" class="section-h2">Search behavior is shifting to AI</h2>
+    <h2 id="why-heading" class="section-h2">Search behaviour is shifting to AI</h2>
     <div class="prose-col prose-wide">
       <p class="prose">
         For twenty years, expert-led brands built authority by ranking on Google. Today, that
@@ -161,26 +180,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="values-col">
-        <!-- Photo slot: drop the founder photo into /public/founder/le-anne-lim.jpg,
-             then replace this placeholder div with:
-             <img class="founder-photo" src="/founder/le-anne-lim.jpg"
-                  alt="Lim Le-Anne, founder of Maxifi Digital" width="360" height="360" /> -->
-        <figure class="founder-photo-slot" aria-hidden="true">
-          <span class="founder-photo-initials">LL</span>
-          <figcaption class="founder-photo-caption">Lim Le-Anne · Founder</figcaption>
-        </figure>
-        <div class="value-card">
-          <h3 class="vc-title">Depth over volume</h3>
-          <p class="vc-body">We work with a small number of clients at a time. Deep beats broad every quarter.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="vc-title">Results before rhetoric</h3>
-          <p class="vc-body">Every engagement starts with a Snapshot. Every claim is measured against a baseline.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="vc-title">Expert-led, always</h3>
-          <p class="vc-body">We structure and amplify the expertise that already exists — we don't generate content for volume.</p>
-        </div>
+        <img
+          class="founder-photo"
+          src="/founder/le-anne-lim.jpg"
+          alt="Lim Le-Anne, founder of Maxifi Digital"
+          width="720"
+          height="1079"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
@@ -346,7 +353,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="principle-body">
           AI citation authority compounds. A brand that appears consistently in AI answers over months
           and quarters builds an association that is increasingly difficult for competitors to displace.
-          We optimize for sustained visibility, not short-term spikes.
+          We optimise for sustained visibility, not short-term spikes.
         </p>
       </article>
       <article class="principle-card">
@@ -373,14 +380,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="outcomes-grid">
       <div class="outcome-item">
-        <span class="outcome-icon">📊</span>
         <h3 class="outcome-title">Citation share increases</h3>
         <p class="outcome-body">
           More AI responses surface your brand by name, across more engines, in response to more buyer questions.
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">🎯</span>
         <h3 class="outcome-title">Buyer pipeline shifts</h3>
         <p class="outcome-body">
           Inbound inquiries come from buyers who encountered your brand in AI answers. These prospects have higher
@@ -388,7 +393,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">⚡</span>
         <h3 class="outcome-title">Authority compounds</h3>
         <p class="outcome-body">
           Each piece of structured content and citation reinforces your brand-category association. Growth accelerates
@@ -396,7 +400,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="outcome-item">
-        <span class="outcome-icon">💰</span>
         <h3 class="outcome-title">No recurring cost per impression</h3>
         <p class="outcome-body">
           Unlike paid ads that cost money every time someone sees them, structured content and citations compound
@@ -478,6 +481,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div id="contact-form-wrap">
         <form
           name="contact"
+          method="POST"
+          action="/thanks"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           id="contact-form"
@@ -556,19 +561,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   if (form && wrap) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
       const body = new URLSearchParams(
         Array.from(new FormData(form)).map(([k, v]) => [k, v.toString()]),
       ).toString();
+
+      const showError = () => {
+        if (submitBtn) submitBtn.disabled = false;
+        let err = form.querySelector<HTMLElement>('.form-error');
+        if (!err) {
+          err = document.createElement('p');
+          err.className = 'form-error';
+          err.setAttribute('role', 'alert');
+          form.appendChild(err);
+        }
+        err.innerHTML =
+          'Something went wrong sending your message. Please try again, or email us directly at <a href="mailto:hello@maxifidigital.com">hello@maxifidigital.com</a>.';
+      };
+
       try {
-        await fetch('/', {
+        const response = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body,
         });
-        wrap.innerHTML =
-          '<p class="form-thanks">Thank you — we\'ll be in touch within one business day.</p>';
+        if (response.ok) {
+          wrap.innerHTML =
+            '<p class="form-thanks">Thank you — we\'ll be in touch within one business day.</p>';
+        } else {
+          showError();
+        }
       } catch {
-        form.submit();
+        showError();
       }
     });
   }
@@ -578,57 +603,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .honeypot { position: absolute; left: -9999px; }
 
   .form-thanks {
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     line-height: 1.55;
     padding: 12px 0;
+  }
+
+  .form-error {
+    font-size: var(--text-small);
+    color: var(--danger);
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
+  .form-error :global(a) {
+    text-decoration: underline;
   }
 
   /* ── Hero ───────────────────────────────────── */
   .page-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
-    text-align: center;
+    padding: 40px var(--gutter-page) 36px;
+    text-align: left;
   }
 
   .eyebrow {
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
-    margin: 0 auto 12px;
+    margin: 0 0 12px;
     line-height: 1.18;
     font-family: 'Inter', sans-serif;
-    max-width: 600px;
+    max-width: var(--measure-lede);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 560px;
+    max-width: var(--measure-body);
+    margin: 0;
+  }
+
+  .about-hero__grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: calc(var(--container) - 2 * var(--gutter));
     margin: 0 auto;
+  }
+
+  .about-hero__values {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-value-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .hvc-title {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: var(--track-tight);
+    margin: 0 0 4px;
+  }
+
+  .hvc-body {
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--blue-soft);
+    margin: 0;
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
@@ -637,7 +711,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter-page);
     background: var(--cream);
   }
 
@@ -649,48 +723,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
   }
 
   .prose {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: #444441;
     margin-bottom: 12px;
   }
 
   .prose-wide {
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 20px;
   }
 
-  .values-col { display: flex; flex-direction: column; gap: 10px; }
-
-  .value-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 12px 14px;
-  }
-
-  .vc-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .vc-body {
-    font-size: 11px;
-    line-height: 1.5;
-    color: var(--muted);
-  }
+  .values-col { position: relative; min-height: 0; }
 
   .founder-name { margin-bottom: 4px; }
 
   .founder-title {
-    font-size: 12px;
+    font-size: var(--text-body);
     color: var(--muted);
     margin-bottom: 16px;
   }
@@ -704,30 +757,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .founder-link:hover { color: var(--amber); border-color: var(--amber); }
 
-  .founder-photo-slot {
-    background: var(--navy);
+  /* Absolutely positioned so the bio text column sets the row height;
+     the full photo scales to that height, uncropped (width follows the
+     natural aspect ratio). Mobile override lives in globals.css. */
+  .founder-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
     border-radius: 8px;
-    aspect-ratio: 1 / 1;
-    max-width: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 0 0 4px;
-  }
-
-  .founder-photo-initials {
-    font-family: var(--font-mono);
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--amber-pale);
-    letter-spacing: 0.1em;
-  }
-
-  .founder-photo-caption {
-    font-size: 10px;
-    color: var(--blue-mid);
+    border: 0.5px solid var(--line);
+    display: block;
   }
 
   .prose-link {
@@ -745,7 +789,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .proof-stat {
@@ -757,14 +801,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .proof-stat__value {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 5px;
   }
 
   .proof-stat__label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     line-height: 1.5;
     color: var(--muted);
   }
@@ -776,12 +820,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-left: 2px solid var(--amber);
     border-radius: 4px;
     padding: 12px 16px;
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 18px;
   }
 
   .disambig-text {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: #444441;
     margin: 0;
@@ -793,7 +837,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .faq-item {
@@ -804,7 +848,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-q {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 7px;
@@ -812,7 +856,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-a {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
     margin: 0;
@@ -833,15 +877,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ms-num {
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--amber);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     margin-bottom: 6px;
   }
 
   .ms-title {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 7px;
@@ -849,7 +893,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ms-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
   }
@@ -867,16 +911,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 0.5px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: var(--text-caption);
     color: var(--navy);
     font-weight: 400;
   }
 
   .client-note {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--muted);
     line-height: 1.55;
-    max-width: 520px;
+    max-width: var(--measure-lede);
   }
 
   /* ── Contact ────────────────────────────────── */
@@ -888,7 +932,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ct-body {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.6;
     color: var(--muted);
     margin-bottom: 14px;
@@ -897,7 +941,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-links { display: flex; flex-direction: column; gap: 8px; }
 
   .cl-link {
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     font-weight: 500;
     text-decoration: none;
@@ -912,7 +956,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-form { display: flex; flex-direction: column; }
 
   .f-label {
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--muted);
     margin-bottom: 4px;
     display: block;
@@ -923,7 +967,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 0.5px solid rgba(4, 44, 83, 0.18);
     border-radius: 4px;
     padding: 8px 10px;
-    font-size: 11px;
+    min-height: 44px;
+    font-size: var(--text-body);
     margin-bottom: 10px;
     background: #fff;
     color: var(--navy);
@@ -941,24 +986,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .f-btn {
     width: 100%;
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: background 0.2s ease;
   }
 
-  .f-btn:hover { background: #854F0B; }
+  .f-btn:hover { background: #6B3F09; }
 
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
@@ -967,7 +1016,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
@@ -976,26 +1025,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 400px;
+    max-width: var(--measure-tight);
     margin: 0 auto 18px;
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   /* ── Principles grid ────────────────────────── */
   .principles-grid {
@@ -1012,7 +1065,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .principle-title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
@@ -1020,7 +1073,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .principle-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
   }
@@ -1040,14 +1093,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
 
-  .outcome-icon {
-    font-size: 28px;
-    display: block;
-    margin-bottom: 10px;
-  }
 
   .outcome-title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
@@ -1055,21 +1103,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .outcome-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
   }
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
+    .page-h1 { font-size: var(--text-h2); }
     .prose-grid { grid-template-columns: 1fr; }
     .proof-stats { grid-template-columns: 1fr; }
     .method-steps { grid-template-columns: 1fr; }
     .principles-grid { grid-template-columns: 1fr; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
-    .cta-title { font-size: 18px; }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

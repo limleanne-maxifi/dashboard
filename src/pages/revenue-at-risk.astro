@@ -315,60 +315,60 @@ const tiers = [
   .page-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
+    padding: 40px var(--gutter) 36px;
     text-align: center;
   }
 
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
     letter-spacing: -0.02em;
     font-family: 'Inter', sans-serif;
-    max-width: 640px;
+    max-width: var(--measure-body);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 560px;
+    max-width: var(--measure-lede);
     margin: 0 auto;
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
     font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
     font-family: 'Inter', sans-serif;
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter-page);
     background: var(--cream);
   }
 
@@ -376,14 +376,14 @@ const tiers = [
   .section--pt0 { padding-top: 0; }
 
   .prose {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: #444441;
     margin-bottom: 12px;
   }
 
   .prose-wide {
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 8px;
   }
 
@@ -395,7 +395,7 @@ const tiers = [
 
   .stat-src {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     color: var(--mute-soft);
   }
 
@@ -406,12 +406,12 @@ const tiers = [
     border-left: 2px solid var(--amber);
     border-radius: 4px;
     padding: 18px 20px 14px;
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin: 0 0 16px;
   }
 
   .canonical-text {
-    font-size: 14px;
+    font-size: var(--text-small);
     line-height: 1.6;
     color: var(--navy);
     font-weight: 500;
@@ -420,8 +420,8 @@ const tiers = [
 
   .canonical-src {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.05em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-0);
     color: var(--mute-soft);
   }
 
@@ -442,14 +442,14 @@ const tiers = [
 
   .factor-letter {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--amber);
     margin-bottom: 5px;
   }
 
   .factor-name {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 6px;
@@ -457,7 +457,7 @@ const tiers = [
   }
 
   .factor-body {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
     margin: 0;
@@ -468,7 +468,7 @@ const tiers = [
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .equation-block {
@@ -479,8 +479,8 @@ const tiers = [
 
   .equation-label {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--blue-mid);
     margin: 0 0 7px;
@@ -488,18 +488,18 @@ const tiers = [
 
   .equation {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--amber-pale);
     margin: 0;
   }
 
   .equation sub {
-    font-size: 10px;
+    font-size: var(--text-small);
   }
 
   .equation-note {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.5;
     color: var(--blue-soft);
     margin: 8px 0 0;
@@ -527,15 +527,15 @@ const tiers = [
 
   .tier-num {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--amber);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     margin: 0 0 6px;
   }
 
   .tier-name {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 7px;
@@ -543,7 +543,7 @@ const tiers = [
   }
 
   .tier-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
     margin: 0;
@@ -554,7 +554,7 @@ const tiers = [
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
     margin-bottom: 14px;
   }
 
@@ -570,21 +570,21 @@ const tiers = [
   }
 
   .example-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     color: var(--muted);
     margin: 0 0 6px;
   }
 
   .example-value {
     font-family: var(--font-mono);
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: var(--navy);
     margin: 0;
   }
 
   .example-unit {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--mute-soft);
   }
 
@@ -593,7 +593,7 @@ const tiers = [
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .faq-item {
@@ -604,7 +604,7 @@ const tiers = [
   }
 
   .faq-q {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 7px;
@@ -612,7 +612,7 @@ const tiers = [
   }
 
   .faq-a {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
     margin: 0;
@@ -621,7 +621,7 @@ const tiers = [
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
@@ -630,7 +630,7 @@ const tiers = [
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
@@ -639,31 +639,34 @@ const tiers = [
   }
 
   .cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 420px;
+    max-width: var(--measure-tight);
     margin: 0 auto 18px;
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
-    display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   /* Grid collapses live in globals.css (see MOBILE LAYOUT FIXES) */
   @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
-    .cta-title { font-size: 18px; }
+    .page-h1 { font-size: var(--text-h2); }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

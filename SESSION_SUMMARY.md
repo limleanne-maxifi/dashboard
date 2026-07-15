@@ -1,3 +1,7 @@
+> **SUPERSEDED (2026-07-15):** this is a historical log of the May 2026 pre-launch audit.
+> Several details below (sans-serif eyebrows, 36-42px heading values, px sizes) were
+> superseded by the v4.1/v4.2 design system — see CLAUDE.md for current rules.
+
 # Session Summary — Maxifi Digital Pre-Launch Audit & Fixes
 
 **Date:** May 24, 2026  

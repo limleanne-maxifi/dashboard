@@ -4,6 +4,7 @@
 AEO consultancy website for Maxifi Digital.
 Stack: Astro 4 + Tailwind CSS + MDX. Deploy target: Netlify.
 Live domain: maxifidigital.com (canonical: **md-visibility-website.netlify.app**)
+Products: Visibility Snapshot (free tool), Visibility Engine, Conference AEO. Executive AI Visibility: free Baseline (1 exec, 3 prompts) → monitored programme SGD 500/mo + SGD 1,000 onboarding (SGD 200 trial to 31 Aug 2026), Stripe checkout in the /exec tool.
 
 ## Design reference
 The authoritative design reference is **`maxifi_homepage_preview__4_.html`**.
@@ -12,87 +13,64 @@ Do NOT use the premium Fraunces serif version (`maxifi_digital_final_premium.htm
 
 ---
 
-## TYPOGRAPHY (CRITICAL — exact match required)
+## TYPOGRAPHY (v4.1 — rem token scale, CRITICAL)
 
-### Font system (locked, v3)
+### Font system (locked, v4.1)
 
-Two families only, loaded from Google Fonts in `src/styles/globals.css`:
+Two families only, loaded from Google Fonts in `src/styles/globals.css` — weights 400 and 500 only (600/800 are no longer loaded):
 
-- **Inter** (weights 400, 500, 600) — every headline, body paragraph, nav link, CTA, form label, footer line
-- **IBM Plex Mono** (weights 400, 500) — all numeric data, eyebrows, dashboard meta tags, citation labels, source attributions
-
-No serif. No Fraunces. No Georgia. No JetBrains Mono. No Courier.
-
-### CSS variables (reference these, do not hardcode)
-```
---font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-             "Helvetica Neue", Helvetica, Arial, sans-serif;
---font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, "Courier New", monospace;
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
 ```
 
-### Role assignments
+- **Inter** (400, 500) — every headline, body paragraph, nav link, CTA, form input, footer line
+- **IBM Plex Mono** (400, 500) — all numeric data, eyebrows, form labels, dashboard meta tags, citation labels, source attributions
 
-| Element | Family |
-|---|---|
-| Headlines (H1, H2, H3) | Inter |
-| Body, lede, paragraph | Inter |
-| Nav links, nav CTA, logo wordmark | Inter |
-| Buttons (primary, ghost) | Inter |
-| Form labels, inputs, submit | Inter |
-| Footer text | Inter |
-| Section eyebrows (caps) | IBM Plex Mono |
-| Stat numbers (`25%`, `~60%`, `1,300%`) | IBM Plex Mono |
-| Snapshot metrics (`23 ↑52%`, `2/5`, `3/10`) | IBM Plex Mono |
-| HeroLoop engine result rows | IBM Plex Mono |
-| Dashboard meta (`01 / 03`, `LIVE TEST ACROSS 5 ENGINES`) | IBM Plex Mono |
-| Source citations (`Adobe Analytics`, `Gartner · 2024`) | IBM Plex Mono |
+No serif. No other monospace. Reference via `--font-sans` and `--font-mono` — never hardcode family stacks.
 
-### Font weight rule
-**All headings use weight 500. All body uses weight 400.** Never use 600 or 700.
+### Type scale (rem tokens, 16px root — NOTHING renders below 12px)
 
-| Element | Weight |
-|---|---|
-| H1, H2, H3, all headings | 500 |
-| Section eyebrows | 500 |
-| CTA buttons | 500 |
-| Form labels | 400 |
-| Body text | 400 |
-| Nav links | 400 |
-| Logo wordmark | 500 |
-| Footer text | 400 |
+Reference the tokens; never write a raw `font-size` value in a component or page.
 
-### Font sizes (production scale)
+| Token | Size | Role |
+|---|---|---|
+| `--text-display` | 3rem / 48px | Hero H1 only (2.5rem / 40px ≤640px via the token itself) |
+| `--text-h1` | 2.25rem / 36px | Page H1s |
+| `--text-h2` | 1.75rem / 28px | Section H2s |
+| `--text-h3` | 1.3125rem / 21px | Card H3s |
+| `--text-lede` | 1.125rem / 18px | Ledes / intros under headings |
+| `--text-body` | 1rem / 16px | Body text, form inputs (16px also stops iOS zoom) |
+| `--text-small` | 0.875rem / 14px | Small body, buttons, nav links |
+| `--text-caption` | 0.8125rem / 13px | Mono meta / stats |
+| `--text-micro` | 0.75rem / 12px | Mono eyebrows / labels / caps. **FLOOR — nothing below this.** |
 
-These are the locked production sizes. They match the HTML reference proportions scaled to readable screen sizes.
+Stat numerals may keep a bespoke size ≥ 2rem (mono), expressed via tokens/calc — never a raw px value.
 
-| Element | Size | Weight | Line height | Letter-spacing |
-|---|---|---|---|---|
-| Hero H1 | 32px | 500 | 1.18 | -0.02em |
-| Hero query list items | 14px | 400 | 1.45 | 0 |
-| Hero lede | 14px | 400 | 1.55 | 0 |
-| Section H2 | 19px | 500 | 1.25 | -0.015em |
-| Card H3 | 13-18px | 500 | 1.3 | -0.01em |
-| Body text | 11-12px | 400 | 1.5-1.6 | 0 |
-| Small body | 9-11px | 400 | 1.4-1.5 | 0 |
-| Section eyebrow | 10px | 500 | 1.3 | 0.1em |
-| Form label | 10px | 400 | 1.3 | 0 |
-| Form input | 11-12px | 400 | 1.4 | 0 |
-| Primary CTA | 12px | 500 | 1 | 0 |
-| Nav link | 12px | 400 | 1 | 0 |
-| Nav CTA button | 11px | 500 | 1 | 0 |
-| Logo wordmark | 13px | 500 | 1 | 0 |
-| Footer text | 10px | 400 | 1.5 | 0 |
-| Trust-strip pill | 10px | 500 | 1 | 0 |
-| Eyebrow caps | 10px | 500 | 1 | 0.1em + uppercase |
+### Font weight rule (v4.1)
 
-### Letter-spacing rule
-- Headings: slight negative (-0.01em to -0.02em)
-- Eyebrows / labels / caps: positive (0.1em to 0.12em)
-- Body text: 0 (none)
+**Only 400 and 500 exist.** All headings 500, all body 400. Never 600/700/800 — the v3 HeroLoop `ec-ct-cta` weight-700 exception is removed.
+
+### Tracking (only these three tokens + -0.02em on display/h1)
+
+```
+--track-tight: -0.015em   /* headings */
+--track-0:      0         /* body */
+--track-caps:   0.1em     /* eyebrows, caps labels */
+```
+Display/H1-scale headings may use `-0.02em` literal.
+
+### Enforcement greps (must all return zero before any preview)
+
+```
+grep -rEn 'font-size:\s*[0-9]' src/components src/pages   # tokens only
+grep -rEn 'font-weight:\s*(300|600|700|800)' src
+grep -rEn 'letter-spacing:\s*(0\.0[2-9]|0\.1[1-9]|0\.15)' src
+grep -rn  'padding: *[0-9]*px 22px' src                    # dead 22px gutter
+```
 
 ---
 
-## COLOUR PALETTE (locked — use ONLY these values)
+## COLOUR PALETTE (v4.1 — use ONLY these values)
 
 ### Primary
 ```
@@ -103,9 +81,11 @@ These are the locked production sizes. They match the HTML reference proportions
 
 ### Amber (brand accent)
 ```
---amber: #BA7517       /* primary CTA background, accent details */
---amber-light: #FAEEDA /* CTA text on amber background, light accent surfaces */
---amber-mid: #EF9F27   /* eyebrow accent, hover highlights */
+--amber: #BA7517       /* accent details, featured borders */
+--amber-deep: #854F0B  /* v4 NEW — primary CTA resting bg (5.87:1 with --amber-light ✓AA); hover #6B3F09 */
+--amber-ink: #8A5410   /* v4 NEW — eyebrows/caps on cream (5.90:1 ✓AA) */
+--amber-light: #FAEEDA /* CTA text on amber backgrounds, light accent surfaces */
+--amber-mid: #EF9F27   /* eyebrow accent on NAVY backgrounds only, hover highlights */
 --amber-pale: #FAC775  /* metric values on navy, dark-background accent */
 ```
 
@@ -121,7 +101,7 @@ These are the locked production sizes. They match the HTML reference proportions
 --cream-deep: #F1EFE8  /* alternate section background */
 --ink: #1a1a1a         /* darkest body text */
 --muted: #5F5E5A       /* gray secondary text */
---mute-soft: #888780   /* footer text, helper text */
+--mute-soft: #6E6D68   /* v4 CHANGED from #888780 — footer/helper text now 4.89:1 ✓AA */
 --line: rgba(4,44,83,0.08) /* dividers, card borders */
 ```
 
@@ -138,44 +118,58 @@ These are the locked production sizes. They match the HTML reference proportions
 --danger: #DC2626      /* error, alert states (use sparingly) */
 ```
 
-**Rule: never invent hex values. If a colour need arises that isn't covered, propose adding to this list.**
+**Rules:**
+- Never invent hex values. If a colour need arises that isn't covered, propose adding to this list.
+- Eyebrows/caps on cream or light backgrounds: `--amber-ink`. On navy: `--amber-mid`.
+- Primary CTA background: `--amber-deep` (hover `#6B3F09`) — never raw `--amber` for button fills.
 
 ---
 
-## SPACING & RADIUS
+## SPACING, LAYOUT & RADIUS (v4.1)
 
-### Border radius (small — editorial feel)
-- Buttons: 5px
-- Inputs: 4px
-- Cards: 8px
-- Section wrappers: 8px
-- Pill / badge: 3-4px
-- Logo mark (M): 4px
-- Featured offer outline: same as base (8px), but with 2px border
-
-**Never use 12px+ rounded corners. Keep it tight.**
+### Border radius (small — editorial feel; unchanged in v4.1)
+- Buttons: 5px · Inputs: 4px · Cards/section wrappers: 8px · Pill/badge: 3-4px
+- Never use 12px+ rounded corners (HeroLoop engine input pills keep their brand-fidelity exception).
 
 ### Border weight
-- Default: 0.5px solid (very subtle)
-- Featured/active states: 2px solid amber
-- Dividers between content: 0.5px solid rgba
+- Default: 0.5px solid (very subtle) · Featured/active: 2px solid amber · Dividers: 0.5px solid rgba
 
-### Section padding (production scale)
-- Section padding (vertical): 80px desktop, 48px tablet, 32px mobile
-- Section padding (horizontal): handled by `.wrap` container
-- Hero padding: 90px top, 100px bottom (more breathing room than other sections)
-- Container max-width: 1280px
-- Container horizontal padding: 40px desktop, 24px mobile
+### Gutter system (v4.1 — kills the old 22px/40px mismatch)
+```
+--gutter: 56px            /* 40px ≤900px, 28px ≤640px — via :root media queries */
+--gutter-page             /* full-bleed sections WITHOUT an inner .wrap: grows past
+                             --gutter on wide viewports so the content edge matches
+                             the centred 1280px container */
+```
+Every full-bleed section, nav, hero, page-hero and footer uses `padding-left/right: var(--gutter)` (or `var(--gutter-page)` when the section has no inner max-width wrap). The left page edge must align through nav → hero → sections → footer at every breakpoint.
+
+### Containers & measures
+```
+--container: 1280px · --container-narrow: 960px · --container-prose: 720px (articles/legal)
+--measure-body: 65ch · --measure-lede: 55ch · --measure-tight: 45ch
+```
+Text columns use the three measures only. No text line exceeds ~65ch or falls below ~45ch; any grid cell whose text column falls below 45ch at a breakpoint stacks instead.
+
+### Section padding
+```
+--section-pad: 96px       /* 64px ≤900px, 48px ≤640px — via :root media queries */
+```
+Vertical: `padding: var(--section-pad) 0`. Hero: `padding: 64px var(--gutter) 80px` desktop.
+
+### Buttons (v4.1)
+- Primary: bg `var(--amber-deep)` (hover `#6B3F09`), label `--text-small`/500, padding 12px 20px, **min-height 44px**, radius 5px.
+- Ghost: same geometry, transparent bg, 0.5px border.
+- All tap targets ≥ 44px.
+
+### Forms (v4.1)
+- Inputs: `--text-body` (16px — stops iOS zoom), min-height 44px.
+- Labels: `--text-caption`, mono, caps, `--track-caps`.
 
 ### Card padding
-- Standard card: 24-28px
-- Form card: 32-36px
-- Hero form card: 36-40px (slightly larger for emphasis)
+- Standard card: 24-28px · Form card: 32-36px
 
 ### Grid gaps
-- Card grids (3-column): 20-24px
-- Hero columns: 56-64px
-- Two-column compare blocks: 0 (touching, no gap)
+- Card grids (3-column): 16-24px · Two-column compare blocks: 0 (touching)
 
 ---
 
@@ -232,50 +226,47 @@ If logo image unavailable, render "Maxifi Digital" as text:
 
 ---
 
-## NAVIGATION
+## NAVIGATION (v4.1 — Three-E structure, Phase 1 URLs)
 
 ### Structure
 - Sticky on scroll, top: 0, z-index: 50
 - Background: `var(--cream)` with `backdrop-filter: blur(8px)`
 - Border-bottom: 0.5px solid rgba(0,0,0,0.06)
-- Padding: 14px 22px
-- Mobile hamburger breakpoint: **900px** (wider than usual — nav labels are long)
+- Padding: 14px var(--gutter)
+- Mobile hamburger breakpoint: **900px**
 
-### Links (between logo and CTA) — locked v2, 5 items
-| Label | Route |
+### Links (between logo and CTA) — locked v4.1, 5 items
+| Label | Route (Phase 1 — existing URLs) |
 |---|---|
-| Check Your Visibility | `/visibility-snapshot` |
-| Understand AEO | `/aeo` |
-| Build AI Authority | `/visibility-engine` |
-| Turn Events into Authority | `/conference-aeo` |
-| Start Your Visibility Audit | `/work` |
+| Executive | `/executive` |
+| Events | `/conference-aeo` |
+| Enterprise | `/work` |
+| Why AEO | `/aeo` |
+| About | `/about` |
 
-Each link: 12px font, weight 400, color var(--navy), opacity 0.72 default, opacity 1 on hover/active. Active: font-weight 500.
+Route migrations (`/events`, `/enterprise`) are **Phase 2** — after the 1 Aug citation audit. Do not add 301s or rename routes in Phase 1.
 
-### Primary CTA button (top-right) — locked
-- Text: **"Get the Report"** → links to `https://visibilityview.netlify.app/` (external, new tab)
-- Background: `#C87A2F` (hardcoded — intentional departure from --amber for nav context)
-- Color: `#ffffff`
-- Padding: 11px 20px
-- Border-radius: 6px
-- Font-size: 13px
-- Font-weight: **500** (not bold)
-- white-space: nowrap
-- Hover: background `#A8651E`
-- Also rendered in mobile drawer with `display:inline-block; margin-top:12px`
+Each link: `--text-small`, weight 400, color var(--navy), opacity 0.72 default, 1 on hover/active. Active: weight 500.
+
+### Primary CTA button (top-right) — locked v4.1
+- Text: **"Check my visibility →"** → `https://checkyourvisibility.maxifidigital.com/` (external, new tab)
+- Background: `var(--amber-deep)`, color `var(--amber-light)`, hover `#6B3F09`
+- Padding: 12px 20px, min-height 44px, border-radius 5px, `--text-small`, weight 500, nowrap
+- Also rendered in the mobile drawer.
+
+### Footer service labels match the nav: "Executive AI Visibility" → `/executive`, "Enterprise" → `/work`, "Events" → `/conference-aeo`.
 
 ---
 
-## CTA BUTTONS (apply consistently)
+## CTA BUTTONS (apply consistently — v4.1 values)
 
 ### Primary
-- Background: var(--amber) #BA7517
+- Background: var(--amber-deep) #854F0B
 - Color: var(--amber-light) #FAEEDA
-- Padding: 10px 16px (compact) / 14px 22px (hero)
+- Padding: 12px 20px, min-height 44px
 - Border-radius: 5px
-- Font-size: 12px (compact) / 14px (hero)
-- Font-weight: 500
-- Hover: background #854F0B, no transform
+- Font-size: var(--text-small), weight 500
+- Hover: background #6B3F09, no transform
 
 ### Ghost (on dark/navy backgrounds)
 - Background: transparent
@@ -291,6 +282,8 @@ Each link: 12px font, weight 400, color var(--navy), opacity 0.72 default, opaci
 - Same padding/radius/font as primary
 - Hover: background var(--navy), color white
 
+All tap targets ≥ 44px min-height.
+
 ### Universal CTAs across the site
 Primary: "Get my Scorecard" → `#snapshot` (homepage form) or `/visibility-snapshot`
 Secondary: "ASW case study" or "See a Live Example →" → `https://aswhub.maxifidigital.com/` (external, new tab)
@@ -299,10 +292,10 @@ Secondary: "ASW case study" or "See a Live Example →" → `https://aswhub.maxi
 
 ## FORMS
 
-### Field structure
-1. Label (12px, weight 400, color var(--muted), margin-bottom 4px)
-2. Input (full width, 0.5px border, 4px radius, 7px 9px padding, 11-14px font, cream-deep background)
-3. Margin-bottom 9-12px between fields
+### Field structure (v4.1)
+1. Label (`--text-caption`, mono, caps, `--track-caps`, color var(--muted), margin-bottom 4px)
+2. Input (full width, 0.5px border, 4px radius, `--text-body` 16px font, min-height 44px, cream background)
+3. Margin-bottom 10-12px between fields
 
 ### Input states
 - Default: border `0.5px solid rgba(4,44,83,0.18)`, background `var(--cream)`
@@ -338,6 +331,8 @@ Secondary: "ASW case study" or "See a Live Example →" → `https://aswhub.maxi
 
 ```
 /                        Homepage (use maxifi_homepage_preview__4_.html as reference)
+/executive               Executive AI Visibility (free Baseline → SGD monitored programme)
+/thanks                  Form-submission thank-you (native fallback target)
 /aeo                     AEO education + sales
 /visibility-snapshot     Standalone Snapshot tool (embeds visibilityview.netlify.app)
 /visibility-engine       Engine sales page
@@ -405,14 +400,15 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 ## DESIGN RULES — DO
 
 ✅ Use weight 500 for all headings (not 600, not 700)
-✅ Use system sans-serif stack (or Inter as fallback)
+✅ Use the `--text-*` rem tokens for every font-size (nothing below 12px)
 ✅ Keep border radius small (4-8px max)
 ✅ Use 0.5px borders for subtlety (1px only on featured/active states)
-✅ Letter-space eyebrows and caps positively (0.1-0.12em)
-✅ Letter-space headings negatively (-0.01 to -0.02em)
-✅ Stick to the locked colour palette
-✅ Use the exact preview proportions, scaled to production sizes
+✅ Letter-space eyebrows and caps with `--track-caps` (0.1em)
+✅ Letter-space headings with `--track-tight` (-0.015em; display/h1 may use -0.02em)
+✅ Stick to the locked colour palette (`--amber-ink` for eyebrows on light, `--amber-mid` on navy)
+✅ Use `var(--gutter)` for every full-bleed horizontal padding and `var(--section-pad)` for section verticals
 ✅ Maintain editorial tightness — never blow up font sizes for "marketing impact"
+✅ Run the enforcement greps (see TYPOGRAPHY) before any preview
 
 ---
 
@@ -420,8 +416,7 @@ Read from `/docs/copy.md` (to be created). Never invent or paraphrase copy witho
 
 ❌ Do not use Fraunces, Georgia, or any serif font
 ❌ Do not use JetBrains Mono, Courier, or any monospace font other than IBM Plex Mono
-❌ Do not use font-weight 600, 700, 800 or 900
-   **Exception:** `HeroLoop.ec-ct-cta` keeps `font-weight: 700` for conversion urgency on the "Check now →" CTA
+❌ Do not use font-weight 600, 700, 800 or 900 — no exceptions (the v3 `HeroLoop.ec-ct-cta` weight-700 exception was removed in v4.1)
 ❌ Do not use border-radius larger than 8px (no big rounded corners)
    **Exception:** `HeroLoop` engine input pills use 20px (ChatGPT) and 24px (Gemini) to mimic those engines' input bars — brand-fidelity
 ❌ Do not hardcode hex values — only use the CSS variables defined above
@@ -541,7 +536,9 @@ Today's task: [describe what you're building]
 
 ---
 
-## HOMEPAGE HERO LAYOUT (locked — do not alter without explicit instruction)
+## HOMEPAGE HERO LAYOUT (locked structure — px font-size tables SUPERSEDED by v4.1 tokens)
+
+> **v4.1 note:** the layout/structure rules below remain locked, but every px font-size in this section is superseded by the `--text-*` token scale (see TYPOGRAPHY). The subgrid height-matching and timer rules still apply.
 
 ### Hero section padding
 ```css
@@ -597,7 +594,9 @@ padding: 18px 22px 40px;   /* top was reduced for above-the-fold density */
 
 ---
 
-## HEROLOOP COMPONENT (locked — `src/components/HeroLoop.astro`)
+## HEROLOOP COMPONENT (locked structure — px font-size values SUPERSEDED by v4.1 tokens)
+
+> **v4.1 note:** structure, timers and animation rules below remain locked; px font-sizes and the `ec-ct-cta` weight-700 are superseded (tokens + weight 500 now).
 
 ### Structure overview
 ```
@@ -812,3 +811,5 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v3.1 (2026-05-21): Nav locked to 5 links + "Get the Report" CTA; Hero subgrid height-matching; HeroLoop thinking indicator + conversion trigger; all animation timers locked.**
 - **v3.2 (2026-05-24): Pre-launch audit pass — orphan components/files removed; redirects consolidated; mobile breakpoints standardized.**
 - **v3.3 (2026-05-24): Mobile CSS rules relocated to `globals.css` after discovering Astro scoped `<style>` blocks unreliably compile `@media` rules. NODE_VERSION pinned to 22 in `netlify.toml`. Fixed silent `</style>` tag corruption bug.**
+- **v4.1 (2026-07-15): Type re-scale to benchmark size, rem tokens, WCAG AA contrast corrections, gutter/measure system, Three-E nav + /executive page with approved SGD pricing (Phase 1). Approved by Le-Anne 15 Jul 2026.**
+- **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**

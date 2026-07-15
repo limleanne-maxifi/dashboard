@@ -183,18 +183,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .article-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 48px 22px;
+    padding: 48px var(--gutter);
   }
 
   .article-wrap {
-    max-width: 800px;
+    max-width: var(--container-prose);
     margin: 0 auto;
   }
 
   .article-eyebrow {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     font-weight: 500;
@@ -202,7 +202,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-h1 {
-    font-size: 32px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin: 0 0 16px;
@@ -212,7 +212,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-meta {
-    font-size: 12px;
+    font-size: var(--text-caption);
     color: var(--blue-soft);
     margin: 0 0 16px;
     display: flex;
@@ -229,7 +229,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-lede {
-    font-size: 14px;
+    font-size: var(--text-lede);
     line-height: 1.55;
     color: var(--blue-soft);
     margin: 0;
@@ -238,7 +238,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   /* ── Body ───────────────────────────────────── */
   .article-body {
     background: var(--cream);
-    padding: 48px 22px;
+    padding: 48px var(--gutter);
   }
 
   .article-section {
@@ -246,17 +246,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-body h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 12px;
     line-height: 1.25;
     font-family: var(--font-sans);
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   .article-body p {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: var(--ink);
     margin: 0 0 12px;
@@ -269,7 +269,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-list li {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: var(--ink);
     margin-bottom: 8px;
@@ -293,26 +293,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   /* ── CTA ────────────────────────────────────── */
   .article-cta-section {
     background: var(--navy);
-    padding: 48px 22px;
+    padding: 48px var(--gutter);
   }
 
   .article-cta {
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin: 0 auto;
     text-align: center;
     color: var(--blue-text);
   }
 
   .article-cta-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .article-cta-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
@@ -321,18 +321,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
     margin: 0 0 18px;
   }
 
   .article-btn {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
@@ -340,13 +344,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .article-btn:hover {
-    background: #854F0B;
+    background: #6B3F09;
   }
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 768px) {
-    .article-h1 { font-size: 26px; }
-    .article-cta-title { font-size: 18px; }
+    .article-h1 { font-size: var(--text-h2); }
+    .article-cta-title { font-size: var(--text-h3); }
     .article-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
   }
 </style>

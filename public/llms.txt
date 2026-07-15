@@ -9,6 +9,7 @@
 ## Services
 
 - **Visibility Snapshot** (https://maxifidigital.com/visibility-snapshot) — A five-minute AI citation audit scoring how a brand currently appears across five major AI engines, with a gap report identifying what to fix and why.
+- **Executive AI Visibility** (https://maxifidigital.com/executive) — Measuring and building the share of AI answers that name a company's leaders when buyers ask which experts to trust. Free recorded Baseline for one named executive; monitored programme for the full leadership team from SGD 500/month.
 - **Visibility Engine** (https://maxifidigital.com/work) — A three-stage AEO programme (Snapshot → Sprint → Monitor) that builds and compounds AI citation authority for expert-led brands over time.
 - **Conference AEO Sprint** (https://maxifidigital.com/conference-aeo) — A focused engagement that converts an industry conference or event into a permanent, AI-indexed citation hub, extending event ROI indefinitely.
 - **AEO for Aviation & Aerospace Events** (https://maxifidigital.com/aeo-aviation-events) — Specialist AEO for aviation events, air traffic management conferences, and aerospace shows, proven on the Airspace World 2026 hub. (AEO here means Answer Engine Optimisation, not the Civil Air Patrol's Aerospace Education Officer role.)

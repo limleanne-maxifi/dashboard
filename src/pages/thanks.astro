@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Thank You — Maxifi Digital"
+  description="Your message has been received. We'll be in touch within one business day."
+  currentPage="/thanks"
+>
+  <section class="thanks-hero" aria-labelledby="thanks-heading">
+    <p class="s-eyebrow">MESSAGE RECEIVED</p>
+    <h1 id="thanks-heading" class="thanks-h1">Thank you — we'll be in touch.</h1>
+    <p class="thanks-lede">
+      Your message has been received. We reply within one business day. In the meantime, you
+      can see where AI engines stand on your brand with the free Visibility Snapshot.
+    </p>
+    <div class="thanks-ctas">
+      <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get my free Snapshot</a>
+      <a href="/" class="btn btn--ghost-dark">Back to homepage</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thanks-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: var(--section-pad) var(--gutter);
+    text-align: center;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .thanks-h1 {
+    font-size: var(--text-h1);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    max-width: var(--measure-tight);
+  }
+
+  .thanks-lede {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-lede);
+    margin: 0 auto 24px;
+  }
+
+  .thanks-ctas {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

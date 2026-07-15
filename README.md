@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# Maxifi Digital — maxifidigital.com
+
+AEO consultancy website for Maxifi Digital. Astro 4 + Tailwind CSS + MDX, deployed on
+Netlify (`md-visibility-website`, custom domain `maxifidigital.com`).
+
+**Read `CLAUDE.md` first** — it is the authoritative project brief: the v4.x design
+system (rem type tokens, colour palette, gutter/measure layout system), navigation
+structure, page inventory, forms, AEO self-requirements, and the enforcement greps
+that must return zero before any preview.
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install        # install dependencies (Node ≥ 22)
+npm run dev        # local dev server
+npm run build      # production build to ./dist
+npm run preview    # preview the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/          HeroLoop + section components (Nav, Footer, FinalCTA, …)
+├── layouts/             BaseLayout (head/meta/schema, Nav, Footer)
+├── pages/               one .astro file per route
+└── styles/globals.css   design tokens + base classes + mobile breakpoint rules
+public/                  static assets (logos, founder photo, llms.txt, robots.txt)
+docs/                    approved copy and audit notes
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Key conventions (details in CLAUDE.md):
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Font sizes only via `--text-*` rem tokens — nothing renders below 12px.
+- Weights 400/500 only; letter-spacing via the three `--track-*` tokens.
+- Horizontal padding via `--gutter` / `--gutter-page`; the left page edge aligns
+  nav → hero → sections → footer at every breakpoint.
+- Responsive `@media` overrides live in `globals.css`, not page-level `<style>`
+  blocks (Astro compiles scoped media queries unreliably).

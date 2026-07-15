@@ -98,14 +98,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 48px 22px 40px;
+    padding: 48px var(--gutter) 40px;
     text-align: center;
   }
 
   .c-eyebrow {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
@@ -113,7 +113,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .contact-h1 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
@@ -123,20 +123,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .contact-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 480px;
+    max-width: var(--measure-tight);
     margin: 0 auto;
   }
 
   .contact-body {
     background: var(--cream);
-    padding: 48px 22px;
+    padding: 48px var(--gutter);
   }
 
   .contact-wrap {
-    max-width: 760px;
+    max-width: var(--container-prose);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -154,15 +154,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .cd-label {
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--muted);
     font-weight: 500;
   }
 
   .cd-value {
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     line-height: 1.55;
   }
@@ -182,7 +182,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .cd-address {
     font-style: normal;
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     line-height: 1.7;
   }
@@ -195,7 +195,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cn-heading {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
@@ -203,28 +203,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cn-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
     margin-bottom: 16px;
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
-    display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   @media (max-width: 640px) {
     .contact-wrap { grid-template-columns: 1fr; gap: 28px; }
-    .contact-h1 { font-size: 24px; }
+    .contact-h1 { font-size: var(--text-h2); }
   }
 </style>
