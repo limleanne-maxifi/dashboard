@@ -1,0 +1,596 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const EXEC_TOOL = 'https://checkyourvisibility.maxifidigital.com/exec';
+
+const steps = [
+  {
+    name: 'Baseline',
+    description:
+      'Free, five minutes. One executive, three buyer prompts, run through the AI engines buyers actually ask — with the recorded result at a shareable link.',
+  },
+  {
+    name: 'Onboard',
+    description:
+      'The full leadership team and a wider prompt matrix across your categories and markets.',
+  },
+  {
+    name: 'Monitor',
+    description:
+      'Month-on-month citation movement against your baseline, content recommendations to close the gap, and a live dashboard.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is executive AI visibility?',
+    a: 'Executive AI visibility is the share of AI-generated answers that name a specific leader when buyers ask who to trust in a category. It is measured, not asserted — engine by engine, question by question.',
+  },
+  {
+    q: 'How is it measured?',
+    a: 'With buyer-style prompts per category and market, run across the engines, with results recorded at a shareable link. It is measured, never modelled.',
+  },
+  {
+    q: 'Is this personal branding?',
+    a: 'No. Personal branding is what you say about yourself. Executive AI visibility is what AI engines say about you when buyers ask — and it is measured, not asserted.',
+  },
+  {
+    q: 'What does the free Baseline include?',
+    a: 'One executive, three buyer prompts, and a recorded shareable result. The monitored programme extends it to the full leadership team.',
+  },
+  {
+    q: 'What does ongoing monitoring cost?',
+    a: 'SGD 500 per month plus a one-time onboarding fee (SGD 200 trial rate through 31 August 2026; standard SGD 1,000), covering the full leadership team, a wider prompt matrix, month-on-month movement, content recommendations and a live dashboard.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Lim Le-Anne',
+  alternateName: 'Le-Anne Lim',
+  sameAs: ['https://www.linkedin.com/in/limleanne/'],
+  jobTitle: 'Founder',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Maxifi Digital',
+    url: 'https://maxifidigital.com',
+  },
+  knowsAbout: ['Answer Engine Optimisation', 'Executive AI Visibility'],
+};
+---
+
+<BaseLayout
+  title="Executive AI Visibility — Maxifi Digital"
+  description="When buyers ask AI which experts to trust, is your leadership named? Measure your executive's AI visibility with a free recorded Baseline."
+  currentPage="/executive"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
+  </Fragment>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero" aria-labelledby="exec-heading">
+    <p class="s-eyebrow">EXECUTIVE AI VISIBILITY</p>
+    <h1 id="exec-heading" class="exec-h1">
+      When buyers ask AI who the experts are, is your name in the answer?
+    </h1>
+    <p class="page-lede">
+      Buyers now ask ChatGPT, Perplexity and Copilot which experts to trust before they ever
+      contact a firm. The leaders those answers name set the shortlist. Executive AI visibility
+      is how you get named — and how you know.
+    </p>
+    <a href={EXEC_TOOL} target="_blank" rel="noopener noreferrer" class="btn-primary hero-cta">
+      Run my Executive Baseline →
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DEFINITION
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="exec-definition-heading">
+    <p class="s-eyebrow">THE DEFINITION</p>
+    <h2 id="exec-definition-heading" class="section-h2">What executive AI visibility means</h2>
+    <blockquote class="canonical">
+      <p class="canonical-text">
+        Executive AI visibility is the share of AI-generated answers that name a specific
+        leader when buyers ask who to trust in a category. It is measured, not asserted —
+        engine by engine, question by question.
+      </p>
+      <footer class="canonical-src">Maxifi Digital · Executive AI Visibility</footer>
+    </blockquote>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE STAKES
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="exec-stakes-heading">
+    <p class="s-eyebrow">THE STAKES</p>
+    <h2 id="exec-stakes-heading" class="section-h2">The shortlist is set before you are called</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        Forrester's January 2026 buyer research found that <span class="stat">94%</span> of B2B
+        buyers now use generative AI during the purchase process, and <span class="stat">54%</span>
+        call AI chatbots the single biggest influence on their shortlist
+        <span class="stat-src">(Forrester · Jan 2026)</span>.
+      </p>
+      <p class="prose">
+        When those answers name individual experts, the named expert's firm enters the shortlist
+        with them. An unnamed expert is an unasked question — the buyer never finds out what
+        you know.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WHAT THE FREE BASELINE COVERS
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="exec-baseline-heading">
+    <p class="s-eyebrow">THE FREE BASELINE</p>
+    <h2 id="exec-baseline-heading" class="section-h2">What the free Baseline covers</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        Your brand plus one named executive, three buyer prompts for your category and market,
+        run through the AI engines buyers actually ask. You receive the recorded result at a
+        shareable link. The full leadership team is captured during paid onboarding.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       HOW IT WORKS
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="exec-how-heading">
+    <p class="s-eyebrow">HOW IT WORKS</p>
+    <h2 id="exec-how-heading" class="section-h2">From baseline to being the answer</h2>
+    <div class="tier-grid">
+      {steps.map((s, i) => (
+        <article class="tier-card">
+          <p class="tier-num">{String(i + 1).padStart(2, '0')}</p>
+          <h3 class="tier-name">{s.name}</h3>
+          <p class="tier-body">{s.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PRICING
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="exec-pricing-heading">
+    <p class="s-eyebrow">PRICING</p>
+    <h2 id="exec-pricing-heading" class="section-h2">Start free. Monitor monthly.</h2>
+    <div class="price-grid">
+      <article class="price-card">
+        <h3 class="price-name">Executive Baseline</h3>
+        <p class="price-figure">Free</p>
+        <ul class="price-list" role="list">
+          <li>One executive</li>
+          <li>Three buyer prompts</li>
+          <li>Recorded shareable result</li>
+        </ul>
+      </article>
+      <article class="price-card">
+        <h3 class="price-name">Ongoing monitoring</h3>
+        <p class="price-figure">SGD 500<span class="price-unit">/month</span></p>
+        <!-- TRIAL RATE EXPIRES 31 AUG 2026 — remove or extend by 1 Sept (backlog task) -->
+        <p class="price-onboard">
+          + one-time onboarding SGD 200 (trial rate through 31 August 2026; standard SGD 1,000)
+        </p>
+        <ul class="price-list" role="list">
+          <li>Full leadership team</li>
+          <li>Wider prompt matrix across categories and markets</li>
+          <li>Month-on-month movement vs baseline</li>
+          <li>Content recommendations</li>
+          <li>Live dashboard</li>
+        </ul>
+        <p class="price-note">Payments are processed by Stripe at checkout.</p>
+      </article>
+    </div>
+    <div class="price-cta-row">
+      <a href={EXEC_TOOL} target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Start with the free Baseline →
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROOF
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="exec-proof-heading">
+    <p class="s-eyebrow">PROOF</p>
+    <h2 id="exec-proof-heading" class="section-h2">Measured in the open</h2>
+    <div class="proof-placeholder">
+      <p class="proof-placeholder-tag">[PROOF SLOT — founder baseline result to follow]</p>
+      <p class="proof-placeholder-body">
+        A recorded founder Baseline will be published here — the same dogfood pattern as the
+        Airspace World hub.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="exec-faq-heading">
+    <p class="s-eyebrow">COMMON QUESTIONS</p>
+    <h2 id="exec-faq-heading" class="section-h2">Frequently asked questions</h2>
+    <div class="faq-list">
+      {faqs.map((f) => (
+        <article class="faq-item">
+          <h3 class="faq-q">{f.q}</h3>
+          <p class="faq-a">{f.a}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FINAL CTA
+  ══════════════════════════════════════════ -->
+  <section class="section section--pt0" aria-labelledby="exec-cta-heading">
+    <div class="cta-box">
+      <p class="s-eyebrow cta-eyebrow">FIVE MINUTES · FREE · RECORDED</p>
+      <h2 id="exec-cta-heading" class="cta-title">
+        Find out if AI names you before your buyers do.
+      </h2>
+      <p class="cta-body">
+        The free Executive Baseline runs three buyer prompts for one named executive and
+        records the result at a shareable link.
+      </p>
+      <a href={EXEC_TOOL} target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Run my Executive Baseline →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────── */
+  .page-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 64px var(--gutter) 80px;
+    text-align: center;
+  }
+
+  .exec-h1 {
+    font-size: var(--text-display);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 14px;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    max-width: var(--measure-tight);
+  }
+
+  .page-lede {
+    font-size: var(--text-lede);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-lede);
+    margin: 0 auto;
+  }
+
+  .hero-cta {
+    margin-top: 24px;
+  }
+
+  /* ── Shared (mirrors /revenue-at-risk) ──────── */
+  .s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section .s-eyebrow {
+    color: var(--amber-ink);
+  }
+
+  .section .cta-eyebrow {
+    color: var(--amber-mid);
+  }
+
+  .section-h2 {
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 18px;
+    line-height: 1.25;
+    letter-spacing: var(--track-tight);
+  }
+
+  .section {
+    padding: 48px var(--gutter);
+    background: var(--cream);
+  }
+
+  .section--cream { background: var(--cream-deep); }
+  .section--pt0 { padding-top: 0; }
+
+  .prose {
+    font-size: var(--text-body);
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .prose-wide {
+    max-width: var(--measure-body);
+    margin-bottom: 8px;
+  }
+
+  .stat {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .stat-src {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--mute-soft);
+  }
+
+  /* ── Canonical definition ───────────────────── */
+  .canonical {
+    background: #fff;
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-left: 2px solid var(--amber);
+    border-radius: 4px;
+    padding: 18px 20px 14px;
+    max-width: var(--measure-body);
+    margin: 0 0 16px;
+  }
+
+  .canonical-text {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    color: var(--navy);
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+
+  .canonical-src {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-0);
+    color: var(--mute-soft);
+  }
+
+  /* ── Steps (same card bones as /revenue-at-risk tiers) ── */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: var(--container-narrow);
+  }
+
+  .tier-card {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .tier-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--amber-ink);
+    font-weight: 500;
+    letter-spacing: var(--track-caps);
+    margin: 0 0 6px;
+  }
+
+  .tier-name {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 7px;
+  }
+
+  .tier-body {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Pricing ────────────────────────────────── */
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: var(--container-narrow);
+  }
+
+  .price-card {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: var(--r-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-name {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    letter-spacing: var(--track-caps);
+    margin: 0 0 10px;
+  }
+
+  .price-figure {
+    font-family: var(--font-mono);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 12px;
+  }
+
+  .price-unit {
+    font-size: var(--text-small);
+    color: var(--mute-soft);
+  }
+
+  .price-onboard {
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+
+  .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .price-list li {
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--ink);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .price-list li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--amber-ink);
+  }
+
+  .price-note {
+    font-size: var(--text-small);
+    color: var(--mute-soft);
+    margin: auto 0 0;
+  }
+
+  .price-cta-row {
+    margin-top: 22px;
+  }
+
+  /* ── Proof placeholder ──────────────────────── */
+  .proof-placeholder {
+    background: #fff;
+    border: 1px dashed rgba(4, 44, 83, 0.3);
+    border-radius: var(--r-card);
+    padding: 28px;
+    max-width: var(--measure-body);
+  }
+
+  .proof-placeholder-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--mute-soft);
+    margin: 0 0 8px;
+  }
+
+  .proof-placeholder-body {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── FAQ ────────────────────────────────────── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: var(--container-prose);
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .faq-q {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 7px;
+  }
+
+  .faq-a {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── CTA box ────────────────────────────────── */
+  .cta-box {
+    background: var(--navy);
+    padding: 34px var(--gutter);
+    text-align: center;
+    color: var(--blue-text);
+    border-radius: 8px;
+  }
+
+  .cta-title {
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+
+  .cta-body {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-tight);
+    margin: 0 auto 18px;
+  }
+
+  .btn-primary {
+    background: var(--amber-deep);
+    color: var(--amber-light);
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-button);
+    font-size: var(--text-small);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover { background: #6B3F09; }
+
+  /* Grid collapses live in globals.css (see MOBILE LAYOUT FIXES) */
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { transition-duration: 0.01ms; }
+  }
+</style>

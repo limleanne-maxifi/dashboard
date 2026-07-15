@@ -805,11 +805,12 @@ section.deepest .eyebrow {
     font-size: var(--text-h1) !important;
   }
 
-  /* /about + /revenue-at-risk + /aeo-aviation-events grids */
+  /* /about + /revenue-at-risk + /aeo-aviation-events + /executive grids */
   .proof-stats,
   .tier-grid,
   .example-band,
-  .av-cross-grid {
+  .av-cross-grid,
+  .price-grid {
     grid-template-columns: 1fr !important;
   }
 
