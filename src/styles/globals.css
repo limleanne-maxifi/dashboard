@@ -813,8 +813,13 @@ section.deepest .eyebrow {
   .tier-grid,
   .example-band,
   .av-cross-grid,
-  .price-grid {
+  .price-grid,
+  .about-hero__grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .about-hero__grid {
+    gap: 28px !important;
   }
 
   .factor-grid,

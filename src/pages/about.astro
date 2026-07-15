@@ -89,17 +89,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        HERO
   ══════════════════════════════════════════ -->
   <section class="page-hero" aria-labelledby="about-heading">
-    <p class="eyebrow">ABOUT MAXIFI DIGITAL</p>
-    <h1 id="about-heading" class="page-h1">
-      About Maxifi Digital
-    </h1>
-    <p class="page-lede">
-      Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy,
-      founded by Lim Le-Anne and working globally, that builds AI citation authority for
-      expert-led brands. We work with professional services firms, industry associations,
-      aviation and aerospace bodies, law firms, and specialist consultancies — organisations
-      whose buyers now research vendors in AI tools before they ever visit a website.
-    </p>
+    <div class="about-hero__grid">
+      <div class="about-hero__copy">
+        <p class="eyebrow">ABOUT MAXIFI DIGITAL</p>
+        <h1 id="about-heading" class="page-h1">
+          About Maxifi Digital
+        </h1>
+        <p class="page-lede">
+          Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy,
+          founded by Lim Le-Anne and working globally, that builds AI citation authority for
+          expert-led brands. We work with professional services firms, industry associations,
+          aviation and aerospace bodies, law firms, and specialist consultancies — organisations
+          whose buyers now research vendors in AI tools before they ever visit a website.
+        </p>
+      </div>
+      <div class="about-hero__values">
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Depth over volume</h2>
+          <p class="hvc-body">We work with a small number of clients at a time. Deep beats broad every quarter.</p>
+        </div>
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Results before rhetoric</h2>
+          <p class="hvc-body">Every engagement starts with a Snapshot. Every claim is measured against a baseline.</p>
+        </div>
+        <div class="hero-value-card">
+          <h2 class="hvc-title">Expert-led, always</h2>
+          <p class="hvc-body">We structure and amplify the expertise that already exists — we don't generate content for volume.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -173,18 +191,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           />
           <figcaption class="founder-photo-caption">Lim Le-Anne · Founder</figcaption>
         </figure>
-        <div class="value-card">
-          <h3 class="vc-title">Depth over volume</h3>
-          <p class="vc-body">We work with a small number of clients at a time. Deep beats broad every quarter.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="vc-title">Results before rhetoric</h3>
-          <p class="vc-body">Every engagement starts with a Snapshot. Every claim is measured against a baseline.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="vc-title">Expert-led, always</h3>
-          <p class="vc-body">We structure and amplify the expertise that already exists — we don't generate content for volume.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -651,6 +657,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
   }
 
+  .about-hero__grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: calc(var(--container) - 2 * var(--gutter));
+    margin: 0 auto;
+  }
+
+  .about-hero__values {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-value-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .hvc-title {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: var(--track-tight);
+    margin: 0 0 4px;
+  }
+
+  .hvc-body {
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--blue-soft);
+    margin: 0;
+  }
+
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
     font-size: var(--text-micro);
@@ -698,27 +742,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .values-col { display: flex; flex-direction: column; gap: 10px; }
-
-  .value-card {
-    background: #fff;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    padding: 12px 14px;
-  }
-
-  .vc-title {
-    font-size: var(--text-small);
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .vc-body {
-    font-size: var(--text-body);
-    line-height: 1.5;
-    color: var(--muted);
-  }
 
   .founder-name { margin-bottom: 4px; }
 
