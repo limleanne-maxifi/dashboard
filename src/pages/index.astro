@@ -658,12 +658,12 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── VS-HERO SECTION ─────────────────────────── */
   .vs-hero {
-    padding: 64px var(--gutter) 80px;
+    padding: 64px 0 80px;
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
 
   .vs-wrap {
-    max-width: 1140px;
+    max-width: var(--container);
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
@@ -926,7 +926,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .section {
-    padding: 30px var(--gutter);
+    padding: 30px var(--gutter-page);
     background: var(--cream);
   }
 
@@ -1028,6 +1028,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hero-row {
+    max-width: calc(var(--container) - 2 * var(--gutter));
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1.05fr 1fr;
     grid-template-rows: auto 1fr;
@@ -1106,7 +1108,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── Trust strip ────────────────────────────── */
   .trust {
-    padding: 14px var(--gutter);
+    padding: 14px var(--gutter-page);
     background: var(--cream-deep);
     display: flex;
     align-items: center;
@@ -1481,7 +1483,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── Final CTA ──────────────────────────────── */
   .section--final {
-    padding: 0 var(--gutter) 40px;
+    padding: 0 var(--gutter-page) 40px;
   }
 
   .final {
@@ -1622,7 +1624,6 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     line-height: 1.08;
     letter-spacing: -0.02em;
     margin: 0 0 18px;
-    white-space: nowrap;
   }
   .vs-sec-head h2 em {
     font-style: italic;
@@ -2137,7 +2138,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── Conference AEO Hero (Turn Events into Authority) ─── */
   .ca-wrap {
-    max-width: 1140px;
+    max-width: var(--container);
     margin: 0 auto;
     padding: 0 var(--gutter);
   }

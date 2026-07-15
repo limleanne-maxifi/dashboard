@@ -125,6 +125,9 @@
   --measure-lede: 55ch;
   --measure-tight: 45ch;
   --section-pad: 96px;            /* 64px ≤900px, 48px ≤640px */
+  /* Full-bleed sections without an inner .wrap: grows past --gutter on wide
+     viewports so their content edge matches the centred 1280px container. */
+  --gutter-page: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
 
   /* ======= ELEVATION & TRANSITIONS ======= */
 

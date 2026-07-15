@@ -221,7 +221,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Shared primitives ── */
   .vs-wrap {
-    max-width: 1140px;
+    max-width: var(--container);
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
@@ -250,7 +250,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.08;
     letter-spacing: -0.02em;
     margin: 0 0 18px;
-    white-space: nowrap;
   }
 
   .vs-sec-head h2 em {
@@ -305,12 +304,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-btn--lg {
     font-size: var(--text-small);
-    padding: 14px var(--gutter);
+    padding: 12px 24px;
+    min-height: 44px;
   }
 
   /* ── HERO ── */
   .vs-hero {
-    padding: 64px var(--gutter) 80px;
+    padding: 64px 0 80px;
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
 
