@@ -524,6 +524,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
         <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Run my Visibility Snapshot →</a>
         <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Schedule a consultation</a>
       </div>
+      <p class="final-about">
+        Maxifi Digital is a Singapore-based AEO consultancy founded by Lim Le-Anne.
+        <a href="/about" class="final-about__link">About us →</a>
+      </p>
     </div>
   </section>
 
@@ -1433,6 +1437,23 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .final-about {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--blue-mid);
+    margin: 16px 0 0;
+  }
+
+  .final-about__link {
+    color: var(--blue-soft);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(181, 212, 244, 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .final-about__link:hover { color: #fff; border-color: #fff; }
 
   /* ── Responsive ─────────────────────────────── */
 

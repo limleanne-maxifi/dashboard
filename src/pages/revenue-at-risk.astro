@@ -1,0 +1,672 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const factors = [
+  {
+    letter: 'M',
+    name: 'Market',
+    description: 'The number of relevant buyer decisions made in your category each year.',
+  },
+  {
+    letter: 'A',
+    name: 'Ask-AI',
+    description: 'The share of those buyers who consult AI engines while researching. Forrester (Jan 2026) found 94% of B2B buyers now use generative AI in the purchase process.',
+  },
+  {
+    letter: 'X',
+    name: 'eXposure',
+    description: 'Your citation share — the proportion of relevant AI answers that name your brand.',
+  },
+  {
+    letter: 'I',
+    name: 'Influence',
+    description: 'The agreed rate at which an AI answer influences the shortlist or decision. Forrester (Jan 2026) reports 54% of B2B buyers call AI chatbots the single biggest influence on their shortlist.',
+  },
+  {
+    letter: 'F',
+    name: 'Finish',
+    description: 'Your close rate — the share of influenced decisions your business actually wins.',
+  },
+  {
+    letter: 'I',
+    name: 'Income',
+    description: 'The average value of one won decision, from your own records.',
+  },
+];
+
+const tiers = [
+  {
+    name: 'Measured',
+    description:
+      'Every input comes from your records or a live citation audit. Nothing is estimated. This is the strongest tier and the standard we work towards in every engagement.',
+  },
+  {
+    name: 'Modelled',
+    description:
+      'Some inputs are agreed assumptions where records do not yet exist — always stated as a range, never presented as fact. Worked examples on this page are Modelled.',
+  },
+  {
+    name: 'Momentum',
+    description:
+      'Directional and forward-looking: the compounding effect of citations earned today on answers generated tomorrow. Used to frame trajectory, never to justify a fee.',
+  },
+];
+---
+
+<BaseLayout
+  title="Revenue at Risk from AI Answers | The MAXIFI Model"
+  description="How much revenue is at risk when AI engines cite competitors instead of you? The MAXIFI model calculates it from six numbers a business already has."
+  currentPage="/revenue-at-risk"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much revenue is at risk when AI engines don't cite your brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Revenue at risk is the annual value of buyer decisions influenced by AI answers that cite your competitors instead of you — calculable, per the MAXIFI model, from six numbers a business already has. In a worked example for an international aviation event (Modelled tier), the band ran from roughly €22,000 per year on conservative inputs to roughly €132,000 per year on base-case inputs — against a €4,500 pilot fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the MAXIFI model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The MAXIFI model is Maxifi Digital's framework for valuing AI visibility. It multiplies six factors — Market (buyer decisions per year), Ask-AI (share who consult AI engines), eXposure (your citation share), Influence (agreed rate at which AI answers sway decisions), Finish (your close rate), and Income (average value per won decision) — to estimate the annual revenue influenced by AI answers. The revenue-at-risk variant replaces your exposure with the gap between competitors' citation share and yours: M × A × (Xcomp − Xyou) × I × F × Income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate break-even on an AEO engagement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Break-even equals the fee divided by (Finish × Income): the number of AI-influenced buyer decisions needed to pay back the engagement. In the aviation-event worked example, a €4,500 pilot broke even at roughly 0.3 of a single exhibitor decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the numbers in the MAXIFI model come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your figures come from your records; the influence rate is agreed, never asserted. Every output is labelled by defensibility tier — Measured (from records and live citation audits), Modelled (agreed assumptions stated as ranges), or Momentum (directional, forward-looking) — so it is always clear how firm each number is."
+      }
+    }
+  ]
+}</script>
+  </Fragment>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero" aria-labelledby="rar-heading">
+    <p class="eyebrow">THE MAXIFI MODEL · REVENUE AT RISK</p>
+    <h1 id="rar-heading" class="page-h1">
+      How much revenue is at risk when AI engines don't cite your brand?
+    </h1>
+    <p class="page-lede">
+      Buyers now ask AI before they shortlist. When those answers name your competitors and
+      not you, the cost is real — and it can be calculated, not guessed.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CANONICAL DEFINITION
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="definition-heading">
+    <p class="s-eyebrow">THE DEFINITION</p>
+    <h2 id="definition-heading" class="section-h2">What "revenue at risk" means</h2>
+    <blockquote class="canonical">
+      <p class="canonical-text">
+        Revenue at risk is the annual value of buyer decisions influenced by AI answers that
+        cite your competitors instead of you — calculable, per the MAXIFI model, from six
+        numbers a business already has.
+      </p>
+      <footer class="canonical-src">Maxifi Digital · The MAXIFI model</footer>
+    </blockquote>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        The behaviour behind the number is documented. Forrester's January 2026 buyer research
+        found that <span class="stat">94%</span> of B2B buyers now use generative AI during the
+        purchase process, and <span class="stat">54%</span> call AI chatbots the single biggest
+        influence on their shortlist
+        <span class="stat-src">(Forrester · Jan 2026)</span>.
+        If AI answers shape the shortlist and those answers don't cite you, part of your
+        pipeline is being decided before you know the conversation happened.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE SIX FACTORS
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="model-heading">
+    <p class="s-eyebrow">THE MODEL</p>
+    <h2 id="model-heading" class="section-h2">What is the MAXIFI model?</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        The MAXIFI model values AI visibility by multiplying six factors — each one a number
+        your business already has, or can agree in one conversation.
+      </p>
+    </div>
+    <div class="factor-grid">
+      {factors.map((f) => (
+        <article class="factor-card">
+          <div class="factor-letter">{f.letter}</div>
+          <h3 class="factor-name">{f.name}</h3>
+          <p class="factor-body">{f.description}</p>
+        </article>
+      ))}
+    </div>
+    <div class="equations">
+      <div class="equation-block">
+        <p class="equation-label">AI-influenced revenue per year</p>
+        <p class="equation">M × A × X × I × F × Income</p>
+      </div>
+      <div class="equation-block">
+        <p class="equation-label">Revenue at risk — the citation gap variant</p>
+        <p class="equation">M × A × (X<sub>comp</sub> − X<sub>you</sub>) × I × F × Income</p>
+        <p class="equation-note">
+          Replace your exposure with the gap between competitors' citation share and yours:
+          the value flowing through answers you are absent from.
+        </p>
+      </div>
+      <div class="equation-block">
+        <p class="equation-label">Break-even on an engagement</p>
+        <p class="equation">fee ÷ (F × Income)</p>
+        <p class="equation-note">
+          The number of AI-influenced decisions needed to pay back the fee.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DEFENSIBILITY TIERS
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="tiers-heading">
+    <p class="s-eyebrow">DEFENSIBILITY</p>
+    <h2 id="tiers-heading" class="section-h2">Where do the numbers come from?</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose ground-rule">
+        Your figures come from your records; the influence rate is agreed, never asserted.
+      </p>
+      <p class="prose">
+        Every output of the model is labelled by how defensible it is. There are three tiers:
+      </p>
+    </div>
+    <div class="tier-grid">
+      {tiers.map((t, i) => (
+        <article class="tier-card">
+          <p class="tier-num">{String(i + 1).padStart(2, '0')}</p>
+          <h3 class="tier-name">{t.name}</h3>
+          <p class="tier-body">{t.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WORKED EXAMPLE
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" aria-labelledby="example-heading">
+    <p class="s-eyebrow">WORKED EXAMPLE · MODELLED TIER</p>
+    <h2 id="example-heading" class="section-h2">What does this look like in practice?</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        A worked example built around CANSO's Airspace World — the global air traffic management
+        event — using agreed, conservative-to-base assumptions (Modelled tier). The model
+        produced a band of AI-influenced value per year:
+      </p>
+    </div>
+    <div class="example-band">
+      <div class="example-cell">
+        <p class="example-label">Conservative inputs</p>
+        <p class="example-value">≈ €22,000<span class="example-unit">/yr</span></p>
+      </div>
+      <div class="example-cell">
+        <p class="example-label">Base-case inputs</p>
+        <p class="example-value">≈ €132,000<span class="example-unit">/yr</span></p>
+      </div>
+      <div class="example-cell example-cell--fee">
+        <p class="example-label">Pilot engagement fee</p>
+        <p class="example-value">€4,500</p>
+      </div>
+    </div>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        On those inputs, the €4,500 pilot breaks even at roughly a third of a single
+        exhibitor decision. The band is Modelled, not Measured: the assumptions are agreed
+        with the client, stated as ranges, and replaced with recorded figures as the
+        engagement produces them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="rar-faq-heading">
+    <p class="s-eyebrow">COMMON QUESTIONS</p>
+    <h2 id="rar-faq-heading" class="section-h2">Frequently asked questions</h2>
+    <div class="faq-list">
+      <article class="faq-item">
+        <h3 class="faq-q">How much revenue is at risk when AI engines don't cite your brand?</h3>
+        <p class="faq-a">
+          Revenue at risk is the annual value of buyer decisions influenced by AI answers that
+          cite your competitors instead of you — calculable, per the MAXIFI model, from six
+          numbers a business already has. In the aviation-event worked example above (Modelled
+          tier), the band ran from roughly €22,000 to roughly €132,000 per year against a
+          €4,500 pilot fee.
+        </p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-q">What is the MAXIFI model?</h3>
+        <p class="faq-a">
+          The MAXIFI model is Maxifi Digital's framework for valuing AI visibility. It multiplies
+          six factors — Market, Ask-AI, eXposure, Influence, Finish, and Income — to estimate the
+          annual revenue influenced by AI answers. The revenue-at-risk variant swaps your exposure
+          for the citation gap between competitors and you.
+        </p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-q">How do you calculate break-even on an AEO engagement?</h3>
+        <p class="faq-a">
+          Break-even equals the fee divided by (Finish × Income): the number of AI-influenced
+          buyer decisions needed to pay back the engagement. In the worked example, the €4,500
+          pilot broke even at roughly 0.3 of one exhibitor decision.
+        </p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-q">Where do the numbers in the MAXIFI model come from?</h3>
+        <p class="faq-a">
+          Your figures come from your records; the influence rate is agreed, never asserted.
+          Every output is labelled Measured, Modelled, or Momentum so it is always clear how
+          firm each number is.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════ -->
+  <section class="section section--pt0" aria-labelledby="rar-cta-heading">
+    <div class="cta-box">
+      <p class="s-eyebrow cta-eyebrow">START WITH THE X</p>
+      <h2 id="rar-cta-heading" class="cta-title">
+        The model needs your citation share. Measure it first.
+      </h2>
+      <p class="cta-body">
+        The free Visibility Snapshot tests real buyer questions across five AI engines and
+        scores where you stand today — the eXposure number the model runs on.
+      </p>
+      <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my free Snapshot</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────── */
+  .page-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 40px 22px 36px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .page-h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 12px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif;
+    max-width: 640px;
+  }
+
+  .page-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── Shared ─────────────────────────────────── */
+  .s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.1em;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-h2 {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 18px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section {
+    padding: 30px 22px;
+    background: var(--cream);
+  }
+
+  .section--cream { background: var(--cream-deep); }
+  .section--pt0 { padding-top: 0; }
+
+  .prose {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #444441;
+    margin-bottom: 12px;
+  }
+
+  .prose-wide {
+    max-width: 640px;
+    margin-bottom: 8px;
+  }
+
+  .stat {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .stat-src {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--mute-soft);
+  }
+
+  /* ── Canonical definition ───────────────────── */
+  .canonical {
+    background: #fff;
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-left: 2px solid var(--amber);
+    border-radius: 4px;
+    padding: 18px 20px 14px;
+    max-width: 640px;
+    margin: 0 0 16px;
+  }
+
+  .canonical-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--navy);
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+
+  .canonical-src {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--mute-soft);
+  }
+
+  /* ── Factor grid ────────────────────────────── */
+  .factor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .factor-card {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .factor-letter {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--amber);
+    margin-bottom: 5px;
+  }
+
+  .factor-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 6px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .factor-body {
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Equations ──────────────────────────────── */
+  .equations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 640px;
+  }
+
+  .equation-block {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 14px 18px;
+  }
+
+  .equation-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-mid);
+    margin: 0 0 7px;
+  }
+
+  .equation {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--amber-pale);
+    margin: 0;
+  }
+
+  .equation sub {
+    font-size: 10px;
+  }
+
+  .equation-note {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--blue-soft);
+    margin: 8px 0 0;
+  }
+
+  /* ── Ground rule ────────────────────────────── */
+  .ground-rule {
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  /* ── Tiers ──────────────────────────────────── */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .tier-card {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .tier-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--amber);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin: 0 0 6px;
+  }
+
+  .tier-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 7px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .tier-body {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Worked example ─────────────────────────── */
+  .example-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+
+  .example-cell {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .example-cell--fee {
+    border: 2px solid var(--amber);
+  }
+
+  .example-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+
+  .example-value {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  .example-unit {
+    font-size: 11px;
+    color: var(--mute-soft);
+  }
+
+  /* ── FAQ ────────────────────────────────────── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 640px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .faq-q {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 7px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .faq-a {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── CTA box ────────────────────────────────── */
+  .cta-box {
+    background: var(--navy);
+    padding: 34px 22px;
+    text-align: center;
+    color: var(--blue-text);
+    border-radius: 8px;
+  }
+
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
+
+  .cta-title {
+    font-size: 21px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.25;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cta-body {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: 420px;
+    margin: 0 auto 18px;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--amber-light);
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover { background: #854F0B; }
+
+  /* Grid collapses live in globals.css (see MOBILE LAYOUT FIXES) */
+  @media (max-width: 768px) {
+    .page-h1 { font-size: 24px; }
+    .cta-title { font-size: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { transition-duration: 0.01ms; }
+  }
+</style>

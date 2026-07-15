@@ -752,6 +752,19 @@ section.deepest .eyebrow {
   .vs-hero h1 {
     font-size: 32px !important;
   }
+
+  /* /about + /revenue-at-risk + /aeo-aviation-events grids */
+  .proof-stats,
+  .tier-grid,
+  .example-band,
+  .av-cross-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .factor-grid,
+  .av-stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -761,6 +774,11 @@ section.deepest .eyebrow {
 
   .vs-hero h1 {
     font-size: 26px !important;
+  }
+
+  .factor-grid,
+  .av-stat-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
