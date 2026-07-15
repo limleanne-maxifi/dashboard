@@ -264,40 +264,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .page-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
+    padding: 40px var(--gutter) 36px;
     text-align: center;
   }
 
   .eyebrow {
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: var(--text-h1);
+    font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
     font-family: 'Inter', sans-serif;
-    max-width: 560px;
+    max-width: var(--measure-lede);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 540px;
+    max-width: var(--measure-lede);
     margin: 0 auto;
   }
 
   /* ── Metrics strip ──────────────────────────── */
   .metrics-strip {
     background: var(--cream-deep);
-    padding: 18px 22px;
+    padding: 18px var(--gutter);
   }
 
   .metrics {
@@ -310,31 +310,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .metric { text-align: center; }
 
   .m-num {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: var(--text-h1);
+    font-weight: 500;
     color: var(--navy);
     font-family: 'Inter', sans-serif;
     line-height: 1.1;
   }
 
   .m-label {
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--muted);
     margin-top: 2px;
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
-    font-size: 19px;
-    font-weight: 600;
+    font-size: var(--text-h2);
+    font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
@@ -342,7 +342,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter);
     background: var(--cream);
   }
 
@@ -350,10 +350,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .section--pt0 { padding-top: 0; }
 
   /* ── Prose ──────────────────────────────────── */
-  .prose-col { max-width: 660px; }
+  .prose-col { max-width: var(--measure-body); }
 
   .prose {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: #444441;
     margin-bottom: 12px;
@@ -375,23 +375,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .tl-week {
-    font-size: 10px;
+    font-size: var(--text-small);
     color: var(--amber);
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--track-caps);
     margin-bottom: 5px;
   }
 
   .tl-title {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: var(--text-small);
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
   }
 
   .tl-body {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.5;
     color: var(--muted);
   }
@@ -413,8 +413,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .result-card--featured { border-color: var(--amber); }
 
   .rc-num {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: var(--text-h1);
+    font-weight: 500;
     color: var(--amber);
     font-family: 'Inter', sans-serif;
     line-height: 1.1;
@@ -422,15 +422,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .rc-title {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: var(--text-small);
+    font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
   }
 
   .rc-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
   }
@@ -447,7 +447,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   /* ── CTA ────────────────────────────────────── */
   .cta-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
@@ -456,23 +456,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 21px;
-    font-weight: 600;
+    font-size: var(--text-h2);
+    font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
     line-height: 1.25;
     font-family: 'Inter', sans-serif;
-    max-width: 520px;
+    max-width: var(--measure-lede);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
   }
 
   .cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 440px;
+    max-width: var(--measure-tight);
     margin: 0 auto 18px;
   }
 
@@ -484,25 +484,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   .btn-outline {
     background: transparent;
     color: var(--blue-text);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     border: 0.5px solid rgba(255, 255, 255, 0.3);
     text-decoration: none;
@@ -514,10 +522,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
+    .page-h1 { font-size: var(--text-h2); }
     .timeline { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
-    .cta-title { font-size: 18px; }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

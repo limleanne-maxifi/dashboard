@@ -578,7 +578,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .honeypot { position: absolute; left: -9999px; }
 
   .form-thanks {
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     line-height: 1.55;
     padding: 12px 0;
@@ -588,47 +588,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
+    padding: 40px var(--gutter) 36px;
     text-align: center;
   }
 
   .eyebrow {
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
     font-family: 'Inter', sans-serif;
-    max-width: 600px;
+    max-width: var(--measure-lede);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 560px;
+    max-width: var(--measure-lede);
     margin: 0 auto;
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
@@ -637,7 +637,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter);
     background: var(--cream);
   }
 
@@ -653,14 +653,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .prose {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: #444441;
     margin-bottom: 12px;
   }
 
   .prose-wide {
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 20px;
   }
 
@@ -674,7 +674,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vc-title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 4px;
@@ -682,7 +682,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vc-body {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.5;
     color: var(--muted);
   }
@@ -690,7 +690,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .founder-name { margin-bottom: 4px; }
 
   .founder-title {
-    font-size: 12px;
+    font-size: var(--text-body);
     color: var(--muted);
     margin-bottom: 16px;
   }
@@ -719,14 +719,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .founder-photo-initials {
     font-family: var(--font-mono);
-    font-size: 28px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: var(--amber-pale);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--track-caps);
   }
 
   .founder-photo-caption {
-    font-size: 10px;
+    font-size: var(--text-small);
     color: var(--blue-mid);
   }
 
@@ -745,7 +745,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .proof-stat {
@@ -757,14 +757,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .proof-stat__value {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 5px;
   }
 
   .proof-stat__label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     line-height: 1.5;
     color: var(--muted);
   }
@@ -776,12 +776,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-left: 2px solid var(--amber);
     border-radius: 4px;
     padding: 12px 16px;
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 18px;
   }
 
   .disambig-text {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: #444441;
     margin: 0;
@@ -793,7 +793,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .faq-item {
@@ -804,7 +804,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-q {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 7px;
@@ -812,7 +812,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-a {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
     margin: 0;
@@ -833,15 +833,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ms-num {
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--amber);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     margin-bottom: 6px;
   }
 
   .ms-title {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 7px;
@@ -849,7 +849,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ms-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
   }
@@ -867,16 +867,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 0.5px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: var(--text-caption);
     color: var(--navy);
     font-weight: 400;
   }
 
   .client-note {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--muted);
     line-height: 1.55;
-    max-width: 520px;
+    max-width: var(--measure-lede);
   }
 
   /* ── Contact ────────────────────────────────── */
@@ -888,7 +888,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .ct-body {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.6;
     color: var(--muted);
     margin-bottom: 14px;
@@ -897,7 +897,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-links { display: flex; flex-direction: column; gap: 8px; }
 
   .cl-link {
-    font-size: 13px;
+    font-size: var(--text-small);
     color: var(--navy);
     font-weight: 500;
     text-decoration: none;
@@ -912,7 +912,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .contact-form { display: flex; flex-direction: column; }
 
   .f-label {
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--muted);
     margin-bottom: 4px;
     display: block;
@@ -923,7 +923,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 0.5px solid rgba(4, 44, 83, 0.18);
     border-radius: 4px;
     padding: 8px 10px;
-    font-size: 11px;
+    min-height: 44px;
+    font-size: var(--text-body);
     margin-bottom: 10px;
     background: #fff;
     color: var(--navy);
@@ -941,24 +942,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .f-btn {
     width: 100%;
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: background 0.2s ease;
   }
 
-  .f-btn:hover { background: #854F0B; }
+  .f-btn:hover { background: #6B3F09; }
 
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
@@ -967,7 +972,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
@@ -976,26 +981,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 400px;
+    max-width: var(--measure-tight);
     margin: 0 auto 18px;
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   /* ── Principles grid ────────────────────────── */
   .principles-grid {
@@ -1012,7 +1021,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .principle-title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
@@ -1020,7 +1029,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .principle-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
   }
@@ -1041,13 +1050,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .outcome-icon {
-    font-size: 28px;
+    font-size: var(--text-h1);
     display: block;
     margin-bottom: 10px;
   }
 
   .outcome-title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 8px;
@@ -1055,21 +1064,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .outcome-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
   }
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
+    .page-h1 { font-size: var(--text-h2); }
     .prose-grid { grid-template-columns: 1fr; }
     .proof-stats { grid-template-columns: 1fr; }
     .method-steps { grid-template-columns: 1fr; }
     .principles-grid { grid-template-columns: 1fr; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
-    .cta-title { font-size: 18px; }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

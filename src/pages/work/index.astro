@@ -158,16 +158,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
   .wrap-inner {
-    max-width: 1280px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--gutter);
   }
 
   /* ── System Eyebrow ─────────────────────────── */
   .system-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
@@ -187,8 +187,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .s-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
@@ -198,12 +198,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .s-eyebrow--light { color: var(--amber-mid); }
 
   .section-h2 {
-    font-size: 22px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 24px;
     line-height: 1.2;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   .section-h2--light { color: var(--blue-text); }
@@ -216,17 +216,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .system-head {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin: 0 auto 36px;
   }
 
   .system-title {
-    font-size: 32px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin-bottom: 14px;
     line-height: 1.14;
-    letter-spacing: -0.022em;
+    letter-spacing: -0.02em;
   }
 
   .system-title em {
@@ -236,11 +236,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .system-description {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: var(--blue-soft);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: var(--measure-lede);
   }
 
   .system-grid {
@@ -269,26 +269,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .stage-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     font-weight: 500;
     color: var(--amber-mid);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     line-height: 1.35;
     padding-top: 4px;
   }
 
   .stage-title {
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: #fff;
     margin-bottom: 8px;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   .stage-body {
-    font-size: 12px;
+    font-size: var(--text-caption);
     font-weight: 400;
     color: var(--blue-soft);
     line-height: 1.55;
@@ -301,7 +301,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     border-radius: 8px;
     padding: 22px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -318,7 +318,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .snap-title {
     color: #fff;
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     font-family: var(--font-sans);
     line-height: 1;
@@ -326,7 +326,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .snap-score {
     font-family: var(--font-mono);
-    font-size: 22px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--amber-pale);
     line-height: 1;
@@ -334,7 +334,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .snap-score em {
     font-style: normal;
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--blue-mid);
   }
 
@@ -370,10 +370,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     margin-top: 14px;
     padding-top: 12px;
     border-top: 0.5px solid rgba(255,255,255,0.08);
-    font-size: 10px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
   }
 
   .legend-dot {
@@ -413,37 +413,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .price-card--featured { border: 2px solid var(--amber); }
 
   .price-tag {
-    font-size: 9px;
+    font-size: var(--text-micro);
     font-weight: 500;
     color: var(--amber);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     margin-bottom: 4px;
   }
 
   .price-tier {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 4px;
   }
 
   .price {
-    font-size: 24px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--track-tight);
   }
 
   .price-mo {
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 400;
     color: var(--muted);
   }
 
   .price-note {
-    font-size: 10px;
+    font-size: var(--text-small);
     color: var(--mute-soft);
     margin-bottom: 14px;
     margin-top: 2px;
@@ -452,7 +452,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .price-items { list-style: none; flex: 1; margin-bottom: 14px; }
 
   .price-item {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--ink);
     padding: 3px 0;
     display: flex;
@@ -463,16 +463,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .price-cta {
     display: block;
     text-align: center;
-    padding: 9px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
-  .price-cta--primary { background: var(--amber); color: var(--amber-light); }
-  .price-cta--primary:hover { background: #854F0B; }
+  .price-cta--primary { background: var(--amber-deep); color: var(--amber-light); }
+  .price-cta--primary:hover { background: #6B3F09; }
 
   .price-cta--outline {
     border: 0.5px solid rgba(4,44,83,0.22);
@@ -482,7 +486,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .price-cta--outline:hover { background: var(--navy); color: #fff; }
 
   .pricing-foot {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--muted);
     line-height: 1.6;
   }
@@ -504,20 +508,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 22px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 auto 10px;
     line-height: 1.2;
-    letter-spacing: -0.015em;
-    max-width: 480px;
+    letter-spacing: var(--track-tight);
+    max-width: var(--measure-tight);
   }
 
   .cta-body {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.6;
     color: var(--blue-soft);
-    max-width: 440px;
+    max-width: var(--measure-tight);
     margin: 0 auto 20px;
   }
 
@@ -530,25 +534,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* ── Buttons ────────────────────────────────── */
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 18px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   .btn-ghost {
     background: transparent;
     color: var(--blue-text);
-    padding: 10px 18px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     border: 0.5px solid rgba(255,255,255,0.3);
     text-decoration: none;
@@ -561,9 +573,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .btn-outline {
     background: transparent;
     color: var(--blue-text);
-    padding: 10px 18px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     border: 0.5px solid rgba(255,255,255,0.3);
     text-decoration: none;
@@ -575,13 +591,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* ── Responsive ─────────────────────────────── */
   @media (max-width: 900px) {
-    .wrap-inner { padding: 0 24px; }
+    .wrap-inner { padding: 0 var(--gutter); }
     .page-hero  { padding: 40px 24px 36px; }
-    .page-h1    { font-size: 28px; }
+    .page-h1    { font-size: var(--text-h1); }
     .section    { padding: 36px 0; }
     .system-section { padding: 64px 0 80px; }
 
-    .system-title { font-size: 26px; }
+    .system-title { font-size: var(--text-h2); }
 
     .system-grid {
       grid-template-columns: 1fr;
@@ -592,8 +608,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 640px) {
-    .page-h1 { font-size: 24px; }
-    .cta-title { font-size: 18px; }
+    .page-h1 { font-size: var(--text-h2); }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

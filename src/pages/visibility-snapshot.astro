@@ -223,32 +223,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-wrap {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--gutter);
   }
 
   .vs-eyebrow {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--fs-eyebrow);
+    font-size: var(--text-micro);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
-    color: var(--brown-mid);
+    color: var(--amber-ink);
     margin-bottom: 16px;
   }
 
   .vs-sec-head {
     margin-bottom: 16px;
-    max-width: 720px;
+    max-width: var(--measure-body);
   }
 
   .vs-sec-head h2 {
-    font-size: 44px;
+    font-size: var(--text-display);
     font-weight: 500;
     color: var(--amber);
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     margin: 0 0 18px;
     white-space: nowrap;
   }
@@ -260,15 +260,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sec-head p {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0;
   }
 
   .vs-n {
-    font: 500 12px/1.2 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-caption); font-weight: 500; line-height: 1.2;
     color: var(--amber);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     flex-shrink: 0;
     padding-top: 2px;
   }
@@ -276,20 +276,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Shared button */
   .vs-btn {
     display: inline-block;
-    font: 500 12px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 500; line-height: 1;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.2s ease, border-color 0.2s ease;
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .vs-btn--primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
     border: none;
   }
 
-  .vs-btn--primary:hover { background: #854F0B; }
+  .vs-btn--primary:hover { background: #6B3F09; }
 
   .vs-btn--ghost-dark {
     background: transparent;
@@ -300,13 +304,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-btn--ghost-dark:hover { border-color: rgba(255, 255, 255, 0.6); }
 
   .vs-btn--lg {
-    font-size: 14px;
-    padding: 14px 22px;
+    font-size: var(--text-small);
+    padding: 14px var(--gutter);
   }
 
   /* ── HERO ── */
   .vs-hero {
-    padding: 18px 22px 40px;
+    padding: 64px var(--gutter) 80px;
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
 
@@ -328,10 +332,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-hero h1 {
-    font-size: 44px;
+    font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--blue-text);
     margin: 0;
   }
@@ -343,11 +347,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-hero__lede {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--blue-soft);
     margin-top: 20px;
     margin-bottom: 0;
-    max-width: 540px;
+    max-width: var(--measure-lede);
   }
 
   .vs-hero__lede em {
@@ -369,9 +373,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font: 500 10px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--track-caps);
     color: var(--signal);
     background: rgba(29, 158, 117, 0.08);
     padding: 6px 9px;
@@ -388,11 +392,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-form-card h3 {
-    font-size: 23px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 16px;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   /* Score chip */
@@ -409,38 +413,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-scorechip__num {
-    font: 500 28px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h1); font-weight: 500; line-height: 1;
     color: var(--amber-pale);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     text-align: center;
   }
 
   .vs-scorechip__num small {
     display: block;
-    font: 500 9px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--blue-mid);
     margin-top: 4px;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--track-0);
   }
 
   .vs-scorechip__lbl {
-    font: 500 9px/1 var(--font-sans);
-    letter-spacing: 0.12em;
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 4px;
   }
 
   .vs-scorechip__meta h6 {
-    font-size: 12.5px;
+    font-size: var(--text-caption);
     font-weight: 500;
     color: #fff;
     margin: 0 0 2px;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--track-tight);
   }
 
   .vs-scorechip__meta p {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--blue-soft);
     margin: 0;
   }
@@ -452,8 +456,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-field label {
     display: block;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--mute-soft);
     margin-bottom: 6px;
@@ -462,7 +466,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-field input {
     width: 100%;
     padding: 10px 12px;
-    font: 400 13px/1 var(--font-sans);
+    min-height: 44px;
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 400; line-height: 1;
     border: 0.5px solid rgba(4, 44, 83, 0.18);
     background: var(--cream);
     border-radius: 4px;
@@ -481,10 +486,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: block;
     width: 100%;
     box-sizing: border-box;
-    font: 500 14px/1 var(--font-sans);
-    background: var(--amber);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 500; line-height: 1;
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 14px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -494,7 +503,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 6px;
   }
 
-  .vs-submit:hover { background: #854F0B; }
+  .vs-submit:hover { background: #6B3F09; }
 
   /* Success state */
   .vs-results {
@@ -518,19 +527,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: center;
     justify-content: center;
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: var(--text-small);
     flex-shrink: 0;
   }
 
   .vs-results__head h3 {
-    font-size: 18px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: var(--navy);
     margin: 0;
   }
 
   .vs-results p {
-    font: 400 12.5px/1.6 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1.6;
     color: var(--muted);
     margin: 0;
   }
@@ -549,16 +558,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sample__lbl {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
-    color: var(--brown-mid);
+    color: var(--amber-ink);
     display: inline-block;
     margin-bottom: 16px;
   }
 
   .vs-sample__copy h3 {
-    font-size: 33.6px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: var(--navy);
     line-height: 1.2;
@@ -573,7 +582,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sample__copy p {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0 0 14px;
   }
@@ -600,7 +609,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-sample__cell b {
     display: block;
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
@@ -608,7 +617,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sample__cell p {
-    font: 400 13px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0;
   }
@@ -622,7 +631,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-sample__meta {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--mute-soft);
   }
 
@@ -654,8 +663,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.12em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
   }
 
@@ -679,16 +688,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-report__body { padding: 28px 30px 30px; }
 
   .vs-report__meta {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--mute-soft);
     margin-bottom: 22px;
   }
 
   .vs-report__h {
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     line-height: 1.35;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
     color: var(--navy);
     margin-bottom: 22px;
   }
@@ -732,7 +741,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .vs-ring__v {
     position: relative;
     z-index: 1;
-    font: 500 38px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 1;
     color: var(--navy);
     letter-spacing: -0.02em;
     text-align: center;
@@ -740,31 +749,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .vs-ring__v small {
     display: block;
-    font: 500 10px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--mute-soft);
     margin-top: 4px;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     text-align: center;
   }
 
   .vs-report__info-lbl {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--mute-soft);
     margin-bottom: 8px;
   }
 
   .vs-report__info h4 {
-    font-size: 13.5px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 6px;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--track-tight);
   }
 
   .vs-report__info p {
-    font: 400 12px/1.5 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 400; line-height: 1.5;
     color: var(--muted);
     margin: 0;
   }
@@ -773,8 +782,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--brown-deep);
     background: rgba(186, 117, 23, 0.10);
@@ -795,7 +804,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 0.5px solid var(--line);
     border-radius: 4px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
 
   .vs-engine { color: var(--navy); }
@@ -806,7 +815,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── OUTRO (next steps + CTA combined) ── */
   .vs-outro {
-    padding: 80px 0 96px;
+    padding: var(--section-pad) 0;
     background: var(--navy-deep);
   }
 
@@ -820,13 +829,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .vs-outro__bottom h2 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: var(--blue-text);
     line-height: 1.2;
     letter-spacing: -0.02em;
     margin: 0 0 32px;
-    max-width: 620px;
+    max-width: var(--measure-lede);
     margin-left: auto;
     margin-right: auto;
   }
@@ -851,7 +860,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       gap: 32px;
     }
 
-    .vs-hero h1 { font-size: 32px; }
+    .vs-hero h1 { font-size: var(--text-display); }
     .vs-hero { padding: 32px 0 40px; }
 
     .vs-sample__panel {
@@ -863,15 +872,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 640px) {
-    .vs-wrap { padding: 0 24px; }
+    .vs-wrap { padding: 0 var(--gutter); }
 
     .vs-hero { padding: 56px 0 48px; }
 
-    .vs-hero h1 { font-size: 28px; }
+    .vs-hero h1 { font-size: var(--text-display); }
 
-    .vs-hero__lede { font-size: 14px; }
+    .vs-hero__lede { font-size: var(--text-lede); }
 
-    .vs-outro__bottom h2 { font-size: 24px; }
+    .vs-outro__bottom h2 { font-size: var(--text-h2); }
 
     .vs-outro { padding: 64px 0; }
   }

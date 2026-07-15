@@ -226,60 +226,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .page-hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 40px 22px 36px;
+    padding: 40px var(--gutter) 36px;
     text-align: center;
   }
 
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .page-h1 {
-    font-size: 30px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin: 0 auto 12px;
     line-height: 1.18;
     letter-spacing: -0.02em;
     font-family: 'Inter', sans-serif;
-    max-width: 600px;
+    max-width: var(--measure-lede);
   }
 
   .page-lede {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 580px;
+    max-width: var(--measure-lede);
     margin: 0 auto;
   }
 
   /* ── Shared ─────────────────────────────────── */
   .s-eyebrow {
     font-family: var(--font-mono);
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
   }
 
   .section-h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
     font-family: 'Inter', sans-serif;
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter);
     background: var(--cream);
   }
 
@@ -287,14 +287,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .section--pt0 { padding-top: 0; }
 
   .prose {
-    font-size: 13px;
+    font-size: var(--text-small);
     line-height: 1.7;
     color: #444441;
     margin-bottom: 12px;
   }
 
   .prose-wide {
-    max-width: 640px;
+    max-width: var(--measure-body);
     margin-bottom: 8px;
   }
 
@@ -325,14 +325,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .av-stat__value {
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 5px;
   }
 
   .av-stat__label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     line-height: 1.5;
     color: var(--muted);
   }
@@ -342,7 +342,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 640px;
+    max-width: var(--container-prose);
   }
 
   .faq-item {
@@ -353,7 +353,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-q {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 7px;
@@ -361,7 +361,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .faq-a {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.6;
     color: var(--muted);
     margin: 0;
@@ -388,7 +388,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .av-cross:hover { border-color: var(--amber); }
 
   .av-cross__title {
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 6px;
@@ -396,14 +396,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .av-cross__body {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--muted);
     margin: 0 0 10px;
   }
 
   .av-cross__cta {
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     color: var(--amber);
     margin-top: auto;
@@ -412,7 +412,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* ── CTA box ────────────────────────────────── */
   .cta-box {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
@@ -421,7 +421,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
 
   .cta-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 10px;
@@ -430,32 +430,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .cta-body {
-    font-size: 12px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 420px;
+    max-width: var(--measure-tight);
     margin: 0 auto 18px;
   }
 
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   /* ── Responsive ─────────────────────────────── */
   /* Grid collapses live in globals.css (see MOBILE LAYOUT FIXES) */
   @media (max-width: 768px) {
-    .page-h1 { font-size: 24px; }
-    .cta-title { font-size: 18px; }
+    .page-h1 { font-size: var(--text-h2); }
+    .cta-title { font-size: var(--text-h3); }
   }
 
   @media (prefers-reduced-motion: reduce) {

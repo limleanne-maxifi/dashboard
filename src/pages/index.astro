@@ -597,7 +597,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .form-thanks {
-    font-size: 12px;
+    font-size: var(--text-body);
     color: var(--navy);
     line-height: 1.5;
     padding: 10px 0;
@@ -605,14 +605,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── VS-HERO SECTION ─────────────────────────── */
   .vs-hero {
-    padding: 18px 22px 40px;
+    padding: 64px var(--gutter) 80px;
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   }
 
   .vs-wrap {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--gutter);
   }
 
   .vs-hero__grid {
@@ -630,20 +630,20 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .vs-hero__eyebrow {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--fs-eyebrow);
+    font-size: var(--text-micro);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 18px;
   }
 
   .vs-hero h1 {
-    font-size: 44px;
+    font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--blue-text);
     margin: 0;
   }
@@ -655,11 +655,11 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .vs-hero__lede {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--blue-soft);
     margin-top: 20px;
     margin-bottom: 0;
-    max-width: 540px;
+    max-width: var(--measure-lede);
   }
 
   .vs-hero__lede em {
@@ -681,9 +681,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font: 500 10px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--track-caps);
     color: var(--signal);
     background: rgba(29, 158, 117, 0.08);
     padding: 6px 9px;
@@ -700,11 +700,11 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .vs-form-card h3 {
-    font-size: 23px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 16px;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   /* Score chip */
@@ -721,38 +721,38 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .vs-scorechip__num {
-    font: 500 28px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h1); font-weight: 500; line-height: 1;
     color: var(--amber-pale);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     text-align: center;
   }
 
   .vs-scorechip__num small {
     display: block;
-    font: 500 9px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--blue-mid);
     margin-top: 4px;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--track-0);
   }
 
   .vs-scorechip__lbl {
-    font: 500 9px/1 var(--font-sans);
-    letter-spacing: 0.12em;
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 4px;
   }
 
   .vs-scorechip__meta h6 {
-    font-size: 12.5px;
+    font-size: var(--text-caption);
     font-weight: 500;
     color: #fff;
     margin: 0 0 2px;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--track-tight);
   }
 
   .vs-scorechip__meta p {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--blue-soft);
     margin: 0;
   }
@@ -764,8 +764,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .vs-field label {
     display: block;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--mute-soft);
     margin-bottom: 6px;
@@ -774,7 +774,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .vs-field input {
     width: 100%;
     padding: 10px 12px;
-    font: 400 13px/1 var(--font-sans);
+    min-height: 44px;
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 400; line-height: 1;
     border: 0.5px solid rgba(4, 44, 83, 0.18);
     background: var(--cream);
     border-radius: 4px;
@@ -793,10 +794,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: block;
     width: 100%;
     box-sizing: border-box;
-    font: 500 14px/1 var(--font-sans);
-    background: var(--amber);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 500; line-height: 1;
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 14px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -806,7 +811,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin-top: 6px;
   }
 
-  .vs-submit:hover { background: #854F0B; }
+  .vs-submit:hover { background: #6B3F09; }
 
   /* Success state */
   .vs-results {
@@ -830,27 +835,27 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     align-items: center;
     justify-content: center;
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: var(--text-small);
     flex-shrink: 0;
   }
 
   .vs-results__head h3 {
-    font-size: 18px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: var(--navy);
     margin: 0;
   }
 
   .vs-results p {
-    font: 400 12.5px/1.6 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1.6;
     color: var(--muted);
     margin: 0;
   }
 
   .eyebrow,
   .s-eyebrow {
-    font-size: var(--fs-eyebrow);
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     margin-bottom: 10px;
@@ -859,7 +864,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .section-h2 {
-    font-size: 19px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 18px;
@@ -868,7 +873,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .section {
-    padding: 30px 22px;
+    padding: 30px var(--gutter);
     background: var(--cream);
   }
 
@@ -876,25 +881,33 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── Buttons ────────────────────────────────── */
   .btn-primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
   }
 
-  .btn-primary:hover { background: #854F0B; }
+  .btn-primary:hover { background: #6B3F09; }
 
   .btn-ghost {
     background: transparent;
     color: var(--blue-text);
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--text-body);
     font-weight: 500;
     border: 0.5px solid rgba(255, 255, 255, 0.3);
     text-decoration: none;
@@ -908,7 +921,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .hero {
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: var(--blue-text);
-    padding: 18px 22px 40px;
+    padding: 64px var(--gutter) 80px;
   }
 
   /* ── Did you know section ──────────────────── */
@@ -928,8 +941,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .dyk-label {
-    font-size: 13px;
-    font-weight: 800;
+    font-size: var(--text-caption);
+    font-weight: 500;
     color: var(--amber-mid);
     margin: 0;
     font-family: var(--font-sans);
@@ -937,12 +950,12 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .dyk-value {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: #fff;
     line-height: 1.3;
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--track-tight);
     font-family: var(--font-sans);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -951,7 +964,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .dyk-source {
-    font-size: 11.5px;
+    font-size: var(--text-caption);
     font-weight: 400;
     color: var(--blue-mid);
     margin: 0;
@@ -977,19 +990,19 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hero-h1 {
-    font-size: 32px;
+    font-size: var(--text-display);
     line-height: 1.18;
     font-weight: 500;
     color: #fff;
     margin: 0 0 16px;
-    max-width: 460px;
+    max-width: var(--measure-tight);
     font-family: var(--font-sans);
     letter-spacing: -0.02em;
   }
 
   .hero-h1-lead {
     display: block;
-    font-size: 38px;
+    font-size: var(--text-display);
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: 6px;
@@ -997,7 +1010,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .hero-h1-tail {
     display: block;
-    font-size: 22px;
+    font-size: var(--text-h2);
     line-height: 1.18;
   }
 
@@ -1010,7 +1023,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hero-queries li {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-style: italic;
     color: var(--blue-soft);
     line-height: 1.45;
@@ -1020,7 +1033,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .lede {
-    font-size: 14px;
+    font-size: var(--text-lede);
     line-height: 1.55;
     color: var(--blue-soft);
     margin-bottom: 24px;
@@ -1040,13 +1053,13 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* ── Trust strip ────────────────────────────── */
   .trust {
-    padding: 14px 22px;
+    padding: 14px var(--gutter);
     background: var(--cream-deep);
     display: flex;
     align-items: center;
     gap: 12px;
     justify-content: center;
-    font-size: 10px;
+    font-size: var(--text-small);
     color: var(--muted);
     flex-wrap: wrap;
   }
@@ -1067,18 +1080,18 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     border-radius: 3px;
     font-weight: 500;
     color: var(--navy);
-    font-size: 10px;
+    font-size: var(--text-micro);
   }
 
   /* ── Homepage UNDERSTAND AEO (navy mirror of /aeo) ───────────── */
   .hp-aeo {
     background: var(--navy-deep);
     color: var(--blue-soft);
-    padding: 80px 0;
+    padding: var(--section-pad) 0;
   }
 
   .hp-aeo__head {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin-bottom: 56px;
   }
 
@@ -1089,9 +1102,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__h2 {
-    font-size: 42px;
+    font-size: var(--text-display);
     line-height: 1.14;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: white;
     font-weight: 500;
     margin: 0 0 14px;
@@ -1105,9 +1118,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__lede {
-    font: 400 14px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-lede); font-weight: 400; line-height: 1.55;
     color: var(--blue-soft);
-    max-width: 620px;
+    max-width: var(--measure-lede);
     margin: 0;
   }
 
@@ -1120,14 +1133,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__subhead {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin-bottom: 28px;
   }
 
   .hp-aeo__h3 {
-    font-size: 22px;
+    font-size: var(--text-h2);
     line-height: 1.2;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
     color: white;
     font-weight: 500;
     margin: 0;
@@ -1140,8 +1153,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__cardlabel {
-    font: 500 10px/1 var(--font-sans);
-    letter-spacing: 0.1em;
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     text-transform: uppercase;
     margin-bottom: 14px;
@@ -1149,7 +1162,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__cardtitle {
-    font-size: 16px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: white;
     line-height: 1.3;
@@ -1157,7 +1170,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .hp-aeo__cardbody {
-    font: 400 12px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 400; line-height: 1.55;
     color: var(--blue-soft);
   }
 
@@ -1178,9 +1191,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   /* ── Engine Preview (mirrors /work) ───────────────────────────── */
 
   .wrap-inner {
-    max-width: 1280px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--gutter);
   }
 
 
@@ -1203,15 +1216,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .offer--featured { border: 2px solid var(--amber); }
 
   .offer-tag {
-    font-size: 9px;
+    font-size: var(--text-micro);
     font-weight: 500;
     color: var(--amber);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     margin-bottom: 6px;
   }
 
   .offer-name {
-    font-size: 16px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 3px;
@@ -1219,7 +1232,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .offer-price {
-    font-size: 10px;
+    font-size: var(--text-small);
     color: var(--muted);
     margin-bottom: 12px;
   }
@@ -1227,7 +1240,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .offer-lines { list-style: none; flex: 1; }
 
   .offer-line {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: #444441;
     padding: 3px 0;
     line-height: 1.4;
@@ -1245,20 +1258,24 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: block;
     text-align: center;
     margin-top: 12px;
-    padding: 8px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
   .offer-cta--primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: #FAEEDA;
   }
 
-  .offer-cta--primary:hover { background: #854F0B; }
+  .offer-cta--primary:hover { background: #6B3F09; }
 
   .offer-cta--outline {
     border: 0.5px solid rgba(4, 44, 83, 0.22);
@@ -1285,8 +1302,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .case-eyebrow {
-    font-size: 9px;
-    letter-spacing: 0.1em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     margin-bottom: 8px;
     font-weight: 500;
@@ -1295,7 +1312,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .case-title {
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: #fff;
     margin-bottom: 10px;
@@ -1304,7 +1321,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .case-body {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.55;
     color: var(--blue-soft);
     margin-bottom: 14px;
@@ -1319,14 +1336,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .case-metric { display: flex; flex-direction: column; }
 
   .case-num {
-    font-size: 18px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: var(--amber-pale);
     line-height: 1.1;
   }
 
   .case-lbl {
-    font-size: 9px;
+    font-size: var(--text-small);
     color: var(--blue-soft);
     margin-top: 2px;
   }
@@ -1340,7 +1357,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .case-all-link {
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 400;
     color: var(--blue-soft);
     text-decoration: none;
@@ -1353,7 +1370,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .offer-learn {
     display: block;
     margin-top: 8px;
-    font-size: 10px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: var(--navy);
     opacity: 0.6;
@@ -1391,39 +1408,39 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .cp-line--amber { background: #FAC775; width: 75%; }
 
   .cp-num {
-    font-size: 22px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #042C53;
     margin: 10px 0 2px;
   }
 
   .cp-denom {
-    font-size: 11px;
+    font-size: var(--text-body);
     color: #888;
     font-weight: 400;
   }
 
   .cp-lbl {
-    font-size: 9px;
+    font-size: var(--text-small);
     color: var(--muted);
-    letter-spacing: 0.05em;
+    letter-spacing: var(--track-0);
   }
 
   /* ── Final CTA ──────────────────────────────── */
   .section--final {
-    padding: 0 40px 40px;
+    padding: 0 var(--gutter) 40px;
   }
 
   .final {
     background: var(--navy);
-    padding: 34px 22px;
+    padding: 34px var(--gutter);
     text-align: center;
     color: var(--blue-text);
     border-radius: 8px;
   }
 
   .final-title {
-    font-size: 21px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: #fff;
     margin: 0 0 18px;
@@ -1439,7 +1456,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .final-about {
-    font-size: 11px;
+    font-size: var(--text-body);
     line-height: 1.5;
     color: var(--blue-mid);
     margin: 16px 0 0;
@@ -1459,8 +1476,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   /* Tablet: tighten nav links, shrink hero H1 slightly */
   @media (max-width: 900px) {
-    .hero-h1-lead { font-size: 32px; }
-    .hero-h1-tail { font-size: 19px; }
+    .hero-h1-lead { font-size: var(--text-display); }
+    .hero-h1-tail { font-size: var(--text-h2); }
   }
 
   @media (max-width: 768px) {
@@ -1478,9 +1495,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
       gap: 14px;
     }
 
-    .hero-h1       { font-size: 26px; }
-    .hero-h1-lead  { font-size: 26px; }
-    .hero-h1-tail  { font-size: 17px; }
+    .hero-h1       { font-size: var(--text-h2); }
+    .hero-h1-lead  { font-size: var(--text-h2); }
+    .hero-h1-tail  { font-size: var(--text-h3); }
 
     .hp-aeo__defcards,
     .offers {
@@ -1492,11 +1509,11 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     }
 
     .hp-aeo__h2 {
-      font-size: 28px;
+      font-size: var(--text-h1);
     }
 
     .hp-aeo__h3 {
-      font-size: 19px;
+      font-size: var(--text-h2);
     }
 
     .case {
@@ -1505,14 +1522,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
     .case-visual { display: none; }
 
-    .final-title { font-size: 18px; }
+    .final-title { font-size: var(--text-h3); }
   }
 
   @media (max-width: 640px) {
     .wrap-inner { padding: 0 16px; }
     /* Hero: reduce lede/query sizes, full-width CTAs */
-    .lede        { font-size: 13px; }
-    .hero-queries li { font-size: 12px; }
+    .lede        { font-size: var(--text-small); }
+    .hero-queries li { font-size: var(--text-body); }
     .hero-ctas   { flex-direction: column; }
     .hero-ctas .btn-primary,
     .hero-ctas .btn-ghost { display: block; text-align: center; }
@@ -1532,25 +1549,25 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .vs-eyebrow {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--fs-eyebrow);
+    font-size: var(--text-micro);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
-    color: var(--brown-mid);
+    color: var(--amber-ink);
     margin-bottom: 16px;
   }
   .vs-sample {
     padding: 48px 0 96px;
     background: var(--cream-deep);
   }
-  .vs-sec-head { margin-bottom: 16px; max-width: 720px; }
+  .vs-sec-head { margin-bottom: 16px; max-width: var(--measure-body); }
   .vs-sec-head h2 {
-    font-size: 44px;
+    font-size: var(--text-display);
     font-weight: 500;
     color: var(--amber);
     line-height: 1.08;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     margin: 0 0 18px;
     white-space: nowrap;
   }
@@ -1560,7 +1577,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     font-weight: 500;
   }
   .vs-sec-head p {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0;
   }
@@ -1571,15 +1588,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     align-items: stretch;
   }
   .vs-sample__lbl {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
-    color: var(--brown-mid);
+    color: var(--amber-ink);
     display: inline-block;
     margin-bottom: 16px;
   }
   .vs-sample__copy h3 {
-    font-size: 33.6px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: var(--navy);
     line-height: 1.2;
@@ -1592,7 +1609,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     font-weight: 500;
   }
   .vs-sample__copy p {
-    font: 400 16px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-h3); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0 0 14px;
   }
@@ -1609,22 +1626,22 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     background: var(--cream);
   }
   .vs-n {
-    font: 500 12px/1.2 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-caption); font-weight: 500; line-height: 1.2;
     color: var(--amber);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     display: block;
     margin-bottom: 8px;
   }
   .vs-sample__cell b {
     display: block;
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 6px;
     line-height: 1.3;
   }
   .vs-sample__cell p {
-    font: 400 13px/1.55 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1.55;
     color: var(--muted);
     margin: 0;
   }
@@ -1636,23 +1653,27 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     flex-wrap: wrap;
   }
   .vs-sample__meta {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--mute-soft);
   }
   .vs-btn {
     display: inline-block;
-    font: 500 12px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 500; line-height: 1;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.2s ease;
-    padding: 10px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .vs-btn--primary {
-    background: var(--amber);
+    background: var(--amber-deep);
     color: var(--amber-light);
     border: none;
   }
-  .vs-btn--primary:hover { background: #854F0B; }
+  .vs-btn--primary:hover { background: #6B3F09; }
   /* Mock report */
   .vs-report {
     background: #fff;
@@ -1670,8 +1691,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.12em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
   }
   .vs-report__chrome-left {
@@ -1696,15 +1717,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
   .vs-report__rows { margin-top: 20px; display: grid; gap: 6px; }
   .vs-report__meta {
-    font: 400 11px/1.4 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 400; line-height: 1.4;
     color: var(--mute-soft);
     margin-bottom: 22px;
   }
   .vs-report__h {
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     line-height: 1.35;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
     color: var(--navy);
     margin-bottom: 22px;
   }
@@ -1742,35 +1763,35 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .vs-ring__v {
     position: relative;
     z-index: 1;
-    font: 500 38px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 1;
     color: var(--navy);
     letter-spacing: -0.02em;
     text-align: center;
   }
   .vs-ring__v small {
     display: block;
-    font: 500 10px/1 var(--font-mono);
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--mute-soft);
     margin-top: 4px;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--track-caps);
     text-align: center;
   }
   .vs-report__info-lbl {
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--mute-soft);
     margin-bottom: 8px;
   }
   .vs-report__info h4 {
-    font-size: 13.5px;
+    font-size: var(--text-small);
     font-weight: 500;
     color: var(--navy);
     margin: 0 0 6px;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--track-tight);
   }
   .vs-report__info p {
-    font: 400 12px/1.5 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 400; line-height: 1.5;
     color: var(--muted);
     margin: 0;
   }
@@ -1778,8 +1799,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font: 500 10px/1 var(--font-mono);
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--brown-deep);
     background: rgba(186, 117, 23, 0.10);
@@ -1796,7 +1817,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     border: 0.5px solid var(--line);
     border-radius: 4px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .vs-engine { color: var(--navy); }
   .vs-stat { color: var(--amber); font-weight: 500; }
@@ -1806,8 +1827,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   /* ── System Section (System 3 design) ─────────────────────────── */
   .system-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
     color: var(--amber-mid);
     font-weight: 500;
     text-transform: uppercase;
@@ -1823,18 +1844,18 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .system-head {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin: 0 0 36px;
     text-align: left;
   }
 
   .system-title {
-    font-size: 32px;
+    font-size: var(--text-h1);
     font-weight: 500;
     color: #fff;
     margin-bottom: 14px;
     line-height: 1.14;
-    letter-spacing: -0.022em;
+    letter-spacing: -0.02em;
   }
 
   .system-title em {
@@ -1844,11 +1865,11 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .system-description {
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: var(--blue-soft);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: var(--measure-lede);
   }
 
   .system-grid {
@@ -1859,14 +1880,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   @media (max-width: 900px) {
-    .wrap-inner { padding: 0 24px; }
+    .wrap-inner { padding: 0 var(--gutter); }
     .system-grid {
       grid-template-columns: 1fr !important;
       gap: 24px !important;
       display: flex !important;
       flex-direction: column !important;
     }
-    .system-title { font-size: 26px; }
+    .system-title { font-size: var(--text-h2); }
     .snap-card { height: auto; }
     .stages { width: 100%; }
   }
@@ -1890,26 +1911,26 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .stage-label {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     font-weight: 500;
     color: var(--amber-mid);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     line-height: 1.35;
     padding-top: 4px;
   }
 
   .stage-title {
-    font-size: 17px;
+    font-size: var(--text-h3);
     font-weight: 500;
     color: #fff;
     margin-bottom: 8px;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--track-tight);
   }
 
   .stage-body {
-    font-size: 12px;
+    font-size: var(--text-caption);
     font-weight: 400;
     color: var(--blue-soft);
     line-height: 1.55;
@@ -1921,15 +1942,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     border-radius: 8px;
     padding: 22px;
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-body);
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
   .snap-toplabel {
-    font: 500 9px/1 var(--font-sans);
-    letter-spacing: 0.12em;
+    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     margin-bottom: 14px;
@@ -1953,16 +1974,16 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .snap-title {
     color: #fff;
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     font-family: var(--font-sans);
     line-height: 1.2;
   }
 
   .snap-subtitle {
-    font: 400 9px/1.3 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1.3;
     color: var(--blue-mid);
-    letter-spacing: 0.03em;
+    letter-spacing: var(--track-0);
   }
 
   .snap-score-group {
@@ -1974,15 +1995,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .snap-score-lbl {
-    font: 400 9px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1;
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     white-space: nowrap;
   }
 
   .snap-score {
     font-family: var(--font-sans);
-    font-size: 20px;
+    font-size: var(--text-h2);
     font-weight: 500;
     color: var(--amber-pale);
     line-height: 1;
@@ -1990,15 +2011,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .snap-score em {
     font-style: normal;
-    font-size: 11px;
+    font-size: var(--text-body);
     color: var(--blue-mid);
   }
 
   .snap-summary {
-    font: 400 10px/1 var(--font-sans);
+    font-family: var(--font-sans); font-size: var(--text-small); font-weight: 400; line-height: 1;
     color: var(--blue-mid);
     margin-bottom: 12px;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--track-0);
   }
 
   .snap-row {
@@ -2033,10 +2054,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin-top: 14px;
     padding-top: 12px;
     border-top: 0.5px solid rgba(255,255,255,0.08);
-    font-size: 10px;
+    font-size: var(--text-small);
     font-weight: 400;
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
   }
 
   .legend-dot {
@@ -2058,14 +2079,14 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   @media (max-width: 960px) {
     .vs-sample__panel { grid-template-columns: 1fr; gap: 28px; }
-    .vs-sec-head h2 { white-space: normal; font-size: 32px; }
+    .vs-sec-head h2 { white-space: normal; font-size: var(--text-h1); }
   }
 
   /* ── Conference AEO Hero (Turn Events into Authority) ─── */
   .ca-wrap {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--gutter);
   }
 
   .ca-section {
@@ -2075,15 +2096,15 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .ca-head {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin-bottom: 24px;
   }
 
   .ca-actmark {
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     display: inline-flex;
@@ -2094,9 +2115,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     display: inline-flex;
@@ -2115,28 +2136,28 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-h2 {
     font-family: var(--font-sans);
-    font-size: 42px;
+    font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: #fff;
-    max-width: 760px;
+    max-width: var(--measure-body);
     margin: 0 0 14px;
   }
 
   .ca-h2 em {
     font-style: italic;
     color: var(--amber-mid);
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .ca-lede {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-lede);
     font-weight: 400;
     line-height: 1.6;
     color: var(--blue-soft);
-    max-width: 600px;
+    max-width: var(--measure-lede);
     margin: 0;
   }
 
@@ -2194,22 +2215,22 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-slide-h3 {
     font-family: var(--font-sans);
-    font-size: 28px;
+    font-size: var(--text-h1);
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.02em;
     color: #fff;
-    max-width: 760px;
+    max-width: var(--measure-body);
     margin: 0 0 12px;
   }
 
   .ca-slide-p {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 400;
     line-height: 1.6;
     color: var(--blue-soft);
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin: 0;
   }
 
@@ -2217,7 +2238,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
-    max-width: 720px;
+    max-width: var(--container-prose);
   }
 
   .ca-met {
@@ -2237,7 +2258,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-v {
     font-family: var(--font-sans);
-    font-size: 35px;
+    font-size: var(--text-h1);
     font-weight: 500;
     line-height: 1;
     color: var(--amber-pale);
@@ -2245,13 +2266,13 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-l {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 400;
     line-height: 1.4;
     color: var(--blue-mid);
     margin-top: 8px;
     text-transform: lowercase;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--track-0);
   }
 
   .ca-slide--shot .ca-body { padding: 0; }
@@ -2318,10 +2339,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-caption-title {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     color: var(--blue-text);
-    letter-spacing: -0.005em;
+    letter-spacing: var(--track-tight);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2329,9 +2350,9 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-caption-meta {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -2344,11 +2365,11 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     padding-top: 14px;
     border-top: 0.5px solid rgba(255, 255, 255, 0.1);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     font-weight: 500;
     line-height: 1;
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     text-transform: lowercase;
   }
 
@@ -2360,7 +2381,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .ca-cta {
     color: var(--amber-mid);
     text-transform: none;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -2408,19 +2429,23 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .ca-bridge-label {
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--blue-mid);
   }
 
   .ca-btn {
     display: inline-block;
-    padding: 12px 18px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     line-height: 1;
     letter-spacing: 0;
@@ -2441,10 +2466,10 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   @media (max-width: 700px) {
     .ca-section { padding: 24px 0 60px; }
-    .ca-h2 { font-size: 30px; }
-    .ca-slide { padding: 22px 22px 56px; }
+    .ca-h2 { font-size: var(--text-h1); }
+    .ca-slide { padding: 24px 24px 56px; }
     .ca-slide--meta .ca-body { padding: 0; }
-    .ca-slide-h3 { font-size: 22px; }
+    .ca-slide-h3 { font-size: var(--text-h2); }
     .ca-metrics { grid-template-columns: 1fr; }
     .ca-met {
       border-right: none;

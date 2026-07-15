@@ -231,7 +231,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .ca-wrap {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--gutter);
   }
 
   /* ── Section container ──────────────────────────── */
@@ -243,16 +243,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Section head ──────────────────────────────── */
   .ca-head {
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin-bottom: 24px;
   }
 
   /* Section head eyebrow — no pip, plain text */
   .ca-actmark {
     font-family: var(--font-sans);
-    font-size: var(--fs-eyebrow);
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     display: inline-flex;
@@ -264,9 +264,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Slide eyebrow — has amber pip dot */
   .ca-eyebrow {
     font-family: var(--font-sans);
-    font-size: var(--fs-eyebrow);
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--amber-mid);
     display: inline-flex;
@@ -285,28 +285,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-h2 {
     font-family: var(--font-sans);
-    font-size: 42px;
+    font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.1;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: #fff;
-    max-width: 760px;
+    max-width: var(--measure-body);
     margin: 0 0 14px;
   }
 
   .ca-h2 em {
     font-style: italic;
     color: var(--amber-mid);
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .ca-lede {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-lede);
     font-weight: 400;
     line-height: 1.6;
     color: var(--blue-soft);
-    max-width: 600px;
+    max-width: var(--measure-lede);
     margin: 0;
   }
 
@@ -366,22 +366,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-slide-h3 {
     font-family: var(--font-sans);
-    font-size: 28px;
+    font-size: var(--text-h1);
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.02em;
     color: #fff;
-    max-width: 760px;
+    max-width: var(--measure-body);
     margin: 0 0 12px;
   }
 
   .ca-slide-p {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-small);
     font-weight: 400;
     line-height: 1.6;
     color: var(--blue-soft);
-    max-width: 720px;
+    max-width: var(--measure-body);
     margin: 0;
   }
 
@@ -389,7 +389,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
-    max-width: 720px;
+    max-width: var(--container-prose);
   }
 
   .ca-met {
@@ -409,7 +409,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-v {
     font-family: var(--font-sans);
-    font-size: 35px;
+    font-size: var(--text-h1);
     font-weight: 500;
     line-height: 1;
     color: var(--amber-pale);
@@ -417,13 +417,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-l {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 400;
     line-height: 1.4;
     color: var(--blue-mid);
     margin-top: 8px;
     text-transform: lowercase;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--track-0);
   }
 
   /* Slide 2: Screenshot */
@@ -495,10 +495,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-caption-title {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: var(--text-body);
     font-weight: 500;
     color: var(--blue-text);
-    letter-spacing: -0.005em;
+    letter-spacing: var(--track-tight);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -506,9 +506,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-caption-meta {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-micro);
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -522,11 +522,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-top: 14px;
     border-top: 0.5px solid rgba(255, 255, 255, 0.1);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-caption);
     font-weight: 500;
     line-height: 1;
     color: var(--blue-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     text-transform: lowercase;
   }
 
@@ -538,7 +538,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .ca-cta {
     color: var(--amber-mid);
     text-transform: none;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--track-0);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -592,19 +592,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .ca-bridge-label {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: var(--text-micro);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--track-caps);
     text-transform: uppercase;
     color: var(--blue-mid);
   }
 
   .ca-btn {
     display: inline-block;
-    padding: 12px 18px;
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: var(--text-small);
     font-weight: 500;
     line-height: 1;
     letter-spacing: 0;
@@ -625,18 +629,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Responsive ────────────────────────────────── */
   @media (max-width: 900px) {
-    .ca-wrap { padding: 0 24px; }
-    .ca-h2 { font-size: 30px; }
-    .ca-lede { font-size: 13px; }
+    .ca-wrap { padding: 0 var(--gutter); }
+    .ca-h2 { font-size: var(--text-h1); }
+    .ca-lede { font-size: var(--text-small); }
     .ca-btn-row { flex-wrap: wrap; }
   }
 
   @media (max-width: 700px) {
     .ca-section { padding: 24px 0 60px; }
-    .ca-h2 { font-size: 30px; }
-    .ca-slide { padding: 22px 22px 56px; }
+    .ca-h2 { font-size: var(--text-h1); }
+    .ca-slide { padding: 24px 24px 56px; }
     .ca-slide--meta .ca-body { padding: 0; }
-    .ca-slide-h3 { font-size: 22px; }
+    .ca-slide-h3 { font-size: var(--text-h2); }
     .ca-metrics { grid-template-columns: 1fr; }
     .ca-met {
       border-right: none;
