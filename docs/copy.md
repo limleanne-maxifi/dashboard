@@ -218,6 +218,38 @@ All copy for `index.astro` (homepage), reflecting the live site as of May 2026. 
 
 ---
 
+## §13 · Visibility Value Model (v4.5–v4.6 · all USD)
+
+**Hub `/visibility-value`:**
+- Eyebrow: `THE MAXIFI MODEL · VISIBILITY VALUE`
+- H1: **What is it worth to be the answer AI gives about you?**
+- Lede: The Visibility Value Model prices AI citations from six numbers a business already has — watch it in eight scenes, then build it live with your own figures.
+- Hero CTA: **Calculate my visibility value ↓** → `#calculator`
+
+**Explainer scenes:** 8 captions-only scenes in `src/components/sections/ValueModelScenes.astro`, adapted from the approved `/revenue-at-risk` copy and the CANSO demo narration. Worked-example figures are USD: $16,000 per exhibitor decision, band ≈ $24,000–$143,000/yr, $4,900 pilot.
+
+**Calculator presets** (`src/components/sections/ValueCalculator.astro` — editable placeholder defaults):
+
+| Preset | Cur | M | A% | X% | I% | F% | Income | Fee (yr 1) | Comp% |
+|---|---|---|---|---|---|---|---|---|---|
+| events | USD | 300 | 50 | 50 | 5 | 100 | 16,000 | 4,900 | 50 |
+| executive | USD | 200 | 50 | 10 | 5 | 25 | 25,000 | 5,600 | 40 |
+| enterprise | USD | 400 | 50 | 20 | 5 | 25 | 50,000 | 72,000 | 40 |
+
+**Lead form (`visibility-value-model`, Netlify) — locked copy:**
+- Eyebrow: `YOUR NUMBERS · ONE PAGE`
+- Title: **Take this model into your next leadership meeting**
+- Body: We'll turn the model exactly as you've built it into a one-page brief — plus the single fastest fix we can see to grow your citation share.
+- Button: **Email me my one-page brief →**
+- Microcopy: One email. No sequence. Your numbers stay yours.
+- Thank-you: Thank you — we'll prepare your one-page brief with these exact numbers and send it to your inbox.
+- Hidden fields per lead: `preset`, `currency`, `model-inputs`, `model-results`, `prepared-for`, `page`.
+
+**Private demo links** (`/visibility-value/demo`, noindex, not in sitemap):
+`?p=events|executive|enterprise&for=NAME&cur=USD|EUR|SGD|GBP&m=&a=&x=&i=&f=&v=&fee=&comp=` — append `?build=1` to open the internal link builder.
+
+---
+
 ## Routes summary
 
 | Route | Source | Purpose |
