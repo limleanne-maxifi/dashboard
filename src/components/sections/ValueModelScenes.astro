@@ -1,0 +1,338 @@
+---
+/**
+ * ValueModelScenes — the captions-only Visibility Value Model explainer.
+ *
+ * Eight scenes adapted from the approved /revenue-at-risk copy and the
+ * CANSO demo narration, rendered as an auto-advancing captioned player.
+ * No audio, no narration API — captions carry the story. Auto-advance
+ * pauses on hover and is disabled under prefers-reduced-motion.
+ */
+const scenes = [
+  {
+    title: 'The question',
+    lines: [
+      'What is it worth to be the answer AI gives about you?',
+      'The Visibility Value Model is Maxifi Digital’s honest way of answering that — in money, with every assumption in plain sight.',
+    ],
+  },
+  {
+    title: 'The shift',
+    lines: [
+      'Before buyers ever call you, they ask ChatGPT, Perplexity or Copilot.',
+      '94% of B2B buyers now use generative AI during the purchase process, and 54% call AI chatbots the single biggest influence on their shortlist (Forrester · Jan 2026).',
+      'Hardly anyone clicks the links beneath those answers — roughly 1% (Pew Research · 2025). If you only look at clicks, the influence is invisible.',
+    ],
+  },
+  {
+    title: 'Six numbers — the MAXIFI model',
+    lines: [
+      'M — Market: buyer decisions made in your category each year.',
+      'A — Ask-AI: the share who consult AI engines while researching.',
+      'X — eXposure: your citation share. The one we measure, every month.',
+      'I — Influence: the agreed rate at which an AI answer sways the decision.',
+      'F — Finish: your close rate. Income: the value of one won decision.',
+    ],
+  },
+  {
+    title: 'Worked example — Airspace World',
+    lines: [
+      '300 organisations decide whether to exhibit. Half ask AI along the way — 150.',
+      'You appear in half of those answers — 75. Conservatively, the answer sways one decision in twenty.',
+      'That is still about four exhibitor decisions at €15,000 each. Across agreed inputs, the band runs from ≈ €22,000 to ≈ €132,000 per year (Modelled tier).',
+    ],
+  },
+  {
+    title: 'Never one magic number',
+    lines: [
+      'Everything comes in three flavours: Cautious, Realistic, Ambitious.',
+      'Every assumption sits in plain sight, and every placeholder says so.',
+      'Even the cautious case put ≈ €22,000 a year under AI influence. The pilot cost €4,500.',
+    ],
+  },
+  {
+    title: 'Two simpler lenses',
+    lines: [
+      'Revenue at risk: when AI answers about your category cite someone else, that is value flowing through answers you are not in.',
+      'Or the break-even test, simplest of all: the €4,500 pilot pays for itself at roughly a third of a single exhibitor decision.',
+      'That is the whole test.',
+    ],
+  },
+  {
+    title: 'Trust is the product',
+    lines: [
+      'Every claim goes into one of three boxes.',
+      'Measured — your citation share, checked monthly. Actual citations, captured. Fact.',
+      'Modelled — the money maths, with the assumptions on the table.',
+      'Momentum — authority that compounds. We name it, but we refuse to price it.',
+      'Ground rule: your figures come from your records; the influence rate is agreed, never asserted.',
+    ],
+  },
+  {
+    title: 'The one number',
+    lines: [
+      'In the end, one number moves everything: how often AI cites you.',
+      'Moving that number is our whole job.',
+    ],
+  },
+];
+---
+
+<div class="vvm-player" id="vvmPlayer" aria-roledescription="carousel" aria-label="The Visibility Value Model, explained in eight scenes">
+  <div class="vvm-stage">
+    {scenes.map((s, i) => (
+      <div class:list={['vvm-scene', { 'is-on': i === 0 }]} data-scene={i} role="group" aria-label={`Scene ${i + 1} of ${scenes.length}: ${s.title}`}>
+        <p class="vvm-scene-eyebrow">
+          {String(i + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')} · {s.title}
+        </p>
+        <div class="vvm-scene-lines">
+          {s.lines.map((line) => <p class="vvm-line">{line}</p>)}
+        </div>
+        {i === scenes.length - 1 && (
+          <a class="vvm-cta" href="#calculator">Build my model — see my number ↓</a>
+        )}
+      </div>
+    ))}
+  </div>
+  <div class="vvm-controls">
+    <button type="button" class="vvm-btn" data-ctrl="play" aria-label="Play or pause the explainer">▶ Play</button>
+    <button type="button" class="vvm-btn vvm-btn--ghost" data-ctrl="prev" aria-label="Previous scene">←</button>
+    <button type="button" class="vvm-btn vvm-btn--ghost" data-ctrl="next" aria-label="Next scene">→</button>
+    <div class="vvm-dots" role="tablist" aria-label="Scenes">
+      {scenes.map((s, i) => (
+        <button
+          type="button"
+          class:list={['vvm-dot', { 'is-on': i === 0 }]}
+          data-go={i}
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-label={`Scene ${i + 1}: ${s.title}`}
+        />
+      ))}
+    </div>
+    <div class="vvm-progress" aria-hidden="true"><div class="vvm-progress-bar"></div></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const player = document.getElementById('vvmPlayer');
+    if (!player) return;
+
+    const scenes = player.querySelectorAll<HTMLElement>('.vvm-scene');
+    const dots = player.querySelectorAll<HTMLElement>('.vvm-dot');
+    const playBtn = player.querySelector<HTMLElement>('[data-ctrl="play"]')!;
+    const bar = player.querySelector<HTMLElement>('.vvm-progress-bar')!;
+    const HOLD_MS = 8000;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let i = 0;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let playing = false;
+
+    function show(n: number) {
+      i = (n + scenes.length) % scenes.length;
+      scenes.forEach((s, k) => s.classList.toggle('is-on', k === i));
+      dots.forEach((d, k) => {
+        d.classList.toggle('is-on', k === i);
+        d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+      bar.style.width = (((i + 1) / scenes.length) * 100) + '%';
+    }
+
+    function stop() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      playing = false;
+      playBtn.textContent = '▶ Play';
+    }
+
+    function queueNext() {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (!playing) return;
+        if (i === scenes.length - 1) { stop(); return; }
+        show(i + 1);
+        queueNext();
+      }, HOLD_MS);
+    }
+
+    function play() {
+      playing = true;
+      playBtn.textContent = '❚❚ Pause';
+      if (i === scenes.length - 1) show(0);
+      queueNext();
+    }
+
+    playBtn.addEventListener('click', () => (playing ? stop() : play()));
+    player.querySelector('[data-ctrl="prev"]')!.addEventListener('click', () => { stop(); show(i - 1); });
+    player.querySelector('[data-ctrl="next"]')!.addEventListener('click', () => { stop(); show(i + 1); });
+    dots.forEach((d) => d.addEventListener('click', () => { stop(); show(parseInt(d.dataset.go || '0', 10)); }));
+
+    player.addEventListener('mouseenter', () => { if (timer) clearTimeout(timer); });
+    player.addEventListener('mouseleave', () => { if (playing) queueNext(); });
+
+    // Start automatically once scrolled into view, unless the visitor
+    // prefers reduced motion.
+    if (!reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !playing && i === 0) {
+              play();
+              io.disconnect();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      io.observe(player);
+    }
+
+    show(0);
+  })();
+</script>
+
+<style>
+  .vvm-player {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    border-radius: 8px;
+    padding: 24px 26px 18px;
+    max-width: var(--container-narrow);
+  }
+
+  .vvm-stage {
+    display: grid;
+    min-height: 300px;
+  }
+
+  .vvm-scene {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vvm-scene.is-on {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .vvm-scene-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin: 0 0 14px;
+  }
+
+  .vvm-scene-lines {
+    max-width: var(--measure-lede);
+  }
+
+  .vvm-line {
+    font-size: var(--text-lede);
+    line-height: 1.5;
+    letter-spacing: var(--track-tight);
+    font-weight: 500;
+    color: var(--blue-text);
+    margin: 0 0 12px;
+  }
+
+  .vvm-line:first-child {
+    color: #fff;
+  }
+
+  .vvm-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--amber-deep);
+    color: var(--amber-light);
+    padding: 12px 20px;
+    min-height: 44px;
+    border-radius: 5px;
+    font-size: var(--text-small);
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 6px;
+    transition: background 0.2s ease;
+  }
+
+  .vvm-cta:hover { background: #6B3F09; }
+
+  /* ── Controls ───────────────────────────────── */
+  .vvm-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.12);
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+
+  .vvm-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--blue-text);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 8px 14px;
+    min-height: 44px;
+    min-width: 44px;
+    font-size: var(--text-small);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .vvm-btn:hover { border-color: rgba(255, 255, 255, 0.6); }
+
+  .vvm-btn--ghost { background: transparent; }
+
+  .vvm-dots {
+    display: flex;
+    gap: 0;
+  }
+
+  /* 44px tap target with a 10px visible dot: transparent border,
+     background clipped to the padding box. */
+  .vvm-dot {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 17px solid transparent;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    background-clip: padding-box;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .vvm-dot.is-on { background: var(--amber-mid); background-clip: padding-box; }
+
+  .vvm-progress {
+    flex: 1;
+    min-width: 80px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+  }
+
+  .vvm-progress-bar {
+    height: 100%;
+    width: 12.5%;
+    background: var(--amber-mid);
+    border-radius: 2px;
+    transition: width 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vvm-scene, .vvm-progress-bar, .vvm-btn, .vvm-cta, .vvm-dot {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

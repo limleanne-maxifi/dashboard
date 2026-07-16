@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ValueModelScenes from '../../components/sections/ValueModelScenes.astro';
+import ValueCalculator from '../../components/sections/ValueCalculator.astro';
+
+/**
+ * Private demo route — noindexed and excluded from the sitemap.
+ *
+ * Customised links carry everything in the query string, e.g.
+ *   /visibility-value/demo?p=events&for=CANSO&cur=EUR&m=300&a=50&x=50&i=5&f=100&v=15000&fee=4500&comp=50
+ *
+ * Params: p (events|executive|enterprise) · for (prospect name) ·
+ * cur (EUR|USD|SGD|GBP) · m a x i f v fee comp (model inputs).
+ * Append ?build=1 to open the link builder and generate new links.
+ */
+---
+
+<BaseLayout
+  title="Visibility Value Model — Private Demo | Maxifi Digital"
+  description="A private, customised walkthrough of the Maxifi Visibility Value Model."
+  currentPage="/visibility-value"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <!-- ══════════════════════════════════════════
+       DEMO HEADER
+  ══════════════════════════════════════════ -->
+  <section class="page-hero" aria-labelledby="vvd-heading">
+    <p class="eyebrow">MAXIFI DIGITAL · PRIVATE WALKTHROUGH</p>
+    <h1 id="vvd-heading" class="page-h1">The Visibility Value Model</h1>
+    <p class="page-lede">
+      What is it worth to be the answer AI gives about you? Eight scenes, then the model —
+      live, with your numbers.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LINK BUILDER (?build=1 only)
+  ══════════════════════════════════════════ -->
+  <section class="section builder" id="vvdBuilder" hidden aria-labelledby="vvd-builder-heading">
+    <div class="builder-box">
+      <p class="s-eyebrow">INTERNAL · LINK BUILDER</p>
+      <h2 id="vvd-builder-heading" class="builder-h2">Generate a private demo link</h2>
+      <p class="builder-note">
+        Set the calculator below exactly as you want the prospect to first see it — preset,
+        currency and all six inputs — enter their name, and generate the link.
+      </p>
+      <div class="builder-row">
+        <div class="builder-field">
+          <label for="vvdFor">PREPARED FOR</label>
+          <input type="text" id="vvdFor" placeholder="e.g. CANSO" />
+        </div>
+        <button type="button" class="builder-btn" id="vvdGen">Generate link</button>
+      </div>
+      <div class="builder-row">
+        <input type="text" id="vvdUrl" readonly aria-label="Generated demo link" />
+        <button type="button" class="builder-btn builder-btn--ghost" id="vvdCopy">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE EXPLAINER
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="vvd-scenes-heading">
+    <p class="s-eyebrow">THE MODEL IN EIGHT SCENES</p>
+    <h2 id="vvd-scenes-heading" class="section-h2">Watch how the model works</h2>
+    <ValueModelScenes />
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE CALCULATOR
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" id="calculator" aria-labelledby="vvd-calc-heading">
+    <p class="s-eyebrow">YOUR NUMBERS · NOTHING HIDDEN</p>
+    <h2 id="vvd-calc-heading" class="section-h2">The model, live</h2>
+    <ValueCalculator preset="events" switchable={true} allowParams={true} />
+  </section>
+</BaseLayout>
+
+<script>
+  (function () {
+    const q = new URLSearchParams(window.location.search);
+    if (q.get('build') !== '1') return;
+    const panel = document.getElementById('vvdBuilder');
+    if (!panel) return;
+    panel.hidden = false;
+
+    const gen = document.getElementById('vvdGen')!;
+    const copy = document.getElementById('vvdCopy')!;
+    const urlOut = document.getElementById('vvdUrl') as HTMLInputElement;
+    const nameIn = document.getElementById('vvdFor') as HTMLInputElement;
+
+    gen.addEventListener('click', () => {
+      const root = document.querySelector<HTMLElement>('.vvc-root');
+      if (!root) return;
+      const params = new URLSearchParams();
+      params.set('p', root.dataset.presetActive || 'events');
+      const name = nameIn.value.trim();
+      if (name) params.set('for', name);
+      params.set('cur', root.dataset.curActive || 'EUR');
+      ['m', 'a', 'x', 'i', 'f', 'v', 'fee', 'comp'].forEach((k) => {
+        const el = root.querySelector<HTMLInputElement>(`input[data-key="${k}"]`);
+        if (el) params.set(k, el.value);
+      });
+      urlOut.value =
+        window.location.origin + '/visibility-value/demo?' + params.toString();
+    });
+
+    copy.addEventListener('click', async () => {
+      if (!urlOut.value) return;
+      try {
+        await navigator.clipboard.writeText(urlOut.value);
+        copy.textContent = 'Copied ✓';
+        setTimeout(() => (copy.textContent = 'Copy'), 2000);
+      } catch {
+        urlOut.select();
+      }
+    });
+  })();
+</script>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 40px var(--gutter) 36px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .page-h1 {
+    font-size: var(--text-h1);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 12px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif;
+    max-width: var(--measure-body);
+  }
+
+  .page-lede {
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-lede);
+    margin: 0 auto;
+  }
+
+  .s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-ink);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-h2 {
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 18px;
+    line-height: 1.25;
+    letter-spacing: var(--track-tight);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section {
+    padding: 30px var(--gutter-page);
+    background: var(--cream);
+  }
+
+  .section--cream { background: var(--cream-deep); }
+
+  /* ── Link builder ───────────────────────────── */
+  .builder { padding-bottom: 0; }
+
+  .builder-box {
+    background: #fff;
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    padding: 20px 24px;
+    max-width: var(--container-narrow);
+  }
+
+  .builder-h2 {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: var(--track-tight);
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .builder-note {
+    font-size: var(--text-caption);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: var(--measure-body);
+    margin: 0 0 14px;
+  }
+
+  .builder-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .builder-row input[type='text'] {
+    flex: 1;
+    min-width: 200px;
+    font-size: var(--text-body);
+    font-family: var(--font-mono);
+    color: var(--ink);
+    background: var(--cream);
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-radius: 4px;
+    padding: 8px 10px;
+    min-height: 44px;
+  }
+
+  .builder-row input[type='text']:focus {
+    border-color: var(--amber);
+    background: #fff;
+    outline: none;
+  }
+
+  .builder-field {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .builder-field label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .builder-btn {
+    background: var(--amber-deep);
+    color: var(--amber-light);
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    min-height: 44px;
+    border-radius: 5px;
+    font-size: var(--text-small);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    transition: background 0.2s ease;
+  }
+
+  .builder-btn:hover { background: #6B3F09; }
+
+  .builder-btn--ghost {
+    background: transparent;
+    color: var(--navy);
+    border: 0.5px solid rgba(4, 44, 83, 0.22);
+  }
+
+  .builder-btn--ghost:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .page-h1 { font-size: var(--text-h2); }
+  }
+</style>

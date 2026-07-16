@@ -231,6 +231,8 @@ All copy for `index.astro` (homepage), reflecting the live site as of May 2026. 
 | `/work/airspaceworld` | `src/pages/work/airspaceworld.astro` | CANSO · Airspace World case study |
 | `/conference-aeo` | `src/pages/conference-aeo.astro` | Conference AEO sprint |
 | `/revenue-at-risk` | `src/pages/revenue-at-risk.astro` | Revenue at risk · the MAXIFI model (B10 capture) |
+| `/visibility-value` | `src/pages/visibility-value/index.astro` | Visibility Value Model hub — captioned explainer + interactive calculator |
+| `/visibility-value/demo` | `src/pages/visibility-value/demo.astro` | Private customisable demo links (noindex, excluded from sitemap; `?build=1` opens the link builder) |
 | `/insights` | `src/pages/insights/index.astro` | Insights hub |
 | `/insights/aeo-vs-seo` | `src/pages/insights/aeo-vs-seo.astro` | Article: AEO vs SEO |
 | `/about` | `src/pages/about.astro` | About + founder entity + GET IN TOUCH (`#contact`) |

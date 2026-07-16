@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ValueCalculator from '../components/sections/ValueCalculator.astro';
 
 const EXEC_TOOL = 'https://checkyourvisibility.maxifidigital.com/exec';
 
@@ -165,6 +166,23 @@ const personSchema = {
         </article>
       ))}
     </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       VALUE MODEL — CALCULATOR
+  ══════════════════════════════════════════ -->
+  <section class="section" id="value-model" aria-labelledby="exec-value-heading">
+    <p class="s-eyebrow">THE VALUE MODEL</p>
+    <h2 id="exec-value-heading" class="section-h2">What is being named worth?</h2>
+    <div class="prose-col prose-wide">
+      <p class="prose">
+        The MAXIFI Visibility Value Model prices executive AI visibility from six numbers:
+        the decisions where a named expert shapes the shortlist, and what one of them is
+        worth. Replace the placeholder defaults with your own figures and read the result
+        live — <a href="/visibility-value" class="inline-link">see how the model works →</a>
+      </p>
+    </div>
+    <ValueCalculator preset="executive" />
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -337,7 +355,8 @@ const personSchema = {
   }
 
   .stat {
-    font-family: var(--font-mono);
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
     font-weight: 500;
     color: var(--navy);
   }
@@ -440,7 +459,8 @@ const personSchema = {
   }
 
   .price-figure {
-    font-family: var(--font-mono);
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
     font-size: var(--text-h3);
     font-weight: 500;
     color: var(--navy);
@@ -589,6 +609,15 @@ const personSchema = {
   .btn-primary:hover { background: #6B3F09; }
 
   /* Grid collapses live in globals.css (see MOBILE LAYOUT FIXES) */
+
+  .inline-link {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .inline-link:hover { color: var(--navy-soft); }
 
   @media (prefers-reduced-motion: reduce) {
     .btn-primary { transition-duration: 0.01ms; }

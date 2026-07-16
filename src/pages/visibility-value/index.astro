@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ValueModelScenes from '../../components/sections/ValueModelScenes.astro';
+import ValueCalculator from '../../components/sections/ValueCalculator.astro';
+---
+
+<BaseLayout
+  title="The Visibility Value Model | Maxifi Digital"
+  description="What is it worth to be the answer AI gives about you? The Visibility Value Model prices AI citations from six numbers — then lets you calculate your own."
+  currentPage="/visibility-value"
+>
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="page-hero" aria-labelledby="vv-heading">
+    <p class="eyebrow">THE MAXIFI MODEL · VISIBILITY VALUE</p>
+    <h1 id="vv-heading" class="page-h1">
+      What is it worth to be the answer AI gives about you?
+    </h1>
+    <p class="page-lede">
+      The Visibility Value Model prices AI citations from six numbers a business already has —
+      watch it in eight scenes, then build it live with your own figures.
+    </p>
+    <a href="#calculator" class="btn-primary hero-cta">Calculate my visibility value ↓</a>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE EXPLAINER — EIGHT SCENES
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="vv-scenes-heading">
+    <p class="s-eyebrow">THE MODEL IN EIGHT SCENES</p>
+    <h2 id="vv-scenes-heading" class="section-h2">Watch how the model works</h2>
+    <ValueModelScenes />
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       THE CALCULATOR
+  ══════════════════════════════════════════ -->
+  <section class="section section--cream" id="calculator" aria-labelledby="vv-calc-heading">
+    <p class="s-eyebrow">YOUR NUMBERS · NOTHING HIDDEN</p>
+    <h2 id="vv-calc-heading" class="section-h2">Calculate your visibility value</h2>
+    <div class="prose-col">
+      <p class="prose">
+        Pick the scenario closest to your business, then replace every default with your own
+        figures. Every coefficient is yours, sourced, or measured — nothing hidden.
+      </p>
+    </div>
+    <ValueCalculator preset="enterprise" switchable={true} />
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WRITTEN VERSION + CTA
+  ══════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="vv-cta-heading">
+    <p class="written-link-row">
+      Prefer the written version?
+      <a href="/revenue-at-risk" class="written-link">Read the MAXIFI model and the revenue-at-risk method →</a>
+    </p>
+    <div class="cta-box">
+      <p class="s-eyebrow cta-eyebrow">START WITH THE X</p>
+      <h2 id="vv-cta-heading" class="cta-title">
+        The model runs on your citation share. Measure it first.
+      </h2>
+      <p class="cta-body">
+        The free Visibility Snapshot tests real buyer questions across five AI engines and
+        scores where you stand today — the eXposure number the model runs on.
+      </p>
+      <a href="https://checkyourvisibility.maxifidigital.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Get my free Snapshot</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────── */
+  .page-hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--blue-text);
+    padding: 40px var(--gutter) 36px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-mid);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .page-h1 {
+    font-size: var(--text-h1);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 12px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-family: 'Inter', sans-serif;
+    max-width: var(--measure-body);
+  }
+
+  .page-lede {
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-lede);
+    margin: 0 auto 18px;
+  }
+
+  .hero-cta { margin-top: 4px; }
+
+  /* ── Shared section chrome ──────────────────── */
+  .s-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-ink);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-h2 {
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 18px;
+    line-height: 1.25;
+    letter-spacing: var(--track-tight);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section {
+    padding: 30px var(--gutter-page);
+    background: var(--cream);
+  }
+
+  .section--cream { background: var(--cream-deep); }
+
+  .prose-col { max-width: var(--measure-body); }
+
+  .prose {
+    font-size: var(--text-small);
+    line-height: 1.7;
+    color: #444441;
+    margin-bottom: 16px;
+  }
+
+  /* ── Written version link ───────────────────── */
+  .written-link-row {
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+
+  .written-link {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .written-link:hover { color: var(--navy-soft); }
+
+  /* ── CTA box ────────────────────────────────── */
+  .cta-box {
+    background: var(--navy);
+    padding: 34px var(--gutter);
+    text-align: center;
+    color: var(--blue-text);
+    border-radius: 8px;
+  }
+
+  .cta-eyebrow { color: var(--amber-mid); margin-bottom: 10px; }
+
+  .cta-title {
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 10px;
+    line-height: 1.25;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cta-body {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--blue-soft);
+    max-width: var(--measure-tight);
+    margin: 0 auto 18px;
+  }
+
+  .btn-primary {
+    background: var(--amber-deep);
+    color: var(--amber-light);
+    padding: 12px 20px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: var(--text-body);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover { background: #6B3F09; }
+
+  @media (max-width: 768px) {
+    .page-h1 { font-size: var(--text-h2); }
+    .cta-title { font-size: var(--text-h3); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { transition-duration: 0.01ms; }
+  }
+</style>
