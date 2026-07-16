@@ -15,18 +15,19 @@ Do NOT use the premium Fraunces serif version (`maxifi_digital_final_premium.htm
 
 ## TYPOGRAPHY (v4.1 — rem token scale, CRITICAL)
 
-### Font system (locked, v4.1)
+### Font system (locked, v4.5)
 
-Two families only, loaded from Google Fonts in `src/styles/globals.css` — weights 400 and 500 only (600/800 are no longer loaded):
+Three families only, loaded from Google Fonts in `src/styles/globals.css` — weights 400 and 500 only (600/800 are no longer loaded):
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap');
 ```
 
 - **Inter** (400, 500) — every headline, body paragraph, nav link, CTA, form input, footer line
-- **IBM Plex Mono** (400, 500) — all numeric data, eyebrows, form labels, dashboard meta tags, citation labels, source attributions
+- **IBM Plex Mono** (400, 500) — eyebrows, form labels, dashboard meta tags, citation labels, source attributions, ordinals ("01"), URL/chrome text
+- **Manrope** (400, 500) — **numeric values only** (v4.5): stats, scores, prices, metrics, calculator values (e.g. $12,500, 94%, 47/100). Always pair with `font-variant-numeric: tabular-nums`.
 
-No serif. No other monospace. Reference via `--font-sans` and `--font-mono` — never hardcode family stacks.
+No serif. No other monospace. Reference via `--font-sans`, `--font-mono` and `--font-num` — never hardcode family stacks. Rule of thumb: if the element's content IS a number, it uses `--font-num`; if it labels or annotates one, it stays `--font-mono`.
 
 ### Type scale (rem tokens, 16px root — NOTHING renders below 12px)
 
@@ -828,3 +829,4 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**
 - **v4.3 (2026-07-15, merged #65): Nav reordered and relabelled — About / Why AEO / Executive:AI / Event:AI / Enterprise:AI (routes unchanged); /about hero lede raised to `--text-lede` (18px); stale `visibilityview.netlify.app` references replaced with `checkyourvisibility.maxifidigital.com` throughout the docs. Approved by Le-Anne 15 Jul 2026.**
 - **v4.4 (2026-07-16, merged #68): Footer Contact link changed from `mailto:hello@maxifidigital.com` to `/about#contact` (mailto fails silently without a mail client). Global `html { scroll-padding-top: 96px; }` added to `globals.css` so in-page anchor jumps land clear of the sticky nav.**
+- **v4.5 (2026-07-16, #70): Visibility Value Model shipped — `/visibility-value` hub (captioned explainer + MAXIFI calculator), `/visibility-value/demo` private links, calculator embeds on /executive, /conference-aeo and /work, `visibility-value-model` lead form. Numeric values site-wide moved from IBM Plex Mono to Manrope via new `--font-num` token (labels/eyebrows stay Plex Mono). Instructed by Le-Anne 16 Jul 2026.**

@@ -774,7 +774,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .vs-scorechip__num {
-    font-family: var(--font-sans); font-size: var(--text-h1); font-weight: 500; line-height: 1;
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums; font-size: var(--text-h1); font-weight: 500; line-height: 1;
     color: var(--amber-pale);
     letter-spacing: -0.02em;
     text-align: center;
@@ -782,7 +783,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
 
   .vs-scorechip__num small {
     display: block;
-    font-family: var(--font-sans); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums; font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--blue-mid);
     margin-top: 4px;
     letter-spacing: var(--track-0);
@@ -1817,14 +1819,16 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   .vs-ring__v {
     position: relative;
     z-index: 1;
-    font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 1;
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums; font-size: var(--text-display); font-weight: 500; line-height: 1;
     color: var(--navy);
     letter-spacing: -0.02em;
     text-align: center;
   }
   .vs-ring__v small {
     display: block;
-    font-family: var(--font-mono); font-size: var(--text-micro); font-weight: 500; line-height: 1;
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums; font-size: var(--text-micro); font-weight: 500; line-height: 1;
     color: var(--mute-soft);
     margin-top: 4px;
     letter-spacing: var(--track-caps);
@@ -2056,7 +2060,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .snap-score {
-    font-family: var(--font-sans);
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
     font-size: var(--text-h2);
     font-weight: 500;
     color: var(--amber-pale);
@@ -2311,7 +2316,8 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
   }
 
   .ca-v {
-    font-family: var(--font-sans);
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
     font-size: var(--text-h1);
     font-weight: 500;
     line-height: 1;
