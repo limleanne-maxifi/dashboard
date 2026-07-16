@@ -28,23 +28,23 @@ const { preset = 'enterprise', switchable = false, allowParams = false } = Astro
 const PRESETS = {
   events: {
     label: 'Events',
-    cur: 'EUR',
-    sym: '€',
-    m: 300, a: 50, x: 50, i: 5, f: 100, v: 15000, fee: 4500, comp: 50,
-    note: 'Defaults model an international trade event: organisations deciding whether to exhibit, €15,000 per decision, against a €4,500 pilot — the Airspace World worked example (Modelled tier).',
+    cur: 'USD',
+    sym: '$',
+    m: 300, a: 50, x: 50, i: 5, f: 100, v: 16000, fee: 4900, comp: 50,
+    note: 'Defaults model an international trade event: organisations deciding whether to exhibit, $16,000 per decision, against a $4,900 pilot — the Airspace World worked example (Modelled tier).',
   },
   executive: {
     label: 'Executive',
     cur: 'USD',
     sym: '$',
-    m: 200, a: 50, x: 10, i: 5, f: 25, v: 25000, fee: 5000, comp: 40,
+    m: 200, a: 50, x: 10, i: 5, f: 25, v: 25000, fee: 5600, comp: 40,
     note: 'Defaults are editable placeholders for a leadership programme: buyer decisions where a named expert shapes the shortlist. Replace them with your own records.',
   },
   enterprise: {
     label: 'Enterprise',
     cur: 'USD',
     sym: '$',
-    m: 400, a: 50, x: 20, i: 5, f: 25, v: 50000, fee: 70000, comp: 40,
+    m: 400, a: 50, x: 20, i: 5, f: 25, v: 50000, fee: 72000, comp: 40,
     note: 'Defaults are editable placeholders for a B2B pipeline. The model is only as honest as its inputs — replace every number with your records.',
   },
 } as const;
@@ -320,7 +320,7 @@ const cells = [
     });
     KEYS.forEach((k) => input(k).addEventListener('input', calc));
 
-    // Private demo links: /visibility-value/demo?p=events&for=CANSO&cur=EUR&m=300...
+    // Private demo links: /visibility-value/demo?p=events&for=CANSO&cur=USD&m=300...
     let preparedFor = '';
     if (root.dataset.allowParams === 'true') {
       const q = new URLSearchParams(window.location.search);

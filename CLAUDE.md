@@ -4,7 +4,7 @@
 AEO consultancy website for Maxifi Digital.
 Stack: Astro 4 + Tailwind CSS + MDX. Deploy target: Netlify.
 Live domain: maxifidigital.com (canonical: **md-visibility-website.netlify.app**)
-Products: Visibility Snapshot (free tool), Visibility Engine, Conference AEO. Executive AI Visibility: free Baseline (1 exec, 3 prompts) → monitored programme SGD 500/mo + SGD 1,000 onboarding (SGD 200 trial to 31 Aug 2026), Stripe checkout in the /exec tool.
+Products: Visibility Snapshot (free tool), Visibility Engine, Conference AEO. Executive AI Visibility: free Baseline (1 exec, 3 prompts) → monitored programme USD 400/mo + USD 800 onboarding (USD 150 trial to 31 Aug 2026), Stripe checkout in the /exec tool. **All prices quoted on the site default to USD.**
 
 ## Design reference
 The authoritative design reference is **`maxifi_homepage_preview__4_.html`**.
@@ -337,7 +337,7 @@ Secondary: "Schedule a consultation" → `https://lunacal.ai/maxifidigital`, or 
 
 ```
 /                        Homepage (use maxifi_homepage_preview__4_.html as reference)
-/executive               Executive AI Visibility (free Baseline → SGD monitored programme)
+/executive               Executive AI Visibility (free Baseline → USD monitored programme)
 /thanks                  Form-submission thank-you (native fallback target)
 /aeo                     AEO education + sales
 /visibility-snapshot     Standalone Snapshot page (routes to checkyourvisibility.maxifidigital.com)
@@ -829,4 +829,5 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**
 - **v4.3 (2026-07-15, merged #65): Nav reordered and relabelled — About / Why AEO / Executive:AI / Event:AI / Enterprise:AI (routes unchanged); /about hero lede raised to `--text-lede` (18px); stale `visibilityview.netlify.app` references replaced with `checkyourvisibility.maxifidigital.com` throughout the docs. Approved by Le-Anne 15 Jul 2026.**
 - **v4.4 (2026-07-16, merged #68): Footer Contact link changed from `mailto:hello@maxifidigital.com` to `/about#contact` (mailto fails silently without a mail client). Global `html { scroll-padding-top: 96px; }` added to `globals.css` so in-page anchor jumps land clear of the sticky nav.**
+- **v4.6 (2026-07-16): All prices quoted on the site default to USD (approved by Le-Anne 16 Jul 2026). Executive monitoring USD 400/mo + USD 800 onboarding (USD 150 trial to 31 Aug 2026); Engine tiers USD 6,000 / 10,000 / 14,000 per month in /work structured data; Airspace World worked example converted at ~1 EUR = 1.08 USD (≈$24k–$143k band, $4,900 pilot, $16,000 per decision); Events calculator preset now USD. NOTE: the Stripe checkout in the /exec tool still charges SGD — update Stripe prices to match.**
 - **v4.5 (2026-07-16, #70): Visibility Value Model shipped — `/visibility-value` hub (captioned explainer + MAXIFI calculator), `/visibility-value/demo` private links, calculator embeds on /executive, /conference-aeo and /work, `visibility-value-model` lead form. Numeric values site-wide moved from IBM Plex Mono to Manrope via new `--font-num` token (labels/eyebrows stay Plex Mono). Instructed by Le-Anne 16 Jul 2026.**
