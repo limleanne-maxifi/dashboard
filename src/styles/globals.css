@@ -158,6 +158,12 @@ html, body {
   padding: 0;
 }
 
+/* Sticky nav (~72px) overlaps in-page anchor targets; keep every
+   anchor jump clear of it with breathing room above the section. */
+html {
+  scroll-padding-top: 96px;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: var(--text-body);
