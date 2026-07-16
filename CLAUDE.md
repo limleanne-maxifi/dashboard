@@ -234,6 +234,7 @@ If logo image unavailable, render "Maxifi Digital" as text:
 - Border-bottom: 0.5px solid rgba(0,0,0,0.06)
 - Padding: 14px var(--gutter)
 - Mobile hamburger breakpoint: **900px**
+- **Anchor offset (v4.4):** the sticky nav overlaps in-page anchor targets, so `globals.css` sets `html { scroll-padding-top: 96px; }` (nav ≈72px + breathing room). Every anchor jump (e.g. footer Contact → `/about#contact`) relies on it — do not remove.
 
 ### Links (between logo and CTA) — locked v4.2, 5 items in this order
 | Label | Route (Phase 1 — existing URLs) |
@@ -255,6 +256,8 @@ Each link: `--text-small`, weight 400, color var(--navy), opacity 0.72 default, 
 - Also rendered in the mobile drawer.
 
 ### Footer service labels keep the fuller names: "Executive AI Visibility" → `/executive`, "Enterprise" → `/work`, "Events" → `/conference-aeo` (nav uses the compact `:AI` labels; routes identical).
+
+### Footer Company links (v4.4): About → `/about`; Contact → `/about#contact` (the GET IN TOUCH section). Never use a `mailto:` link for Contact — it fails silently for visitors without a configured mail client.
 
 ---
 
@@ -338,6 +341,9 @@ Secondary: "Schedule a consultation" → `https://lunacal.ai/maxifidigital`, or 
 /visibility-snapshot     Standalone Snapshot page (routes to checkyourvisibility.maxifidigital.com)
 /visibility-engine       Engine sales page
 /conference-aeo          Conference offer + ASW video
+/aeo-aviation-events     Aviation & aerospace events AEO (B8 namespace capture)
+/revenue-at-risk         Revenue at risk · the MAXIFI model (B10 capture)
+/contact                 Contact details page
 /work                    Case study index
 /work/[slug]             Individual case study (first: airspace-world-2026)
 /insights                Blog + Cited Brief newsletter hub
@@ -818,3 +824,4 @@ Everything after SECTION 4 (starting with **SECTION 5 — "The Shift"** problem 
 - **v4.1 (2026-07-15): Type re-scale to benchmark size, rem tokens, WCAG AA contrast corrections, gutter/measure system, Three-E nav + /executive page with approved SGD pricing (Phase 1). Approved by Le-Anne 15 Jul 2026.**
 - **v4.2 (2026-07-15, same branch): Post-review polish approved by Le-Anne — gutters widened to 56/40/28px; `--gutter-page` alignment token for wrap-less full-bleed sections; /about hero left-aligned two-column layout with the three value cards in the right column; founder photo (`/public/founder/le-anne-lim.jpg`) beside the bio at 90% of the bio block height, uncropped, no caption (mobile: full-width natural aspect via globals override); founder photo added to /about Person JSON-LD `image`.**
 - **v4.3 (2026-07-15, merged #65): Nav reordered and relabelled — About / Why AEO / Executive:AI / Event:AI / Enterprise:AI (routes unchanged); /about hero lede raised to `--text-lede` (18px); stale `visibilityview.netlify.app` references replaced with `checkyourvisibility.maxifidigital.com` throughout the docs. Approved by Le-Anne 15 Jul 2026.**
+- **v4.4 (2026-07-16, merged #68): Footer Contact link changed from `mailto:hello@maxifidigital.com` to `/about#contact` (mailto fails silently without a mail client). Global `html { scroll-padding-top: 96px; }` added to `globals.css` so in-page anchor jumps land clear of the sticky nav.**
