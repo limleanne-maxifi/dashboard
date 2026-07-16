@@ -7,7 +7,7 @@ import ValueCalculator from '../../components/sections/ValueCalculator.astro';
  * Private demo route — noindexed and excluded from the sitemap.
  *
  * Customised links carry everything in the query string, e.g.
- *   /visibility-value/demo?p=events&for=CANSO&cur=EUR&m=300&a=50&x=50&i=5&f=100&v=15000&fee=4500&comp=50
+ *   /visibility-value/demo?p=events&for=CANSO&cur=USD&m=300&a=50&x=50&i=5&f=100&v=16000&fee=4900&comp=50
  *
  * Params: p (events|executive|enterprise) · for (prospect name) ·
  * cur (EUR|USD|SGD|GBP) · m a x i f v fee comp (model inputs).
@@ -100,7 +100,7 @@ import ValueCalculator from '../../components/sections/ValueCalculator.astro';
       params.set('p', root.dataset.presetActive || 'events');
       const name = nameIn.value.trim();
       if (name) params.set('for', name);
-      params.set('cur', root.dataset.curActive || 'EUR');
+      params.set('cur', root.dataset.curActive || 'USD');
       ['m', 'a', 'x', 'i', 'f', 'v', 'fee', 'comp'].forEach((k) => {
         const el = root.querySelector<HTMLInputElement>(`input[data-key="${k}"]`);
         if (el) params.set(k, el.value);
