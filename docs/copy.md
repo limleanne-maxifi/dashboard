@@ -196,23 +196,25 @@ All copy for `index.astro` (homepage), reflecting the live site as of May 2026. 
 
 **Services column** (all active links):
 - Visibility Snapshot → `/visibility-snapshot`
-- Build AI Authority → `/work`
-- Conference AEO → `/conference-aeo`
+- Executive AI Visibility → `/executive`
+- Enterprise → `/work`
+- Events → `/conference-aeo`
+- Aviation Event AEO → `/aeo-aviation-events`
 - AEO Strategy → `/aeo`
 
 **Resources column:**
 - Insights *(disabled / placeholder)*
-- The Cited Brief *(disabled / placeholder)*
+- Revenue at Risk → `/revenue-at-risk`
 - ASW Hub ↗ → `https://aswhub.maxifidigital.com/` (external)
 
 **Company column:**
 - Method *(disabled / placeholder)*
-- About *(disabled / placeholder)*
-- Contact → `mailto:hello@maxifidigital.com`
+- About → `/about`
+- Contact → `/about#contact` (GET IN TOUCH section; never `mailto:` — fails silently without a mail client)
 
 **Bottom bar:**
 - Left: © 2026 Maxifi Digital
-- Right: Singapore · London · Working globally
+- Right: Singapore · Working globally
 
 ---
 
@@ -223,12 +225,18 @@ All copy for `index.astro` (homepage), reflecting the live site as of May 2026. 
 | `/` | `src/pages/index.astro` | Homepage |
 | `/visibility-snapshot` | `src/pages/visibility-snapshot.astro` | Free Snapshot landing |
 | `/aeo` | `src/pages/aeo.astro` | Understand AEO |
+| `/aeo-aviation-events` | `src/pages/aeo-aviation-events.astro` | AEO for aviation & aerospace events (B8 capture) |
+| `/executive` | `src/pages/executive.astro` | Executive AI Visibility |
 | `/work` | `src/pages/work/index.astro` | Build AI Authority (Visibility Engine product) |
 | `/work/airspaceworld` | `src/pages/work/airspaceworld.astro` | CANSO · Airspace World case study |
 | `/conference-aeo` | `src/pages/conference-aeo.astro` | Conference AEO sprint |
-| `/method` | `src/pages/method.astro` | *(orphan — not linked from nav/footer)* |
-| `/insights` | `src/pages/insights.astro` | *(orphan — not linked from nav/footer)* |
-| `/insights/what-ai-engines-actually-cite` | (insights article) | *(2 broken sibling links inside — pending)* |
-| `/about` | `src/pages/about.astro` | About page *(orphan)* |
+| `/revenue-at-risk` | `src/pages/revenue-at-risk.astro` | Revenue at risk · the MAXIFI model (B10 capture) |
+| `/insights` | `src/pages/insights/index.astro` | Insights hub |
+| `/insights/aeo-vs-seo` | `src/pages/insights/aeo-vs-seo.astro` | Article: AEO vs SEO |
+| `/about` | `src/pages/about.astro` | About + founder entity + GET IN TOUCH (`#contact`) |
+| `/contact` | `src/pages/contact.astro` | Contact details page |
+| `/thanks` | `src/pages/thanks.astro` | Form-submission thank-you |
+| `/privacy-policy` | `src/pages/privacy-policy.astro` | Legal |
+| `/terms-of-service` | `src/pages/terms-of-service.astro` | Legal |
 
-**Removed:** `/visibility-engine` (content moved to `/work`). The old case-studies index at `/work` was replaced by the Build AI Authority page.
+**Removed:** `/visibility-engine` (content moved to `/work`), `/method` (never built). The old case-studies index at `/work` was replaced by the Build AI Authority page.
