@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ValueCalculator from '../../components/sections/ValueCalculator.astro';
 ---
 
 <BaseLayout
@@ -78,6 +79,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       VALUE MODEL — CALCULATOR
+  ══════════════════════════════════════════ -->
+  <section class="section" id="value-model" aria-labelledby="work-value-heading">
+    <div class="wrap-inner">
+      <p class="s-eyebrow vv-eyebrow">THE VALUE MODEL</p>
+      <h2 id="work-value-heading" class="section-h2">Put a number on citation share</h2>
+      <p class="vv-intro">
+        The MAXIFI Visibility Value Model prices AI citations from six numbers your pipeline
+        already has. Replace the placeholder defaults with your records and read the result
+        live — <a href="/visibility-value" class="vv-link">see how the model works →</a>
+      </p>
+      <ValueCalculator preset="enterprise" />
     </div>
   </section>
 
@@ -611,6 +628,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .page-h1 { font-size: var(--text-h2); }
     .cta-title { font-size: var(--text-h3); }
   }
+
+  /* ── Value model section ────────────────────── */
+  .vv-eyebrow { color: var(--amber-ink); }
+
+  .vv-intro {
+    font-size: var(--text-small);
+    line-height: 1.7;
+    color: #444441;
+    max-width: var(--measure-body);
+    margin: 0 0 20px;
+  }
+
+  .vv-link {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .vv-link:hover { color: var(--navy-soft); }
 
   @media (prefers-reduced-motion: reduce) {
     .btn-primary, .btn-ghost, .btn-outline, .price-cta, .case-link, .cv-visit {

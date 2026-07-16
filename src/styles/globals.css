@@ -840,6 +840,17 @@ section.deepest .eyebrow {
   .av-stat-grid {
     grid-template-columns: 1fr 1fr !important;
   }
+
+  /* Visibility Value calculator (/visibility-value + section embeds) */
+  .vvc-eq,
+  .vvc-lead-fields {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .vvc-scenarios,
+  .vvc-duo {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -854,6 +865,20 @@ section.deepest .eyebrow {
   .factor-grid,
   .av-stat-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Visibility Value calculator + scenes player */
+  .vvc-eq,
+  .vvc-lead-fields {
+    grid-template-columns: 1fr !important;
+  }
+
+  .vvm-player {
+    padding: 18px 16px 14px !important;
+  }
+
+  .vvm-stage {
+    min-height: 380px !important;
   }
 }
 

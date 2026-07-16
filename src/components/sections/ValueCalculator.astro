@@ -1,0 +1,751 @@
+---
+/**
+ * ValueCalculator — the interactive MAXIFI Visibility Value Calculator.
+ *
+ * Renders the six-factor model as live inputs, computes the annual
+ * AI-influenced value (Cautious / Realistic / Ambitious), the
+ * revenue-at-risk variant and the break-even test, and captures the
+ * lead at the moment of the result via the `visibility-value-model`
+ * Netlify form. The visitor's inputs travel with the submission.
+ *
+ * Pages provide their own <section> shell and heading; this component
+ * renders the calculator block only.
+ */
+interface Props {
+  /** Which preset loads first. */
+  preset?: 'events' | 'executive' | 'enterprise';
+  /** Show the Events / Executive / Enterprise switch pills (hub + demo). */
+  switchable?: boolean;
+  /** Allow URL-parameter overrides (private demo links only). */
+  allowParams?: boolean;
+}
+
+const { preset = 'enterprise', switchable = false, allowParams = false } = Astro.props;
+
+// Default inputs are editable placeholders, not claims. Events defaults are
+// the approved Airspace World worked example (/revenue-at-risk); Executive
+// and Enterprise defaults are USD placeholders pending confirmed figures.
+const PRESETS = {
+  events: {
+    label: 'Events',
+    cur: 'EUR',
+    sym: '€',
+    m: 300, a: 50, x: 50, i: 5, f: 100, v: 15000, fee: 4500, comp: 50,
+    note: 'Defaults model an international trade event: organisations deciding whether to exhibit, €15,000 per decision, against a €4,500 pilot — the Airspace World worked example (Modelled tier).',
+  },
+  executive: {
+    label: 'Executive',
+    cur: 'USD',
+    sym: '$',
+    m: 200, a: 50, x: 10, i: 5, f: 25, v: 25000, fee: 5000, comp: 40,
+    note: 'Defaults are editable placeholders for a leadership programme: buyer decisions where a named expert shapes the shortlist. Replace them with your own records.',
+  },
+  enterprise: {
+    label: 'Enterprise',
+    cur: 'USD',
+    sym: '$',
+    m: 400, a: 50, x: 20, i: 5, f: 25, v: 50000, fee: 70000, comp: 40,
+    note: 'Defaults are editable placeholders for a B2B pipeline. The model is only as honest as its inputs — replace every number with your records.',
+  },
+} as const;
+
+const p = PRESETS[preset];
+const presetKeys = Object.keys(PRESETS) as Array<keyof typeof PRESETS>;
+
+const cells = [
+  { key: 'm', letter: 'M', name: 'Market', hint: 'Buyer decisions in your category each year (or per event cycle)', who: 'Your records', max: undefined },
+  { key: 'a', letter: 'A', name: 'Ask-AI', hint: 'Share who consult AI while researching, %', who: 'Sourced band 30–94%', max: 100 },
+  { key: 'x', letter: 'X', name: 'eXposure', hint: 'Share of AI answers citing you, %', who: 'Measured — monthly audit', max: 100 },
+  { key: 'i', letter: 'I', name: 'Influence', hint: 'Share of decisions the answer genuinely sways, %', who: 'Agreed at kickoff', max: 100 },
+  { key: 'f', letter: 'F', name: 'Finish', hint: 'Win rate once influenced, % (events: 100)', who: 'Your records', max: 100 },
+  { key: 'v', letter: 'I', name: 'Income', hint: 'Value of one won decision', who: 'Your records', max: undefined },
+] as const;
+---
+
+<div
+  class="vvc-root"
+  data-preset={preset}
+  data-allow-params={allowParams ? 'true' : undefined}
+>
+  <script type="application/json" class="vvc-presets" set:html={JSON.stringify(PRESETS)} />
+
+  {switchable && (
+    <div class="vvc-pills" role="tablist" aria-label="Choose a scenario preset">
+      {presetKeys.map((k) => (
+        <button
+          type="button"
+          class:list={['vvc-pill', { 'is-on': k === preset }]}
+          data-pill={k}
+          role="tab"
+          aria-selected={k === preset ? 'true' : 'false'}
+        >
+          {PRESETS[k].label}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <p class="vvc-prepared" hidden>
+    PREPARED FOR <span class="vvc-prepared-name"></span>
+  </p>
+
+  <p class="vvc-note">{p.note}</p>
+
+  <div class="vvc-eq">
+    {cells.map((c) => (
+      <div class:list={['vvc-cell', { 'vvc-cell--measured': c.key === 'x' }]}>
+        <label class="vvc-label" for={`vvc-${c.key}`}>
+          <span class="vvc-letter">{c.letter}</span>
+          {c.name}
+          <span class="vvc-hint">{c.hint}</span>
+        </label>
+        <div class="vvc-input-row">
+          {c.key === 'v' && <span class="vvc-sym" aria-hidden="true">{p.sym}</span>}
+          <input
+            type="number"
+            id={`vvc-${c.key}`}
+            data-key={c.key}
+            value={p[c.key]}
+            min="0"
+            max={c.max}
+            inputmode="numeric"
+          />
+        </div>
+        <span class="vvc-who">{c.who}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="vvc-result" aria-live="polite">
+    <p class="vvc-result-label">AI-influenced value per year</p>
+    <div class="vvc-scenarios">
+      <div class="vvc-scn">
+        <p class="vvc-scn-label">Cautious · ½ influence</p>
+        <p class="vvc-scn-val" data-out="lo">—</p>
+      </div>
+      <div class="vvc-scn vvc-scn--main">
+        <p class="vvc-scn-label">Realistic · your inputs</p>
+        <p class="vvc-scn-val vvc-scn-val--main" data-out="mid">—</p>
+      </div>
+      <div class="vvc-scn">
+        <p class="vvc-scn-label">Ambitious · 2× influence</p>
+        <p class="vvc-scn-val" data-out="hi">—</p>
+      </div>
+    </div>
+    <p class="vvc-echo" data-out="echo"></p>
+  </div>
+
+  <div class="vvc-duo">
+    <div class="vvc-box">
+      <h3 class="vvc-box-title">Revenue at risk</h3>
+      <p class="vvc-box-body">
+        Value flowing through answers that cite a competitor and not you —
+        the citation gap, priced.
+      </p>
+      <label class="vvc-label vvc-label--inline" for="vvc-comp">
+        Competitor / incumbent citation share, %
+      </label>
+      <div class="vvc-input-row">
+        <input type="number" id="vvc-comp" data-key="comp" value={p.comp} min="0" max="100" inputmode="numeric" />
+      </div>
+      <p class="vvc-box-val" data-out="rar">—</p>
+      <p class="vvc-box-unit">per year through answers you are absent from</p>
+    </div>
+    <div class="vvc-box">
+      <h3 class="vvc-box-title">The break-even test</h3>
+      <p class="vvc-box-body">
+        The simplest lens: how many AI-influenced decisions pay back the
+        engagement fee?
+      </p>
+      <label class="vvc-label vvc-label--inline" for="vvc-fee">
+        Engagement fee, year one
+      </label>
+      <div class="vvc-input-row">
+        <span class="vvc-sym" aria-hidden="true">{p.sym}</span>
+        <input type="number" id="vvc-fee" data-key="fee" value={p.fee} min="0" step="500" inputmode="numeric" />
+      </div>
+      <p class="vvc-box-val" data-out="be">—</p>
+      <p class="vvc-box-unit" data-out="beUnit">of one won decision</p>
+    </div>
+  </div>
+
+  <div class="vvc-lead">
+    <form
+      name="visibility-value-model"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="vvc-form"
+    >
+      <input type="hidden" name="form-name" value="visibility-value-model" />
+      <p class="honeypot" aria-hidden="true">
+        <label>Don't fill this out: <input name="bot-field" type="text" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <input type="hidden" name="preset" value={preset} />
+      <input type="hidden" name="currency" value={p.cur} />
+      <input type="hidden" name="model-inputs" value="" />
+      <input type="hidden" name="model-results" value="" />
+      <input type="hidden" name="prepared-for" value="" />
+      <input type="hidden" name="page" value="" />
+
+      <p class="vvc-lead-eyebrow">YOUR NUMBERS · ONE PAGE</p>
+      <h3 class="vvc-lead-title">Take this model into your next leadership meeting</h3>
+      <p class="vvc-lead-body">
+        We'll turn the model exactly as you've built it into a one-page brief —
+        plus the single fastest fix we can see to grow your citation share.
+      </p>
+      <div class="vvc-lead-fields">
+        <div class="vvc-field">
+          <label for="vvc-lead-name">NAME</label>
+          <input type="text" id="vvc-lead-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="vvc-field">
+          <label for="vvc-lead-company">COMPANY</label>
+          <input type="text" id="vvc-lead-company" name="company" autocomplete="organization" />
+        </div>
+        <div class="vvc-field">
+          <label for="vvc-lead-email">WORK EMAIL</label>
+          <input type="email" id="vvc-lead-email" name="email" required autocomplete="email" />
+        </div>
+      </div>
+      <button type="submit" class="vvc-submit">Email me my one-page brief →</button>
+      <p class="vvc-lead-micro">One email. No sequence. Your numbers stay yours.</p>
+      <p class="vvc-form-error" hidden>
+        Something went wrong — please try again, or write to hello@maxifidigital.com.
+      </p>
+    </form>
+  </div>
+</div>
+
+<script>
+  type NumKey = 'm' | 'a' | 'x' | 'i' | 'f' | 'v' | 'fee' | 'comp';
+  interface PresetData {
+    label: string;
+    cur: string;
+    sym: string;
+    m: number; a: number; x: number; i: number; f: number; v: number;
+    fee: number; comp: number;
+    note: string;
+  }
+
+  const SYMS: Record<string, string> = { EUR: '€', USD: '$', SGD: 'S$', GBP: '£' };
+  const KEYS: NumKey[] = ['m', 'a', 'x', 'i', 'f', 'v', 'fee', 'comp'];
+
+  document.querySelectorAll<HTMLElement>('.vvc-root').forEach(init);
+
+  function init(root: HTMLElement) {
+    const presets: Record<string, PresetData> = JSON.parse(
+      root.querySelector('.vvc-presets')!.textContent || '{}'
+    );
+    let presetKey = root.dataset.preset || 'enterprise';
+    let sym = presets[presetKey]?.sym || '$';
+    let cur = presets[presetKey]?.cur || 'USD';
+    root.dataset.presetActive = presetKey;
+    root.dataset.curActive = cur;
+
+    const input = (k: NumKey) =>
+      root.querySelector<HTMLInputElement>(`input[data-key="${k}"]`)!;
+    const out = (k: string) =>
+      root.querySelector<HTMLElement>(`[data-out="${k}"]`)!;
+
+    const read = (k: NumKey) => Math.max(0, parseFloat(input(k).value) || 0);
+    const fmt = (n: number) => sym + Math.round(n).toLocaleString('en-US');
+
+    function value(iRate: number) {
+      return (
+        read('m') * (read('a') / 100) * (read('x') / 100) *
+        (Math.min(iRate, 100) / 100) * (read('f') / 100) * read('v')
+      );
+    }
+
+    function calc() {
+      const iRate = read('i');
+      out('lo').textContent = '≈ ' + fmt(value(iRate / 2));
+      out('mid').textContent = '≈ ' + fmt(value(iRate));
+      out('hi').textContent = '≈ ' + fmt(value(iRate * 2));
+      out('echo').textContent =
+        `${read('m').toLocaleString('en-US')} × ${read('a')}% × ${read('x')}% × ` +
+        `${iRate}% × ${read('f')}% × ${fmt(read('v'))}`;
+
+      const gap = Math.max(0, read('comp') - read('x'));
+      const rar =
+        read('m') * (read('a') / 100) * (gap / 100) *
+        (iRate / 100) * (read('f') / 100) * read('v');
+      out('rar').textContent = '≈ ' + fmt(rar);
+
+      const perDecision = (read('f') / 100) * read('v');
+      const beEl = out('be');
+      const beUnit = out('beUnit');
+      if (perDecision <= 0) {
+        beEl.textContent = '—';
+        beUnit.textContent = 'needs a win rate and a decision value';
+      } else {
+        const be = read('fee') / perDecision;
+        if (be < 1) {
+          beEl.textContent = '≈ ' + Math.round(be * 100) + '%';
+          beUnit.textContent = 'of one won decision pays back the fee';
+        } else {
+          beEl.textContent = '≈ ' + (Math.round(be * 10) / 10).toLocaleString('en-US');
+          beUnit.textContent = 'won decisions pay back the fee';
+        }
+      }
+    }
+
+    function setCurrency(code: string) {
+      cur = code;
+      sym = SYMS[code] || code + ' ';
+      root.dataset.curActive = cur;
+      root.querySelectorAll<HTMLElement>('.vvc-sym').forEach((s) => (s.textContent = sym));
+    }
+
+    function setPreset(key: string) {
+      const d = presets[key];
+      if (!d) return;
+      presetKey = key;
+      root.dataset.presetActive = key;
+      setCurrency(d.cur);
+      KEYS.forEach((k) => (input(k).value = String(d[k])));
+      const note = root.querySelector<HTMLElement>('.vvc-note');
+      if (note) note.textContent = d.note;
+      root.querySelectorAll<HTMLElement>('.vvc-pill').forEach((pill) => {
+        const on = pill.dataset.pill === key;
+        pill.classList.toggle('is-on', on);
+        pill.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      calc();
+    }
+
+    root.querySelectorAll<HTMLElement>('.vvc-pill').forEach((pill) => {
+      pill.addEventListener('click', () => setPreset(pill.dataset.pill || presetKey));
+    });
+    KEYS.forEach((k) => input(k).addEventListener('input', calc));
+
+    // Private demo links: /visibility-value/demo?p=events&for=CANSO&cur=EUR&m=300...
+    let preparedFor = '';
+    if (root.dataset.allowParams === 'true') {
+      const q = new URLSearchParams(window.location.search);
+      const pParam = q.get('p') || q.get('preset');
+      if (pParam && presets[pParam]) setPreset(pParam);
+      const curParam = q.get('cur');
+      if (curParam) setCurrency(curParam.toUpperCase());
+      KEYS.forEach((k) => {
+        const raw = q.get(k);
+        if (raw !== null && raw !== '' && !isNaN(parseFloat(raw))) {
+          input(k).value = String(Math.max(0, parseFloat(raw)));
+        }
+      });
+      preparedFor = (q.get('for') || '').slice(0, 80);
+      if (preparedFor) {
+        const banner = root.querySelector<HTMLElement>('.vvc-prepared')!;
+        banner.querySelector('.vvc-prepared-name')!.textContent = preparedFor;
+        banner.hidden = false;
+      }
+    }
+
+    calc();
+
+    // Lead form: submit to Netlify with the visitor's model attached.
+    const form = root.querySelector<HTMLFormElement>('.vvc-form');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const set = (name: string, val: string) => {
+          const el = form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+          if (el) el.value = val;
+        };
+        set('preset', presetKey);
+        set('currency', cur);
+        set(
+          'model-inputs',
+          KEYS.map((k) => `${k.toUpperCase()}=${input(k).value}`).join(' · ')
+        );
+        set(
+          'model-results',
+          `realistic ${out('mid').textContent}/yr · cautious ${out('lo').textContent} · ` +
+          `ambitious ${out('hi').textContent} · at-risk ${out('rar').textContent}/yr · ` +
+          `break-even ${out('be').textContent} ${out('beUnit').textContent}`
+        );
+        set('prepared-for', preparedFor);
+        set('page', window.location.pathname + window.location.search);
+
+        const errEl = form.querySelector<HTMLElement>('.vvc-form-error')!;
+        errEl.hidden = true;
+        try {
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+          });
+          if (res.ok) {
+            const wrap = root.querySelector<HTMLElement>('.vvc-lead')!;
+            wrap.innerHTML =
+              '<p class="vvc-thanks">Thank you — we\'ll prepare your one-page brief with these exact numbers and send it to your inbox.</p>';
+          } else {
+            errEl.hidden = false;
+          }
+        } catch {
+          errEl.hidden = false;
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  .vvc-root {
+    max-width: var(--container-narrow);
+  }
+
+  /* ── Preset pills ───────────────────────────── */
+  .vvc-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .vvc-pill {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--navy);
+    background: #fff;
+    border: 0.5px solid rgba(4, 44, 83, 0.22);
+    border-radius: 4px;
+    padding: 8px 14px;
+    min-height: 34px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .vvc-pill:hover { background: var(--cream-deep); }
+
+  .vvc-pill.is-on {
+    background: var(--navy);
+    color: var(--blue-text);
+    border-color: var(--navy);
+  }
+
+  /* ── Prepared-for banner (demo links) ───────── */
+  .vvc-prepared {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-ink);
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+
+  .vvc-note {
+    font-size: var(--text-caption);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: var(--measure-body);
+    margin: 0 0 16px;
+  }
+
+  /* ── The six-factor grid ────────────────────── */
+  .vvc-eq {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .vvc-cell {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .vvc-cell--measured {
+    border: 2px solid var(--amber);
+  }
+
+  .vvc-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .vvc-letter {
+    color: var(--amber-ink);
+    margin-right: 4px;
+  }
+
+  .vvc-hint {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-0);
+    text-transform: none;
+    color: var(--mute-soft);
+    font-weight: 400;
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  .vvc-input-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .vvc-sym {
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    color: var(--mute-soft);
+  }
+
+  .vvc-root input[type='number'] {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--cream);
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-radius: 4px;
+    padding: 8px 10px;
+    min-height: 44px;
+  }
+
+  .vvc-root input[type='number']:focus {
+    border-color: var(--amber);
+    background: #fff;
+    outline: none;
+  }
+
+  .vvc-who {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--mute-soft);
+    margin-top: 6px;
+  }
+
+  .vvc-cell--measured .vvc-who { color: var(--amber-ink); }
+
+  /* ── Result strip ───────────────────────────── */
+  .vvc-result {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+
+  .vvc-result-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--blue-mid);
+    margin: 0 0 10px;
+  }
+
+  .vvc-scenarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .vvc-scn {
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+
+  .vvc-scn--main {
+    border: 2px solid var(--amber);
+    background: rgba(186, 117, 23, 0.12);
+  }
+
+  .vvc-scn-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-0);
+    color: var(--blue-soft);
+    margin: 0 0 5px;
+  }
+
+  .vvc-scn-val {
+    font-family: var(--font-mono);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--blue-text);
+    margin: 0;
+  }
+
+  .vvc-scn-val--main {
+    font-size: var(--text-h2);
+    color: var(--amber-pale);
+  }
+
+  .vvc-echo {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--blue-mid);
+    margin: 0;
+  }
+
+  /* ── Revenue-at-risk / break-even duo ───────── */
+  .vvc-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .vvc-box {
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .vvc-box-title {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 6px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .vvc-box-body {
+    font-size: var(--text-caption);
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  .vvc-label--inline { margin-bottom: 4px; }
+
+  .vvc-box-val {
+    font-family: var(--font-mono);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 10px 0 2px;
+  }
+
+  .vvc-box-unit {
+    font-size: var(--text-micro);
+    color: var(--mute-soft);
+    margin: 0;
+  }
+
+  /* ── Lead capture ───────────────────────────── */
+  .vvc-lead {
+    background: var(--amber-light);
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    padding: 24px 26px;
+  }
+
+  .vvc-lead-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--amber-ink);
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+
+  .vvc-lead-title {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--brown-deep);
+    letter-spacing: var(--track-tight);
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .vvc-lead-body {
+    font-size: var(--text-small);
+    line-height: 1.6;
+    color: var(--brown-mid);
+    max-width: var(--measure-lede);
+    margin: 0 0 14px;
+  }
+
+  .vvc-lead-fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .vvc-field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    color: var(--brown-mid);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .vvc-field input {
+    width: 100%;
+    font-size: var(--text-body);
+    color: var(--ink);
+    background: var(--cream);
+    border: 0.5px solid rgba(4, 44, 83, 0.18);
+    border-radius: 4px;
+    padding: 8px 10px;
+    min-height: 44px;
+  }
+
+  .vvc-field input:focus {
+    border-color: var(--amber);
+    background: #fff;
+    outline: none;
+  }
+
+  .vvc-submit {
+    background: var(--amber-deep);
+    color: var(--amber-light);
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    min-height: 44px;
+    border-radius: 5px;
+    font-size: var(--text-small);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    transition: background 0.2s ease;
+  }
+
+  .vvc-submit:hover { background: #6B3F09; }
+
+  .vvc-lead-micro {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--brown-mid);
+    margin: 10px 0 0;
+  }
+
+  .vvc-form-error {
+    font-size: var(--text-caption);
+    color: var(--danger);
+    margin: 10px 0 0;
+  }
+
+  .honeypot { position: absolute; left: -9999px; }
+
+  :global(.vvc-thanks) {
+    font-size: var(--text-small);
+    color: var(--brown-deep);
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>

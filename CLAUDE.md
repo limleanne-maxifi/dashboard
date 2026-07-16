@@ -328,6 +328,7 @@ Secondary: "Schedule a consultation" → `https://lunacal.ai/maxifidigital`, or 
 - Standalone tool page: `visibility-snapshot`
 - Newsletter: `cited-brief`
 - Conference page: `conference-aeo-scope`
+- Value calculator lead capture (all embeds + `/visibility-value`): `visibility-value-model`
 
 ---
 
@@ -343,6 +344,8 @@ Secondary: "Schedule a consultation" → `https://lunacal.ai/maxifidigital`, or 
 /conference-aeo          Conference offer + ASW video
 /aeo-aviation-events     Aviation & aerospace events AEO (B8 namespace capture)
 /revenue-at-risk         Revenue at risk · the MAXIFI model (B10 capture)
+/visibility-value        Visibility Value Model hub — captioned explainer + calculator
+/visibility-value/demo   Private demo links (noindex; ?build=1 opens the link builder)
 /contact                 Contact details page
 /work                    Case study index
 /work/[slug]             Individual case study (first: airspace-world-2026)

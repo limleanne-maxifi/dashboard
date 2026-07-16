@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ValueCalculator from '../components/sections/ValueCalculator.astro';
 ---
 
 <BaseLayout
@@ -159,6 +160,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
     </div><!-- /ca-wrap -->
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       VALUE MODEL — CALCULATOR
+  ══════════════════════════════════════════ -->
+  <section class="cav-section" id="value-model" aria-labelledby="cav-heading">
+    <div class="ca-wrap">
+      <p class="cav-eyebrow">THE VALUE MODEL · EVENTS</p>
+      <h2 id="cav-heading" class="cav-h2">What is being cited worth for your event?</h2>
+      <p class="cav-lede">
+        The MAXIFI Visibility Value Model prices AI citations from six numbers your event team
+        already has — loaded here with the Airspace World worked example. Replace the defaults
+        with your own event and read the result live —
+        <a href="/visibility-value" class="cav-link">see how the model works →</a>
+      </p>
+      <ValueCalculator preset="events" />
+    </div>
   </section>
 
   <script>
@@ -659,4 +677,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .ca-play,
     .ca-btn { transition-duration: 0.01ms; }
   }
+
+  /* ── Value model section (light, below the navy carousel) ── */
+  .cav-section {
+    background: var(--cream-deep);
+    padding: 48px 0 64px;
+  }
+
+  .cav-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--amber-ink);
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+
+  .cav-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: var(--track-tight);
+    margin: 0 0 12px;
+    max-width: var(--measure-body);
+  }
+
+  .cav-lede {
+    font-size: var(--text-small);
+    line-height: 1.7;
+    color: #444441;
+    max-width: var(--measure-body);
+    margin: 0 0 20px;
+  }
+
+  .cav-link {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cav-link:hover { color: var(--navy-soft); }
 </style>

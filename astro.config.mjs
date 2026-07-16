@@ -11,5 +11,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    // /visibility-value/demo is a private, noindexed demo route — keep it
+    // out of the sitemap.
+    sitemap({ filter: (page) => !page.includes('/visibility-value/demo') }),
+  ],
 });
