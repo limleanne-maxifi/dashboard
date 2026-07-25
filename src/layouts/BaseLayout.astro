@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/sections/Nav.astro';
 import Footer from '../components/sections/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 import '../styles/globals.css';
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   breadcrumbLabel?: string;
+  faqs?: { q: string; a: string }[];
 }
 
 const {
@@ -19,69 +21,19 @@ const {
   ogImage = 'https://maxifidigital.com/og-default.png',
   ogImageAlt,
   breadcrumbLabel,
+  faqs,
 } = Astro.props;
 const finalOgImageAlt = ogImageAlt || `${title} | Maxifi Digital`;
 
 const canonicalURL = Astro.url.href;
 const pageTitle = title;
 
-const orgSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://maxifidigital.com/#organization',
-  name: 'Maxifi Digital',
-  url: 'https://maxifidigital.com',
-  logo: 'https://maxifidigital.com/logos/maxifi-logo-black.png',
-  description: 'Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that helps expert-led brands become the source AI engines cite when buyers ask questions in their category.',
-  disambiguatingDescription: 'Maxifi Digital (maxifidigital.com) is an independent Answer Engine Optimisation consultancy based in Singapore. It is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital.',
-  founder: {
-    '@type': 'Person',
-    '@id': 'https://maxifidigital.com/about#le-anne-lim',
-    name: 'Lim Le-Anne',
-    alternateName: 'Le-Anne Lim',
-    sameAs: ['https://www.linkedin.com/in/limleanne/'],
-  },
-  foundingLocation: {
-    '@type': 'Place',
-    name: 'Singapore',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '60 Paya Lebar Road, #07-54, Paya Lebar Square',
-    addressLocality: 'Singapore',
-    postalCode: '409051',
-    addressCountry: 'SG',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: 'hello@maxifidigital.com',
-    contactType: 'customer service',
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/maxifi-digital/',
-    'https://share.google/YsPuoLlhu1lpQFbDw',
-  ],
-  knowsAbout: [
-    'Answer Engine Optimisation',
-    'AI Search Visibility',
-    'Generative Engine Optimisation',
-    'AEO Strategy',
-    'Conference AEO',
-  ],
-};
-
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Maxifi Digital',
-  url: 'https://maxifidigital.com',
-  publisher: { '@id': 'https://maxifidigital.com/#organization' },
-};
-
 // Build a full breadcrumb trail from the route's path segments so each node's
 // name matches its own cumulative URL (the previous single-segment version
 // mislabelled deep pages, e.g. named an article "Insights" but linked its
 // full URL). Pass `breadcrumbLabel` to give the leaf a clean human name.
+// The entity graph (Organization + Person + WebSite + optional BreadcrumbList /
+// FAQPage) is assembled and emitted by the SchemaOrg component below.
 const titleCaseSegment = (seg: string) =>
   seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 const segments = currentPage === '/' ? [] : currentPage.replace(/^\/+|\/+$/g, '').split('/');
@@ -93,17 +45,6 @@ const breadcrumbItems = [
     url: `https://maxifidigital.com/${segments.slice(0, i + 1).join('/')}`,
   })),
 ];
-
-const breadcrumbSchema = segments.length > 0 ? {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: breadcrumbItems.map((item, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: item.name,
-    item: item.url,
-  })),
-} : null;
 ---
 
 <!doctype html>
@@ -133,9 +74,7 @@ const breadcrumbSchema = segments.length > 0 ? {
 
     <meta name="msvalidate.01" content="1F14880D43A6A0045A2FDA30B5BDA3B0" />
 
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(orgSchema)} />
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteSchema)} />
-    {breadcrumbSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />}
+    <SchemaOrg canonicalURL={canonicalURL} breadcrumbItems={breadcrumbItems} faqs={faqs} />
     <slot name="head" />
   </head>
   <body>
