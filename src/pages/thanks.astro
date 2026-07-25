@@ -7,6 +7,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Your message has been received. We'll be in touch within one business day."
   currentPage="/thanks"
 >
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
   <section class="thanks-hero" aria-labelledby="thanks-heading">
     <p class="s-eyebrow">MESSAGE RECEIVED</p>
     <h1 id="thanks-heading" class="thanks-h1">Thank you — we'll be in touch.</h1>

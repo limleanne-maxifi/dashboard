@@ -1,90 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// The three canonical About FAQs. Passed to BaseLayout so the reusable SchemaOrg
+// component attaches a FAQPage node to the page's @graph; the same Q&As are
+// rendered visibly in the FAQ section below (kept verbatim).
+const faqs = [
+  {
+    q: 'What is Maxifi Digital?',
+    a: 'Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility consultancy, working globally. It helps expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and specialist consultancies — become the source AI engines such as ChatGPT, Perplexity, Copilot, Gemini, and Claude cite when buyers research their category.',
+  },
+  {
+    q: 'Who runs Maxifi Digital?',
+    a: 'Maxifi Digital was founded and is run by Lim Le-Anne (also written Le-Anne Lim), a Singapore-based specialist in AI search visibility and Answer Engine Optimisation. Her LinkedIn profile is linkedin.com/in/limleanne.',
+  },
+  {
+    q: 'Is Maxifi Digital related to MaxiFi Planner?',
+    a: 'No. Maxifi Digital (maxifidigital.com) is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital. Maxifi Digital is an independent Answer Engine Optimisation consultancy based in Singapore.',
+  },
+];
 ---
 
 <BaseLayout
   title="About Maxifi Digital | AEO Consultancy, Singapore"
   description="Maxifi Digital is a Singapore-based AEO consultancy founded by Lim Le-Anne. Not affiliated with MaxiFi Planner. Learn who we are and how we prove our work."
   currentPage="/about"
+  faqs={faqs}
 >
-  <Fragment slot="head">
-    <script type="application/ld+json" is:inline>{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://maxifidigital.com/#organization",
-  "name": "Maxifi Digital",
-  "url": "https://maxifidigital.com",
-  "logo": "https://maxifidigital.com/logos/maxifi-logo-black.png",
-  "description": "Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility consultancy founded by Lim Le-Anne. It helps expert-led brands become the source AI engines cite when buyers research their category. Maxifi Digital is not affiliated with MaxiFi Planner (maxifi.com) or maxify.digital.",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "Singapore"
-  },
-  "founder": {
-    "@type": "Person",
-    "@id": "https://maxifidigital.com/about#le-anne-lim",
-    "name": "Lim Le-Anne"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/maxifi-digital/"
-  ]
-}</script>
-    <script type="application/ld+json" is:inline>{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://maxifidigital.com/about#le-anne-lim",
-  "name": "Lim Le-Anne",
-  "alternateName": "Le-Anne Lim",
-  "image": "https://maxifidigital.com/founder/le-anne-lim.jpg",
-  "jobTitle": "Founder",
-  "worksFor": {
-    "@type": "Organization",
-    "@id": "https://maxifidigital.com/#organization",
-    "name": "Maxifi Digital",
-    "url": "https://maxifidigital.com"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/limleanne/"
-  ],
-  "knowsAbout": [
-    "Answer Engine Optimisation",
-    "AI Search Visibility",
-    "AEO for Events",
-    "Generative Engine Optimisation"
-  ]
-}</script>
-    <script type="application/ld+json" is:inline>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Maxifi Digital?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) and AI visibility consultancy, working globally. It helps expert-led brands — professional services firms, aviation and aerospace bodies, industry associations, law firms, and specialist consultancies — become the source AI engines such as ChatGPT, Perplexity, Copilot, Gemini, and Claude cite when buyers research their category."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who runs Maxifi Digital?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maxifi Digital was founded and is run by Lim Le-Anne (also written Le-Anne Lim), a Singapore-based specialist in AI search visibility and Answer Engine Optimisation. Her LinkedIn profile is linkedin.com/in/limleanne."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Maxifi Digital related to MaxiFi Planner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Maxifi Digital (maxifidigital.com) is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital. Maxifi Digital is an independent Answer Engine Optimisation consultancy based in Singapore."
-      }
-    }
-  ]
-}</script>
-  </Fragment>
-
   <!-- ══════════════════════════════════════════
        HERO
   ══════════════════════════════════════════ -->

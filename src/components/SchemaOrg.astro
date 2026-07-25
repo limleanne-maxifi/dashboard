@@ -1,0 +1,125 @@
+---
+// Reusable Schema.org structured-data block. Emits ONE JSON-LD `@graph` that
+// connects the site's core entities by @id — Organization, the founder Person,
+// and WebSite — plus an optional BreadcrumbList and FAQPage for the pages that
+// need them. Rendered once per page by BaseLayout, so every page carries the
+// connected graph. Pass `faqs` to attach a FAQPage (e.g. /about) and
+// `breadcrumbItems` to attach a BreadcrumbList.
+interface FaqItem {
+  q: string;
+  a: string;
+}
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  canonicalURL: string;
+  breadcrumbItems?: BreadcrumbItem[];
+  faqs?: FaqItem[];
+}
+
+const { canonicalURL, breadcrumbItems, faqs } = Astro.props;
+
+const ORG_ID = 'https://maxifidigital.com/#organization';
+const PERSON_ID = 'https://maxifidigital.com/about#le-anne-lim';
+const WEBSITE_ID = 'https://maxifidigital.com/#website';
+
+const organization = {
+  '@type': 'Organization',
+  '@id': ORG_ID,
+  name: 'Maxifi Digital',
+  url: 'https://maxifidigital.com',
+  logo: 'https://maxifidigital.com/logos/maxifi-logo-black.png',
+  description:
+    'Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that helps expert-led brands become the source AI engines cite when buyers ask questions in their category.',
+  disambiguatingDescription:
+    'Maxifi Digital (maxifidigital.com) is an independent Answer Engine Optimisation consultancy based in Singapore. It is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital.',
+  foundingLocation: { '@type': 'Place', name: 'Singapore' },
+  founder: { '@id': PERSON_ID },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '60 Paya Lebar Road, #07-54, Paya Lebar Square',
+    addressLocality: 'Singapore',
+    postalCode: '409051',
+    addressCountry: 'SG',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@maxifidigital.com',
+    contactType: 'customer service',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/maxifi-digital/',
+    'https://www.linkedin.com/in/limleanne/',
+    'https://share.google/YsPuoLlhu1lpQFbDw',
+  ],
+  knowsAbout: [
+    'Answer Engine Optimisation',
+    'AI Search Visibility',
+    'Generative Engine Optimisation',
+    'AEO Strategy',
+    'Conference AEO',
+  ],
+};
+
+const person = {
+  '@type': 'Person',
+  '@id': PERSON_ID,
+  name: 'Lim Le-Anne',
+  alternateName: 'Le-Anne Lim',
+  jobTitle: 'Founder',
+  worksFor: { '@id': ORG_ID },
+  url: 'https://maxifidigital.com/about',
+  image: 'https://maxifidigital.com/founder/le-anne-lim.jpg',
+  description:
+    'Lim Le-Anne is the founder of Maxifi Digital and a specialist in AI search visibility and Answer Engine Optimisation. She built Maxifi Digital after observing that expert-led brands were being systematically excluded from AI-generated answers — not because their expertise was insufficient, but because their content was not structured for machine comprehension.',
+  sameAs: ['https://www.linkedin.com/in/limleanne/'],
+  knowsAbout: [
+    'Answer Engine Optimisation',
+    'AI Search Visibility',
+    'AEO for Events',
+    'Generative Engine Optimisation',
+  ],
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': WEBSITE_ID,
+  name: 'Maxifi Digital',
+  url: 'https://maxifidigital.com',
+  publisher: { '@id': ORG_ID },
+};
+
+const graph: Record<string, unknown>[] = [organization, person, website];
+
+if (breadcrumbItems && breadcrumbItems.length > 1) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalURL}#breadcrumb`,
+    itemListElement: breadcrumbItems.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  });
+}
+
+if (faqs && faqs.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    '@id': `${canonicalURL}#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
+
+const schema = { '@context': 'https://schema.org', '@graph': graph };
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

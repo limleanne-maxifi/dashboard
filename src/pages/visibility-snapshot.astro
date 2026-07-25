@@ -1,5 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Single source of truth for the FAQ: drives both the FAQPage JSON-LD and the
+// visible Q&A block below. Google requires FAQ structured data to have matching
+// on-page content, and a visible answer block is what AI engines extract.
+const faqs = [
+  {
+    q: 'How do I get my brand cited in AI answers?',
+    a: 'AI engines cite brands that have structured content, clear entity signals, and authoritative answers to buyer questions. The Visibility Snapshot identifies which elements of your website prevent citation and provides three concrete fixes to implement this week.',
+  },
+  {
+    q: 'What is an AI Visibility Snapshot?',
+    a: 'A Visibility Snapshot is a free 5-minute audit that tests your brand across five AI engines (ChatGPT, Perplexity, Claude, Gemini, Copilot) using real buyer questions from your category. You receive a one-page report with your AI citation score, a gap analysis showing which competitors are cited instead of you, and three prioritised fixes.',
+  },
+  {
+    q: 'Which AI engines does the Snapshot test?',
+    a: 'The Visibility Snapshot tests your brand across the five AI engines that account for the majority of B2B buyer research: ChatGPT (OpenAI), Perplexity AI, Anthropic Claude, Google Gemini (AI Overviews), and Microsoft Copilot.',
+  },
+  {
+    q: 'How long does the Snapshot take?',
+    a: 'The Snapshot takes five minutes to request. We run real buyer queries through each engine, capture the answers, and score your citation share. Your one-page report arrives in your inbox within 24 hours.',
+  },
+  {
+    q: 'What\'s included in the Snapshot report?',
+    a: 'Your report includes: your AI Visibility Score (0–100 vs sector median), citation gap analysis showing which queries return competitors instead of you, structural gaps ranked by impact, and three concrete fixes your team can ship this week.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -22,52 +58,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   "url": "https://maxifidigital.com/visibility-snapshot",
   "areaServed": ["Singapore", "Global"]
 }</script>
-    <script type="application/ld+json" is:inline>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I get my brand cited in AI answers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI engines cite brands that have structured content, clear entity signals, and authoritative answers to buyer questions. The Visibility Snapshot identifies which elements of your website prevent citation and provides three concrete fixes to implement this week."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is an AI Visibility Snapshot?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A Visibility Snapshot is a free 5-minute audit that tests your brand across five AI engines (ChatGPT, Perplexity, Claude, Gemini, Copilot) using real buyer questions from your category. You receive a one-page report with your AI citation score, a gap analysis showing which competitors are cited instead of you, and three prioritised fixes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which AI engines does the Snapshot test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Visibility Snapshot tests your brand across the five AI engines that account for the majority of B2B buyer research: ChatGPT (OpenAI), Perplexity AI, Anthropic Claude, Google Gemini (AI Overviews), and Microsoft Copilot."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does the Snapshot take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Snapshot takes five minutes to request. We run real buyer queries through each engine, capture the answers, and score your citation share. Your one-page report arrives in your inbox within 24 hours."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's included in the Snapshot report?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Your report includes: your AI Visibility Score (0–100 vs sector median), citation gap analysis showing which queries return competitors instead of you, structural gaps ranked by impact, and three concrete fixes your team can ship this week."
-      }
-    }
-  ]
-}</script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
 <!-- ══ HERO ══ -->
@@ -193,6 +184,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ (visible, mirrors the FAQPage schema) ══ -->
+<section class="vs-faq" aria-labelledby="vs-faq-heading">
+  <div class="vs-wrap">
+    <div class="vs-sec-head vs-faq__head">
+      <span class="vs-eyebrow">Before you start</span>
+      <h2 id="vs-faq-heading">Snapshot questions, answered</h2>
+    </div>
+    <div class="vs-faq__list">
+      {faqs.map((f) => (
+        <article class="vs-faq__item">
+          <h3 class="vs-faq__q">{f.q}</h3>
+          <p class="vs-faq__a">{f.a}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
@@ -853,6 +862,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  /* ── FAQ (visible, mirrors the FAQPage schema) ── */
+  .vs-faq {
+    padding: 72px 0;
+    background: var(--cream);
+  }
+
+  .vs-faq .vs-sec-head {
+    margin-bottom: 24px;
+  }
+
+  .vs-faq .vs-sec-head h2 {
+    font-size: var(--text-h1);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .vs-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: var(--container-prose);
+  }
+
+  .vs-faq__item {
+    background: #fff;
+    border: 0.5px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .vs-faq__q {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: var(--navy);
+    margin: 0 0 8px;
+    line-height: 1.3;
+    letter-spacing: var(--track-tight);
+  }
+
+  .vs-faq__a {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+    max-width: var(--measure-body);
   }
 
   /* ── RESPONSIVE ── */
