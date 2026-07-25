@@ -13,8 +13,11 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    // /visibility-value/demo is a private, noindexed demo route — keep it
-    // out of the sitemap.
-    sitemap({ filter: (page) => !page.includes('/visibility-value/demo') }),
+    // /visibility-value/demo is a private, noindexed demo route and /thanks is
+    // a noindexed form-submission page — keep both out of the sitemap.
+    sitemap({
+      filter: (page) =>
+        !page.includes('/visibility-value/demo') && !page.includes('/thanks'),
+    }),
   ],
 });

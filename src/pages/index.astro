@@ -98,7 +98,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
       <!-- Left column -->
       <div class="vs-hero__left">
         <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
-        <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
+        <h2 class="vs-hero__h">When your market asks AI who to trust, <em>does your company show up?</em></h2>
         <p class="vs-hero__lede">Online search used to reward the best-ranked page. Now AI rewards the page that is structured for retrieval, written for citation. AEO is the visibility layer for the AI search era. Learn how Answer Engine Optimisation makes your brand the source ChatGPT, Claude and Perplexity cite.</p>
         <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
 
@@ -284,7 +284,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
       </div>
 
       <div class="hp-aeo__cta">
-        <span class="btn btn--hero btn--ghost-dim">Read more at Visibility Rules News</span>
+        <a href="/aeo" class="btn btn--hero btn--ghost-dim">Read the full AEO primer →</a>
       </div>
     </div>
   </section>
@@ -474,6 +474,31 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
             <button class="ca-dot" data-go="2" aria-label="Show explainer video"></button>
           </div>
         </div>
+      </div>
+
+      <!-- Measurable result (extractable proof) -->
+      <div class="ca-proof">
+        <p class="ca-proof__lead">
+          The Airspace World 2026 hub went from launch to first AI citation in <strong>62 days</strong>.
+          By the July 2026 audit, Microsoft Copilot was building its event-discovery answer from the hub's
+          pages — placing it above the official event site — and Perplexity was recommending it as the
+          "best starting point" for researching the event.
+        </p>
+        <div class="ca-proof__stats">
+          <div class="ca-proof__stat">
+            <div class="ca-proof__v">62 days</div>
+            <div class="ca-proof__l">launch to first AI citation</div>
+          </div>
+          <div class="ca-proof__stat">
+            <div class="ca-proof__v">Copilot</div>
+            <div class="ca-proof__l">discovery answer built from hub pages · Jul 2026</div>
+          </div>
+          <div class="ca-proof__stat">
+            <div class="ca-proof__v">Perplexity</div>
+            <div class="ca-proof__l">cited the hub as "best starting point" · Jul 2026</div>
+          </div>
+        </div>
+        <a href="/work/airspaceworld" class="ca-proof__link">Read the full Airspace World case study →</a>
       </div>
 
       <!-- Bridge CTA -->
@@ -692,7 +717,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin-bottom: 18px;
   }
 
-  .vs-hero h1 {
+  .vs-hero__h {
     font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.08;
@@ -701,7 +726,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin: 0;
   }
 
-  .vs-hero h1 em {
+  .vs-hero__h em {
     font-style: italic;
     color: var(--amber);
     font-weight: 500;
@@ -2478,6 +2503,67 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     background: var(--amber);
     width: 38px;
   }
+
+  /* Measurable result (extractable proof) */
+  .ca-proof {
+    max-width: var(--container-prose);
+    margin: 32px 0 0;
+  }
+
+  .ca-proof__lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.6;
+    color: var(--blue-soft);
+    margin: 0 0 16px;
+    max-width: var(--measure-body);
+  }
+
+  .ca-proof__lead strong {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .ca-proof__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .ca-proof__stat {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .ca-proof__v {
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+
+  .ca-proof__l {
+    font-size: var(--text-caption);
+    line-height: 1.5;
+    color: var(--blue-mid);
+  }
+
+  .ca-proof__link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--amber-pale);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(250, 199, 117, 0.4);
+    transition: border-color 0.2s ease;
+  }
+
+  .ca-proof__link:hover { border-color: var(--amber-pale); }
 
   .ca-bridge {
     margin-top: 48px;

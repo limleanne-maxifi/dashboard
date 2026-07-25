@@ -9,6 +9,7 @@ interface Props {
   currentPage?: string;
   ogImage?: string;
   ogImageAlt?: string;
+  breadcrumbLabel?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   currentPage = '/',
   ogImage = 'https://maxifidigital.com/og-default.png',
   ogImageAlt,
+  breadcrumbLabel,
 } = Astro.props;
 const finalOgImageAlt = ogImageAlt || `${title} | Maxifi Digital`;
 
@@ -26,12 +28,15 @@ const pageTitle = title;
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://maxifidigital.com/#organization',
   name: 'Maxifi Digital',
   url: 'https://maxifidigital.com',
   logo: 'https://maxifidigital.com/logos/maxifi-logo-black.png',
   description: 'Maxifi Digital is a Singapore-based Answer Engine Optimisation (AEO) consultancy that helps expert-led brands become the source AI engines cite when buyers ask questions in their category.',
+  disambiguatingDescription: 'Maxifi Digital (maxifidigital.com) is an independent Answer Engine Optimisation consultancy based in Singapore. It is not affiliated with MaxiFi Planner (maxifi.com), a personal financial planning software product, or with maxify.digital.',
   founder: {
     '@type': 'Person',
+    '@id': 'https://maxifidigital.com/about#le-anne-lim',
     name: 'Lim Le-Anne',
     alternateName: 'Le-Anne Lim',
     sameAs: ['https://www.linkedin.com/in/limleanne/'],
@@ -70,22 +75,26 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Maxifi Digital',
   url: 'https://maxifidigital.com',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://maxifidigital.com/insights?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
+  publisher: { '@id': 'https://maxifidigital.com/#organization' },
 };
+
+// Build a full breadcrumb trail from the route's path segments so each node's
+// name matches its own cumulative URL (the previous single-segment version
+// mislabelled deep pages, e.g. named an article "Insights" but linked its
+// full URL). Pass `breadcrumbLabel` to give the leaf a clean human name.
+const titleCaseSegment = (seg: string) =>
+  seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const segments = currentPage === '/' ? [] : currentPage.replace(/^\/+|\/+$/g, '').split('/');
 
 const breadcrumbItems = [
   { name: 'Home', url: 'https://maxifidigital.com' },
-  ...(currentPage !== '/' ? [{ name: currentPage.slice(1).split('/')[0].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), url: `https://maxifidigital.com${currentPage}` }] : []),
+  ...segments.map((seg, i) => ({
+    name: i === segments.length - 1 && breadcrumbLabel ? breadcrumbLabel : titleCaseSegment(seg),
+    url: `https://maxifidigital.com/${segments.slice(0, i + 1).join('/')}`,
+  })),
 ];
 
-const breadcrumbSchema = currentPage !== '/' ? {
+const breadcrumbSchema = segments.length > 0 ? {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbItems.map((item, i) => ({

@@ -24,6 +24,42 @@ const definitionCards = [
       'Once an engine cites you on a buyer question, you become the default answer. Every uncited answer is a competitor\'s earned trust moment.',
   },
 ];
+
+// Single source of truth for the FAQ: drives both the FAQPage JSON-LD and the
+// visible Q&A block below (Google requires FAQ structured data to have matching
+// on-page content, and a visible answer block is what AI engines extract).
+const faqs = [
+  {
+    q: 'What is Answer Engine Optimisation (AEO)?',
+    a: 'Answer Engine Optimisation (AEO) is the practice of structuring a brand\'s content, expertise, and digital presence so that AI engines — including ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot, and Anthropic Claude — surface that brand as a cited source when buyers ask category questions. Unlike traditional SEO, which targets ranked link positions, AEO targets citation and attribution in AI-generated answers. It is the emerging discipline for brands that want to remain visible as search behaviour shifts from keyword queries to conversational AI prompts.',
+  },
+  {
+    q: 'How is AEO different from SEO?',
+    a: 'SEO optimises for search engine result page rankings — getting a link clicked. AEO optimises for AI citation — getting your brand named as the answer. AI engines do not rank ten blue links; they synthesise a single response and attribute it to sources they judge authoritative, structured, and entity-clear. A brand can rank highly on Google and still be invisible in AI responses if its content is not structured for machine comprehension. AEO closes that gap.',
+  },
+  {
+    q: 'What does AEO do for my pipeline?',
+    a: 'AEO places your brand inside the answers buyers receive when they research vendors, solutions, and expertise in AI tools before a purchase decision. Buyers who encounter your brand as a cited AI source arrive with higher intent and pre-established trust than those who find you through a paid ad or an organic link. Over time, consistent citation compounds: the more AI engines associate your brand with a topic, the more frequently they surface it — without additional spend per impression.',
+  },
+  {
+    q: 'How do citations compound?',
+    a: 'AI engines build associative models: the more a brand is cited in relation to a topic, the stronger that association becomes in the model\'s weighting. Each piece of structured, authoritative content that earns a citation reinforces the brand-topic relationship across future queries. This compounding effect means early AEO investment generates disproportionate long-term returns compared to paid channels that switch off when spend stops.',
+  },
+  {
+    q: 'What engines does AEO target?',
+    a: 'Maxifi Digital\'s AEO work targets the five AI engines that account for the majority of B2B buyer research activity: ChatGPT (OpenAI), Perplexity AI, Google AI Overviews (Gemini), Microsoft Copilot (Bing), and Anthropic Claude. Each engine has distinct retrieval logic, content weighting, and citation behaviour. An effective AEO strategy structures content to satisfy the common requirements across all five rather than optimising for a single engine.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -33,52 +69,7 @@ const definitionCards = [
   ogImageAlt="Get cited by AI engines — Answer Engine Optimisation (AEO)"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" is:inline>{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Answer Engine Optimisation (AEO)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Answer Engine Optimisation (AEO) is the practice of structuring a brand's content, expertise, and digital presence so that AI engines — including ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot, and Anthropic Claude — surface that brand as a cited source when buyers ask category questions. Unlike traditional SEO, which targets ranked link positions, AEO targets citation and attribution in AI-generated answers. It is the emerging discipline for brands that want to remain visible as search behaviour shifts from keyword queries to conversational AI prompts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is AEO different from SEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SEO optimises for search engine result page rankings — getting a link clicked. AEO optimises for AI citation — getting your brand named as the answer. AI engines do not rank ten blue links; they synthesise a single response and attribute it to sources they judge authoritative, structured, and entity-clear. A brand can rank highly on Google and still be invisible in AI responses if its content is not structured for machine comprehension. AEO closes that gap."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does AEO do for my pipeline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AEO places your brand inside the answers buyers receive when they research vendors, solutions, and expertise in AI tools before a purchase decision. Buyers who encounter your brand as a cited AI source arrive with higher intent and pre-established trust than those who find you through a paid ad or an organic link. Over time, consistent citation compounds: the more AI engines associate your brand with a topic, the more frequently they surface it — without additional spend per impression."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do citations compound?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI engines build associative models: the more a brand is cited in relation to a topic, the stronger that association becomes in the model's weighting. Each piece of structured, authoritative content that earns a citation reinforces the brand-topic relationship across future queries. This compounding effect means early AEO investment generates disproportionate long-term returns compared to paid channels that switch off when spend stops."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What engines does AEO target?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maxifi Digital's AEO work targets the five AI engines that account for the majority of B2B buyer research activity: ChatGPT (OpenAI), Perplexity AI, Google AI Overviews (Gemini), Microsoft Copilot (Bing), and Anthropic Claude. Each engine has distinct retrieval logic, content weighting, and citation behaviour. An effective AEO strategy structures content to satisfy the common requirements across all five rather than optimising for a single engine."
-      }
-    }
-  ]
-}</script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" is:inline>{
   "@context": "https://schema.org",
   "@type": "Article",
@@ -199,6 +190,24 @@ const definitionCards = [
         <a href="/work" class="btn btn--hero btn--ghost-light">
           Book a consultation
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 05: FAQ (visible, mirrors the FAQPage schema) -->
+  <section id="faq" class="aeo-section aeo-section--alt" aria-labelledby="aeo-faq-heading">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow aeo-eyebrow--brown">05 · The questions</span>
+        <h2 id="aeo-faq-heading">Frequently asked questions about AEO</h2>
+      </div>
+      <div class="aeo-faq">
+        {faqs.map((f) => (
+          <article class="aeo-faq__item">
+            <h3 class="aeo-faq__q">{f.q}</h3>
+            <p class="aeo-faq__a">{f.a}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -424,5 +433,39 @@ const definitionCards = [
     .aeo-nextstep__ctas {
       justify-content: flex-start;
     }
+  }
+
+  /* ── FAQ (visible, mirrors the FAQPage schema) ── */
+  .aeo-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: var(--container-prose);
+  }
+
+  .aeo-faq__item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .aeo-faq__q {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.3;
+    letter-spacing: var(--track-tight);
+  }
+
+  .aeo-faq__a {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--blue-soft);
+    margin: 0;
+    max-width: var(--measure-body);
   }
 </style>
