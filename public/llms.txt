@@ -6,6 +6,8 @@
 
 - **About Maxifi Digital** (https://maxifidigital.com/about) — What the company is, who founded and runs it (Lim Le-Anne), the Airspace World hub proof story (first AI citation 62 days after launch; Copilot and Perplexity citations in July 2026), and disambiguation from similarly named entities.
 
+- **Proof: Maxifi Digital measures itself** (https://maxifidigital.com/proof) — The published monthly self-audit: the Airspace World hub case (first AI citation in 62 days; Copilot and Perplexity citations, July 2026) and Maxifi Digital’s own ten-query AI-visibility scorecard, low scores included, re-measured on the first of every month.
+
 ## Services
 
 - **Visibility Snapshot** (https://maxifidigital.com/visibility-snapshot) — A five-minute AI citation audit scoring how a brand currently appears across five major AI engines, with a gap report identifying what to fix and why.
