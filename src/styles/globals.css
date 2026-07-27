@@ -818,7 +818,7 @@ section.deepest .eyebrow {
     gap: 32px !important;
   }
 
-  .vs-hero h1 {
+  .vs-hero h1, .vs-hero .vs-hero__h1 {
     font-size: var(--text-h1) !important;
   }
 
@@ -866,7 +866,7 @@ section.deepest .eyebrow {
     padding: 0 var(--gutter) !important;
   }
 
-  .vs-hero h1 {
+  .vs-hero h1, .vs-hero .vs-hero__h1 {
     font-size: var(--text-h2) !important;
   }
 

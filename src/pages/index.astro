@@ -98,7 +98,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
       <!-- Left column -->
       <div class="vs-hero__left">
         <span class="vs-eyebrow vs-hero__eyebrow">Free · 5 minutes · No call required</span>
-        <h1>When your market asks AI who to trust, <em>does your company show up?</em></h1>
+        <h2 class="vs-hero__h1">When your market asks AI who to trust, <em>does your company show up?</em></h2>
         <p class="vs-hero__lede">Online search used to reward the best-ranked page. Now AI rewards the page that is structured for retrieval, written for citation. AEO is the visibility layer for the AI search era. Learn how Answer Engine Optimisation makes your brand the source ChatGPT, Claude and Perplexity cite.</p>
         <p class="vs-hero__lede">A free audit across the five engines your buyers now use to build their shortlist — ChatGPT, Claude, Copilot, Gemini and Perplexity. We test, we report. <em>You see exactly where you stand.</em></p>
 
@@ -692,7 +692,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin-bottom: 18px;
   }
 
-  .vs-hero h1 {
+  .vs-hero h1, .vs-hero .vs-hero__h1 {
     font-size: var(--text-display);
     font-weight: 500;
     line-height: 1.08;
@@ -701,7 +701,7 @@ import BenefitGrid from '../components/sections/BenefitGrid.astro';
     margin: 0;
   }
 
-  .vs-hero h1 em {
+  .vs-hero h1 em, .vs-hero .vs-hero__h1 em {
     font-style: italic;
     color: var(--amber);
     font-weight: 500;
