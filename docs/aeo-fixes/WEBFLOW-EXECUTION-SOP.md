@@ -100,7 +100,7 @@ Content to serve:
 - Booking: https://lunacal.ai/maxifidigital
 
 ## Founder
-Lim Le-Anne is the founder of Maxifi Digital. With a senior communications background spanning Singapore's public sector and industry, she built Maxifi Digital after observing that AI engines cannot cite expertise that isn't structured for retrieval.
+Lim Le-Anne is the founder of Maxifi Digital. Drawing from a background in communications, PR and marketing strategy, she built Maxifi Digital after observing that AI engines cannot cite expertise that isn't structured for retrieval.
 ```
 
 ---
